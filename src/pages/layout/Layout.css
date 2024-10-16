@@ -1,0 +1,42 @@
+/* Layout container */
+.layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 500vh;
+}
+
+/* Header */
+.header {
+  position: sticky;
+  top: 0;
+  padding: 1rem;
+  z-index: 1000;
+  background-color: #eef4fa;
+}
+
+/* Main content */
+.content {
+  flex: 1;
+  padding: 1rem;
+}
+
+/* Footer */
+.footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+  margin-top: auto;
+}
+
+.header-menu {
+  border: none;
+  justify-content: space-between;
+
+  .p-menubar-root-list {
+    margin-left: auto;
+  }
+  .p-menubar-end {
+    margin-left: unset;
+  }
+}
