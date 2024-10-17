@@ -4,6 +4,7 @@ import './App.css';
 import Layout from './pages/layout/Layout';
 import { RouteInfo, siteRoutes } from './routes';
 import { Route, Routes, useLocation, useNavigate } from 'react-router-dom';
+import MainCarousel from './pages/landing/MainCarousel';
 
 function App() {
 
@@ -38,7 +39,12 @@ function App() {
     //   </header>
     // </div>
     <Layout>
-      {renderSiteRoutes}
+      <Routes>
+        <Route path="/" element={<MainCarousel />}>
+          {/* <Route index element={<Dashboard />} /> */}
+          {renderSiteRoutes}
+        </Route>
+      </Routes>
     </Layout>
   );
 }

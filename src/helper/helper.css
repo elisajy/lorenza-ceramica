@@ -1,0 +1,34 @@
+ /* .galleria-image {
+  position: relative;
+  display: inline-block;
+
+  .image-item{
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  
+  .image-button {
+    position: absolute;
+    cursor: pointer;
+  }
+} */
+
+.galleria-image {
+    position: relative; /* Set the container to relative positioning */
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.image-item {
+    display: block; /* Removes any unwanted space below the image */
+    width: 100%; /* Makes the image responsive */
+    height: auto; /* Maintains the aspect ratio */
+}
+
+.image-button {
+    position: absolute; /* Position the button absolutely */
+    bottom: 30px; /* Position from the bottom */
+    z-index: 10; /* Ensure it appears above the image */
+}
