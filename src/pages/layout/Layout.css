@@ -2,7 +2,7 @@
 .layout {
   display: flex;
   flex-direction: column;
-  min-height: 500vh;
+  min-height: 300vh;
 }
 
 /* Header */
@@ -32,11 +32,19 @@
 .header-menu {
   border: none;
   justify-content: space-between;
+  background-color: #eef4fa;
 
   .p-menubar-root-list {
     margin-left: auto;
+    margin-right: 15%;
+    font-size: 20px;
   }
   .p-menubar-end {
     margin-left: unset;
+  }
+
+  .header-logo{
+    margin-left: 10px;
+    margin-right: 10px;
   }
 }
