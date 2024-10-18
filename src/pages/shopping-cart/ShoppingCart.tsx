@@ -1,17 +1,14 @@
 import { Sidebar } from "primereact/sidebar";
-import { DataView, DataViewLayoutOptions } from "primereact/dataview";
-import {
-  InputNumber,
-  InputNumberValueChangeEvent,
-} from "primereact/inputnumber";
-import { Dispatch, SetStateAction, useEffect, useMemo, useState } from "react";
+import { DataView } from "primereact/dataview";
+import { Button } from "primereact/button";
+import { Divider } from 'primereact/divider';
+import { Dispatch, SetStateAction, useMemo } from "react";
 import {
   ProductItem,
   useCartContext,
 } from "../../hooks/cart-context/CartContext";
-import { Button } from "primereact/button";
 import product_A from "../../assets/images/products/product_A.jpg";
-import product_B from "../../assets/images/products/product_B.jpg";
+import './ShoppingCart.css';
 
 interface Props {
   visible: boolean;
@@ -24,10 +21,6 @@ const ShoppingCart = ({ visible, setVisible }: Props) => {
   const products = useMemo(() => cartState.products, [cartState.products]);
 
   // useEffect(() => {}, []); // eslint-disable-line react-hooks/exhaustive-deps
-
-  const setQuantity = (e: InputNumberValueChangeEvent) => {
-    console.log("quantity", e.value);
-  };
 
   const onClickRemoveItem = (item: ProductItem) => {};
 
@@ -42,16 +35,16 @@ const ShoppingCart = ({ visible, setVisible }: Props) => {
 
   const itemTemplate = (data: ProductItem, index: number) => {
     return (
-      <div key={index}>
+      <div key={index} style={{ marginTop: '10px' }}>
         <div className="cart-item">
           <img className="product-image" src={`${product_A}`} alt={data.name} />
-          <div className="flex flex-column lg:flex-row justify-content-between align-items-center xl:align-items-start lg:flex-1 gap-4">
-            <div className="flex flex-column gap-1">
-              <div className="text-2xl font-bold text-900">{data.name}</div>
-              <div className="text-700">{data.description}</div>
+          <div>
+            <div>
+              <div className="text-xl-font-bold">{data.name}</div>
+              <div className="text-600-small">{data.description}</div>
             </div>
-            <div className="flex flex-column gap-2">
-              <table>
+            <div>
+              <table className="item-details">
                 <tbody>
                   <tr>
                     <td>Code</td>
@@ -84,6 +77,7 @@ const ShoppingCart = ({ visible, setVisible }: Props) => {
           </div>
           <Button
             link
+            className="remove-btn"
             label="Remove"
             onClick={() => onClickRemoveItem(data)}
           ></Button>
@@ -99,7 +93,7 @@ const ShoppingCart = ({ visible, setVisible }: Props) => {
       return itemTemplate(product, index);
     });
 
-    return <div className="grid grid-nogutter">{list}</div>;
+    return <div className="grid">{list}</div>;
   };
 
   return (
@@ -116,6 +110,7 @@ const ShoppingCart = ({ visible, setVisible }: Props) => {
       <div className="card">
         <DataView value={products} listTemplate={listTemplate} />
       </div>
+      <Divider />
       <Button
         label="Inquire Our Sales Team"
         icon="pi pi-angle-right"
