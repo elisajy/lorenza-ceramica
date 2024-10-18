@@ -1,7 +1,7 @@
 export const products = [
   {
     id: 1,
-    code: "ABC123",
+    code: "A-123",
     name: "Product A",
     description: "Product Description",
     image: "/assets/images/products/product_A.jpg",
@@ -13,7 +13,7 @@ export const products = [
   },
   {
     id: 2,
-    code: "ABC123",
+    code: "B-123",
     name: "Product B",
     description: "Product Description",
     image: "/assets/images/products/product_A.jpg",

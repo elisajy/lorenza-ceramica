@@ -1,14 +1,15 @@
 import { Sidebar } from "primereact/sidebar";
 import { DataView } from "primereact/dataview";
 import { Button } from "primereact/button";
-import { Divider } from 'primereact/divider';
-import { Dispatch, SetStateAction, useMemo } from "react";
+import { Divider } from "primereact/divider";
+import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import {
   ProductItem,
+  REMOVE_ITEM,
   useCartContext,
 } from "../../hooks/cart-context/CartContext";
 import product_A from "../../assets/images/products/product_A.jpg";
-import './ShoppingCart.css';
+import "./ShoppingCart.css";
 
 interface Props {
   visible: boolean;
@@ -17,16 +18,27 @@ interface Props {
 
 const ShoppingCart = ({ visible, setVisible }: Props) => {
   const { cartState, cartDispatch } = useCartContext();
-  //   const [visible, setVisible] = useState(false);
-  const products = useMemo(() => cartState.products, [cartState.products]);
+  const [products, setProducts] = useState<ProductItem[]>();
 
-  // useEffect(() => {}, []); // eslint-disable-line react-hooks/exhaustive-deps
+  useEffect(() => {
+    setProducts(cartState.products);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [cartState.products]);
 
-  const onClickRemoveItem = (item: ProductItem) => {};
+  const onClickRemoveItem = (item: ProductItem) => {
+    setProducts(products!.filter(x => x.id !== item.id));
+    cartDispatch({
+      type: REMOVE_ITEM,
+      payload: item,
+    });
+  };
 
   const onClickInquiry = () => {
     const phoneNumber = "+60169926846";
-    const message = "Hi, I would like to inquire...";
+    let message = "Hi, I would like to inquire about the following products: ";
+    for (let i = 0; i < products!.length; i++) {
+      message = message.concat(`\n${i + 1}. ${products![i].name} (*${products![i].code}*)`);
+    }
     const url = `https://web.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(
       message
     )}&app_absent=0`;
@@ -35,7 +47,7 @@ const ShoppingCart = ({ visible, setVisible }: Props) => {
 
   const itemTemplate = (data: ProductItem, index: number) => {
     return (
-      <div key={index} style={{ marginTop: '10px' }}>
+      <div key={index} style={{ marginTop: "10px" }}>
         <div className="cart-item">
           <img className="product-image" src={`${product_A}`} alt={data.name} />
           <div>

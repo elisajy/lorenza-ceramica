@@ -33,6 +33,8 @@ const reducer = (
 ): ShoppingCartState => {
   const { type, payload } = action;
   switch (type) {
+    case REMOVE_ITEM: 
+      return { ...state, products: state.products.filter(x => x.id !== payload.id) };
     default:
       return state;
   }
