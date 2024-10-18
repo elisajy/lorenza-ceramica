@@ -1,6 +1,5 @@
 // import { Badge } from 'primereact/badge';
 import bannerImage from '../assets/mock-media/homebanner.png';
-import { Button } from 'primereact/button';
 import "./helper.css";
 
 export const itemTemplate = (item: any) => {
@@ -8,8 +7,9 @@ export const itemTemplate = (item: any) => {
         <div className='galleria-image'>
             <img src={item.itemImageSrc} alt={item.alt} className='image-item' />
             {
-                item && item.button === true?
-                    <Button className='image-button' label={item.buttonLabel} severity="warning" rounded />
+                item && item.button === true ?
+                    null
+                    // <Button className='image-button' label={item.buttonLabel} severity="warning" rounded />
                     :
                     null
             }

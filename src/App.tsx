@@ -4,7 +4,9 @@ import './App.css';
 import Layout from './pages/layout/Layout';
 import { RouteInfo, siteRoutes } from './routes';
 import { Route, Routes, useLocation, useNavigate } from 'react-router-dom';
-import MainCarousel from './pages/landing/MainCarousel';
+import MainCarousel from './pages/landing-carousel/MainCarousel';
+import Landing from './pages/landing/Landing';
+import { ThemeProvider, ColorModeProvider } from "@chakra-ui/react"
 
 function App() {
 
@@ -38,14 +40,16 @@ function App() {
     //     </a>
     //   </header>
     // </div>
-    <Layout>
-      <Routes>
-        <Route path="/" element={<MainCarousel />}>
-          {/* <Route index element={<Dashboard />} /> */}
-          {renderSiteRoutes}
-        </Route>
-      </Routes>
-    </Layout>
+      <ColorModeProvider>
+        <Layout>
+          <Routes>
+            <Route path="/" element={<Landing />}>
+              {/* <Route index element={<Dashboard />} /> */}
+              {renderSiteRoutes}
+            </Route>
+          </Routes>
+        </Layout>
+      </ColorModeProvider>
   );
 }
 

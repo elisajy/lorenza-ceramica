@@ -1,0 +1,9 @@
+.product-tabs{
+    display: flex;
+    min-height: 400px;
+    background-color: bisque;
+
+    .p-tabview-nav{
+        justify-content: center;
+    }
+}
