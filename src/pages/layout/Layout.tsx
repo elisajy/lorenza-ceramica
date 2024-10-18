@@ -1,14 +1,21 @@
 import { Avatar } from 'primereact/avatar';
 import { Menubar } from 'primereact/menubar';
+import { Button } from 'primereact/button';
+import { Dropdown } from 'primereact/dropdown';
 import "./Layout.css";
-import { headerMenu } from '../../data/HeaderMenu';
+import { headerMenu } from '../../helper/HeaderMenu';
+import { faCartShopping, faHouseLaptop } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSquareFacebook, faSquareInstagram } from '@fortawesome/free-brands-svg-icons';
 import { CartProvider } from '../../hooks/cart-context/CartContext';
 
 const Layout = ({ children }: any) => {
   const start = <img alt="logo" src="/lorenza-logo-transparent-blue.png" height="100" className="header-logo"></img>;
   const end = (
-    <div className="flex align-items-center gap-2">
-      <Avatar image="https://primefaces.org/cdn/primereact/images/avatar/amyelsner.png" shape="circle" />
+    <div className='header-icons'>
+      <Button className='header-button' rounded text severity="info" icon={<FontAwesomeIcon icon={faSquareFacebook} size='2xl'/>} />
+      <Button className='header-button' rounded text severity="info" icon={<FontAwesomeIcon icon={faSquareInstagram} size='2xl'/>} />
+      <Button className='header-button' rounded text severity="info" icon={<FontAwesomeIcon icon={faCartShopping} size='2xl'/>} />
     </div>
   );
 
