@@ -1,1 +1,28 @@
-{}
+{
+  "products": [
+    {
+      "id": 1,
+      "code": "ABC123",
+      "name": "Product A",
+      "description": "Product Description",
+      "image": "/src/assets/images/products/product_A.jpg",
+      "variation": "A",
+      "size": "115 X 231mm",
+      "color": "Ivory",
+      "finish": "Gloss",
+      "price": 99.0
+    },
+    {
+        "id": 2,
+        "code": "ABC123",
+        "name": "Product B",
+        "description": "Product Description",
+        "image": "/src/assets/images/products/product_B.jpg",
+        "variation": "B",
+        "size": "115 X 231mm",
+        "color": "Ivory",
+        "finish": "Gloss",
+        "price": 99.0
+      }
+  ]
+}

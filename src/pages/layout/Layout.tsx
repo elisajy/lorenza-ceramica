@@ -2,6 +2,7 @@ import { Avatar } from 'primereact/avatar';
 import { Menubar } from 'primereact/menubar';
 import "./Layout.css";
 import { headerMenu } from '../../data/HeaderMenu';
+import { CartProvider } from '../../hooks/cart-context/CartContext';
 
 const Layout = ({ children }: any) => {
   const start = <img alt="logo" src="/lorenza-logo-transparent-blue.png" height="100" className="header-logo"></img>;
@@ -25,7 +26,9 @@ const Layout = ({ children }: any) => {
             <Menubar model={headerMenu} start={start} end={end} className='header-menu' />
           </div>
         </header>
-        <main className="content">{children}</main>
+        <CartProvider>
+          <main className="content">{children}</main>
+        </CartProvider>
         <footer className="footer">
           <p>© 2024 Lorenza Ceramica. All rights reserved.</p>
         </footer>
