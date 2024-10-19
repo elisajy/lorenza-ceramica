@@ -1,5 +1,7 @@
 // import { Badge } from 'primereact/badge';
 
+import { FaFacebookSquare, FaInstagramSquare, FaShoppingCart } from "react-icons/fa";
+
 const itemRenderer = (item: any) => (
     <a className="flex align-items-center p-menuitem-link">
         <span className={item.icon} />
@@ -110,4 +112,92 @@ const headerMenu = [
         template: itemRenderer
     }
 ];
-export { headerMenu };
+
+const productMenu = [
+    {
+        id: 99,
+        label: 'Tiles',
+        prds: [
+            {
+                label: 'Porcelain',
+            },
+            {
+                label: 'Stone Mosaics',
+            },
+            {
+                label: 'Glass Mosaics',
+            },
+            {
+                label: 'Natural Mosaics',
+            },
+            {
+                label: 'Terazzo',
+            },
+            {
+                label: 'Terracotta',
+            },
+            {
+                label: 'Subway Tiles',
+            },
+        ]
+    },
+    {
+        id: 1,
+        label: 'Room',
+    },
+    {
+        id: 2,
+        label: 'New Arrivals',
+    },
+    {
+        id: 3,
+        label: 'Size',
+    },
+    {
+        id: 4,
+        label: 'Color',
+    },
+    {
+        id: 5,
+        label: 'Sanitary Ware',
+    },
+    {
+        id: 6,
+        label: 'Panelling',
+    },
+    {
+        id: 7,
+        label: 'Sale',
+    },
+]
+
+const socialMenu = [
+    {
+        id: 1,
+        href: '#facebook',
+        ariaLabel: 'Facebook',
+        icon: <FaFacebookSquare />,
+        size: 'lg',
+        variant: 'unstyled',
+        fontSize: '30px'
+    },
+    {
+        id: 2,
+        href: '#instagram',
+        ariaLabel: 'Instagram',
+        icon: <FaInstagramSquare />,
+        size: 'lg',
+        variant: 'unstyled',
+        fontSize: '30px'
+    },
+    {
+        id: 3,
+        href: '#shoppingcart',
+        ariaLabel: 'ShoppingCart',
+        icon: <FaShoppingCart />,
+        size: 'lg',
+        variant: 'unstyled',
+        fontSize: '30px'
+    },
+]
+export { headerMenu, socialMenu, productMenu };

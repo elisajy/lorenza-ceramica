@@ -19,7 +19,6 @@
   flex: 0 0 var(--slide-size);
   min-width: var(--slide-minwidth);
   padding-left: var(--slide-spacing);
-  background-color: beige;
   margin-right: 20px;
   margin-left: 20px;
   border-radius: 25px;

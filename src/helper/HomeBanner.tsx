@@ -1,6 +1,5 @@
 // import { Badge } from 'primereact/badge';
 import bannerImage from '../assets/mock-media/homebanner.png';
-import "./helper.css";
 
 export const itemTemplate = (item: any) => {
     return <>

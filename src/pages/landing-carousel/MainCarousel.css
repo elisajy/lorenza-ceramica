@@ -84,5 +84,5 @@
 }
 .embla__dot--selected:after {
   box-shadow: inset 0 0 0 0.2rem var(--text-body);
-  background-color: #1bcacd;
+  background-color: #3d6fa8;
 }
