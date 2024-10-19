@@ -8,6 +8,8 @@ import logo2 from '../assets/mock-media/partner-logos/logo2.png';
 import logo3 from '../assets/mock-media/partner-logos/logo3.png';
 import logo4 from '../assets/mock-media/partner-logos/logo4.png';
 import logo5 from '../assets/mock-media/partner-logos/logo5.png';
+import logo6 from '../assets/mock-media/partner-logos/logo6.png';
+import logo7 from '../assets/mock-media/partner-logos/logo7.png';
 
 export const bestSellerSlides: any = () => {
     return [
@@ -87,6 +89,18 @@ export const partnerLogoSlides: any = () => {
             itemImageSrc: logo5,
             alt: 'Partner 5',
             title: 'Partner 5'
+        },
+        {
+            id: 6,
+            itemImageSrc: logo6,
+            alt: 'Partner 6',
+            title: 'Partner 6'
+        },
+        {
+            id: 7,
+            itemImageSrc: logo7,
+            alt: 'Partner 7',
+            title: 'Partner 7'
         },
     ];
 };

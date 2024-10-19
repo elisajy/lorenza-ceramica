@@ -34,7 +34,7 @@ const LandingPartners: React.FC<PropType> = (props) => {
                         <div className="embla__container-pt">
                             {partnerLogoSlides().map((index: any) => (
                                 <div className="embla__slide-pt" key={index.id}>
-                                    <img src={index.itemImageSrc} className='image-item' />
+                                    <img style={{ maxHeight: '100%' }} src={index.itemImageSrc} className='image-item' />
                                 </div>
                             ))}
                         </div>
