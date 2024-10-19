@@ -26,6 +26,8 @@ import { FaFacebookSquare, FaShoppingCart, FaInstagramSquare } from "react-icons
 import Header from "./Header";
 import Footer from "./Footer";
 const Layout = ({ children }: any) => {
+  const [visible, setVisible] = useState(false);
+  
   const start = <img alt="logo" src="/lorenza-logo-transparent-blue.png" height="100" className="header-logo"></img>;
   const end = (
     <div className='header-icons'>
