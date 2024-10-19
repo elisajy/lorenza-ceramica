@@ -1,8 +1,14 @@
 import "./Layout.css";
-import { headerMenu } from '../../helper/HeaderMenu';
-import { faCartShopping, faHouseLaptop } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSquareFacebook, faSquareInstagram } from '@fortawesome/free-brands-svg-icons';
+import { headerMenu } from "../../helper/HeaderMenu";
+import {
+  faCartShopping,
+  faHouseLaptop,
+} from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faSquareFacebook,
+  faSquareInstagram,
+} from "@fortawesome/free-brands-svg-icons";
 import { useState } from "react";
 import {
   Box,
@@ -19,18 +25,28 @@ import {
   Stack,
   Spacer,
   Center,
-  Square
+  Square,
 } from "@chakra-ui/react";
+import { faWhatsapp } from "@fortawesome/free-brands-svg-icons";
 import { HamburgerIcon, CloseIcon, ChevronDownIcon } from "@chakra-ui/icons";
-import { FaFacebookSquare, FaShoppingCart, FaInstagramSquare } from "react-icons/fa";
+import {
+  FaFacebookSquare,
+  FaShoppingCart,
+  FaInstagramSquare,
+} from "react-icons/fa";
 import Header from "./Header";
 import Footer from "./Footer";
 const Layout = ({ children }: any) => {
-  const [visible, setVisible] = useState(false);
-  
-  const start = <img alt="logo" src="/lorenza-logo-transparent-blue.png" height="100" className="header-logo"></img>;
+  const start = (
+    <img
+      alt="logo"
+      src="/lorenza-logo-transparent-blue.png"
+      height="100"
+      className="header-logo"
+    ></img>
+  );
   const end = (
-    <div className='header-icons'>
+    <div className="header-icons">
       {/* <Button className='header-button' rounded text severity="info" icon={<FontAwesomeIcon icon={faSquareFacebook} size='2xl'/>} />
       <Button className='header-button' rounded text severity="info" icon={<FontAwesomeIcon icon={faSquareInstagram} size='2xl'/>} />
       <Button className='header-button' rounded text severity="info" icon={<FontAwesomeIcon icon={faCartShopping} size='2xl'/>} /> */}
@@ -53,16 +69,18 @@ const Layout = ({ children }: any) => {
   //     // eslint-disable-next-line react-hooks/exhaustive-deps
   //   }, []);
 
-
   return (
     <>
       <div className="layout">
         <Header></Header>
         <main className="content">{children}</main>
+        <Button variant="unstyled" size='lg' alignItems='center' className="whatsapp-fab">
+          <FontAwesomeIcon icon={faWhatsapp} size='2x' />
+        </Button>
         <Footer></Footer>
-      </div >
+      </div>
     </>
   );
-}
+};
 
 export default Layout;

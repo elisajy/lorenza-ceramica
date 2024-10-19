@@ -10,7 +10,7 @@ import {
   Box,
   Divider,
   VStack,
-  Button
+  Button,
 } from "@chakra-ui/react";
 import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
@@ -122,11 +122,11 @@ const ShoppingCart = ({ visible, setVisible }: Props) => {
 
     return (
       <Box
-        display='flex'
-        flexDirection='column'
-        background='#536878'
-        color='floralwhite'
-        width='25rem'
+        display="flex"
+        flexDirection="column"
+        background="#536878"
+        color="floralwhite"
+        width="25rem"
       >
         {list}
       </Box>
@@ -134,25 +134,38 @@ const ShoppingCart = ({ visible, setVisible }: Props) => {
   };
 
   return (
-    <Drawer placement='right' size='sm' onClose={() => setVisible(!visible)} isOpen={visible}>
+    <Drawer
+      placement="right"
+      size="sm"
+      onClose={() => setVisible(!visible)}
+      isOpen={visible}
+    >
       <DrawerOverlay />
       <DrawerContent>
         <DrawerCloseButton />
-        <DrawerHeader marginTop='30px'><h2>Cart</h2></DrawerHeader>
+        <DrawerHeader marginTop="30px">
+          <h2>Cart</h2>
+        </DrawerHeader>
         <Divider />
         <DrawerBody>
-          <VStack divider={<StackDivider />}>
-            {listTemplate(products ?? [])}
-          </VStack>
+          {products?.length !== 0 ? (
+            <VStack divider={<StackDivider />}>
+              {listTemplate(products ?? [])}
+            </VStack>
+          ) : (
+            <h4>Your cart is empty.</h4>
+          )}
         </DrawerBody>
-        <DrawerFooter justifyContent='center' marginBottom='30px'>
+        <DrawerFooter justifyContent="center" marginBottom="30px">
           <Button
+            disabled={products?.length === 0}
             onClick={onClickInquiry}
-            colorScheme='orange'
-            variant='solid'
+            colorScheme="orange"
+            variant="solid"
+            // className="inqure-btn"
             rightIcon={<FontAwesomeIcon icon={faChevronRight} />}
           >
-            INQUIRE OUR SALES TEAM
+            <span>INQUIRE OUR SALES TEAM</span>
           </Button>
         </DrawerFooter>
       </DrawerContent>

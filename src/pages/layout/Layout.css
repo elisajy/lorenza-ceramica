@@ -144,6 +144,21 @@
   color: #ddd;
 }
 
+.whatsapp-fab {
+  position: fixed !important;
+  bottom: 200px;
+  right: 100px;
+  background-color: #25D366 !important;
+  color: #fff !important;
+  border-radius: 50% !important;
+  cursor: pointer;
+  /* Add hover effects or animations as desired */
+}
+
+.whatsapp-fab:hover {
+  background-color: #1e4d2b !important;
+}
+
 /* Responsive Styles */
 @media (max-width: 768px) {
   .nav-menu ul {

@@ -33,6 +33,32 @@
   }
 }
 
+.inquire-btn {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.inquire-btn:after {
+  content: '>';
+  position: absolute;
+  opacity: 0;  
+  top: 14px;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.inquire-btn:hover{
+  padding-right: 24px;
+  padding-left:8px;
+}
+
+.inquire-btn:hover:after {
+  opacity: 1;
+  right: 10px;
+}
+
 .remove-btn {
   color: lightgray !important;
   align-items: flex-start !important;
