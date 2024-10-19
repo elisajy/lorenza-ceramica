@@ -1,16 +1,26 @@
 {
   "files": {
-    "main.css": "/static/css/main.93e6bdbd.css",
-    "main.js": "/static/js/main.3a4b566b.js",
+    "main.css": "/static/css/main.72cc3166.css",
+    "main.js": "/static/js/main.6ed4eefe.js",
     "static/js/453.80115d33.chunk.js": "/static/js/453.80115d33.chunk.js",
     "static/media/homebanner.png": "/static/media/homebanner.14a321991781925c062b.png",
+    "static/media/landing-story-bg.png": "/static/media/landing-story-bg.f5ad3ad9bc962fb9e641.png",
+    "static/media/bottom-nav.png": "/static/media/bottom-nav.1046145367e9778713cf.png",
+    "static/media/landing-story-thumbnail.png": "/static/media/landing-story-thumbnail.52872cac98a28c2137c5.png",
+    "static/media/bs5.png": "/static/media/bs5.4015a2900573a75907bc.png",
+    "static/media/bs1.png": "/static/media/bs1.cf79494c2bd8125b1923.png",
+    "static/media/bs2.png": "/static/media/bs2.f8c1090b0ea169ea36a6.png",
+    "static/media/bs3.png": "/static/media/bs3.f6c83454d1b996949047.png",
+    "static/media/bs4.png": "/static/media/bs4.925f3177b881f1b4999e.png",
+    "static/media/lorenza-logo-transparent-white.png": "/static/media/lorenza-logo-transparent-white.cb0fb26555d672764cdf.png",
+    "static/media/product_A.jpg": "/static/media/product_A.acc5200c120b6d5f9390.jpg",
     "index.html": "/index.html",
-    "main.93e6bdbd.css.map": "/static/css/main.93e6bdbd.css.map",
-    "main.3a4b566b.js.map": "/static/js/main.3a4b566b.js.map",
+    "main.72cc3166.css.map": "/static/css/main.72cc3166.css.map",
+    "main.6ed4eefe.js.map": "/static/js/main.6ed4eefe.js.map",
     "453.80115d33.chunk.js.map": "/static/js/453.80115d33.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.93e6bdbd.css",
-    "static/js/main.3a4b566b.js"
+    "static/css/main.72cc3166.css",
+    "static/js/main.6ed4eefe.js"
   ]
 }
