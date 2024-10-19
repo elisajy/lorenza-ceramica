@@ -11,9 +11,10 @@
 .embla__container-pt {
   display: flex;
   touch-action: pan-y pinch-zoom;
-  margin-left: calc(var(--slide-spacing) * -1);
+  /* margin-left: calc(var(--slide-spacing) * -1); */
 }
 .embla__slide-pt {
+  max-width: 210px;
   max-height: 150px;
   transform: translate3d(0, 0, 0);
   flex: 0 0 var(--slide-size);
