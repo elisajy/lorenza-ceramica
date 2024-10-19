@@ -17,6 +17,7 @@ import {
 import { useState } from "react";
 import { FaFacebookSquare, FaInstagramSquare, FaShoppingCart } from "react-icons/fa";
 import "./Layout.css";
+import { productMenu, socialMenu } from "../../helper/HeaderMenu";
 const Header = ({ children }: any) => {
     const start = <img alt="logo" src="/lorenza-logo-transparent-blue.png" height="100" className="header-logo"></img>;
     const end = (
@@ -67,61 +68,90 @@ const Header = ({ children }: any) => {
                                 className="menu-stack"
                             >
                                 <Button fontSize={"xl"} variant="ghost">Home</Button>
-                                <Button fontSize={"xl"} variant="ghost">About</Button>
+                                <Button fontSize={"xl"} variant="ghost">About Us</Button>
 
                                 <Menu>
                                     <MenuButton fontSize={"xl"} as={Button}>
-                                        Services
+                                        Products
                                     </MenuButton>
                                     <MenuList>
+
                                         <Menu orientation="horizontal">
-                                            <MenuButton as={Button} w="100%" textAlign={"left"}>
-                                                More Services
-                                            </MenuButton>
-                                            <MenuList style={{ marginLeft: '14vw', marginTop: '-6vh' }}>
-                                                <MenuItem>Sub-Service 1</MenuItem>
-                                                <MenuItem>Sub-Service 2</MenuItem>
-                                            </MenuList>
+                                            {
+                                                productMenu && productMenu.length !== 0 ?
+                                                    productMenu.map((item: any) => {
+                                                        if (item.id === 99) {
+                                                            return <>
+                                                                <MenuButton as={Button} w="100%" textAlign={"left"}>
+                                                                    {item.label}
+                                                                </MenuButton>
+                                                                <MenuList>
+                                                                    <Stack as="nav" spacing={4}>
+                                                                        {
+                                                                            (item.prds) && (item.prds).length !== 0 ?
+                                                                                (item.prds).map((it: any) => {
+                                                                                    return <>
+                                                                                        <MenuItem>{it.label}</MenuItem>
+                                                                                    </>
+                                                                                })
+                                                                                :
+                                                                                null
+                                                                        }
+                                                                    </Stack>
+                                                                </MenuList>
+                                                                {/* {
+                                                                    (item.prds) && (item.prds).length !== 0 ?
+                                                                        (item.prds).map((itm: any) => {
+                                                                            return <MenuList>
+                                                                                <MenuItem>{itm.label}</MenuItem>
+                                                                            </MenuList>
+                                                                            // return <MenuList style={{ marginLeft: '14vw', marginTop: '-6vh' }}>
+                                                                            //     <MenuItem>{itm.label}</MenuItem>
+                                                                            // </MenuList>
+                                                                        }) :
+                                                                        null
+                                                                } */}
+                                                            </>
+                                                        }
+                                                    })
+                                                    :
+                                                    null
+                                            }
                                         </Menu>
-                                        <MenuDivider />
-                                        <MenuItem fontWeight={600}>Service 1</MenuItem>
-                                        <MenuItem fontWeight={600}>Service 2</MenuItem>
-                                        <MenuItem fontWeight={600}>Service 1</MenuItem>
-                                        <MenuItem fontWeight={600}>Service 2</MenuItem>
+                                        {
+                                            productMenu && productMenu.length !== 0 ?
+                                                productMenu.map((item: any) => {
+                                                    if (item.id !== 99) {
+                                                        return <MenuItem fontWeight={600}>{item.label}</MenuItem>
+                                                    }
+                                                })
+                                                :
+                                                null
+                                        }
                                     </MenuList>
                                 </Menu>
+                                <Button fontSize={"xl"} variant="ghost">Inspiration</Button>
                                 <Button fontSize={"xl"} variant="ghost">Contact</Button>
                             </HStack>
 
                             {/* Social Icons on the far right */}
                             <HStack spacing={2} display={{ base: "none", md: "flex" }}>
-                                <IconButton
-                                    as="a"
-                                    href="#facebook"
-                                    aria-label="Facebook"
-                                    icon={<FaFacebookSquare />}
-                                    size="lg"
-                                    fontSize={"30px"}
-                                    variant="ghost"
-                                />
-                                <IconButton
-                                    as="a"
-                                    href="#instagram"
-                                    aria-label="Instagram"
-                                    icon={<FaInstagramSquare />}
-                                    size="lg"
-                                    fontSize={"30px"}
-                                    variant="ghost"
-                                />
-                                <IconButton
-                                    as="a"
-                                    href="#instagram"
-                                    aria-label="Instagram"
-                                    icon={<FaShoppingCart />}
-                                    size="lg"
-                                    fontSize={"30px"}
-                                    variant="ghost"
-                                />
+                                {
+                                    socialMenu && socialMenu.length !== 0 ?
+                                        socialMenu.map((item: any) => {
+                                            return <IconButton
+                                                as="a"
+                                                href={item.href}
+                                                aria-label={item.ariaLabel}
+                                                icon={item.icon}
+                                                size={item.size}
+                                                variant='ghost'
+                                                fontSize={item.fontSize}
+                                            />
+                                        })
+                                        :
+                                        null
+                                }
                             </HStack>
 
                             {/* Hamburger Icon for mobile (on the right side) */}
@@ -165,30 +195,21 @@ const Header = ({ children }: any) => {
 
                             {/* Social Icons for Mobile */}
                             <HStack spacing={4} justify="center" mt={4}>
-                                <IconButton
-                                    as="a"
-                                    href="#facebook"
-                                    aria-label="Facebook"
-                                    icon={<FaFacebookSquare />}
-                                    size="lg"
-                                    variant="ghost"
-                                />
-                                <IconButton
-                                    as="a"
-                                    href="#instagram"
-                                    aria-label="Instagram"
-                                    icon={<FaInstagramSquare />}
-                                    size="lg"
-                                    variant="ghost"
-                                />
-                                <IconButton
-                                    as="a"
-                                    href="#instagram"
-                                    aria-label="Instagram"
-                                    icon={<FaShoppingCart />}
-                                    size="lg"
-                                    variant="ghost"
-                                />
+                                {
+                                    socialMenu && socialMenu.length !== 0 ?
+                                        socialMenu.map((item: any) => {
+                                            return <IconButton
+                                                as="a"
+                                                href={item.href}
+                                                aria-label={item.ariaLabel}
+                                                icon={item.icon}
+                                                size={item.size}
+                                                variant={item.variant}
+                                            />
+                                        })
+                                        :
+                                        null
+                                }
                             </HStack>
                         </Box>
                     ) : null}
