@@ -17,6 +17,7 @@ import {
 import { useState } from "react";
 import { FaFacebookSquare, FaInstagramSquare, FaShoppingCart } from "react-icons/fa";
 import "./Layout.css";
+import ShoppingCart from "../shopping-cart/ShoppingCart";
 const Header = ({ children }: any) => {
     const start = <img alt="logo" src="/lorenza-logo-transparent-blue.png" height="100" className="header-logo"></img>;
     const end = (
@@ -27,6 +28,7 @@ const Header = ({ children }: any) => {
         </div>
     );
 
+    const [visible, setVisible] = useState(false);
     const { isOpen, onOpen, onClose } = useDisclosure();
     const [dropdownOpen, setDropdownOpen] = useState(false);
     const [subDropdownOpen, setSubDropdownOpen] = useState(false);
@@ -120,6 +122,7 @@ const Header = ({ children }: any) => {
                                     size="lg"
                                     fontSize={"30px"}
                                     variant="ghost"
+                                    onClick={() => setVisible(!visible)}
                                 />
                             </HStack>
 
@@ -187,12 +190,15 @@ const Header = ({ children }: any) => {
                                     icon={<FaShoppingCart />}
                                     size="lg"
                                     variant="ghost"
+                                    onClick={() => setVisible(!visible)}
                                 />
                             </HStack>
                         </Box>
                     ) : null}
                 </Box>
             </header>
+
+            <ShoppingCart visible={visible} setVisible={setVisible} />
         </>
     );
 }

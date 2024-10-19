@@ -1,8 +1,19 @@
-import { Sidebar } from "primereact/sidebar";
-import { DataView } from "primereact/dataview";
-import { Button } from "primereact/button";
-import { Divider } from "primereact/divider";
+import {
+  Drawer,
+  DrawerBody,
+  DrawerFooter,
+  DrawerHeader,
+  DrawerOverlay,
+  DrawerContent,
+  DrawerCloseButton,
+  StackDivider,
+  Box,
+  Divider,
+  VStack,
+  Button
+} from "@chakra-ui/react";
 import { Dispatch, SetStateAction, useEffect, useState } from "react";
+import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
 import {
   ProductItem,
   REMOVE_ITEM,
@@ -10,6 +21,7 @@ import {
 } from "../../hooks/cart-context/CartContext";
 import product_A from "../../assets/images/products/product_A.jpg";
 import "./ShoppingCart.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 interface Props {
   visible: boolean;
@@ -26,7 +38,7 @@ const ShoppingCart = ({ visible, setVisible }: Props) => {
   }, [cartState.products]);
 
   const onClickRemoveItem = (item: ProductItem) => {
-    setProducts(products!.filter(x => x.id !== item.id));
+    setProducts(products!.filter((x) => x.id !== item.id));
     cartDispatch({
       type: REMOVE_ITEM,
       payload: item,
@@ -37,7 +49,9 @@ const ShoppingCart = ({ visible, setVisible }: Props) => {
     const phoneNumber = "+60169926846";
     let message = "Hi, I would like to inquire about the following products: ";
     for (let i = 0; i < products!.length; i++) {
-      message = message.concat(`\n${i + 1}. ${products![i].name} (*${products![i].code}*)`);
+      message = message.concat(
+        `\n${i + 1}. ${products![i].name} (*${products![i].code}*)`
+      );
     }
     const url = `https://web.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(
       message
@@ -52,7 +66,7 @@ const ShoppingCart = ({ visible, setVisible }: Props) => {
           <img className="product-image" src={`${product_A}`} alt={data.name} />
           <div>
             <div>
-              <div className="text-xl-font-bold">{data.name}</div>
+              <div className="text-l-font-bold">{data.name}</div>
               <div className="text-600-small">{data.description}</div>
             </div>
             <div>
@@ -88,11 +102,12 @@ const ShoppingCart = ({ visible, setVisible }: Props) => {
             </div>
           </div>
           <Button
-            link
+            variant="link"
             className="remove-btn"
-            label="Remove"
             onClick={() => onClickRemoveItem(data)}
-          ></Button>
+          >
+            Remove
+          </Button>
         </div>
       </div>
     );
@@ -105,32 +120,43 @@ const ShoppingCart = ({ visible, setVisible }: Props) => {
       return itemTemplate(product, index);
     });
 
-    return <div className="grid">{list}</div>;
+    return (
+      <Box
+        display='flex'
+        flexDirection='column'
+        background='#536878'
+        color='floralwhite'
+        width='25rem'
+      >
+        {list}
+      </Box>
+    );
   };
 
   return (
-    <Sidebar
-      visible={visible}
-      position="right"
-      header={
-        <div>
-          <h2>Cart</h2>
-        </div>
-      }
-      onHide={() => setVisible(false)}
-    >
-      <div className="card">
-        <DataView value={products} listTemplate={listTemplate} />
-      </div>
-      <Divider />
-      <Button
-        label="Inquire Our Sales Team"
-        icon="pi pi-angle-right"
-        iconPos="right"
-        onClick={onClickInquiry}
-        rounded
-      />
-    </Sidebar>
+    <Drawer placement='right' size='sm' onClose={() => setVisible(!visible)} isOpen={visible}>
+      <DrawerOverlay />
+      <DrawerContent>
+        <DrawerCloseButton />
+        <DrawerHeader marginTop='30px'><h2>Cart</h2></DrawerHeader>
+        <Divider />
+        <DrawerBody>
+          <VStack divider={<StackDivider />}>
+            {listTemplate(products ?? [])}
+          </VStack>
+        </DrawerBody>
+        <DrawerFooter justifyContent='center' marginBottom='30px'>
+          <Button
+            onClick={onClickInquiry}
+            colorScheme='orange'
+            variant='solid'
+            rightIcon={<FontAwesomeIcon icon={faChevronRight} />}
+          >
+            INQUIRE OUR SALES TEAM
+          </Button>
+        </DrawerFooter>
+      </DrawerContent>
+    </Drawer>
   );
 };
 
