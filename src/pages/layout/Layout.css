@@ -50,11 +50,38 @@
     margin-top: 15px;
   }
 
+  .heading-block {
+    height: 70px;
+    display: flex;
+    align-items: flex-end;
+  }
+
+  .social-block {
+    margin-top: 15px;
+    a {
+      color: white;
+      font-size: 2rem;
+      margin-right: 15px;
+    }
+  }
+
   .nav-block {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
+    margin-top: 35px;
+
+    Button {
+      height: 35px;
+      font-size: 18px;
+      word-spacing: 2px;
+      letter-spacing: 1px;
+    }
+  }
+
+  .contact-block {
+    margin-top: 35px;
   }
 }
 

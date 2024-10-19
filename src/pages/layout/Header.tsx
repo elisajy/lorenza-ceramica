@@ -169,7 +169,7 @@ const Header = ({ children }: any) => {
                                     href="#facebook"
                                     aria-label="Facebook"
                                     icon={<FaFacebookSquare />}
-                                    size="ls"
+                                    size="lg"
                                     variant="ghost"
                                 />
                                 <IconButton

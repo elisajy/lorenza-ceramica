@@ -4,6 +4,7 @@ import {
     Divider,
     Flex,
     Heading,
+    IconButton,
     Menu,
     MenuButton,
     MenuItem,
@@ -13,6 +14,7 @@ import {
 import { useState } from "react";
 import "./Layout.css";
 import companyLogo from '../../assets/mock-media/lorenza-logo-transparent-white.png';
+import { FaFacebookF, FaFacebookSquare, FaInstagram, FaInstagramSquare, FaShoppingCart } from "react-icons/fa";
 
 const Footer = ({ children }: any) => {
     const { isOpen, onOpen, onClose } = useDisclosure();
@@ -57,35 +59,61 @@ const Footer = ({ children }: any) => {
                             </div>
                         </Box>
                         <Box flex='2' className="footer-box">
-                            <div>
-                                <Heading as='h2' size='md' letterSpacing={3}>
+                            <div className="heading-block">
+                                <Heading as='h2' fontSize={'26px'} letterSpacing={3}>
                                     INFORMATION
                                 </Heading>
                             </div>
                             <div className="nav-block">
-                                <Button colorScheme='teal' variant='link'>
+                                <Button colorScheme='white' variant='link'>
                                     Main Page
                                 </Button>
-                                <Button colorScheme='teal' variant='link'>
+                                <Button colorScheme='white' variant='link'>
                                     About Us
                                 </Button>
-                                <Button colorScheme='teal' variant='link'>
+                                <Button colorScheme='white' variant='link'>
                                     Products
                                 </Button>
-                                <Button colorScheme='teal' variant='link'>
+                                <Button colorScheme='white' variant='link'>
                                     Inspiration
                                 </Button>
-                                <Button colorScheme='teal' variant='link'>
+                                <Button colorScheme='white' variant='link'>
                                     FAQ
                                 </Button>
                             </div>
                         </Box>
                         <Box flex='2' className="footer-box">
-                            <p>Box1</p>
+                            <div className="heading-block">
+                                <Heading as='h2' fontSize={'26px'} letterSpacing={3}>
+                                    CONTACT
+                                </Heading>
+                            </div>
+                            <div className="contact-block">
+                                <p style={{ fontSize: '18px', letterSpacing: 1 }}>Tel: +60378740112</p>
+                                <p style={{ fontSize: '18px', letterSpacing: 1 }}>Fax: +60378767553</p>
+                            </div>
+                            <div className="social-block">
+                                <IconButton
+                                    as="a"
+                                    href="#facebook"
+                                    aria-label="Facebook"
+                                    icon={<FaFacebookF />}
+                                    size="md"
+                                    variant="outline"
+                                />
+                                <IconButton
+                                    as="a"
+                                    href="#instagram"
+                                    aria-label="Instagram"
+                                    icon={<FaInstagram />}
+                                    size="md"
+                                    variant="outline"
+                                />
+                            </div>
                         </Box>
                     </Flex>
                 </>
-                <p>© 2024 Lorenza Ceramica. All rights reserved.</p>
+                <p style={{float: 'right'}}>© 2024 Lorenza Ceramica. All rights reserved.</p>
             </footer>
         </>
     );

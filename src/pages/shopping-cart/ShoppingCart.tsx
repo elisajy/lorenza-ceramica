@@ -1,7 +1,7 @@
-import { Sidebar } from "primereact/sidebar";
-import { DataView } from "primereact/dataview";
-import { Button } from "primereact/button";
-import { Divider } from "primereact/divider";
+// import { Sidebar } from "primereact/sidebar";
+// import { DataView } from "primereact/dataview";
+// import { Button } from "primereact/button";
+// import { Divider } from "primereact/divider";
 import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import {
   ProductItem,
@@ -87,12 +87,12 @@ const ShoppingCart = ({ visible, setVisible }: Props) => {
               </table>
             </div>
           </div>
-          <Button
+          {/* <Button
             link
             className="remove-btn"
             label="Remove"
             onClick={() => onClickRemoveItem(data)}
-          ></Button>
+          ></Button> */}
         </div>
       </div>
     );
@@ -109,28 +109,29 @@ const ShoppingCart = ({ visible, setVisible }: Props) => {
   };
 
   return (
-    <Sidebar
-      visible={visible}
-      position="right"
-      header={
-        <div>
-          <h2>Cart</h2>
-        </div>
-      }
-      onHide={() => setVisible(false)}
-    >
-      <div className="card">
-        <DataView value={products} listTemplate={listTemplate} />
-      </div>
-      <Divider />
-      <Button
-        label="Inquire Our Sales Team"
-        icon="pi pi-angle-right"
-        iconPos="right"
-        onClick={onClickInquiry}
-        rounded
-      />
-    </Sidebar>
+    // <Sidebar
+    //   visible={visible}
+    //   position="right"
+    //   header={
+    //     <div>
+    //       <h2>Cart</h2>
+    //     </div>
+    //   }
+    //   onHide={() => setVisible(false)}
+    // >
+    //   <div className="card">
+    //     <DataView value={products} listTemplate={listTemplate} />
+    //   </div>
+    //   <Divider />
+    //   <Button
+    //     label="Inquire Our Sales Team"
+    //     icon="pi pi-angle-right"
+    //     iconPos="right"
+    //     onClick={onClickInquiry}
+    //     rounded
+    //   />
+    // </Sidebar>
+    <p></p>
   );
 };
 
