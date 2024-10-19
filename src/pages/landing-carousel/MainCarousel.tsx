@@ -43,7 +43,7 @@ const MainCarousel: React.FC<PropType> = (props) => {
 
     return (
         <section className="embla">
-             <div className="embla__controls">
+            <div className="embla__controls">
                 <div className="embla__dots">
                     {scrollSnaps.map((_, index) => (
                         <DotButton
@@ -67,7 +67,7 @@ const MainCarousel: React.FC<PropType> = (props) => {
                 </div>
             </div>
 
-           
+
         </section>
     )
 }

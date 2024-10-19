@@ -27,8 +27,8 @@ const ProductTabs = () => {
             <div className='product-tabs'>
                 <Tabs align='center' variant='unstyled'>
                     <TabList>
-                        <Tab _selected={{ color: '#434589', fontWeight: 700 }} width={'md'}>BEST SELLING</Tab>
-                        <Tab _selected={{ color: '#434589', fontWeight: 700 }} width={'md'}>NEW ARRIVALS</Tab>
+                        <Tab _selected={{ color: '#434589', fontWeight: 700, }} style={{fontSize: 20}} width={'md'}>BEST SELLING</Tab>
+                        <Tab _selected={{ color: '#434589', fontWeight: 700 }} style={{fontSize: 20}} width={'md'}>NEW ARRIVALS</Tab>
                     </TabList>
                     <TabIndicator mt='-1.5px' height='1px' bg='blue.500' borderRadius='1px' />
                     <TabPanels>

@@ -4,6 +4,7 @@ import Autoplay from 'embla-carousel-autoplay'
 import AutoScroll from 'embla-carousel-auto-scroll'
 import useEmblaCarousel from 'embla-carousel-react'
 import './LandingProducts.css'
+import { bestSellerSlides } from '../../helper/SlidesData'
 
 type PropType = {
     slides: number[]
@@ -29,9 +30,10 @@ const BestSellingCarousel: React.FC<PropType> = (props) => {
         <section className="embla-bs">
             <div className="embla__viewport-bs" ref={emblaRef}>
                 <div className="embla__container-bs">
-                    {slides.map((index) => (
-                        <div className="embla__slide-bs" key={index}>
-                            <div className="embla__slide__number-bs">{index + 1}</div>
+                    {bestSellerSlides().map((index: any) => (
+                        <div className="embla__slide-bs" key={index.id}>
+                            <img src={index.itemImageSrc} className='image-item' />
+                            {/* <div className="embla__slide__number-bs">{index + 1}</div> */}
                         </div>
                     ))}
                 </div>

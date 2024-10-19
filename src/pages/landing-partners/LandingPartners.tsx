@@ -4,6 +4,7 @@ import Autoplay from 'embla-carousel-autoplay'
 import useEmblaCarousel from 'embla-carousel-react'
 import './LandingPartners.css'
 import AutoScroll from 'embla-carousel-auto-scroll'
+import { partnerLogoSlides } from '../../helper/SlidesData'
 
 type PropType = {
     slides: number[]
@@ -31,9 +32,9 @@ const LandingPartners: React.FC<PropType> = (props) => {
                 <section className="embla-pt">
                     <div className="embla__viewport-pt" ref={emblaRef}>
                         <div className="embla__container-pt">
-                            {slides.map((index) => (
-                                <div className="embla__slide-pt" key={index}>
-                                    <div className="embla__slide__number-pt">{index + 1}</div>
+                            {partnerLogoSlides().map((index: any) => (
+                                <div className="embla__slide-pt" key={index.id}>
+                                    <img src={index.itemImageSrc} className='image-item' />
                                 </div>
                             ))}
                         </div>

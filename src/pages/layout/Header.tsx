@@ -64,6 +64,7 @@ const Header = ({ children }: any) => {
                                 spacing={4}
                                 display={{ base: "none", md: "flex" }}
                                 mr={6} /* Margin Right */
+                                className="menu-stack"
                             >
                                 <Button fontSize={"xl"} variant="ghost">Home</Button>
                                 <Button fontSize={"xl"} variant="ghost">About</Button>

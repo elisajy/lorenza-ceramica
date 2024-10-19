@@ -12,10 +12,17 @@
   background-color: #eef4fa;
   height: 130px;
   padding: 1rem;
-  color: black;
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+
+.menu-stack {
+  .chakra-button{
+    color: rgb(61 71 129);
+    font-weight: 600;
+    letter-spacing: 1px;
+  }
 }
 
 /* Main content */
