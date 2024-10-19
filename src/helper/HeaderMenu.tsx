@@ -12,12 +12,21 @@ const itemRenderer = (item: any) => (
 const headerMenu = [
     {
         label: 'Home',
+        fontSize: 'xl',
+        variant: 'ghost',
+        type: 'button'
     },
     {
         label: 'About Us',
+        fontSize: 'xl',
+        variant: 'ghost',
+        type: 'button'
     },
     {
         label: 'Products',
+        fontSize: 'xl',
+        variant: 'ghost',
+        type: 'button',
         items: [
             {
                 label: 'Tiles',
@@ -88,10 +97,16 @@ const headerMenu = [
     },
     {
         label: 'Inspiration',
+        fontSize: 'xl',
+        variant: 'ghost',
+        type: 'button',
         template: itemRenderer
     },
     {
         label: 'Contact',
+        fontSize: 'xl',
+        variant: 'ghost',
+        type: 'button',
         template: itemRenderer
     }
 ];

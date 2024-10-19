@@ -3,7 +3,28 @@ import { headerMenu } from '../../helper/HeaderMenu';
 import { faCartShopping, faHouseLaptop } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSquareFacebook, faSquareInstagram } from '@fortawesome/free-brands-svg-icons';
-
+import { useState } from "react";
+import {
+  Box,
+  Flex,
+  HStack,
+  IconButton,
+  Button,
+  Menu,
+  MenuButton,
+  MenuList,
+  MenuItem,
+  MenuDivider,
+  useDisclosure,
+  Stack,
+  Spacer,
+  Center,
+  Square
+} from "@chakra-ui/react";
+import { HamburgerIcon, CloseIcon, ChevronDownIcon } from "@chakra-ui/icons";
+import { FaFacebookSquare, FaShoppingCart, FaInstagramSquare } from "react-icons/fa";
+import Header from "./Header";
+import Footer from "./Footer";
 const Layout = ({ children }: any) => {
   const start = <img alt="logo" src="/lorenza-logo-transparent-blue.png" height="100" className="header-logo"></img>;
   const end = (
@@ -14,6 +35,17 @@ const Layout = ({ children }: any) => {
     </div>
   );
 
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [subDropdownOpen, setSubDropdownOpen] = useState(false);
+
+  const toggleDropdown = () => setDropdownOpen(!dropdownOpen);
+  const toggleSubDropdown = () => setSubDropdownOpen(!subDropdownOpen);
+  const [innerMenusActive, setInnerMenusActive] = useState(true);
+
+  const closeSubMenus = () => {
+    setInnerMenusActive(false);
+  };
   //   useEffect(() => {
 
   //     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -23,14 +55,9 @@ const Layout = ({ children }: any) => {
   return (
     <>
       <div className="layout">
-        <header className="header">
-          <div className="card">
-          </div>
-        </header>
+        <Header></Header>
         <main className="content">{children}</main>
-        <footer className="footer">
-          <p>© 2024 Lorenza Ceramica. All rights reserved.</p>
-        </footer>
+        <Footer></Footer>
       </div >
     </>
   );
