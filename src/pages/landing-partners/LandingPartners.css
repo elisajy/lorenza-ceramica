@@ -39,6 +39,21 @@
   user-select: none;
 }
 
+.div-img-square {
+  margin: 0px;
+  padding: 0px;
+
+  .img-square-1 {
+    max-width: 75%;
+    max-height: 75%;
+  }
+
+  .img-square-2 {
+    max-width: 65%;
+    max-height: 65%;
+  }
+}
+
 .partners-block {
   margin-top: 25px;
   margin-bottom: 25px;

@@ -82,7 +82,9 @@ export const partnerLogoSlides: any = () => {
             id: 4,
             itemImageSrc: logo4,
             alt: 'Partner 4',
-            title: 'Partner 4'
+            title: 'Partner 4',
+            divClassName: 'div-img-square',
+            className: 'img-square-1'
         },
         {
             id: 5,
@@ -94,7 +96,9 @@ export const partnerLogoSlides: any = () => {
             id: 6,
             itemImageSrc: logo6,
             alt: 'Partner 6',
-            title: 'Partner 6'
+            title: 'Partner 6',
+            divClassName: 'div-img-square',
+            className: 'img-square-2'
         },
         {
             id: 7,
