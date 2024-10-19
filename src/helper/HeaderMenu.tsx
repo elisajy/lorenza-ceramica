@@ -179,7 +179,8 @@ const socialMenu = [
         icon: <FaFacebookSquare />,
         size: 'lg',
         variant: 'unstyled',
-        fontSize: '30px'
+        fontSize: '30px',
+        url: 'https://www.facebook.com/wk.lorenza'
     },
     {
         id: 2,
@@ -188,7 +189,8 @@ const socialMenu = [
         icon: <FaInstagramSquare />,
         size: 'lg',
         variant: 'unstyled',
-        fontSize: '30px'
+        fontSize: '30px',
+        url: 'https://www.instagram.com/lorenza.ceramica'
     },
     {
         id: 3,

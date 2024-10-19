@@ -33,6 +33,9 @@ const Footer = ({ children }: any) => {
     //     // eslint-disable-next-line react-hooks/exhaustive-deps
     //   }, []);
 
+    const openUrl = (url: string) => {
+        window.open(url, "_blank");
+      }
 
     return (
         <>
@@ -100,6 +103,7 @@ const Footer = ({ children }: any) => {
                                     icon={<FaFacebookF />}
                                     size="md"
                                     variant="outline"
+                                    onClick={() => openUrl('https://www.facebook.com/wk.lorenza')}
                                 />
                                 <IconButton
                                     as="a"
@@ -108,6 +112,7 @@ const Footer = ({ children }: any) => {
                                     icon={<FaInstagram />}
                                     size="md"
                                     variant="outline"
+                                    onClick={() => openUrl('https://www.instagram.com/lorenza.ceramica')}
                                 />
                             </div>
                         </Box>

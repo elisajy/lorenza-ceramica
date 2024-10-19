@@ -146,8 +146,10 @@
 
 .whatsapp-fab {
   position: fixed !important;
-  bottom: 200px;
-  right: 100px;
+  bottom: 50px;
+  right: 50px;
+  height: 75px !important;
+  min-width: 75px !important;
   background-color: #25D366 !important;
   color: #fff !important;
   border-radius: 50% !important;

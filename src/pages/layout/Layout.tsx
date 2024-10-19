@@ -69,13 +69,22 @@ const Layout = ({ children }: any) => {
   //     // eslint-disable-next-line react-hooks/exhaustive-deps
   //   }, []);
 
+  const onClickInquiry = () => {
+    const phoneNumber = process.env.REACT_APP_BUSINESS_CONTACT;
+    let message = "Hi, I'm interested to know more about your products.";
+    const url = `https://web.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(
+      message
+    )}&app_absent=0`;
+    window.open(url, "_blank");
+  };
+
   return (
     <>
       <div className="layout">
         <Header></Header>
         <main className="content">{children}</main>
-        <Button variant="unstyled" size='lg' alignItems='center' className="whatsapp-fab">
-          <FontAwesomeIcon icon={faWhatsapp} size='2x' />
+        <Button variant="unstyled" size='lg' alignItems='center' className="whatsapp-fab" onClick={onClickInquiry}>
+          <FontAwesomeIcon icon={faWhatsapp} size='3x' />
         </Button>
         <Footer></Footer>
       </div>

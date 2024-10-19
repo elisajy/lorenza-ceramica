@@ -1,0 +1,3 @@
+window.env = {
+  "REACT_APP_BUSINESS_CONTACT": "+60163964418"
+};

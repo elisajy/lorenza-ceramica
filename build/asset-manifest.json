@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.72cc3166.css",
-    "main.js": "/static/js/main.6ed4eefe.js",
+    "main.css": "/static/css/main.d2314877.css",
+    "main.js": "/static/js/main.b0bd49fc.js",
     "static/js/453.80115d33.chunk.js": "/static/js/453.80115d33.chunk.js",
     "static/media/homebanner.png": "/static/media/homebanner.14a321991781925c062b.png",
     "static/media/landing-story-bg.png": "/static/media/landing-story-bg.f5ad3ad9bc962fb9e641.png",
@@ -15,12 +15,12 @@
     "static/media/lorenza-logo-transparent-white.png": "/static/media/lorenza-logo-transparent-white.cb0fb26555d672764cdf.png",
     "static/media/product_A.jpg": "/static/media/product_A.acc5200c120b6d5f9390.jpg",
     "index.html": "/index.html",
-    "main.72cc3166.css.map": "/static/css/main.72cc3166.css.map",
-    "main.6ed4eefe.js.map": "/static/js/main.6ed4eefe.js.map",
+    "main.d2314877.css.map": "/static/css/main.d2314877.css.map",
+    "main.b0bd49fc.js.map": "/static/js/main.b0bd49fc.js.map",
     "453.80115d33.chunk.js.map": "/static/js/453.80115d33.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.72cc3166.css",
-    "static/js/main.6ed4eefe.js"
+    "static/css/main.d2314877.css",
+    "static/js/main.b0bd49fc.js"
   ]
 }

@@ -57,6 +57,10 @@ const Header = ({ children }: any) => {
   //     // eslint-disable-next-line react-hooks/exhaustive-deps
   //   }, []);
 
+  const openUrl = (url: string) => {
+    window.open(url, "_blank");
+  }
+
   return (
     <>
       <header className="header">
@@ -174,7 +178,7 @@ const Header = ({ children }: any) => {
                           onClick={
                             item.ariaLabel === "ShoppingCart"
                               ? () => setVisible(!visible)
-                              : () => {}
+                              : () => openUrl(item.url)
                           }
                         />
                       );
@@ -234,7 +238,7 @@ const Header = ({ children }: any) => {
                           onClick={
                             item.ariaLabel === "ShoppingCart"
                               ? () => setVisible(!visible)
-                              : () => {}
+                              : () => openUrl(item.url)
                           }
                         />
                       );

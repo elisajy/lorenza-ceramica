@@ -46,7 +46,7 @@ const ShoppingCart = ({ visible, setVisible }: Props) => {
   };
 
   const onClickInquiry = () => {
-    const phoneNumber = "+60169926846";
+    const phoneNumber = process.env.REACT_APP_BUSINESS_CONTACT;
     let message = "Hi, I would like to inquire about the following products: ";
     for (let i = 0; i < products!.length; i++) {
       message = message.concat(
