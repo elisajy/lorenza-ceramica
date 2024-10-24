@@ -9,7 +9,7 @@ import {
   faSquareFacebook,
   faSquareInstagram,
 } from "@fortawesome/free-brands-svg-icons";
-import { useState } from "react";
+import { Suspense, useState } from "react";
 import {
   Box,
   Flex,
@@ -26,6 +26,7 @@ import {
   Spacer,
   Center,
   Square,
+  Spinner,
 } from "@chakra-ui/react";
 import { faWhatsapp } from "@fortawesome/free-brands-svg-icons";
 import { HamburgerIcon, CloseIcon, ChevronDownIcon } from "@chakra-ui/icons";
@@ -79,7 +80,7 @@ const Layout = ({ children }: any) => {
   };
 
   return (
-    <>
+    <Suspense fallback={<Spinner />}>
       <div className="layout">
         <Header></Header>
         <main className="content">{children}</main>
@@ -88,7 +89,7 @@ const Layout = ({ children }: any) => {
         </Button>
         <Footer></Footer>
       </div>
-    </>
+    </Suspense>
   );
 };
 

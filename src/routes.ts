@@ -1,4 +1,4 @@
-import React from "react";
+import { lazy } from "react";
 
 export interface RouteInfo {
   id: string;
@@ -9,21 +9,19 @@ export interface RouteInfo {
 }
 
 const ReactLazyPreload = (importStatement: any) => {
-  const Component: any = React.lazy(importStatement);
+  const Component: any = lazy(importStatement);
   Component.preload = importStatement;
   return Component;
 };
 
-//preload pages examples
-// const ChangePassword = ReactLazyPreload(
-//   () => import("./pages/settings/change-password/ChangePassword")
-// );
+// preload pages examples
+const FAQ = ReactLazyPreload(() => import("./pages/faq/Faq"));
 
 export const siteRoutes: RouteInfo[] = [
-//   {
-//     id: "ChangePassword",
-//     name: "ChangePassword",
-//     path: "/settings/change-password",
-//     component: ChangePassword,
-//   },
+  {
+    id: "FAQ",
+    name: "FAQ",
+    path: "/faq",
+    component: FAQ,
+  },
 ];

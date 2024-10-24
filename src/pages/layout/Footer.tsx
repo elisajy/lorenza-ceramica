@@ -15,6 +15,7 @@ import { useState } from "react";
 import "./Layout.css";
 import companyLogo from '../../assets/mock-media/lorenza-logo-transparent-white.png';
 import { FaFacebookF, FaFacebookSquare, FaInstagram, FaInstagramSquare, FaShoppingCart } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const Footer = ({ children }: any) => {
     const { isOpen, onOpen, onClose } = useDisclosure();
@@ -80,9 +81,11 @@ const Footer = ({ children }: any) => {
                                 <Button colorScheme='white' variant='link'>
                                     Inspiration
                                 </Button>
-                                <Button colorScheme='white' variant='link'>
-                                    FAQ
-                                </Button>
+                                <Link to="/faq">
+                                    <Button colorScheme='white' variant='link'>
+                                        FAQ
+                                    </Button>
+                                </Link>
                             </div>
                         </Box>
                         <Box flex='2' className="footer-box">

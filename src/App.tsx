@@ -43,10 +43,8 @@ function App() {
       <ColorModeProvider>
         <Layout>
           <Routes>
-            <Route path="/" element={<Landing />}>
-              {/* <Route index element={<Dashboard />} /> */}
-              {renderSiteRoutes}
-            </Route>
+            <Route path="/" element={<Landing />} />
+            {renderSiteRoutes}
           </Routes>
         </Layout>
       </ColorModeProvider>
