@@ -9,7 +9,6 @@ import {
   VStack,
 } from "@chakra-ui/react";
 import MainCarousel from "../landing-carousel/MainCarousel";
-import { faq } from "./Faq.data";
 import "./Faq.css";
 import { useEffect, useState } from "react";
 
