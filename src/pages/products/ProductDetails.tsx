@@ -47,6 +47,18 @@ const ItemDetail = () => {
         });
     };
 
+    const onClickInquiry = () => {
+        const phoneNumber = process.env.REACT_APP_BUSINESS_CONTACT;
+        let message = "Hi, I would like to inquire about this product: ";
+        message.concat(
+            `${selectedProduct.prdName} (*${selectedProduct.prdCode}*)`
+        )
+        const url = `https://web.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(
+            message
+        )}&app_absent=0`;
+        window.open(url, "_blank");
+    };
+
     return (
         <>
             <Box className="category-title">
@@ -128,7 +140,7 @@ const ItemDetail = () => {
                                     <Button onClick={addToCart} style={{ backgroundColor: '#ff6e04', color: 'white', width: '150px' }} variant='solid'>
                                         Add To Cart
                                     </Button>
-                                    <Button style={{ backgroundColor: '#ff6e04', color: 'white', width: '150px' }} variant='solid'>
+                                    <Button onClick={onClickInquiry} style={{ backgroundColor: '#ff6e04', color: 'white', width: '150px' }} variant='solid'>
                                         Product Enquiry
                                     </Button>
                                 </VStack>
