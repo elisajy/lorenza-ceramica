@@ -24,7 +24,6 @@ const CategoryPage = () => {
     const { category, subcategory } = useParams();
     const navigate = useNavigate();
     const capitalizeFirstLetters = (string: any) => {
-        console.log(string);
         if (!!string) {
             return string.split(' ').map((word: any) =>
                 word.charAt(0).toUpperCase() + word.slice(1)
@@ -33,8 +32,6 @@ const CategoryPage = () => {
             return string
         }
     }
-
-    console.log(category);
 
     const viewProductDetails = (code: any) => {
         navigate(`/products/${category}/${subcategory}/${code}`);

@@ -20,7 +20,7 @@
 
 .menu-stack {
   .chakra-button{
-    color: rgb(61 71 129);
+    color: #3d4781;
     font-weight: 600;
     letter-spacing: 1px;
   }
@@ -84,7 +84,7 @@
 
     Button {
       height: 35px;
-      font-size: 18px;
+      font-size: 14px;
       word-spacing: 2px;
       letter-spacing: 1px;
     }

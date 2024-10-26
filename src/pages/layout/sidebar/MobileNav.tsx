@@ -1,27 +1,13 @@
-import React, { ReactNode } from 'react'
 import {
-    IconButton,
-    Box,
-    CloseButton,
     Flex,
-    Icon,
-    useColorModeValue,
-    Text,
-    Drawer,
-    DrawerContent,
-    useDisclosure,
-    BoxProps,
     FlexProps,
+    IconButton,
+    Text,
+    useColorModeValue
 } from '@chakra-ui/react'
 import {
-    FiHome,
-    FiTrendingUp,
-    FiCompass,
-    FiStar,
-    FiSettings,
-    FiMenu,
+    FiMenu
 } from 'react-icons/fi'
-import { IconType } from 'react-icons'
 // import NavItem from './NavItems'
 
 

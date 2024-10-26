@@ -32,7 +32,6 @@ const reducer = (
   action: { type: string; payload: any }
 ): ShoppingCartState => {
   const { type, payload } = action;
-  console.log(payload);
   switch (type) {
     case ADD_ITEM:
       return { ...state, products: state.products.push(payload) };

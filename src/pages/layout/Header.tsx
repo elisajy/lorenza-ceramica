@@ -1,29 +1,23 @@
 import { CloseIcon, HamburgerIcon } from "@chakra-ui/icons";
-import { Link } from "react-router-dom";
 import {
     Box,
     Button,
     Flex,
     HStack,
     IconButton,
-    Menu,
-    MenuButton,
-    MenuDivider,
-    MenuItem,
-    MenuList,
     Spacer,
     Stack,
     useDisclosure,
+    Text
 } from "@chakra-ui/react";
 import { useState } from "react";
-import {
-    FaFacebookSquare,
-    FaInstagramSquare,
-    FaShoppingCart,
-} from "react-icons/fa";
-import "./Layout.css";
+import { Link, useNavigate } from "react-router-dom";
 import { productMenu, socialMenu } from "../../helper/HeaderMenu";
 import ShoppingCart from "../shopping-cart/ShoppingCart";
+import { Menu, MenuButton, MenuItem, SubMenu } from "@szhsin/react-menu";
+import "./Layout.css";
+import '@szhsin/react-menu/dist/index.css';
+import '@szhsin/react-menu/dist/transitions/zoom.css';
 const Header = ({ children }: any) => {
     const start = (
         <img
@@ -45,7 +39,7 @@ const Header = ({ children }: any) => {
     const { isOpen, onOpen, onClose } = useDisclosure();
     const [dropdownOpen, setDropdownOpen] = useState(false);
     const [subDropdownOpen, setSubDropdownOpen] = useState(false);
-
+    const navigate = useNavigate();
     const toggleDropdown = () => setDropdownOpen(!dropdownOpen);
     const toggleSubDropdown = () => setSubDropdownOpen(!subDropdownOpen);
     const [innerMenusActive, setInnerMenusActive] = useState(true);
@@ -61,6 +55,12 @@ const Header = ({ children }: any) => {
     const openUrl = (url: string) => {
         window.open(url, "_blank");
     }
+
+    const navigation = (item: any) => {
+        if (!!item.route) {
+            navigate(item.route);
+        }
+    };
 
     return (
         <>
@@ -81,11 +81,52 @@ const Header = ({ children }: any) => {
 
                         {/* Navigation Menu and Social Icons */}
                         <Flex alignItems="center">
-                            <HStack
+                            <HStack as="nav" spacing={4} display={{ base: "none", md: "flex" }} mr={5} className="menu-stack">
+                                <Button variant="ghost">
+                                    <Text fontSize={"xl"}>Home</Text>
+                                </Button>
+                                <Button variant="ghost">
+                                    <Text fontSize={"xl"}>About Us</Text>
+                                </Button>
+                                <Menu menuButton={<MenuButton style={{ paddingInline: '1rem' }}>
+                                    <Text fontSize={"xl"} fontWeight={600} letterSpacing={'1px'} color={'#3d4781'}>Products</Text>
+                                </MenuButton>}
+                                    transition
+                                    align={'center'}
+                                    viewScroll={'close'}
+                                >
+                                    {
+                                        productMenu && productMenu.length !== 0 &&
+                                        productMenu.map((item: any) => {
+                                            if (item.prds && item.prds.length !== 0) {
+                                                return (
+                                                    <SubMenu menuStyle={{textAlign: 'center'}} label={<Text fontWeight={600} fontSize={'lg'}>{item.label}</Text>}>
+                                                        {
+                                                            item.prds.map((x: any) => {
+                                                                return <MenuItem style={{textAlign: 'center'}} onClick={() => navigation(x)}><Text>{x.label}</Text></MenuItem>
+                                                            })
+                                                        }
+                                                    </SubMenu>
+                                                )
+                                            } else {
+                                                return <MenuItem onClick={() => navigation(item)}>{item.label}</MenuItem>
+                                            }
+                                        })
+                                    }
+                                </Menu>
+
+                                <Button variant="ghost">
+                                    <Text fontSize={"xl"}>Inspiration</Text>
+                                </Button>
+                                <Button variant="ghost">
+                                    <Text fontSize={"xl"}>Contact</Text>
+                                </Button>
+                            </HStack>
+                            {/* <HStack
                                 as="nav"
                                 spacing={4}
                                 display={{ base: "none", md: "flex" }}
-                                mr={6} /* Margin Right */
+                                mr={6}
                                 className="menu-stack"
                             >
                                 <Button fontSize={"xl"} variant="ghost">
@@ -128,18 +169,6 @@ const Header = ({ children }: any) => {
                                                                             : null}
                                                                     </Stack>
                                                                 </MenuList>
-                                                                {/* {
-                                                                    (item.prds) && (item.prds).length !== 0 ?
-                                                                        (item.prds).map((itm: any) => {
-                                                                            return <MenuList>
-                                                                                <MenuItem>{itm.label}</MenuItem>
-                                                                            </MenuList>
-                                                                            // return <MenuList style={{ marginLeft: '14vw', marginTop: '-6vh' }}>
-                                                                            //     <MenuItem>{itm.label}</MenuItem>
-                                                                            // </MenuList>
-                                                                        }) :
-                                                                        null
-                                                                } */}
                                                             </>
                                                         );
                                                     }
@@ -163,7 +192,7 @@ const Header = ({ children }: any) => {
                                 <Button fontSize={"xl"} variant="ghost">
                                     Contact
                                 </Button>
-                            </HStack>
+                            </HStack> */}
 
                             {/* Social Icons on the far right */}
                             <HStack spacing={2} display={{ base: "none", md: "flex" }}>
@@ -201,7 +230,7 @@ const Header = ({ children }: any) => {
                     </Flex>
 
                     {/* Mobile Menu */}
-                    {isOpen ? (
+                    {/* {isOpen ? (
                         <Box pb={4} display={{ md: "none" }}>
                             <Stack as="nav" spacing={4}>
                                 <Button w="100%">Home</Button>
@@ -226,7 +255,6 @@ const Header = ({ children }: any) => {
                                 <Button w="100%">Contact</Button>
                             </Stack>
 
-                            {/* Social Icons for Mobile */}
                             <HStack spacing={4} justify="center" mt={4}>
                                 {socialMenu && socialMenu.length !== 0
                                     ? socialMenu.map((item: any) => {
@@ -249,7 +277,7 @@ const Header = ({ children }: any) => {
                                     : null}
                             </HStack>
                         </Box>
-                    ) : null}
+                    ) : null} */}
                 </Box>
             </header>
 

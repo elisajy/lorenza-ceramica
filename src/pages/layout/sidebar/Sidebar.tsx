@@ -1,31 +1,8 @@
-import React, { ReactNode } from 'react'
 import {
-    IconButton,
-    Box,
-    CloseButton,
-    Flex,
-    Icon,
-    useColorModeValue,
-    Text,
-    Drawer,
-    DrawerContent,
-    useDisclosure,
-    BoxProps,
-    FlexProps,
-    Link,
+    Box
 } from '@chakra-ui/react'
-import {
-    FiHome,
-    FiTrendingUp,
-    FiCompass,
-    FiStar,
-    FiSettings,
-    FiMenu,
-} from 'react-icons/fi'
-import { IconType } from 'react-icons'
+import "./Sidebar.css"
 import SidebarContent from './SidebarContent'
-import "./Sidebar.css";
-import { NavLink } from 'react-router-dom'
 
 
 

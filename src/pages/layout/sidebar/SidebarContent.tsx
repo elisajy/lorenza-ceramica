@@ -14,6 +14,7 @@ import {
     MenuGroup,
     MenuItem,
     MenuList,
+    Text
 } from '@chakra-ui/react';
 import { IconType } from 'react-icons';
 import {
@@ -64,7 +65,7 @@ const SidebarContent = () => {
                                         }}>
                                             <span>{item.label}</span>
                                         </NavLink> */}
-                                        <span>{item.label}</span>
+                                        <Text fontSize={'xl'} fontWeight={600} color={'#0c478a'}>{item.label}</Text>
                                     </Box>
                                     {
                                         item.prds && item.prds.length !== 0 ?
@@ -86,7 +87,7 @@ const SidebarContent = () => {
                                                         viewTransitionName: isTransitioning ? "slide" : "",
                                                     };
                                                 }}>
-                                                    <span>{x.label}</span>
+                                                    <Text fontSize={'lg'} color={'#143e6e'}>{x.label}</Text>
                                                 </NavLink>
                                             </div>
                                         }) :

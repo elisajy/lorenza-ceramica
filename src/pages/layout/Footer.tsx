@@ -51,20 +51,20 @@ const Footer = ({ children }: any) => {
                             <Divider />
                             {/* Company Info */}
                             <div className="company-info-block">
-                                <p style={{ fontSize: 22, wordSpacing: 8 }}>W.K CERAMIC DISTRIBUTOR SDN. BHD.</p>
-                                <p style={{ fontSize: 18, wordSpacing: 6 }}>(Reg. no.: 199301022836)</p>
-                                <p style={{ fontSize: 18, wordSpacing: 6 }}>Wisma W.K</p>
+                                <p style={{ fontSize: 18, wordSpacing: 8 }}>W.K CERAMIC DISTRIBUTOR SDN. BHD.</p>
+                                <p style={{ fontSize: 14, wordSpacing: 6 }}>(Reg. no.: 199301022836)</p>
+                                <p style={{ fontSize: 14, wordSpacing: 6 }}>Wisma W.K</p>
                                 <p>Lot 5, Jalan 51A/227</p>
                                 <p>46100 Petaling Jaya, Selangor D.E</p>
                             </div>
                             {/* Operating Hours */}
                             <div className="operating-hour-block">
-                                <p style={{ fontSize: 18, wordSpacing: 8 }}>Mon - Sat | 08:30 - 18:00</p>
+                                <p style={{ fontSize: 14, wordSpacing: 8 }}>Mon - Sat | 08:30 - 18:00</p>
                             </div>
                         </Box>
                         <Box flex='2' className="footer-box">
                             <div className="heading-block">
-                                <Heading as='h2' fontSize={'26px'} letterSpacing={3}>
+                                <Heading as='h2' fontSize={'22px'} letterSpacing={3}>
                                     INFORMATION
                                 </Heading>
                             </div>
@@ -90,13 +90,13 @@ const Footer = ({ children }: any) => {
                         </Box>
                         <Box flex='2' className="footer-box">
                             <div className="heading-block">
-                                <Heading as='h2' fontSize={'26px'} letterSpacing={3}>
+                                <Heading as='h2' fontSize={'22px'} letterSpacing={3}>
                                     CONTACT
                                 </Heading>
                             </div>
                             <div className="contact-block">
-                                <p style={{ fontSize: '18px', letterSpacing: 1 }}>Tel: +60378740112</p>
-                                <p style={{ fontSize: '18px', letterSpacing: 1 }}>Fax: +60378767553</p>
+                                <p style={{ fontSize: '14px', letterSpacing: 1 }}>Tel: +60378740112</p>
+                                <p style={{ fontSize: '14px', letterSpacing: 1 }}>Fax: +60378767553</p>
                             </div>
                             <div className="social-block">
                                 <IconButton

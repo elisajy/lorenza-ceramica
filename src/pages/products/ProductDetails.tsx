@@ -12,9 +12,8 @@ const ItemDetail = () => {
     const { category, subcategory, code } = useParams();
     const [selectedProduct, setSelectedProduct] = useState<any>();
     const [prdImages, setPrdImages] = useState<any>([]);
-    const { cartState, cartDispatch } = useCartContext();
+    const { cartDispatch } = useCartContext();
     const capitalizeFirstLetters = (string: any) => {
-        console.log(string);
         if (!!string) {
             return string.split(' ').map((word: any) =>
                 word.charAt(0).toUpperCase() + word.slice(1)
@@ -25,8 +24,6 @@ const ItemDetail = () => {
     }
 
     const OPTIONS: EmblaOptionsType = {}
-    const SLIDE_COUNT = 10
-    // const SLIDES = Array.from(Array(SLIDE_COUNT).keys())
 
     useEffect(() => {
         let imageSlides: any[] = [];

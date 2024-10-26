@@ -1,20 +1,8 @@
 import {
-    Box,
-    Accordion,
-    AccordionItem,
-    AccordionButton,
-    AccordionPanel,
-    AccordionIcon,
-    Divider,
-    VStack,
-    Switch,
+    Box
 } from "@chakra-ui/react";
-import MainCarousel from "../landing-carousel/MainCarousel";
-import { useEffect, useState } from "react";
+import { Outlet } from "react-router-dom";
 import ProductSidebar from "../layout/sidebar/Sidebar";
-import { Outlet, Route, Routes } from "react-router-dom";
-import CategoryPage from "./ProductCategory";
-import ItemDetail from "./ProductDetails";
 
 const Products = () => {
     // useEffect(() => {

@@ -1,14 +1,10 @@
-import { headerMenu } from '../../helper/HeaderMenu';
-import { faCartShopping, faHouseLaptop } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSquareFacebook, faSquareInstagram } from '@fortawesome/free-brands-svg-icons';
-import { useEffect, useState } from 'react';
-import { homeBanner, itemTemplate } from '../../helper/HomeBanner';
-import { imageDataStructure } from '../../helper/dataInterface';
-import "./ProductTabs.css";
 import { Tab, TabIndicator, TabList, TabPanel, TabPanels, Tabs } from '@chakra-ui/react';
+import { useEffect, useState } from 'react';
+import { homeBanner } from '../../helper/HomeBanner';
+import { imageDataStructure } from '../../helper/dataInterface';
 import BestSellerCarousel from './BestSellerCarousel';
 import NewArrivalsCarousel from './NewArrivalsCarousel';
+import "./ProductTabs.css";
 
 const ProductTabs = () => {
     const [images, setImages] = useState<imageDataStructure[] | undefined>(undefined);
