@@ -13,10 +13,14 @@ function App() {
   const renderSiteRoutes = useMemo(() => {
     return siteRoutes.map((route: RouteInfo) => {
       if (route.children) {
-        const childrenRoute = route.children.map((childRoute: RouteInfo) => {
-          return (<Route key={childRoute.id} path={`${route.path}${childRoute.path}`} element={<childRoute.component />} />);
-        });
-        return [...childrenRoute];
+        const childrenRoute = <Route key={route.id} path={route.path} element={<route.component />}>
+          {
+            route.children.map((childRoute: RouteInfo) => {
+              return <Route path={childRoute.path} element={<childRoute.component />} />
+            })
+          }
+        </Route>
+        return childrenRoute;
       } else {
         return (<Route key={route.id} path={route.path} element={<route.component />} />);
       }
@@ -40,14 +44,14 @@ function App() {
     //     </a>
     //   </header>
     // </div>
-      <ColorModeProvider>
-        <Layout>
-          <Routes>
-            <Route path="/" element={<Landing />} />
-            {renderSiteRoutes}
-          </Routes>
-        </Layout>
-      </ColorModeProvider>
+    <ColorModeProvider>
+      <Layout>
+        <Routes>
+          <Route path="/" element={<Landing />} />
+          {renderSiteRoutes}
+        </Routes>
+      </Layout>
+    </ColorModeProvider>
   );
 }
 

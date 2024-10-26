@@ -16,7 +16,7 @@ export interface ProductItem {
 }
 
 export interface ShoppingCartState {
-  products: ProductItem[];
+  products: any;
 }
 
 const INITIAL_STATE: ShoppingCartState = {
@@ -32,9 +32,12 @@ const reducer = (
   action: { type: string; payload: any }
 ): ShoppingCartState => {
   const { type, payload } = action;
+  console.log(payload);
   switch (type) {
-    case REMOVE_ITEM: 
-      return { ...state, products: state.products.filter(x => x.id !== payload.id) };
+    case ADD_ITEM:
+      return { ...state, products: state.products.push(payload) };
+    case REMOVE_ITEM:
+      return { ...state, products: state.products.filter((x: any) => x.id !== payload.id) };
     default:
       return state;
   }

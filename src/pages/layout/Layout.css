@@ -1,7 +1,8 @@
 .layout {
   display: flex;
   flex-direction: column;
-  min-height: 200vh;
+  min-height: 100vh;
+  /* height: 100vh; */
 }
 
 /* Header */
@@ -27,7 +28,9 @@
 
 /* Main content */
 .content {
+  display: flex;
   flex: 1;
+  flex-direction: column;
 }
 
 /* Footer */
