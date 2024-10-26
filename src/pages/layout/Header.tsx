@@ -82,7 +82,7 @@ const Header = ({ children }: any) => {
                         {/* Navigation Menu and Social Icons */}
                         <Flex alignItems="center">
                             <HStack as="nav" spacing={4} display={{ base: "none", md: "flex" }} mr={5} className="menu-stack">
-                                <Button variant="ghost">
+                                <Button variant="ghost" onClick={() => navigate('/')}>
                                     <Text fontSize={"xl"}>Home</Text>
                                 </Button>
                                 <Button variant="ghost">

@@ -3,7 +3,7 @@
   display: flex;
   align-items: center;
   margin: auto;
-  --slide-height: auto;
+  --slide-height: 500px;
   --slide-spacing: 1rem;
   --slide-size: 100%;
 }
