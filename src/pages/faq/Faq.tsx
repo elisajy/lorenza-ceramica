@@ -11,6 +11,7 @@ import {
 import "./Faq.css";
 import { useEffect, useState } from "react";
 import { faqData } from "./Faq.data";
+import pageBgDivider from "../../assets/images/page-bg-divider.png";
 
 const Faq = () => {
   const SLIDE_COUNT = 5;
@@ -39,7 +40,7 @@ const Faq = () => {
           >
             {y.category}
           </h2>
-          <Accordion allowMultiple>
+          <Accordion className="faq-accordion" allowMultiple>
             {y.children.map((x: any, index: number) => {
               return (
                 <AccordionItem key={index}>
@@ -67,7 +68,8 @@ const Faq = () => {
   };
 
   return (
-    <>
+    <Box>
+      <img src={pageBgDivider} alt="page-bg-divider" />
       <Box maxWidth="8xl" margin="30px 60px">
         <div style={{ margin: "18px" }}>
           <h2
@@ -85,7 +87,7 @@ const Faq = () => {
         <Divider />
         <VStack>{faqList()}</VStack>
       </Box>
-    </>
+    </Box>
   );
 };
 
