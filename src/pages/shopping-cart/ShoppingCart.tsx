@@ -30,12 +30,12 @@ interface Props {
 
 const ShoppingCart = ({ visible, setVisible }: Props) => {
   const { cartState, cartDispatch } = useCartContext();
-  const [products, setProducts] = useState<ProductItem[]>();
+  const [products, setProducts] = useState<ProductItem[]>(cartState.products);
 
   useEffect(() => {
     setProducts(cartState.products);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [cartState.products]);
+  }, [cartState]);
 
   const onClickRemoveItem = (item: ProductItem) => {
     setProducts(products!.filter((x) => x.id !== item.id));
@@ -50,7 +50,7 @@ const ShoppingCart = ({ visible, setVisible }: Props) => {
     let message = "Hi, I would like to inquire about the following products: ";
     for (let i = 0; i < products!.length; i++) {
       message = message.concat(
-        `\n${i + 1}. ${products![i].name} (*${products![i].code}*)`
+        `\n${i + 1}. ${products![i].prdName} (*${products![i].prdCode}*)`
       );
     }
     const url = `https://web.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(
@@ -63,11 +63,11 @@ const ShoppingCart = ({ visible, setVisible }: Props) => {
     return (
       <div key={index} style={{ marginTop: "10px" }}>
         <div className="cart-item">
-          <img className="product-image" src={`${product_A}`} alt={data.name} />
-          <div>
+          <img className="product-image" src={require(`../../assets/mock-media/dummy-products/${data.prdCode}.jpg`)} alt={data.prdName} />
+          <div style={{ maxWidth: '125px' }}>
             <div>
-              <div className="text-l-font-bold">{data.name}</div>
-              <div className="text-600-small">{data.description}</div>
+              <div className="text-l-font-bold">{data.prdName}</div>
+              {/* <div className="text-600-small">{data.prdDesc}</div> */}
             </div>
             <div>
               <table className="item-details">
@@ -75,27 +75,27 @@ const ShoppingCart = ({ visible, setVisible }: Props) => {
                   <tr>
                     <td>Code</td>
                     <td>:</td>
-                    <td>{data.code}</td>
+                    <td>{data.prdCode}</td>
                   </tr>
                   <tr>
                     <td>Variation</td>
                     <td>:</td>
-                    <td>{data.variation}</td>
+                    <td>{data.prdVariation ?? '-'}</td>
                   </tr>
                   <tr>
                     <td>Size</td>
                     <td>:</td>
-                    <td>{data.size}</td>
+                    <td>{data.prdSize ?? '-'}</td>
                   </tr>
                   <tr>
                     <td>Color</td>
                     <td>:</td>
-                    <td>{data.color}</td>
+                    <td>{data.color ?? '-'}</td>
                   </tr>
                   <tr>
                     <td>Finish</td>
                     <td>:</td>
-                    <td>{data.finish}</td>
+                    <td>{data.finish ?? '-'}</td>
                   </tr>
                 </tbody>
               </table>

@@ -8,9 +8,10 @@ import {
     Spacer,
     Stack,
     useDisclosure,
-    Text
+    Text,
+    Badge
 } from "@chakra-ui/react";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { productMenu, socialMenu } from "../../helper/HeaderMenu";
 import ShoppingCart from "../shopping-cart/ShoppingCart";
@@ -18,6 +19,7 @@ import { Menu, MenuButton, MenuItem, SubMenu } from "@szhsin/react-menu";
 import "./Layout.css";
 import '@szhsin/react-menu/dist/index.css';
 import '@szhsin/react-menu/dist/transitions/zoom.css';
+import { useCartContext } from "../../hooks/cart-context/CartContext";
 const Header = ({ children }: any) => {
     const start = (
         <img
@@ -43,6 +45,8 @@ const Header = ({ children }: any) => {
     const toggleDropdown = () => setDropdownOpen(!dropdownOpen);
     const toggleSubDropdown = () => setSubDropdownOpen(!subDropdownOpen);
     const [innerMenusActive, setInnerMenusActive] = useState(true);
+    const { cartState } = useCartContext();
+    const itemCount: number = useMemo(() => cartState.products.length, [cartState]);
 
     const closeSubMenus = () => {
         setInnerMenusActive(false);
@@ -60,6 +64,16 @@ const Header = ({ children }: any) => {
         if (!!item.route) {
             navigate(item.route);
         }
+    };
+
+    // Temporary solution for ref null error in SubMenu component
+    // Navigate with delay to allow components loaded into DOM element
+    const navigationDelay = (item: any) => {
+        setTimeout(() => {
+            if (!!item.route) {
+                navigate(item.route);
+            }
+        }, 200); // Delay of 500 milliseconds (1000ms = 1 second)
     };
 
     return (
@@ -100,10 +114,10 @@ const Header = ({ children }: any) => {
                                         productMenu.map((item: any) => {
                                             if (item.prds && item.prds.length !== 0) {
                                                 return (
-                                                    <SubMenu menuStyle={{textAlign: 'center'}} label={<Text fontWeight={600} fontSize={'lg'}>{item.label}</Text>}>
+                                                    <SubMenu menuStyle={{ textAlign: 'center' }} label={<Text fontWeight={600} fontSize={'lg'}>{item.label}</Text>}>
                                                         {
                                                             item.prds.map((x: any) => {
-                                                                return <MenuItem style={{textAlign: 'center'}} onClick={() => navigation(x)}><Text>{x.label}</Text></MenuItem>
+                                                                return <MenuItem style={{ textAlign: 'center' }} onClick={() => navigationDelay(x)}><Text>{x.label}</Text></MenuItem>
                                                             })
                                                         }
                                                     </SubMenu>
@@ -199,20 +213,28 @@ const Header = ({ children }: any) => {
                                 {socialMenu && socialMenu.length !== 0
                                     ? socialMenu.map((item: any) => {
                                         return (
-                                            <IconButton
-                                                as="a"
-                                                href={item.href}
-                                                aria-label={item.ariaLabel}
-                                                icon={item.icon}
-                                                size={item.size}
-                                                variant="ghost"
-                                                fontSize={item.fontSize}
-                                                onClick={
-                                                    item.ariaLabel === "ShoppingCart"
-                                                        ? () => setVisible(!visible)
-                                                        : () => openUrl(item.url)
+                                            <>
+                                                <IconButton
+                                                    as="a"
+                                                    href={item.href}
+                                                    aria-label={item.ariaLabel}
+                                                    icon={item.icon}
+                                                    size={item.size}
+                                                    variant="ghost"
+                                                    fontSize={item.fontSize}
+                                                    onClick={
+                                                        item.ariaLabel === "ShoppingCart"
+                                                            ? () => setVisible(!visible)
+                                                            : () => openUrl(item.url)
+                                                    }
+                                                />
+                                                {(item.ariaLabel === "ShoppingCart")
+                                                    ? <Badge colorScheme="red" borderRadius="full" px="2" position="relative" top="-15px" left="-25px">
+                                                        {itemCount}
+                                                    </Badge>
+                                                    : null
                                                 }
-                                            />
+                                            </>
                                         );
                                     })
                                     : null}

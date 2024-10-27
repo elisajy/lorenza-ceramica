@@ -3,16 +3,15 @@ import { products } from "../../pages/shopping-cart/ShoppingCartData";
 
 export interface ProductItem {
   id?: number;
-  code?: string;
-  name?: string;
-  description?: string;
+  prdCode?: string;
+  prdName?: string;
+  prdDesc?: string;
   image?: string;
-  variation?: string;
-  size?: string;
+  prdVariation?: string;
+  prdSize?: string;
   color?: string;
   finish?: string;
-  price?: number;
-  quantity?: number;
+  thickness?: string;
 }
 
 export interface ShoppingCartState {
@@ -20,7 +19,7 @@ export interface ShoppingCartState {
 }
 
 const INITIAL_STATE: ShoppingCartState = {
-  products: products,
+  products: [],
 };
 
 export const ADD_ITEM = "[CART_CONTEXT] ADD_ITEM";
@@ -34,7 +33,11 @@ const reducer = (
   const { type, payload } = action;
   switch (type) {
     case ADD_ITEM:
-      return { ...state, products: state.products.push(payload) };
+      if (state.products.filter((x: any) => x.id === payload.id).length === 0){
+        const addedProducts = [...state.products, { ...payload }];
+        return { ...state, products: addedProducts };
+      }
+      else return state;
     case REMOVE_ITEM:
       return { ...state, products: state.products.filter((x: any) => x.id !== payload.id) };
     default:

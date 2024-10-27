@@ -8,9 +8,9 @@ import {
   Divider,
   VStack,
 } from "@chakra-ui/react";
-import MainCarousel from "../landing-carousel/MainCarousel";
 import "./Faq.css";
 import { useEffect, useState } from "react";
+import { faqData } from "./Faq.data";
 
 const Faq = () => {
   const SLIDE_COUNT = 5;
@@ -18,9 +18,10 @@ const Faq = () => {
   const [faq, setFaq] = useState<any>([]);
 
   useEffect(() => {
-    fetch(`${process.env.REACT_APP_API_URL}/faq`)
-      .then((response) => response.json())
-      .then((data) => setFaq(data));
+    // fetch(`${process.env.REACT_APP_API_URL}/faq`)
+    //   .then((response) => response.json())
+    //   .then((data) => setFaq(data));
+    setFaq(faqData);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -67,7 +68,6 @@ const Faq = () => {
 
   return (
     <>
-      <MainCarousel slides={SLIDES} />
       <Box maxWidth="8xl" margin="30px 60px">
         <div style={{ margin: "18px" }}>
           <h2
