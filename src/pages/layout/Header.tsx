@@ -99,7 +99,7 @@ const Header = ({ children }: any) => {
                                 <Button variant="ghost" onClick={() => navigate('/')}>
                                     <Text fontSize={"xl"}>Home</Text>
                                 </Button>
-                                <Button variant="ghost">
+                                <Button variant="ghost" onClick={() => navigate('/about-us')}>
                                     <Text fontSize={"xl"}>About Us</Text>
                                 </Button>
                                 <Menu menuButton={<MenuButton style={{ paddingInline: '1rem' }}>
