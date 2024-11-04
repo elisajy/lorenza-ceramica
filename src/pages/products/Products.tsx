@@ -3,6 +3,7 @@ import {
 } from "@chakra-ui/react";
 import { Outlet } from "react-router-dom";
 import ProductSidebar from "../layout/sidebar/Sidebar";
+import { useEffect } from "react";
 
 const Products = () => {
     // useEffect(() => {
@@ -11,6 +12,11 @@ const Products = () => {
     //     .then((data) => setFaq(data));
     //   // eslint-disable-next-line react-hooks/exhaustive-deps
     // }, []);
+
+    useEffect(() => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
 
     return (
         <>

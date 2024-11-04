@@ -19,6 +19,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import './Products.css';
 import { ChevronRightIcon } from "@chakra-ui/icons";
 import { dummyProducts } from "../../helper/HeaderMenu";
+import { useEffect } from "react";
 
 const CategoryPage = () => {
     const { category, subcategory } = useParams();
@@ -32,11 +33,14 @@ const CategoryPage = () => {
             return string
         }
     }
-
     const viewProductDetails = (code: any) => {
         navigate(`/products/${category}/${subcategory}/${code}`);
     };
 
+    useEffect(() => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
 
     return (
         <>

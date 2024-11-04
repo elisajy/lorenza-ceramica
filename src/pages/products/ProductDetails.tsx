@@ -26,6 +26,11 @@ const ItemDetail = () => {
     const OPTIONS: EmblaOptionsType = {}
 
     useEffect(() => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
+
+    useEffect(() => {
         let imageSlides: any[] = [];
         const x = dummyProducts.find((item: any) => {
             if (!!code) {
