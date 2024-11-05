@@ -69,22 +69,20 @@ const Footer = ({ children }: any) => {
                                 </Heading>
                             </div>
                             <div className="nav-block">
-                                <Button colorScheme='white' variant='link'>
-                                    Main Page
-                                </Button>
-                                <Button colorScheme='white' variant='link'>
-                                    About Us
-                                </Button>
-                                <Button colorScheme='white' variant='link'>
-                                    Products
-                                </Button>
-                                <Button colorScheme='white' variant='link'>
-                                    Inspiration
-                                </Button>
+                                <Link to="/">
+                                    <Button colorScheme='white' variant='link'>Main Page</Button>
+                                </Link>
+                                <Link to="/">
+                                    <Button colorScheme='white' variant='link'>About Us</Button>
+                                </Link>
+                                <Link to="/">
+                                    <Button colorScheme='white' variant='link'>Products</Button>
+                                </Link>
+                                <Link to="/">
+                                    <Button colorScheme='white' variant='link'>Inspiration</Button>
+                                </Link>
                                 <Link to="/faq">
-                                    <Button colorScheme='white' variant='link'>
-                                        FAQ
-                                    </Button>
+                                    <Button colorScheme='white' variant='link'>FAQ</Button>
                                 </Link>
                             </div>
                         </Box>

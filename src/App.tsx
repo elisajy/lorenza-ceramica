@@ -7,6 +7,7 @@ import { Route, Routes, useLocation, useNavigate } from 'react-router-dom';
 import MainCarousel from './pages/landing-carousel/MainCarousel';
 import Landing from './pages/landing/Landing';
 import { ThemeProvider, ColorModeProvider } from "@chakra-ui/react"
+import ScrollToTop from './components/scroll-to-top/ScrollToTop';
 
 function App() {
 
@@ -46,6 +47,7 @@ function App() {
     // </div>
     <ColorModeProvider>
       <Layout>
+        <ScrollToTop />
         <Routes>
           <Route path="/" element={<Landing />} />
           {renderSiteRoutes}

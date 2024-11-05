@@ -23,6 +23,7 @@ const PrdCategoryPage = ReactLazyPreload(
 const PrdItemDetail = ReactLazyPreload(
   () => import("./pages/products/ProductDetails")
 );
+const AboutUs = ReactLazyPreload(() => import("./pages/about-us/AboutUs"));
 
 export const siteRoutes: RouteInfo[] = [
   {
@@ -62,5 +63,11 @@ export const siteRoutes: RouteInfo[] = [
     name: "Product Categories",
     path: "/products/:category/:id",
     component: Products,
+  },
+  {
+    id: "AboutUs",
+    name: "AboutUs",
+    path: "/about-us",
+    component: AboutUs,
   },
 ];

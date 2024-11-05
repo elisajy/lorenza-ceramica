@@ -1,5 +1,5 @@
 import { ChevronRightIcon } from '@chakra-ui/icons';
-import { Box, Breadcrumb, BreadcrumbItem, BreadcrumbLink, Button, StackDivider, Text, VStack } from '@chakra-ui/react';
+import { Box, Breadcrumb, BreadcrumbItem, BreadcrumbLink, Button, StackDivider, Text, useToast, VStack } from '@chakra-ui/react';
 import { EmblaOptionsType } from 'embla-carousel';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
@@ -9,6 +9,7 @@ import './Products.css';
 import { ADD_ITEM, useCartContext } from '../../hooks/cart-context/CartContext';
 
 const ItemDetail = () => {
+    const toast = useToast();
     const { category, subcategory, code } = useParams();
     const [selectedProduct, setSelectedProduct] = useState<any>();
     const [prdImages, setPrdImages] = useState<any>([]);
@@ -49,6 +50,14 @@ const ItemDetail = () => {
         cartDispatch({
             type: ADD_ITEM,
             payload: selectedProduct,
+        });
+        toast({
+            title: 'Successful!',
+            description: 'Item added to cart.',
+            status: 'success',
+            position: 'top',
+            duration: 900,
+            isClosable: true,
         });
     };
 
