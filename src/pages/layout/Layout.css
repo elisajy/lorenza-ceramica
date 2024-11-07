@@ -489,9 +489,9 @@
 
 /* Main content */
 .content {
-  display: flex;
+  /* display: flex; */
   flex: 1;
-  flex-direction: column;
+  /* flex-direction: column; */
 }
 
 .logo img {
