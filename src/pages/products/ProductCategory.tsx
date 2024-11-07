@@ -14,6 +14,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import './Products.css';
 import { ChevronRightIcon } from "@chakra-ui/icons";
 import { useEffect, useState } from "react";
+import { dummyProducts, productMenu } from "../../helper/HeaderMenu";
 
 const CategoryPage = () => {
     const { category, subcategory } = useParams();

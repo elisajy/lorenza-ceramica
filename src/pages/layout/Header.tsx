@@ -48,7 +48,7 @@ const Header = ({ children }: any) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [subDropdownOpen, setSubDropdownOpen] = useState(false);
-    const [categories, setCategories] = useState<any>([]);
+  const [categories, setCategories] = useState<any>([]);
   const navigate = useNavigate();
   const toggleDropdown = () => setDropdownOpen(!dropdownOpen);
   const toggleSubDropdown = () => setSubDropdownOpen(!subDropdownOpen);
@@ -76,16 +76,16 @@ const Header = ({ children }: any) => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-    const closeSubMenus = () => {
-        setInnerMenusActive(false);
-    };
-    
-    // useEffect(() => {
-    //     fetch(`${process.env.REACT_APP_API_URL}/productsSideNavs`)
-    //         .then((response) => response.json())
-    //         .then((data) => setCategories(data));
-    //     // eslint-disable-next-line react-hooks/exhaustive-deps
-    // }, []);
+  const closeSubMenus = () => {
+    setInnerMenusActive(false);
+  };
+
+  // useEffect(() => {
+  //     fetch(`${process.env.REACT_APP_API_URL}/productsSideNavs`)
+  //         .then((response) => response.json())
+  //         .then((data) => setCategories(data));
+  //     // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, []);
 
   const openUrl = (url: string) => {
     window.open(url, "_blank");
@@ -110,7 +110,7 @@ const Header = ({ children }: any) => {
   return (
     <>
       <header className="header">
-        {width >= 960 && (
+        {width >= 992 && (
           <Flex alignContent={"center"} alignItems={"center"}>
             <Box>
               <img
@@ -293,164 +293,226 @@ const Header = ({ children }: any) => {
           </Flex>
         )}
 
-        {width < 960 && width > 576 && (
+        {width < 992 && width > 576 && (
           <>
-            <Flex alignContent={"center"} alignItems={"center"}>
-              <Box width={130}>
-                <IconButton
-                  size={"lg"}
-                  fontSize={"xl"}
-                  aria-label="Menu"
-                  icon={<HamburgerIcon />}
-                />
-              </Box>
-              <Spacer />
-              <Box>
-                <img
-                  className="header-logo"
-                  src="/lorenza-logo-transparent-blue.png"
-                  alt="Logo"
-                />
-              </Box>
-              <Spacer />
-              <Box>
-                <Stack spacing={1} display={{ md: "flex" }} direction={"row"}>
-                  {socialMenu && socialMenu.length !== 0
-                    ? socialMenu.map((item: any) => {
-                        return (
-                          <>
-                            <IconButton
-                              as="a"
-                              href={item.href}
-                              aria-label={item.ariaLabel}
-                              icon={item.icon}
-                              size={"md"}
-                              variant="ghost"
-                              fontSize={"xl"}
-                              onClick={
-                                item.ariaLabel === "ShoppingCart"
-                                  ? () => setVisible(!visible)
-                                  : () => openUrl(item.url)
-                              }
-                            />
-                            {item.ariaLabel === "ShoppingCart" ? (
-                              <Badge
-                                colorScheme="red"
-                                borderRadius="full"
-                                px="2"
-                                position="relative"
-                                top="-15px"
-                                left="-25px"
-                              >
-                                {itemCount}
-                              </Badge>
-                            ) : null}
-                          </>
-                        );
-                      })
-                    : null}
-                </Stack>
-              </Box>
-            </Flex>
+            <Grid
+              templateAreas={`"header1 header2 header3"`}
+              gridTemplateRows={"90px"}
+              gridTemplateColumns={"1fr 1fr 1fr"}
+              h={"100px"}
+              gap="1"
+            >
+              <GridItem
+                style={{
+                  display: "flex",
+                  justifyContent: "start",
+                  alignItems: "center",
+                }}
+                area={"header1"}
+              >
+                <Box>
+                  <IconButton
+                    size={"lg"}
+                    fontSize={"xl"}
+                    aria-label="Menu"
+                    icon={<HamburgerIcon />}
+                  />
+                </Box>
+              </GridItem>
+              <GridItem
+                style={{
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                }}
+                area={"header2"}
+              >
+                <Box>
+                  <img
+                    className="header-logo"
+                    src="/lorenza-logo-transparent-blue.png"
+                    alt="Logo"
+                  />
+                </Box>
+              </GridItem>
+              <GridItem
+                style={{
+                  display: "flex",
+                  justifyContent: "end",
+                  alignItems: "center",
+                }}
+                area={"header3"}
+              >
+                <Box>
+                  <Stack spacing={1} display={{ md: "flex" }} direction={"row"}>
+                    {socialMenu && socialMenu.length !== 0
+                      ? socialMenu.map((item: any) => {
+                          return (
+                            <>
+                              <IconButton
+                                as="a"
+                                href={item.href}
+                                aria-label={item.ariaLabel}
+                                icon={item.icon}
+                                size={"md"}
+                                variant="ghost"
+                                fontSize={"xl"}
+                                onClick={
+                                  item.ariaLabel === "ShoppingCart"
+                                    ? () => setVisible(!visible)
+                                    : () => openUrl(item.url)
+                                }
+                              />
+                              {item.ariaLabel === "ShoppingCart" ? (
+                                <Badge
+                                  colorScheme="red"
+                                  borderRadius="full"
+                                  px="2"
+                                  position="relative"
+                                  top="-15px"
+                                  left="-25px"
+                                >
+                                  {itemCount}
+                                </Badge>
+                              ) : null}
+                            </>
+                          );
+                        })
+                      : null}
+                  </Stack>
+                </Box>
+              </GridItem>
+            </Grid>
           </>
         )}
 
         {width <= 576 && (
           <>
-            <Flex alignContent={"center"} alignItems={"center"}>
-              <Box width={130}>
-                <IconButton
-                  size={"lg"}
-                  fontSize={"xl"}
-                  aria-label="Menu"
-                  icon={<HamburgerIcon />}
-                />
-              </Box>
-              <Spacer width={100} />
-              <Box>
-                <img
-                  className="header-logo"
-                  src="/lorenza-logo-transparent-blue.png"
-                  alt="Logo"
-                />
-              </Box>
-              <Spacer width={100} />
-              <Box minWidth={130}>
-                <Stack spacing={1} display={"flex"} float={"right"}>
-                  {socialMenu && socialMenu.length !== 0
-                    ? socialMenu.map((item: any) => {
-                        return (
-                          <>
-                            {width <= 576 ? (
-                              <>
-                                {item.ariaLabel === "ShoppingCart" && (
-                                  <>
-                                    <IconButton
-                                      as="a"
-                                      href={item.href}
-                                      aria-label={item.ariaLabel}
-                                      icon={item.icon}
-                                      size={"sm"}
-                                      variant="ghost"
-                                      fontSize={"md"}
-                                      onClick={
-                                        item.ariaLabel === "ShoppingCart"
-                                          ? () => setVisible(!visible)
-                                          : () => openUrl(item.url)
-                                      }
-                                    />
-                                    {item.ariaLabel === "ShoppingCart" ? (
-                                      <Badge
-                                        colorScheme="red"
-                                        borderRadius="full"
-                                        px="2"
-                                        position="relative"
-                                        top="-30px"
-                                        left="-25px"
-                                      >
-                                        {itemCount}
-                                      </Badge>
-                                    ) : null}
-                                  </>
-                                )}
-                              </>
-                            ) : (
-                              <>
-                                <IconButton
-                                  as="a"
-                                  href={item.href}
-                                  aria-label={item.ariaLabel}
-                                  icon={item.icon}
-                                  size={"sm"}
-                                  variant="ghost"
-                                  fontSize={"md"}
-                                  onClick={
-                                    item.ariaLabel === "ShoppingCart"
-                                      ? () => setVisible(!visible)
-                                      : () => openUrl(item.url)
-                                  }
-                                />
-                                {item.ariaLabel === "ShoppingCart" ? (
-                                  <Badge
-                                    colorScheme="red"
-                                    borderRadius="full"
-                                    px="2"
-                                    position="relative"
-                                    top="-15px"
-                                    left="-25px"
-                                  >
-                                    {itemCount}
-                                  </Badge>
-                                ) : null}
-                              </>
-                            )}
-                          </>
-                        );
-                      })
-                    : null}
-                </Stack>
-              </Box>
-            </Flex>
+            <Grid
+              templateAreas={`"header1 header2 header3"`}
+              gridTemplateRows={"90px"}
+              gridTemplateColumns={"1fr 1fr 1fr"}
+              h={"100px"}
+              gap="1"
+            >
+              <GridItem
+                style={{
+                  display: "flex",
+                  justifyContent: "start",
+                  alignItems: "center",
+                }}
+                area={"header1"}
+              >
+                <Box>
+                  <IconButton
+                    size={"lg"}
+                    fontSize={"xl"}
+                    aria-label="Menu"
+                    icon={<HamburgerIcon />}
+                  />
+                </Box>
+              </GridItem>
+              <GridItem
+                style={{
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                }}
+                area={"header2"}
+              >
+                <Box>
+                  <img
+                    className="header-logo"
+                    src="/lorenza-logo-transparent-blue.png"
+                    alt="Logo"
+                  />
+                </Box>
+              </GridItem>
+              <GridItem
+                style={{
+                  display: "flex",
+                  justifyContent: "end",
+                  alignItems: "center",
+                }}
+                area={"header3"}
+              >
+                <Box>
+                  <Stack spacing={1} display={"flex"} float={"right"}>
+                    {socialMenu && socialMenu.length !== 0
+                      ? socialMenu.map((item: any) => {
+                          return (
+                            <>
+                              {width <= 576 ? (
+                                <>
+                                  {item.ariaLabel === "ShoppingCart" && (
+                                    <>
+                                      <IconButton
+                                        as="a"
+                                        href={item.href}
+                                        aria-label={item.ariaLabel}
+                                        icon={item.icon}
+                                        size={"sm"}
+                                        variant="ghost"
+                                        fontSize={"md"}
+                                        onClick={
+                                          item.ariaLabel === "ShoppingCart"
+                                            ? () => setVisible(!visible)
+                                            : () => openUrl(item.url)
+                                        }
+                                      />
+                                      {item.ariaLabel === "ShoppingCart" ? (
+                                        <Badge
+                                          colorScheme="red"
+                                          borderRadius="full"
+                                          px="2"
+                                          position="relative"
+                                          top="-30px"
+                                          left="-25px"
+                                        >
+                                          {itemCount}
+                                        </Badge>
+                                      ) : null}
+                                    </>
+                                  )}
+                                </>
+                              ) : (
+                                <>
+                                  <IconButton
+                                    as="a"
+                                    href={item.href}
+                                    aria-label={item.ariaLabel}
+                                    icon={item.icon}
+                                    size={"sm"}
+                                    variant="ghost"
+                                    fontSize={"md"}
+                                    onClick={
+                                      item.ariaLabel === "ShoppingCart"
+                                        ? () => setVisible(!visible)
+                                        : () => openUrl(item.url)
+                                    }
+                                  />
+                                  {item.ariaLabel === "ShoppingCart" ? (
+                                    <Badge
+                                      colorScheme="red"
+                                      borderRadius="full"
+                                      px="2"
+                                      position="relative"
+                                      top="-30px"
+                                      left="-25px"
+                                    >
+                                      {itemCount}
+                                    </Badge>
+                                  ) : null}
+                                </>
+                              )}
+                            </>
+                          );
+                        })
+                      : null}
+                  </Stack>
+                </Box>
+              </GridItem>
+            </Grid>
           </>
         )}
       </header>

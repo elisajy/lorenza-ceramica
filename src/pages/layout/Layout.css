@@ -26,56 +26,50 @@
     margin-top: auto;
   }
 
-  .footer-box {
-    height: auto;
-    text-align: left;
-    padding: 2vw 3vw 2vw 3vw;
+  .mobile-logo-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     .footer-logo {
       height: 80px;
     }
+  }
 
-    .company-info-block {
-      margin-top: 30px;
+  .mobile-company-info-box {
+    display: flex;
+    flex-direction: column;
+    color: white;
+  }
+
+  .mobile-heading-block{
+    text-align: left;
+    color: white;
+  }
+
+  .mobile-nav-block{
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    color: white;
+    font-size: 12px;
+    font-weight: 500;
+
+    Button {
+      font-size: 12px;
+      word-spacing: 1px;
+      letter-spacing: 1px;
     }
+  }
 
-    .operating-hour-block {
-      margin-top: 15px;
+  .mobile-social-block {
+    margin-top: 15px;
+    a {
+      color: white;
+      font-size: 2rem;
+      margin-right: 15px;
     }
-
-    .heading-block {
-      height: 70px;
-      display: flex;
-      align-items: flex-end;
-    }
-
-    .social-block {
-      margin-top: 15px;
-      a {
-        color: white;
-        font-size: 2rem;
-        margin-right: 15px;
-      }
-    }
-
-    .nav-block {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      justify-content: center;
-      margin-top: 35px;
-
-      Button {
-        height: 35px;
-        font-size: 14px;
-        word-spacing: 2px;
-        letter-spacing: 1px;
-      }
-    }
-
-    .contact-block {
-      margin-top: 35px;
-    }
+    text-align: left;
   }
 }
 @media screen and (min-width: 480px) {
@@ -102,60 +96,54 @@
     background-image: url("../../assets/mock-media/bottom-nav.png");
     color: white;
     text-align: center;
-    padding: 0.5rem;
+    padding: 1rem;
     margin-top: auto;
   }
 
-  .footer-box {
-    height: auto;
-    text-align: left;
-    padding: 2vw 3vw 2vw 3vw;
+  .mobile-logo-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     .footer-logo {
       height: 80px;
     }
+  }
 
-    .company-info-block {
-      margin-top: 30px;
+  .mobile-company-info-box {
+    display: flex;
+    flex-direction: column;
+    color: white;
+  }
+
+  .mobile-heading-block{
+    text-align: left;
+    color: white;
+  }
+
+  .mobile-nav-block{
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    color: white;
+    font-size: 12px;
+    font-weight: 500;
+
+    Button {
+      font-size: 12px;
+      word-spacing: 1px;
+      letter-spacing: 1px;
     }
+  }
 
-    .operating-hour-block {
-      margin-top: 15px;
+  .mobile-social-block {
+    margin-top: 15px;
+    a {
+      color: white;
+      font-size: 2rem;
+      margin-right: 15px;
     }
-
-    .heading-block {
-      height: 70px;
-      display: flex;
-      align-items: flex-end;
-    }
-
-    .social-block {
-      margin-top: 15px;
-      a {
-        color: white;
-        font-size: 2rem;
-        margin-right: 15px;
-      }
-    }
-
-    .nav-block {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      justify-content: center;
-      margin-top: 35px;
-
-      Button {
-        height: 35px;
-        font-size: 14px;
-        word-spacing: 2px;
-        letter-spacing: 1px;
-      }
-    }
-
-    .contact-block {
-      margin-top: 35px;
-    }
+    text-align: left;
   }
 }
 @media screen and (min-width: 640px) {
@@ -182,63 +170,57 @@
     background-image: url("../../assets/mock-media/bottom-nav.png");
     color: white;
     text-align: center;
-    padding: 0.5rem;
+    padding: 1rem;
     margin-top: auto;
   }
 
-  .footer-box {
-    height: auto;
-    text-align: left;
-    padding: 2vw 3vw 2vw 3vw;
+  .mobile-logo-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     .footer-logo {
       height: 80px;
     }
+  }
 
-    .company-info-block {
-      margin-top: 30px;
-    }
+  .mobile-company-info-box {
+    display: flex;
+    flex-direction: column;
+    color: white;
+  }
 
-    .operating-hour-block {
-      margin-top: 15px;
-    }
+  .mobile-heading-block{
+    text-align: left;
+    color: white;
+  }
 
-    .heading-block {
-      height: 70px;
-      display: flex;
-      align-items: flex-end;
-    }
+  .mobile-nav-block{
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    color: white;
+    font-size: 14px;
+    font-weight: 500;
 
-    .social-block {
-      margin-top: 15px;
-      a {
-        color: white;
-        font-size: 2rem;
-        margin-right: 15px;
-      }
-    }
-
-    .nav-block {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      justify-content: center;
-      margin-top: 35px;
-
-      Button {
-        height: 35px;
-        font-size: 14px;
-        word-spacing: 2px;
-        letter-spacing: 1px;
-      }
-    }
-
-    .contact-block {
-      margin-top: 35px;
+    Button {
+      font-size: 14px;
+      word-spacing: 1px;
+      letter-spacing: 1px;
     }
   }
+
+  .mobile-social-block {
+    margin-top: 15px;
+    a {
+      color: white;
+      font-size: 2rem;
+      margin-right: 15px;
+    }
+    text-align: left;
+  }
 }
-@media screen and (min-width: 960px) {
+@media screen and (min-width: 992px) {
   /* tablet, landscape iPad, lo-res laptops ands desktops */
   .header {
     position: sticky;
@@ -264,6 +246,10 @@
     text-align: center;
     padding: 1rem;
     margin-top: auto;
+  }
+
+  .footer-logo {
+    height: 80px;
   }
 
   .footer-box {
@@ -386,9 +372,9 @@
       margin-top: 35px;
 
       Button {
-        height: 35px;
+        height: 30px;
         font-size: 14px;
-        word-spacing: 2px;
+        word-spacing: 1px;
         letter-spacing: 1px;
       }
     }
@@ -467,9 +453,9 @@
       margin-top: 35px;
 
       Button {
-        height: 35px;
+        height: 30px;
         font-size: 14px;
-        word-spacing: 2px;
+        word-spacing: 1px;
         letter-spacing: 1px;
       }
     }
