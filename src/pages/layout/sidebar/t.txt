@@ -1,169 +1,18 @@
-    <>
-                <Button onClick={onOpen}>Open</Button>
-                <Drawer placement={"top"} onClose={onClose} isOpen={isOpen}>
-                  <DrawerOverlay />
-                  <DrawerContent>
-                    <DrawerHeader borderBottomWidth="1px">
-                      Basic Drawer
-                    </DrawerHeader>
-                    <DrawerBody>
-                      <p>Some contents...</p>
-                      <p>Some contents...</p>
-                      <p>Some contents...</p>
-                    </DrawerBody>
-                  </DrawerContent>
-                </Drawer>
-
-                <Spacer />
-              </>
-
-               <Box>
-              <img
-                className="header-logo"
-                src="/lorenza-logo-transparent-blue.png"
-                alt="Logo"
-              />
-            </Box>
-
-              <Flex alignItems="center">
-                <HStack
-                  as="nav"
-                  spacing={{ base: 1, sm: 2, md: 3, lg: 4 }}
-                  display={{ base: "none", md: "flex" }}
-                  mr={"auto"}
-                  className="menu-stack"
-                >
-                  <Button variant="ghost" onClick={() => navigate("/")}>
-                    <Text
-                      fontSize={{ base: "sm", sm: "md", md: "lg", lg: "xl" }}
-                    >
-                      {width}
-                    </Text>
-                  </Button>
-                  <Button variant="ghost" onClick={() => navigate("/about-us")}>
-                    <Text
-                      fontSize={{ base: "sm", sm: "md", md: "lg", lg: "xl" }}
-                    >
-                      About Us
-                    </Text>
-                  </Button>
-                  <Menu
-                    menuButton={
-                      <MenuButton style={{ paddingInline: "1rem" }}>
-                        <Text
-                          fontSize={{
-                            base: "sm",
-                            sm: "md",
-                            md: "lg",
-                            lg: "xl",
-                          }}
-                          fontWeight={600}
-                          letterSpacing={"1px"}
-                          color={"#3d4781"}
-                        >
-                          Products
-                        </Text>
-                      </MenuButton>
-                    }
-                    transition
-                    align={"center"}
-                    viewScroll={"close"}
-                  >
-                    {productMenu &&
-                      productMenu.length !== 0 &&
-                      productMenu.map((item: any) => {
-                        if (item.prds && item.prds.length !== 0) {
-                          return (
-                            <SubMenu
-                              menuStyle={{ textAlign: "center" }}
-                              label={
-                                <Text
-                                  fontWeight={600}
-                                  fontSize={{
-                                    base: "sm",
-                                    sm: "md",
-                                    md: "lg",
-                                    lg: "xl",
-                                  }}
-                                >
-                                  {item.label}
-                                </Text>
-                              }
-                            >
-                              {item.prds.map((x: any) => {
-                                return (
-                                  <MenuItem
-                                    style={{ textAlign: "center" }}
-                                    onClick={() => navigationDelay(x)}
-                                  >
-                                    <Text className="button-list-text">
-                                      {x.label}
-                                    </Text>
-                                  </MenuItem>
-                                );
-                              })}
-                            </SubMenu>
-                          );
-                        } else {
-                          return (
-                            <MenuItem onClick={() => navigation(item)}>
-                              {item.label}
-                            </MenuItem>
-                          );
-                        }
-                      })}
-                  </Menu>
-
-                  <Button variant="ghost">
-                    <Text
-                      fontSize={{ base: "sm", sm: "md", md: "lg", lg: "xl" }}
-                    >
-                      Inspiration
-                    </Text>
-                  </Button>
-                  <Button variant="ghost">
-                    <Text
-                      fontSize={{ base: "sm", sm: "md", md: "lg", lg: "xl" }}
-                    >
-                      Contact
-                    </Text>
-                  </Button>
-                </HStack>
-              </Flex>
-
-                <HStack spacing={2} display={{ base: "none", md: "flex" }}>
-                {socialMenu && socialMenu.length !== 0
-                  ? socialMenu.map((item: any) => {
-                      return (
-                        <>
-                          <IconButton
-                            as="a"
-                            href={item.href}
-                            aria-label={item.ariaLabel}
-                            icon={item.icon}
-                            size={item.size}
-                            variant="ghost"
-                            fontSize={item.fontSize}
-                            onClick={
-                              item.ariaLabel === "ShoppingCart"
-                                ? () => setVisible(!visible)
-                                : () => openUrl(item.url)
-                            }
-                          />
-                          {item.ariaLabel === "ShoppingCart" ? (
-                            <Badge
-                              colorScheme="red"
-                              borderRadius="full"
-                              px="2"
-                              position="relative"
-                              top="-15px"
-                              left="-25px"
-                            >
-                              {itemCount}
-                            </Badge>
-                          ) : null}
-                        </>
-                      );
-                    })
-                  : null}
-              </HStack>
+  {
+                                        categories && categories.length !== 0 &&
+                                        categories.map((item: any) => {
+                                            if (item.prds && item.prds.length !== 0) {
+                                                return (
+                                                    <SubMenu menuStyle={{ textAlign: 'center' }} label={<Text fontWeight={600} fontSize={'lg'}>{item.label}</Text>}>
+                                                        {
+                                                            item.prds.map((x: any) => {
+                                                                return <MenuItem style={{ textAlign: 'center' }} onClick={() => navigationDelay(x)}><Text>{x.label}</Text></MenuItem>
+                                                            })
+                                                        }
+                                                    </SubMenu>
+                                                )
+                                            } else {
+                                                return <MenuItem onClick={() => navigation(item)}>{item.label}</MenuItem>
+                                            }
+                                        })
+                                    }

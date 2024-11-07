@@ -80,12 +80,12 @@ const Header = ({ children }: any) => {
         setInnerMenusActive(false);
     };
     
-    useEffect(() => {
-        fetch(`${process.env.REACT_APP_API_URL}/productsSideNavs`)
-            .then((response) => response.json())
-            .then((data) => setCategories(data));
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
+    // useEffect(() => {
+    //     fetch(`${process.env.REACT_APP_API_URL}/productsSideNavs`)
+    //         .then((response) => response.json())
+    //         .then((data) => setCategories(data));
+    //     // eslint-disable-next-line react-hooks/exhaustive-deps
+    // }, []);
 
   const openUrl = (url: string) => {
     window.open(url, "_blank");
