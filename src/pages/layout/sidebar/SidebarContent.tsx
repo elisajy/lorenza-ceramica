@@ -5,67 +5,44 @@ import {
     AccordionItem,
     AccordionPanel,
     Box,
-    BoxProps,
-    Button,
-    Center,
-    Menu,
-    MenuButton,
-    MenuDivider,
-    MenuGroup,
-    MenuItem,
-    MenuList,
     Text
 } from '@chakra-ui/react';
-import { IconType } from 'react-icons';
-import {
-    FiCompass,
-    FiHome,
-    FiSettings,
-    FiStar,
-    FiTrendingUp
-} from 'react-icons/fi';
 import "./Sidebar.css";
-import { productMenu } from '../../../helper/HeaderMenu';
 import { NavLink } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 
-interface SidebarProps extends BoxProps {
-    onClose: () => void
-}
-
-interface LinkItemProps {
-    name: string
-    icon: IconType
-}
-
-const LinkItems: Array<LinkItemProps> = [
-    { name: 'Home', icon: FiHome },
-    { name: 'Trending', icon: FiTrendingUp },
-    { name: 'Explore', icon: FiCompass },
-    { name: 'Favourites', icon: FiStar },
-    { name: 'Settings', icon: FiSettings },
-]
 
 const SidebarContent = () => {
+    const [categories, setCategories] = useState<any>([]);
+
+    useEffect(() => {
+        fetch(`${process.env.REACT_APP_API_URL}/productsSideNavs`)
+            .then((response) => response.json())
+            .then((data) => setCategories(data));
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
+
     return (
         <Box>
 
             <Accordion defaultIndex={[0]} allowMultiple>
-                {productMenu && productMenu.length !== 0
-                    ? productMenu.map((item: any) => {
+                {categories && categories.length !== 0
+                    ? categories.map((item: any) => {
                         return <AccordionItem>
                             <h1>
                                 <AccordionButton>
                                     <Box as='span' flex='1' textAlign='left'>
-                                        {/* <NavLink to={item.route} style={({ isActive, isPending, isTransitioning }) => {
-                                            return {
-                                                fontWeight: isActive ? "bold" : "",
-                                                color: isPending ? "red" : "black",
-                                                viewTransitionName: isTransitioning ? "slide" : "",
-                                            };
-                                        }}>
-                                            <span>{item.label}</span>
-                                        </NavLink> */}
-                                        <Text fontSize={'xl'} fontWeight={600} color={'#0c478a'}>{item.label}</Text>
+                                        {item.prds && item.prds.length === 0
+                                            ? <NavLink to={item.route} style={({ isActive, isPending, isTransitioning }) => {
+                                                return {
+                                                    fontWeight: isActive ? "bold" : "",
+                                                    color: isPending ? "red" : "black",
+                                                    viewTransitionName: isTransitioning ? "slide" : "",
+                                                };
+                                            }}>
+                                                <Text fontSize={'xl'} fontWeight={600} color={'#0c478a'}>{item.label}</Text>
+                                            </NavLink>
+                                            : <Text fontSize={'xl'} fontWeight={600} color={'#0c478a'}>{item.label}</Text>}
                                     </Box>
                                     {
                                         item.prds && item.prds.length !== 0 ?

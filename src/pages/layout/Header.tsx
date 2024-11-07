@@ -6,12 +6,11 @@ import {
     HStack,
     IconButton,
     Spacer,
-    Stack,
     useDisclosure,
     Text,
     Badge
 } from "@chakra-ui/react";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { productMenu, socialMenu } from "../../helper/HeaderMenu";
 import ShoppingCart from "../shopping-cart/ShoppingCart";
@@ -41,6 +40,7 @@ const Header = ({ children }: any) => {
     const { isOpen, onOpen, onClose } = useDisclosure();
     const [dropdownOpen, setDropdownOpen] = useState(false);
     const [subDropdownOpen, setSubDropdownOpen] = useState(false);
+    const [categories, setCategories] = useState<any>([]);
     const navigate = useNavigate();
     const toggleDropdown = () => setDropdownOpen(!dropdownOpen);
     const toggleSubDropdown = () => setSubDropdownOpen(!subDropdownOpen);
@@ -51,10 +51,13 @@ const Header = ({ children }: any) => {
     const closeSubMenus = () => {
         setInnerMenusActive(false);
     };
-    //   useEffect(() => {
-
-    //     // eslint-disable-next-line react-hooks/exhaustive-deps
-    //   }, []);
+    
+    useEffect(() => {
+        fetch(`${process.env.REACT_APP_API_URL}/productsSideNavs`)
+            .then((response) => response.json())
+            .then((data) => setCategories(data));
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
 
     const openUrl = (url: string) => {
         window.open(url, "_blank");
@@ -110,8 +113,8 @@ const Header = ({ children }: any) => {
                                     viewScroll={'close'}
                                 >
                                     {
-                                        productMenu && productMenu.length !== 0 &&
-                                        productMenu.map((item: any) => {
+                                        categories && categories.length !== 0 &&
+                                        categories.map((item: any) => {
                                             if (item.prds && item.prds.length !== 0) {
                                                 return (
                                                     <SubMenu menuStyle={{ textAlign: 'center' }} label={<Text fontWeight={600} fontSize={'lg'}>{item.label}</Text>}>
@@ -156,8 +159,8 @@ const Header = ({ children }: any) => {
                                     </MenuButton>
                                     <MenuList>
                                         <Menu orientation="horizontal">
-                                            {productMenu && productMenu.length !== 0
-                                                ? productMenu.map((item: any) => {
+                                            {categories && categories.length !== 0
+                                                ? categories.map((item: any) => {
                                                     if (item.id === 99) {
                                                         return (
                                                             <>
@@ -189,8 +192,8 @@ const Header = ({ children }: any) => {
                                                 })
                                                 : null}
                                         </Menu>
-                                        {productMenu && productMenu.length !== 0
-                                            ? productMenu.map((item: any) => {
+                                        {categories && categories.length !== 0
+                                            ? categories.map((item: any) => {
                                                 if (item.id !== 99) {
                                                     return (
                                                         <MenuItem fontWeight={600}>{item.label}</MenuItem>
