@@ -3,14 +3,13 @@ import { Box, Breadcrumb, BreadcrumbItem, BreadcrumbLink, Button, StackDivider, 
 import { EmblaOptionsType } from 'embla-carousel';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { dummyProducts } from '../../helper/HeaderMenu';
 import ProductImages from './ProductImages';
 import './Products.css';
 import { ADD_ITEM, useCartContext } from '../../hooks/cart-context/CartContext';
 
 const ItemDetail = () => {
     const toast = useToast();
-    const { category, subcategory, code } = useParams();
+    const { category, subcategory, name, code } = useParams();
     const [selectedProduct, setSelectedProduct] = useState<any>();
     const [prdImages, setPrdImages] = useState<any>([]);
     const { cartDispatch } = useCartContext();
@@ -28,23 +27,14 @@ const ItemDetail = () => {
 
     useEffect(() => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
+        fetch(`${process.env.REACT_APP_API_URL}/product-details/${name}/${code}`)
+            .then((response) => response.json())
+            .then((data) => {
+                setSelectedProduct(data);
+                setPrdImages([data]);
+            });
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
-
-    useEffect(() => {
-        let imageSlides: any[] = [];
-        const x = dummyProducts.find((item: any) => {
-            if (!!code) {
-                if ((item.prdCode).toLowerCase() === code.toLowerCase()) {
-                    imageSlides.push(item);
-                    return item
-                }
-            }
-        });
-        setSelectedProduct(x);
-        setPrdImages(imageSlides);
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [code]);
 
     const addToCart = () => {
         cartDispatch({
@@ -118,8 +108,8 @@ const ItemDetail = () => {
                                 <Text color={'#0c478a'} fontWeight={700} fontSize='3xl'>{selectedProduct.prdName}</Text>
                                 <br />
                                 {
-                                    selectedProduct.prdCategory && selectedProduct.prdSubcategory &&
-                                    <Text fontSize='lg'>Product Category: {selectedProduct.prdCategory} / {selectedProduct.prdSubcategory}</Text>
+                                    category && subcategory &&
+                                    <Text fontSize='lg'>Product Category: {category} / {subcategory}</Text>
                                 }
                                 {
                                     selectedProduct.prdCode &&
@@ -127,19 +117,23 @@ const ItemDetail = () => {
                                 }
                                 {
                                     selectedProduct.prdVariation &&
-                                    <Text fontSize='lg'>Code: {selectedProduct.prdVariation}</Text>
+                                    <Text fontSize='lg'>Variation: {selectedProduct.prdVariation}</Text>
                                 }
                                 {
                                     selectedProduct.prdSize &&
                                     <Text fontSize='lg'>Size: {selectedProduct.prdSize}</Text>
                                 }
                                 {
-                                    selectedProduct.color &&
-                                    <Text fontSize='lg'>Size: {selectedProduct.color}</Text>
+                                    selectedProduct.prdColor &&
+                                    <Text fontSize='lg'>Color: {selectedProduct.prdColor}</Text>
                                 }
                                 {
-                                    selectedProduct.finish &&
-                                    <Text fontSize='lg'>Size: {selectedProduct.finish}</Text>
+                                    selectedProduct.prdFinish &&
+                                    <Text fontSize='lg'>Finish: {selectedProduct.prdFinish}</Text>
+                                }
+                                {
+                                    selectedProduct.thickness &&
+                                    <Text fontSize='lg'>Thickness: {selectedProduct.thickness}</Text>
                                 }
                                 <br />
                                 <Text fontSize='xl' color={'#0c478a'} fontWeight={600}>Product Description</Text>

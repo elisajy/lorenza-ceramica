@@ -3,26 +3,21 @@ import {
     Breadcrumb,
     BreadcrumbItem,
     BreadcrumbLink,
-    Button,
-    ButtonGroup,
     Card,
     CardBody,
     CardFooter,
-    Divider,
-    Heading,
     Image,
     SimpleGrid,
-    Stack,
     Text
 } from "@chakra-ui/react";
 import { useNavigate, useParams } from "react-router-dom";
 import './Products.css';
 import { ChevronRightIcon } from "@chakra-ui/icons";
-import { dummyProducts } from "../../helper/HeaderMenu";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 const CategoryPage = () => {
     const { category, subcategory } = useParams();
+    const [products, setProducts] = useState<any>([]);
     const navigate = useNavigate();
     const capitalizeFirstLetters = (string: any) => {
         if (!!string) {
@@ -33,12 +28,17 @@ const CategoryPage = () => {
             return string
         }
     }
-    const viewProductDetails = (code: any) => {
-        navigate(`/products/${category}/${subcategory}/${code}`);
+
+    const viewProductDetails = (name: any, code: any) => {
+        if (subcategory) navigate(`/products/${category}/${subcategory}/${name}/${code}`);
+        else navigate(`/products/${category}/${name}/${code}`);
     };
 
     useEffect(() => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
+        fetch(`${process.env.REACT_APP_API_URL}/products/${subcategory ?? category}`)
+            .then((response) => response.json())
+            .then((data) => setProducts(data));
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
@@ -69,28 +69,23 @@ const CategoryPage = () => {
             <Box className="product-items-block">
                 <SimpleGrid minChildWidth='300px' spacing='40px' className="products">
                     {
-                        dummyProducts && dummyProducts.length !== 0 ?
-                            dummyProducts.map((x: any) => {
-                                if (!!subcategory) {
-                                    if ((x.prdSubcategory).toLowerCase() === subcategory?.toLowerCase()) {
-                                        return <Card maxW='xs' borderRadius={'lg'} align='center' style={{ cursor: 'pointer' }} onClick={() => viewProductDetails(x.prdCode)}>
-                                            <CardBody className="product-card">
-                                                <Image
-                                                    src={require(`../../assets/mock-media/dummy-products/${x.prdCode}.jpg`)}
-                                                    alt={x.prdName}
-                                                    borderRadius={'10px 10px 0 0'}
-                                                />
-                                            </CardBody>
-                                            <CardFooter style={{ padding: '10px' }}>
-                                                <Box className="product-card-footer">
-                                                    <Text fontSize='xl'>{x.prdName}</Text>
-                                                    <Text fontSize='md'>{x.prdCode}</Text>
-                                                </Box>
-                                            </CardFooter>
-                                        </Card>
-                                    }
-                                }
-
+                        products && products.length !== 0 ?
+                            products.map((x: any) => {
+                                return <Card maxW='xs' borderRadius={'lg'} align='center' style={{ cursor: 'pointer' }} onClick={() => viewProductDetails(x.prdName, x.prdCode !== '-' ? x.prdCode : x.prdColor)}>
+                                    <CardBody className="product-card">
+                                        <Image
+                                            src={require(`../../assets/mock-media/dummy-products/ACH-4003.jpg`)}
+                                            alt={x.prdName}
+                                            borderRadius={'10px 10px 0 0'}
+                                        />
+                                    </CardBody>
+                                    <CardFooter style={{ padding: '10px' }}>
+                                        <Box className="product-card-footer">
+                                            <Text fontSize='xl'>{x.prdName}</Text>
+                                            <Text fontSize='md'>{x.prdCode}</Text>
+                                        </Box>
+                                    </CardFooter>
+                                </Card>
                             })
                             :
                             null

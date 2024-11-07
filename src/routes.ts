@@ -53,16 +53,16 @@ export const siteRoutes: RouteInfo[] = [
       {
         id: "PRODUCTS-ITEM",
         name: "Product Item",
-        path: ":category/:subcategory/:code",
+        path: ":category/:name/:code",
+        component: PrdItemDetail,
+      },
+      {
+        id: "PRODUCTS-ITEM",
+        name: "Product Item",
+        path: ":category/:subcategory/:name/:code",
         component: PrdItemDetail,
       },
     ],
-  },
-  {
-    id: "PRODUCTS",
-    name: "Product Categories",
-    path: "/products/:category/:id",
-    component: Products,
   },
   {
     id: "AboutUs",

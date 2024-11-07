@@ -47,7 +47,7 @@ const ProductImages: React.FC<PropType> = (props) => {
           {slides.map((x: any) => (
             <div className="pi-slide" key={x.id}>
               {/* <div className="pi-slidenum">{index + 1}</div> */}
-              <img src={require(`../../assets/mock-media/dummy-products/${x.prdCode}.jpg`)}
+              <img src={require(`../../assets/mock-media/dummy-products/ACH-4003.jpg`)}
                 className='image-item' />
             </div>
           ))}

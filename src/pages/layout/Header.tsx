@@ -48,6 +48,7 @@ const Header = ({ children }: any) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [subDropdownOpen, setSubDropdownOpen] = useState(false);
+    const [categories, setCategories] = useState<any>([]);
   const navigate = useNavigate();
   const toggleDropdown = () => setDropdownOpen(!dropdownOpen);
   const toggleSubDropdown = () => setSubDropdownOpen(!subDropdownOpen);
@@ -75,13 +76,16 @@ const Header = ({ children }: any) => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  const closeSubMenus = () => {
-    setInnerMenusActive(false);
-  };
-  //   useEffect(() => {
-
-  //     // eslint-disable-next-line react-hooks/exhaustive-deps
-  //   }, []);
+    const closeSubMenus = () => {
+        setInnerMenusActive(false);
+    };
+    
+    useEffect(() => {
+        fetch(`${process.env.REACT_APP_API_URL}/productsSideNavs`)
+            .then((response) => response.json())
+            .then((data) => setCategories(data));
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
 
   const openUrl = (url: string) => {
     window.open(url, "_blank");
