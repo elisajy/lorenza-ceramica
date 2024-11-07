@@ -16,11 +16,11 @@ const Landing = () => {
     }, []);
     return (
         <>
-            <MainCarousel slides={SLIDES} />
+            {/* <MainCarousel slides={SLIDES} />
             <ProductTabs />
             <LandingProfile />
             <LandingInstagram />
-            <LandingPartners slides={SLIDES} />
+            <LandingPartners slides={SLIDES} /> */}
         </>
     );
 }

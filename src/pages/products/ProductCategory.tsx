@@ -67,7 +67,7 @@ const CategoryPage = () => {
                 </Breadcrumb>
             </Box>
             <Box className="product-items-block">
-                <SimpleGrid minChildWidth='300px' spacing='40px'>
+                <SimpleGrid minChildWidth='300px' spacing='40px' className="products">
                     {
                         dummyProducts && dummyProducts.length !== 0 ?
                             dummyProducts.map((x: any) => {

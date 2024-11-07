@@ -41,15 +41,13 @@ const Footer = ({ children }: any) => {
     return (
         <>
             <footer className="footer">
-                <>
+                {/* <>
                     <Flex color='white'>
                         <Box flex='3' className="footer-box">
-                            {/* Logo */}
                             <div>
                                 <img src={companyLogo} className="footer-logo" />
                             </div>
                             <Divider />
-                            {/* Company Info */}
                             <div className="company-info-block">
                                 <p style={{ fontSize: 18, wordSpacing: 8 }}>W.K CERAMIC DISTRIBUTOR SDN. BHD.</p>
                                 <p style={{ fontSize: 14, wordSpacing: 6 }}>(Reg. no.: 199301022836)</p>
@@ -57,7 +55,6 @@ const Footer = ({ children }: any) => {
                                 <p>Lot 5, Jalan 51A/227</p>
                                 <p>46100 Petaling Jaya, Selangor D.E</p>
                             </div>
-                            {/* Operating Hours */}
                             <div className="operating-hour-block">
                                 <p style={{ fontSize: 14, wordSpacing: 8 }}>Mon - Sat | 08:30 - 18:00</p>
                             </div>
@@ -118,7 +115,7 @@ const Footer = ({ children }: any) => {
                             </div>
                         </Box>
                     </Flex>
-                </>
+                </> */}
                 <p style={{float: 'right'}}>© 2024 Lorenza Ceramica. All rights reserved.</p>
             </footer>
         </>

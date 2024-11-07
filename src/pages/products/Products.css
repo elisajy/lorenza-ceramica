@@ -120,3 +120,11 @@
 .pi-thumbs-slide--selected .pi-thumbs-slide-number {
   color: var(--text-body);
 }
+
+@media (min-width: 992px){
+  .products{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
