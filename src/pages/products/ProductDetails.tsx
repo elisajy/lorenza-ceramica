@@ -31,7 +31,7 @@ const ItemDetail = () => {
             .then((response) => response.json())
             .then((data) => {
                 setSelectedProduct(data);
-                setPrdImages([data]);
+                setPrdImages(data.images ?? []);
             });
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);

@@ -23,8 +23,8 @@ export const Thumb: React.FC<PropType> = (props) => {
                 className="pi-thumbs-slide-number"
             >
                 <Image
-                    src={require(`../../assets/mock-media/dummy-products/ACH-4003.jpg`)}
-                    alt='Green double couch with wooden legs'
+                    src={index}
+                    alt='product-image'
                     borderRadius='none'
                 />
             </button>
