@@ -145,10 +145,10 @@ const ItemDetail = () => {
                             </Box>
                             <Box>
                                 <VStack>
-                                    <Button onClick={addToCart} style={{ backgroundColor: '#ff6e04', color: 'white', width: '150px' }} variant='solid'>
+                                    <Button onClick={addToCart} className="button-size" style={{ backgroundColor: '#ff6e04', color: 'white', width: '150px' }} variant='solid'>
                                         Add To Cart
                                     </Button>
-                                    <Button onClick={onClickInquiry} style={{ backgroundColor: '#ff6e04', color: 'white', width: '150px' }} variant='solid'>
+                                    <Button onClick={onClickInquiry} className="button-size" style={{ backgroundColor: '#ff6e04', color: 'white', width: '150px' }} variant='solid'>
                                         Product Enquiry
                                     </Button>
                                 </VStack>

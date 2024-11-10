@@ -1,0 +1,18 @@
+  {
+                                        categories && categories.length !== 0 &&
+                                        categories.map((item: any) => {
+                                            if (item.prds && item.prds.length !== 0) {
+                                                return (
+                                                    <SubMenu menuStyle={{ textAlign: 'center' }} label={<Text fontWeight={600} fontSize={'lg'}>{item.label}</Text>}>
+                                                        {
+                                                            item.prds.map((x: any) => {
+                                                                return <MenuItem style={{ textAlign: 'center' }} onClick={() => navigationDelay(x)}><Text>{x.label}</Text></MenuItem>
+                                                            })
+                                                        }
+                                                    </SubMenu>
+                                                )
+                                            } else {
+                                                return <MenuItem onClick={() => navigation(item)}>{item.label}</MenuItem>
+                                            }
+                                        })
+                                    }

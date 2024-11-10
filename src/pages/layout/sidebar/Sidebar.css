@@ -1,5 +1,5 @@
-.product-sidebar{
-    width: 20%;
+s.product-sidebar{
+    width: 700px;
     background-color: #f6f6f6;
     min-height: 10vh;
     padding: 20px 15px;
@@ -14,3 +14,17 @@
     flex: 1;
     flex-direction: row;
 }
+
+@media screen and (min-width: 993px) and (max-width: 1280px) {
+    .product-sidebar{
+        width: 1000px;
+    }
+}
+
+@media screen and (min-width: 100px) and (max-width: 992px){
+    .product-sidebar{
+        width: 500px;
+        display: none;
+    }
+}
+ 

@@ -61,7 +61,7 @@ const MainCarousel: React.FC<PropType> = (props) => {
                     {slides.map((index) => (
                         <div className="embla__slide" key={index}>
                             {/* <div className="embla__slide__number">{index + 1}</div> */}
-                            <img src={homeBannerImg} className='image-item' />
+                            <img src={homeBannerImg} className='image-item-main' />
                         </div>
                     ))}
                 </div>

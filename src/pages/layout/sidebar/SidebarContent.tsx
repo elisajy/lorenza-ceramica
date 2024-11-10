@@ -24,7 +24,6 @@ const SidebarContent = () => {
 
     return (
         <Box>
-
             <Accordion defaultIndex={[0]} allowMultiple>
                 {categories && categories.length !== 0
                     ? categories.map((item: any) => {
