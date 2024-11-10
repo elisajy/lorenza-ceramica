@@ -34,6 +34,8 @@ import "./Layout.css";
 import "@szhsin/react-menu/dist/index.css";
 import "@szhsin/react-menu/dist/transitions/zoom.css";
 import { useCartContext } from "../../hooks/cart-context/CartContext";
+import CartIcon from "../../components/cart-icon/CartIcon";
+
 const Header = ({ children }: any) => {
   const [visible, setVisible] = useState(false);
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -219,7 +221,10 @@ const Header = ({ children }: any) => {
                     })}
                 </Menu>
 
-                <Button variant="ghost">
+                <Button
+                  variant="ghost"
+                  onClick={() => navigate("/inspirations")}
+                >
                   <Text
                     fontSize={{
                       base: "sm",
@@ -254,32 +259,24 @@ const Header = ({ children }: any) => {
                   ? socialMenu.map((item: any) => {
                       return (
                         <>
-                          <IconButton
-                            as="a"
-                            href={item.href}
-                            aria-label={item.ariaLabel}
-                            icon={item.icon}
-                            size={item.size}
-                            variant="ghost"
-                            fontSize={item.fontSize}
-                            onClick={
-                              item.ariaLabel === "ShoppingCart"
-                                ? () => setVisible(!visible)
-                                : () => openUrl(item.url)
-                            }
-                          />
                           {item.ariaLabel === "ShoppingCart" ? (
-                            <Badge
-                              colorScheme="red"
-                              borderRadius="full"
-                              px="2"
-                              position="relative"
-                              top="-15px"
-                              left="-25px"
-                            >
-                              {itemCount}
-                            </Badge>
-                          ) : null}
+                            <CartIcon
+                              visible={visible}
+                              setVisible={setVisible}
+                              count={itemCount}
+                            />
+                          ) : (
+                            <IconButton
+                              as="a"
+                              href={item.href}
+                              aria-label={item.ariaLabel}
+                              icon={item.icon}
+                              size={item.size}
+                              variant="ghost"
+                              fontSize={item.fontSize}
+                              onClick={() => openUrl(item.url)}
+                            />
+                          )}
                         </>
                       );
                     })
@@ -346,33 +343,24 @@ const Header = ({ children }: any) => {
                       ? socialMenu.map((item: any) => {
                           return (
                             <>
-                              <IconButton
-                                as="a"
-                                href={item.href}
-                                aria-label={item.ariaLabel}
-                                icon={item.icon}
-                                size={"md"}
-                                variant="ghost"
-                                fontSize={"xl"}
-                                onClick={
-                                  item.ariaLabel === "ShoppingCart"
-                                    ? () => setVisible(!visible)
-                                    : () => openUrl(item.url)
-                                }
-                              />
                               {item.ariaLabel === "ShoppingCart" ? (
-                                <Badge
-                                  colorScheme="red"
-                                  borderRadius="full"
-                                  px="2"
-                                  position="relative"
-                                  height="20px"
-                                  top="-8px"
-                                  left="-25px"
-                                >
-                                  {itemCount}
-                                </Badge>
-                              ) : null}
+                                <CartIcon
+                                  visible={visible}
+                                  setVisible={setVisible}
+                                  count={itemCount}
+                                />
+                              ) : (
+                                <IconButton
+                                  as="a"
+                                  href={item.href}
+                                  aria-label={item.ariaLabel}
+                                  icon={item.icon}
+                                  size={item.size}
+                                  variant="ghost"
+                                  fontSize={item.fontSize}
+                                  onClick={() => openUrl(item.url)}
+                                />
+                              )}
                             </>
                           );
                         })
@@ -445,63 +433,47 @@ const Header = ({ children }: any) => {
                                 <>
                                   {item.ariaLabel === "ShoppingCart" && (
                                     <>
-                                      <IconButton
-                                        as="a"
-                                        href={item.href}
-                                        aria-label={item.ariaLabel}
-                                        icon={item.icon}
-                                        size={"sm"}
-                                        variant="ghost"
-                                        fontSize={"md"}
-                                        onClick={
-                                          item.ariaLabel === "ShoppingCart"
-                                            ? () => setVisible(!visible)
-                                            : () => openUrl(item.url)
-                                        }
-                                      />
                                       {item.ariaLabel === "ShoppingCart" ? (
-                                        <Badge
-                                          colorScheme="red"
-                                          borderRadius="full"
-                                          px="2"
-                                          position="relative"
-                                          top="-30px"
-                                          left="-25px"
-                                        >
-                                          {itemCount}
-                                        </Badge>
-                                      ) : null}
+                                        <CartIcon
+                                          visible={visible}
+                                          setVisible={setVisible}
+                                          count={itemCount}
+                                        />
+                                      ) : (
+                                        <IconButton
+                                          as="a"
+                                          href={item.href}
+                                          aria-label={item.ariaLabel}
+                                          icon={item.icon}
+                                          size={item.size}
+                                          variant="ghost"
+                                          fontSize={item.fontSize}
+                                          onClick={() => openUrl(item.url)}
+                                        />
+                                      )}
                                     </>
                                   )}
                                 </>
                               ) : (
                                 <>
-                                  <IconButton
-                                    as="a"
-                                    href={item.href}
-                                    aria-label={item.ariaLabel}
-                                    icon={item.icon}
-                                    size={"sm"}
-                                    variant="ghost"
-                                    fontSize={"md"}
-                                    onClick={
-                                      item.ariaLabel === "ShoppingCart"
-                                        ? () => setVisible(!visible)
-                                        : () => openUrl(item.url)
-                                    }
-                                  />
                                   {item.ariaLabel === "ShoppingCart" ? (
-                                    <Badge
-                                      colorScheme="red"
-                                      borderRadius="full"
-                                      px="2"
-                                      position="relative"
-                                      top="-30px"
-                                      left="-25px"
-                                    >
-                                      {itemCount}
-                                    </Badge>
-                                  ) : null}
+                                    <CartIcon
+                                      visible={visible}
+                                      setVisible={setVisible}
+                                      count={itemCount}
+                                    />
+                                  ) : (
+                                    <IconButton
+                                      as="a"
+                                      href={item.href}
+                                      aria-label={item.ariaLabel}
+                                      icon={item.icon}
+                                      size={item.size}
+                                      variant="ghost"
+                                      fontSize={item.fontSize}
+                                      onClick={() => openUrl(item.url)}
+                                    />
+                                  )}
                                 </>
                               )}
                             </>

@@ -14,8 +14,6 @@ import { faqData } from "./Faq.data";
 import pageBgDivider from "../../assets/images/page-bg-divider.png";
 
 const Faq = () => {
-  const SLIDE_COUNT = 5;
-  const SLIDES = Array.from(Array(SLIDE_COUNT).keys());
   const [faq, setFaq] = useState<any>([]);
 
   useEffect(() => {

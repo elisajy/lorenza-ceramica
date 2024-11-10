@@ -24,6 +24,30 @@ const PrdItemDetail = ReactLazyPreload(
   () => import("./pages/products/ProductDetails")
 );
 const AboutUs = ReactLazyPreload(() => import("./pages/about-us/AboutUs"));
+const Inspirations = ReactLazyPreload(
+  () => import("./pages/inspirations/Inspirations")
+);
+const ShowroomLaunched = ReactLazyPreload(
+  () => import("./pages/inspirations/contents/ShowroomLaunched")
+);
+const BathroomTiles = ReactLazyPreload(
+  () => import("./pages/inspirations/contents/BathroomTiles")
+);
+const CeramicPorcelain = ReactLazyPreload(
+  () => import("./pages/inspirations/contents/CeramicPorcelain")
+);
+const KitchenRenovationIdeas = ReactLazyPreload(
+  () => import("./pages/inspirations/contents/KitchenRenovationIdeas")
+);
+const BathroomRemodel = ReactLazyPreload(
+  () => import("./pages/inspirations/contents/BathroomRemodel")
+);
+const KitchenFlooring = ReactLazyPreload(
+  () => import("./pages/inspirations/contents/KitchenFlooring")
+);
+const KitchenCountertops = ReactLazyPreload(
+  () => import("./pages/inspirations/contents/KitchenCountertops")
+);
 
 export const siteRoutes: RouteInfo[] = [
   {
@@ -69,5 +93,53 @@ export const siteRoutes: RouteInfo[] = [
     name: "AboutUs",
     path: "/about-us",
     component: AboutUs,
+  },
+  {
+    id: "Inspirations",
+    name: "Inspirations",
+    path: "/inspirations",
+    component: Inspirations,
+  },
+  {
+    id: "ShowroomLaunched",
+    name: "ShowroomLaunched",
+    path: "/inspirations/weve-launched-our-new-showroom",
+    component: ShowroomLaunched,
+  },
+  {
+    id: "BathroomTiles",
+    name: "BathroomTiles",
+    path: "/inspirations/5-things-to-consider-when-choosing-bathroom-tiles-for-malaysian-homes",
+    component: BathroomTiles,
+  },
+  {
+    id: "CeramicPorcelain",
+    name: "CeramicPorcelain",
+    path: "/inspirations/ceramic-vs-porcelain-which-one-should-i-choose-for-my-malaysian-home",
+    component: CeramicPorcelain,
+  },
+  {
+    id: "KitchenRenovationIdeas",
+    name: "KitchenRenovationIdeas",
+    path: "/inspirations/7-inexpensive-ideas-to-renovate-your-malaysian-kitchen",
+    component: KitchenRenovationIdeas,
+  },
+  {
+    id: "BathroomRemodel",
+    name: "BathroomRemodel",
+    path: "/inspirations/8-simple-ideas-for-your-next-bathroom-remodel-in-malaysia",
+    component: BathroomRemodel,
+  },
+  {
+    id: "KitchenFlooring",
+    name: "KitchenFlooring",
+    path: "/inspirations/3-affordable-options-for-kitchen-flooring-in-malaysia",
+    component: KitchenFlooring,
+  },
+  {
+    id: "KitchenCountertops",
+    name: "KitchenCountertops",
+    path: "/inspirations/3-options-for-kitchen-countertops",
+    component: KitchenCountertops,
   },
 ];
