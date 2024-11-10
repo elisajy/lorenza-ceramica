@@ -17,21 +17,6 @@ const Landing = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  useEffect(() => {
-    // Handler to update the state with the new window width
-    const handleResize = () => {
-      setWidth(window.innerWidth);
-    };
-
-    // Add resize event listener
-    window.addEventListener("resize", handleResize);
-
-    // Call the handler immediately to set initial width
-    handleResize();
-
-    // Cleanup by removing the event listener on component unmount
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
 
   return (
     <>
