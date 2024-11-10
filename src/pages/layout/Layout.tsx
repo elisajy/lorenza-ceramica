@@ -84,9 +84,9 @@ const Layout = ({ children }: any) => {
       <div className="layout">
         <Header></Header>
         <main className="content">{children}</main>
-        {/* <Button variant="unstyled" size='lg' alignItems='center' className="whatsapp-fab" onClick={onClickInquiry}>
+        <Button variant="unstyled" size='lg' alignItems='center' className="whatsapp-fab" onClick={onClickInquiry}>
           <FontAwesomeIcon icon={faWhatsapp} size='3x' />
-        </Button> */}
+        </Button>
         <Footer></Footer>
       </div>
     </Suspense>

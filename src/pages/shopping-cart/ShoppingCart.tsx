@@ -63,8 +63,20 @@ const ShoppingCart = ({ visible, setVisible }: Props) => {
     return (
       <div key={index} style={{ marginTop: "10px" }}>
         <div className="cart-item">
-          <img className="product-image" src={require(`../../assets/mock-media/dummy-products/${data.prdCode}.jpg`)} alt={data.prdName} />
-          <div style={{ maxWidth: '125px' }}>
+          {data.images && data.images.length > 0 ? (
+            <img
+              className="product-image"
+              src={data.images[0]}
+              alt={data.prdName}
+            />
+          ) : (
+            <img
+              className="product-image"
+              src={require(`../../assets/images/no-image-available.png`)}
+              alt={data.prdName}
+            />
+          )}
+          <div style={{ maxWidth: "125px" }}>
             <div>
               <div className="text-l-font-bold">{data.prdName}</div>
               {/* <div className="text-600-small">{data.prdDesc}</div> */}
@@ -80,22 +92,22 @@ const ShoppingCart = ({ visible, setVisible }: Props) => {
                   <tr>
                     <td>Variation</td>
                     <td>:</td>
-                    <td>{data.prdVariation ?? '-'}</td>
+                    <td>{data.prdVariation ?? "-"}</td>
                   </tr>
                   <tr>
                     <td>Size</td>
                     <td>:</td>
-                    <td>{data.prdSize ?? '-'}</td>
+                    <td>{data.prdSize ?? "-"}</td>
                   </tr>
                   <tr>
                     <td>Color</td>
                     <td>:</td>
-                    <td>{data.color ?? '-'}</td>
+                    <td>{data.color ?? "-"}</td>
                   </tr>
                   <tr>
                     <td>Finish</td>
                     <td>:</td>
-                    <td>{data.finish ?? '-'}</td>
+                    <td>{data.finish ?? "-"}</td>
                   </tr>
                 </tbody>
               </table>

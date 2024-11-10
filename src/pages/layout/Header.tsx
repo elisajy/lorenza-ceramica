@@ -735,7 +735,7 @@ const Header = ({ children }: any) => {
         </Drawer>
       </header>
 
-      {/* <ShoppingCart visible={visible} setVisible={setVisible} /> */}
+      <ShoppingCart visible={visible} setVisible={setVisible} />
     </>
   );
 };

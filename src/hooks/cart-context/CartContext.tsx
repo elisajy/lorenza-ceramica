@@ -6,7 +6,7 @@ export interface ProductItem {
   prdCode?: string;
   prdName?: string;
   prdDesc?: string;
-  image?: string;
+  images?: string[];
   prdVariation?: string;
   prdSize?: string;
   color?: string;
