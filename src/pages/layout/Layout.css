@@ -487,6 +487,17 @@
   }
 }
 
+.mobile-menu-button{
+  justify-content: start !important;
+  text-align: left;
+}
+
+.mobile-menu-title{
+  color: #3d4781;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
 /* Main content */
 .content {
   /* display: flex; */

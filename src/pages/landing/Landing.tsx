@@ -32,7 +32,7 @@ const Landing = () => {
     // Cleanup by removing the event listener on component unmount
     return () => window.removeEventListener("resize", handleResize);
   }, []);
-  
+
   return (
     <>
       <MainCarousel slides={SLIDES} />

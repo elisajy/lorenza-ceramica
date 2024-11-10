@@ -17,9 +17,16 @@ import {
   DrawerOverlay,
   Grid,
   GridItem,
+  DrawerCloseButton,
+  VStack,
+  Accordion,
+  AccordionItem,
+  AccordionButton,
+  AccordionIcon,
+  AccordionPanel,
 } from "@chakra-ui/react";
 import { useEffect, useMemo, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { productMenu, socialMenu } from "../../helper/HeaderMenu";
 import ShoppingCart from "../shopping-cart/ShoppingCart";
 import { Menu, MenuButton, MenuItem, SubMenu } from "@szhsin/react-menu";
@@ -28,22 +35,6 @@ import "@szhsin/react-menu/dist/index.css";
 import "@szhsin/react-menu/dist/transitions/zoom.css";
 import { useCartContext } from "../../hooks/cart-context/CartContext";
 const Header = ({ children }: any) => {
-  const start = (
-    <img
-      alt="logo"
-      src="/lorenza-logo-transparent-blue.png"
-      height="100"
-      className="header-logo"
-    ></img>
-  );
-  const end = (
-    <div className="header-icons">
-      {/* <Button className='header-button' rounded text severity="info" icon={<FontAwesomeIcon icon={faSquareFacebook} size='2xl'/>} />
-      <Button className='header-button' rounded text severity="info" icon={<FontAwesomeIcon icon={faSquareInstagram} size='2xl'/>} />
-      <Button className='header-button' rounded text severity="info" icon={<FontAwesomeIcon icon={faCartShopping} size='2xl'/>} /> */}
-    </div>
-  );
-
   const [visible, setVisible] = useState(false);
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -76,16 +67,12 @@ const Header = ({ children }: any) => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  const closeSubMenus = () => {
-    setInnerMenusActive(false);
-  };
-
-  // useEffect(() => {
-  //     fetch(`${process.env.REACT_APP_API_URL}/productsSideNavs`)
-  //         .then((response) => response.json())
-  //         .then((data) => setCategories(data));
-  //     // eslint-disable-next-line react-hooks/exhaustive-deps
-  // }, []);
+  useEffect(() => {
+    fetch(`${process.env.REACT_APP_API_URL}/productsSideNavs`)
+      .then((response) => response.json())
+      .then((data) => setCategories(data));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const openUrl = (url: string) => {
     window.open(url, "_blank");
@@ -105,6 +92,15 @@ const Header = ({ children }: any) => {
         navigate(item.route);
       }
     }, 200); // Delay of 500 milliseconds (1000ms = 1 second)
+  };
+
+  const menuNavigation = (route: any) => {
+    setTimeout(() => {
+      if (!!route) {
+        navigate(route);
+        onClose();
+      }
+    }, 200);
   };
 
   return (
@@ -177,9 +173,9 @@ const Header = ({ children }: any) => {
                   align={"center"}
                   viewScroll={"close"}
                 >
-                  {productMenu &&
-                    productMenu.length !== 0 &&
-                    productMenu.map((item: any) => {
+                  {categories &&
+                    categories.length !== 0 &&
+                    categories.map((item: any) => {
                       if (item.prds && item.prds.length !== 0) {
                         return (
                           <SubMenu
@@ -312,6 +308,7 @@ const Header = ({ children }: any) => {
               >
                 <Box>
                   <IconButton
+                    onClick={onOpen}
                     size={"lg"}
                     fontSize={"xl"}
                     aria-label="Menu"
@@ -369,7 +366,8 @@ const Header = ({ children }: any) => {
                                   borderRadius="full"
                                   px="2"
                                   position="relative"
-                                  top="-15px"
+                                  height="20px"
+                                  top="-8px"
                                   left="-25px"
                                 >
                                   {itemCount}
@@ -405,6 +403,7 @@ const Header = ({ children }: any) => {
               >
                 <Box>
                   <IconButton
+                    onClick={onOpen}
                     size={"lg"}
                     fontSize={"xl"}
                     aria-label="Menu"
@@ -515,6 +514,253 @@ const Header = ({ children }: any) => {
             </Grid>
           </>
         )}
+
+        <Drawer
+          placement={"top"}
+          onClose={onClose}
+          isOpen={isOpen}
+          size={"full"}
+        >
+          <DrawerOverlay />
+          <DrawerContent>
+            <DrawerCloseButton />
+            <DrawerBody style={{ padding: "3rem" }}>
+              <Box>
+                <VStack
+                  as="nav"
+                  spacing={{ base: 1, sm: 2, md: 3, lg: 4 }}
+                  mr={"auto"}
+                  className="menu-stack"
+                  align="stretch"
+                >
+                  <Button
+                    className="mobile-menu-button"
+                    variant="ghost"
+                    onClick={() => menuNavigation("/")}
+                  >
+                    <Text
+                      fontSize={{
+                        base: "sm",
+                        sm: "sm",
+                        md: "md",
+                        lg: "lg",
+                        xl: "xl",
+                      }}
+                    >
+                      Home
+                    </Text>
+                  </Button>
+                  <Button
+                    className="mobile-menu-button"
+                    variant="ghost"
+                    onClick={() => menuNavigation("/about-us")}
+                  >
+                    <Text
+                      fontSize={{
+                        base: "sm",
+                        sm: "sm",
+                        md: "md",
+                        lg: "lg",
+                        xl: "xl",
+                      }}
+                    >
+                      About Us
+                    </Text>
+                  </Button>
+                  <Accordion allowToggle>
+                    <AccordionItem>
+                      <AccordionButton>
+                        <Box
+                          className="mobile-menu-title"
+                          as="button"
+                          flex={1}
+                          textAlign={"left"}
+                          fontSize={{
+                            base: "sm",
+                            sm: "sm",
+                            md: "md",
+                            lg: "lg",
+                            xl: "xl",
+                          }}
+                        >
+                          Products
+                          <AccordionIcon />
+                        </Box>
+                      </AccordionButton>
+                      <AccordionPanel>
+                        <Box>
+                          <Accordion allowToggle>
+                            {categories && categories.length !== 0
+                              ? categories.map((item: any) => {
+                                  return (
+                                    <AccordionItem>
+                                      <AccordionButton>
+                                        <Box
+                                          as="span"
+                                          flex="1"
+                                          textAlign="left"
+                                        >
+                                          {item.prds &&
+                                          item.prds.length === 0 ? (
+                                            <NavLink
+                                              onClick={onClose}
+                                              to={item.route}
+                                              style={({
+                                                isActive,
+                                                isPending,
+                                                isTransitioning,
+                                              }) => {
+                                                return {
+                                                  fontWeight: isActive
+                                                    ? "bold"
+                                                    : "",
+                                                  color: isPending
+                                                    ? "red"
+                                                    : "black",
+                                                  viewTransitionName:
+                                                    isTransitioning
+                                                      ? "slide"
+                                                      : "",
+                                                };
+                                              }}
+                                            >
+                                              <Text
+                                                fontSize={"md"}
+                                                fontWeight={600}
+                                                color={"#0c478a"}
+                                              >
+                                                {item.label}
+                                              </Text>
+                                            </NavLink>
+                                          ) : (
+                                            <Text
+                                              fontSize={"md"}
+                                              fontWeight={600}
+                                              color={"#0c478a"}
+                                            >
+                                              {item.label}
+                                            </Text>
+                                          )}
+                                        </Box>
+                                        {item.prds && item.prds.length !== 0 ? (
+                                          <AccordionIcon />
+                                        ) : null}
+                                      </AccordionButton>
+                                      <AccordionPanel>
+                                        {item.prds && item.prds.length !== 0
+                                          ? item.prds.map((x: any) => {
+                                              return (
+                                                <div>
+                                                  <NavLink
+                                                    onClick={onClose}
+                                                    to={x.route}
+                                                    style={({
+                                                      isActive,
+                                                      isPending,
+                                                      isTransitioning,
+                                                    }) => {
+                                                      return {
+                                                        fontWeight: isActive
+                                                          ? "bold"
+                                                          : "",
+                                                        color: isPending
+                                                          ? "red"
+                                                          : "black",
+                                                        viewTransitionName:
+                                                          isTransitioning
+                                                            ? "slide"
+                                                            : "",
+                                                      };
+                                                    }}
+                                                  >
+                                                    <Text
+                                                      fontSize={"sm"}
+                                                      color={"#143e6e"}
+                                                    >
+                                                      {x.label}
+                                                    </Text>
+                                                  </NavLink>
+                                                </div>
+                                              );
+                                            })
+                                          : null}
+                                      </AccordionPanel>
+                                    </AccordionItem>
+                                  );
+                                })
+                              : null}
+                          </Accordion>
+                        </Box>
+                      </AccordionPanel>
+                    </AccordionItem>
+                  </Accordion>
+                  <Button
+                    className="mobile-menu-button"
+                    variant="ghost"
+                    onClick={() => menuNavigation("/inspiration")}
+                  >
+                    <Text
+                      fontSize={{
+                        base: "sm",
+                        sm: "sm",
+                        md: "md",
+                        lg: "lg",
+                        xl: "xl",
+                      }}
+                    >
+                      Inspiration
+                    </Text>
+                  </Button>
+                  <Button
+                    className="mobile-menu-button"
+                    variant="ghost"
+                    onClick={() => menuNavigation("/contact")}
+                  >
+                    <Text
+                      fontSize={{
+                        base: "sm",
+                        sm: "sm",
+                        md: "md",
+                        lg: "lg",
+                        xl: "xl",
+                      }}
+                    >
+                      Contact
+                    </Text>
+                  </Button>
+                </VStack>
+              </Box>
+              {width <= 576 && (
+                <Box>
+                  <HStack spacing={1} float={"left"}>
+                    {socialMenu && socialMenu.length !== 0
+                      ? socialMenu.map((item: any) => {
+                          return (
+                            <>
+                              {item.ariaLabel !== "ShoppingCart" && (
+                                <>
+                                  <IconButton
+                                    as="a"
+                                    href={item.href}
+                                    aria-label={item.ariaLabel}
+                                    icon={item.icon}
+                                    size={"lg"}
+                                    variant="ghost"
+                                    fontSize={"x-large"}
+                                    onClick={() => openUrl(item.url)}
+                                  />
+                                </>
+                              )}
+                            </>
+                          );
+                        })
+                      : null}
+                  </HStack>
+                </Box>
+              )}
+            </DrawerBody>
+          </DrawerContent>
+        </Drawer>
       </header>
 
       {/* <ShoppingCart visible={visible} setVisible={setVisible} /> */}

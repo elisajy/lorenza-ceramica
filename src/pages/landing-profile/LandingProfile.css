@@ -16,17 +16,20 @@
     padding-top: 10px;
     padding-bottom: 10px;
     text-align: justify;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 
     /* width: 60%; Each block takes up 60% of the parent container */
 
     @media screen and (max-width: 480px) {
       h1 {
-        font-size: large;
+        font-size: medium;
         font-weight: 700;
       }
 
       p {
-        font-size: 14px;
+        font-size: 13px;
       }
     }
 
@@ -79,83 +82,5 @@
     height: auto; /* Maintain the original aspect ratio */
     max-width: 100%;
     float: right;
-  }
-
-  .profile-content {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    text-align: center;
-
-    @media screen and (max-width: 480px) {
-      flex-direction: column;
-    }
-
-    @media screen and (min-width: 480px) {
-      flex-direction: column;
-    }
-
-    @media screen and (min-width: 640px) {
-      flex-direction: row;
-    }
-
-    @media screen and (min-width: 992px) {
-      flex-direction: row;
-    }
-
-    .content-paragraph {
-      padding-left: 3vw;
-      padding-right: 5vw;
-      text-align: justify;
-      /* width: 60%; Each block takes up 60% of the parent container */
-
-      @media screen and (max-width: 480px) {
-        h1 {
-          font-size: large;
-          font-weight: 700;
-        }
-
-        p {
-          font-size: 14px;
-        }
-      }
-
-      @media screen and (min-width: 480px) {
-        h1 {
-          font-size: large;
-          font-weight: 700;
-        }
-
-        p {
-          font-size: 14px;
-        }
-      }
-
-      @media screen and (min-width: 640px) {
-        h1 {
-          font-size: x-large;
-          font-weight: 700;
-        }
-
-        p {
-          font-size: 16px;
-        }
-      }
-
-      @media screen and (min-width: 992px) {
-        h1 {
-          font-size: x-large;
-          font-weight: 700;
-        }
-
-        p {
-          font-size: 18px;
-        }
-      }
-    }
-
-
   }
 }

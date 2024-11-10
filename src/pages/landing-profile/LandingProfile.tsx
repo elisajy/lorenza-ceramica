@@ -37,30 +37,41 @@ const LandingProfile = () => {
   return (
     <>
       <div className="profile-story-block">
-        {/* <div className='profile-content'>
-                    <div className='image-wrapper'>
-                        <img src={storyThumbnail} alt="our-story" />
-                    </div>
-                    <div className='content-paragraph'>
-                        <h1>OUR STORY</h1>
-                        <Divider />
-                        <p>Lorenza Ceramica believes in the design that you want that's best suitable to your style. The tile design that you choose is a reflection of your comfort & style. It is our pleasure to help you through the creative process & guide you step by step to get your desired version.</p>
-                    </div>
-                </div> */}
-
         <Grid
-          templateAreas={`"image copy"`}
-          gridTemplateRows={width > 640 ? "400" : width <= 640 ? "300" : "300"}
-          gridTemplateColumns={"1fr 2fr"}
+          templateAreas={
+            width > 640 ? `"image copy"` : width <= 640 ? `"copy"` : `"copy"`
+          }
+          gridTemplateRows={width > 640 ? "400" : width <= 640 ? "320" : "320"}
+          gridTemplateColumns={
+            width > 640 ? "1fr 2fr" : width <= 640 ? "1fr" : "1fr"
+          }
           h={"auto"}
           gap="1"
         >
-          <GridItem pr={15} pl={15} area={"image"} style={{ display: "flex", justifyContent: "center", alignContent: "center"}}>
-            <div className="image-wrapper">
-              <img src={storyThumbnail} alt="our-story" />
-            </div>
-          </GridItem>
-          <GridItem area={"copy"} style={{ display: "flex", justifyContent: "center", alignContent: "center"}}>
+          {width > 640 && (
+            <GridItem
+              pr={15}
+              pl={15}
+              area={"image"}
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                alignContent: "center",
+              }}
+            >
+              <div className="image-wrapper">
+                <img src={storyThumbnail} alt="our-story" />
+              </div>
+            </GridItem>
+          )}
+          <GridItem
+            area={"copy"}
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              alignContent: "center",
+            }}
+          >
             <div className="content-paragraph">
               <h1 style={{ color: "white" }}>OUR STORY</h1>
               <Divider />
