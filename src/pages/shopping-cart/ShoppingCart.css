@@ -3,6 +3,12 @@
   color: floralwhite !important;
 }
 
+@media screen and (max-width: 480px) {
+  .cart-modal {
+    width: 21rem !important;
+  }
+}
+
 .cart-item {
   display: flex;
   column-gap: 25px;
@@ -19,6 +25,7 @@
   .text-l-font-bold {
     font-size: large;
     font-weight: bold;
+    letter-spacing: 1px;
   }
 
   .text-600-small {
@@ -27,9 +34,10 @@
   }
 
   .item-details {
-    font-size: smaller;
-    font-weight: 300;
+    font-size: medium;
+    font-weight: 450;
     opacity: 80%;
+    letter-spacing: 1px;
   }
 }
 
@@ -61,6 +69,7 @@
 
 .remove-btn {
   color: lightgray !important;
-  align-items: flex-start !important;
   font-size: smaller !important;
+  align-self: center;
+  letter-spacing: 1px;
 }

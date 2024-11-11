@@ -1,5 +1,4 @@
 import { createContext, useContext, useReducer } from "react";
-import { products } from "../../pages/shopping-cart/ShoppingCartData";
 
 export interface ProductItem {
   id?: number;

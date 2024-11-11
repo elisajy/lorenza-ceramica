@@ -88,7 +88,7 @@ const ShoppingCart = ({ visible, setVisible }: Props) => {
               alt={data.prdName}
             />
           )}
-          <div style={{ maxWidth: "125px" }}>
+          <div style={{ maxWidth: "16rem" }}>
             <div>
               <div className="text-l-font-bold">{data.prdName}</div>
               {/* <div className="text-600-small">{data.prdDesc}</div> */}
@@ -151,6 +151,7 @@ const ShoppingCart = ({ visible, setVisible }: Props) => {
         background="#536878"
         color="floralwhite"
         width="25rem"
+        className="cart-modal"
       >
         {list}
       </Box>
