@@ -1,43 +1,30 @@
-import React, { useEffect, useState } from "react";
-import "./LandingInstagram.css";
 import {
-  Client,
-  GetPageInfoRequest,
-  GetPageInfoResponse,
-  GetPageMediaRequest,
-  GetPageMediaResponse,
-  GetUserLongLivedTokenRequest,
-  GetUserLongLivedTokenResponse,
-  MediaType,
-  PageOption,
-  RequestConfig,
-} from "instagram-graph-api";
+    ArrowBackIcon,
+    ArrowForwardIcon
+} from "@chakra-ui/icons";
+import {
+    Box,
+    Card,
+    CardBody,
+    Divider,
+    IconButton,
+    Image,
+    Stack,
+    Text
+} from "@chakra-ui/react";
+import { faCommentAlt, faHeart } from "@fortawesome/free-regular-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import useEmblaCarousel from "embla-carousel-react";
 import {
-  Box,
-  Button,
-  ButtonGroup,
-  Card,
-  CardBody,
-  CardFooter,
-  Divider,
-  Heading,
-  IconButton,
-  Image,
-  Stack,
-  Text,
-} from "@chakra-ui/react";
-import InstagramEmbed from "../../components/IgEmbed";
+    Client,
+    GetPageMediaRequest,
+    GetPageMediaResponse,
+    PageOption,
+    RequestConfig
+} from "instagram-graph-api";
+import { useEffect, useState } from "react";
 import ReadMore from "../../components/ReadMore";
-import Carousel from "react-multi-carousel";
-import {
-  ArrowBackIcon,
-  ArrowForwardIcon,
-  ArrowRightIcon,
-} from "@chakra-ui/icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCoffee, faComment } from "@fortawesome/free-solid-svg-icons";
-import { faCommentAlt, faHeart } from "@fortawesome/free-regular-svg-icons";
+import "./LandingInstagram.css";
 
 const LandingInstagram = () => {
   const longLivedAccessToken = process.env.REACT_APP_LL_TOKEN!;

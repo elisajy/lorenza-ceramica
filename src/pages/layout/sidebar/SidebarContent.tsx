@@ -59,11 +59,11 @@ const SidebarContent = () => {
                                                 <NavLink to={x.route} style={({ isActive, isPending, isTransitioning }) => {
                                                     return {
                                                         fontWeight: isActive ? "bold" : "",
-                                                        color: isPending ? "red" : "black",
+                                                        color: isActive ? "#0c478a" : "#a9a9a9",
                                                         viewTransitionName: isTransitioning ? "slide" : "",
                                                     };
                                                 }}>
-                                                    <Text fontSize={'lg'} color={'#143e6e'}>{x.label}</Text>
+                                                    <Text fontSize={'lg'} >{x.label}</Text>
                                                 </NavLink>
                                             </div>
                                         }) :
