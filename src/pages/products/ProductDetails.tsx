@@ -67,7 +67,7 @@ const ItemDetail = () => {
     const onClickInquiry = () => {
         const phoneNumber = process.env.REACT_APP_BUSINESS_CONTACT;
         let message = "Hi, I would like to inquire about this product: ";
-        message.concat(
+        message = message.concat(
             `${selectedProduct.prdName} (*${selectedProduct.prdCode}*)`
         )
         const url = `https://${isMobile ? 'api' : 'web'}.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(

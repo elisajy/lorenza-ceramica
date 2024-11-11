@@ -498,12 +498,11 @@ const Header = ({ children, onScrollToFooter }: any) => {
           </>
         )}
 
-        <Drawer
+        {isOpen && <Drawer
           placement={"top"}
           onClose={onClose}
           isOpen={isOpen}
           size={"full"}
-          closeOnOverlayClick={true}
         >
           <DrawerOverlay />
           <DrawerContent>
@@ -587,7 +586,9 @@ const Header = ({ children, onScrollToFooter }: any) => {
                                           {item.prds &&
                                           item.prds.length === 0 ? (
                                             <NavLink
-                                              onClick={onClose}
+                                              onClick={() => {
+                                                onClose();
+                                              }}
                                               to={item.route}
                                               style={({
                                                 isActive,
@@ -636,7 +637,9 @@ const Header = ({ children, onScrollToFooter }: any) => {
                                               return (
                                                 <div>
                                                   <NavLink
-                                                    onClick={onClose}
+                                                    onClick={() => {
+                                                      onClose();
+                                                    }}
                                                     to={x.route}
                                                     style={({
                                                       isActive,
@@ -747,7 +750,7 @@ const Header = ({ children, onScrollToFooter }: any) => {
               )}
             </DrawerBody>
           </DrawerContent>
-        </Drawer>
+        </Drawer>}
       </header>
 
       <ShoppingCart visible={visible} setVisible={setVisible} />
