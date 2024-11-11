@@ -190,7 +190,7 @@ const Header = ({ children }: any) => {
                                   sm: "sm",
                                   md: "md",
                                   lg: "lg",
-                                  xl: "xl",
+                                  xl: "lg",
                                 }}
                               >
                                 {item.label}
@@ -214,7 +214,18 @@ const Header = ({ children }: any) => {
                       } else {
                         return (
                           <MenuItem onClick={() => navigation(item)}>
-                            {item.label}
+                             <Text
+                                fontWeight={600}
+                                fontSize={{
+                                  base: "sm",
+                                  sm: "sm",
+                                  md: "md",
+                                  lg: "lg",
+                                  xl: "lg",
+                                }}
+                              >
+                                {item.label}
+                              </Text>
                           </MenuItem>
                         );
                       }
