@@ -28,8 +28,21 @@ interface Props {
 }
 
 const ShoppingCart = ({ visible, setVisible }: Props) => {
+  const [isMobile, setIsMobile] = useState(false);
   const { cartState, cartDispatch } = useCartContext();
   const [products, setProducts] = useState<ProductItem[]>(cartState.products);
+
+  useEffect(() => {
+    const userAgent = navigator.userAgent;
+    if (/android/i.test(userAgent)) {
+        setIsMobile(true);
+    } else if (/iPad|iPhone|iPod/.test(userAgent)) {
+        setIsMobile(true);
+    } else {
+        setIsMobile(false);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   useEffect(() => {
     setProducts(cartState.products);
@@ -52,7 +65,7 @@ const ShoppingCart = ({ visible, setVisible }: Props) => {
         `\n${i + 1}. ${products![i].prdName} (*${products![i].prdCode}*)`
       );
     }
-    const url = `https://web.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(
+    const url = `https://${isMobile ? 'api' : 'web'}.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(
       message
     )}&app_absent=0`;
     window.open(url, "_blank");

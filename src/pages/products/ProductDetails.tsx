@@ -12,6 +12,7 @@ const ItemDetail = () => {
     const { category, subcategory, name, code } = useParams();
     const [selectedProduct, setSelectedProduct] = useState<any>();
     const [prdImages, setPrdImages] = useState<any>([]);
+    const [isMobile, setIsMobile] = useState(false);
     const { cartDispatch } = useCartContext();
     const capitalizeFirstLetters = (string: any) => {
         if (!!string) {
@@ -36,6 +37,18 @@ const ItemDetail = () => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
+    useEffect(() => {
+        const userAgent = navigator.userAgent;
+        if (/android/i.test(userAgent)) {
+            setIsMobile(true);
+        } else if (/iPad|iPhone|iPod/.test(userAgent)) {
+            setIsMobile(true);
+        } else {
+            setIsMobile(false);
+        }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
+
     const addToCart = () => {
         cartDispatch({
             type: ADD_ITEM,
@@ -57,7 +70,7 @@ const ItemDetail = () => {
         message.concat(
             `${selectedProduct.prdName} (*${selectedProduct.prdCode}*)`
         )
-        const url = `https://web.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(
+        const url = `https://${isMobile ? 'api' : 'web'}.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(
             message
         )}&app_absent=0`;
         window.open(url, "_blank");

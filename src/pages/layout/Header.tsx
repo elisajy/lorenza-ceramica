@@ -582,6 +582,7 @@ const Header = ({ children, onScrollToFooter }: any) => {
                                           as="span"
                                           flex="1"
                                           textAlign="left"
+                                          onClick={onClose}
                                         >
                                           {item.prds &&
                                           item.prds.length === 0 ? (
@@ -633,7 +634,7 @@ const Header = ({ children, onScrollToFooter }: any) => {
                                         {item.prds && item.prds.length !== 0
                                           ? item.prds.map((x: any) => {
                                               return (
-                                                <div>
+                                                <div onClick={onClose}>
                                                   <NavLink
                                                     onClick={onClose}
                                                     to={x.route}
