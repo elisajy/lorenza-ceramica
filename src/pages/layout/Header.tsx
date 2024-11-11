@@ -503,6 +503,7 @@ const Header = ({ children, onScrollToFooter }: any) => {
           onClose={onClose}
           isOpen={isOpen}
           size={"full"}
+          closeOnOverlayClick={true}
         >
           <DrawerOverlay />
           <DrawerContent>
@@ -582,7 +583,6 @@ const Header = ({ children, onScrollToFooter }: any) => {
                                           as="span"
                                           flex="1"
                                           textAlign="left"
-                                          onClick={onClose}
                                         >
                                           {item.prds &&
                                           item.prds.length === 0 ? (
@@ -634,7 +634,7 @@ const Header = ({ children, onScrollToFooter }: any) => {
                                         {item.prds && item.prds.length !== 0
                                           ? item.prds.map((x: any) => {
                                               return (
-                                                <div onClick={onClose}>
+                                                <div>
                                                   <NavLink
                                                     onClick={onClose}
                                                     to={x.route}
