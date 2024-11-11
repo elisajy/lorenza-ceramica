@@ -13,7 +13,7 @@ import {
   MenuList,
   useDisclosure,
 } from "@chakra-ui/react";
-import { useEffect, useState } from "react";
+import { forwardRef, useEffect, useState } from "react";
 import "./Layout.css";
 import companyLogo from "../../assets/mock-media/lorenza-logo-transparent-white.png";
 import {
@@ -25,7 +25,7 @@ import {
 } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
-const Footer = ({ children }: any) => {
+const Footer = forwardRef<HTMLDivElement>((props, ref) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [subDropdownOpen, setSubDropdownOpen] = useState(false);
@@ -125,17 +125,17 @@ const Footer = ({ children }: any) => {
                         Main Page
                       </Button>
                     </Link>
-                    <Link to="/">
+                    <Link to="/about-us">
                       <Button colorScheme="white" variant="link">
                         About Us
                       </Button>
                     </Link>
-                    <Link to="/">
+                    <Link to="/products/tiles/porcelain">
                       <Button colorScheme="white" variant="link">
                         Products
                       </Button>
                     </Link>
-                    <Link to="/">
+                    <Link to="/inspirations">
                       <Button colorScheme="white" variant="link">
                         Inspiration
                       </Button>
@@ -152,7 +152,7 @@ const Footer = ({ children }: any) => {
                     paddingLeft: width > 640 ? 50 : width <= 640 ? 30 : 20,
                   }}
                 >
-                  <div className="mobile-heading-block">
+                  <div ref={ref} className="mobile-heading-block">
                     <Heading as="h2" fontSize={"18px"} letterSpacing={3}>
                       CONTACT
                     </Heading>
@@ -239,17 +239,17 @@ const Footer = ({ children }: any) => {
                       Main Page
                     </Button>
                   </Link>
-                  <Link to="/">
+                  <Link to="/about-us">
                     <Button colorScheme="white" variant="link">
                       About Us
                     </Button>
                   </Link>
-                  <Link to="/">
+                  <Link to="/products/tiles/porcelain">
                     <Button colorScheme="white" variant="link">
                       Products
                     </Button>
                   </Link>
-                  <Link to="/">
+                  <Link to="/inspirations">
                     <Button colorScheme="white" variant="link">
                       Inspiration
                     </Button>
@@ -262,7 +262,7 @@ const Footer = ({ children }: any) => {
                 </div>
               </Box>
               <Box flex="2" className="footer-box">
-                <div className="heading-block">
+                <div ref={ref} className="heading-block">
                   <Heading as="h2" fontSize={"22px"} letterSpacing={3}>
                     CONTACT
                   </Heading>
@@ -320,6 +320,6 @@ const Footer = ({ children }: any) => {
       </footer>
     </>
   );
-};
+});
 
 export default Footer;

@@ -9,9 +9,9 @@ export interface ProductItem {
   images?: string[];
   prdVariation?: string;
   prdSize?: string;
-  color?: string;
+  prdColor?: string;
   finish?: string;
-  thickness?: string;
+  prdFinish?: string;
 }
 
 export interface ShoppingCartState {

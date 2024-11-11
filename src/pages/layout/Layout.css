@@ -471,6 +471,10 @@
   width: 230px;
 }
 
+.header-logo:hover {
+  cursor: pointer;
+}
+
 .layout {
   display: flex;
   flex-direction: column;
@@ -587,6 +591,18 @@
 
   .social-icons {
     display: none;
+  }
+
+  .whatsapp-fab {
+    position: fixed !important;
+    bottom: 0;
+    right: 0;
+    height: 60px !important;
+    min-width: 60px !important;
+  }
+
+  .whatsapp-fab-icon {
+    font-size: 2.5em;
   }
 }
 

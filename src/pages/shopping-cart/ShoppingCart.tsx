@@ -19,7 +19,6 @@ import {
   REMOVE_ITEM,
   useCartContext,
 } from "../../hooks/cart-context/CartContext";
-import product_A from "../../assets/images/products/product_A.jpg";
 import "./ShoppingCart.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
@@ -102,12 +101,12 @@ const ShoppingCart = ({ visible, setVisible }: Props) => {
                   <tr>
                     <td>Color</td>
                     <td>:</td>
-                    <td>{data.color ?? "-"}</td>
+                    <td>{data.prdColor ?? "-"}</td>
                   </tr>
                   <tr>
                     <td>Finish</td>
                     <td>:</td>
-                    <td>{data.finish ?? "-"}</td>
+                    <td>{data.prdFinish ?? "-"}</td>
                   </tr>
                 </tbody>
               </table>

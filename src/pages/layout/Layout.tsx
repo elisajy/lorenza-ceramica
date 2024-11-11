@@ -1,74 +1,16 @@
 import "./Layout.css";
-import { headerMenu } from "../../helper/HeaderMenu";
-import {
-  faCartShopping,
-  faHouseLaptop,
-} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faSquareFacebook,
-  faSquareInstagram,
-} from "@fortawesome/free-brands-svg-icons";
-import { Suspense, useState } from "react";
-import {
-  Box,
-  Flex,
-  HStack,
-  IconButton,
-  Button,
-  Menu,
-  MenuButton,
-  MenuList,
-  MenuItem,
-  MenuDivider,
-  useDisclosure,
-  Stack,
-  Spacer,
-  Center,
-  Square,
-  Spinner,
-} from "@chakra-ui/react";
+import { Suspense, useRef } from "react";
+import { Button, Spinner } from "@chakra-ui/react";
 import { faWhatsapp } from "@fortawesome/free-brands-svg-icons";
-import { HamburgerIcon, CloseIcon, ChevronDownIcon } from "@chakra-ui/icons";
-import {
-  FaFacebookSquare,
-  FaShoppingCart,
-  FaInstagramSquare,
-} from "react-icons/fa";
 import Header from "./Header";
 import Footer from "./Footer";
 const Layout = ({ children }: any) => {
-  const start = (
-    <img
-      alt="logo"
-      src="/lorenza-logo-transparent-blue.png"
-      height="100"
-      className="header-logo"
-    ></img>
-  );
-  const end = (
-    <div className="header-icons">
-      {/* <Button className='header-button' rounded text severity="info" icon={<FontAwesomeIcon icon={faSquareFacebook} size='2xl'/>} />
-      <Button className='header-button' rounded text severity="info" icon={<FontAwesomeIcon icon={faSquareInstagram} size='2xl'/>} />
-      <Button className='header-button' rounded text severity="info" icon={<FontAwesomeIcon icon={faCartShopping} size='2xl'/>} /> */}
-    </div>
-  );
+  const footerRef = useRef<HTMLDivElement>(null);
 
-  const { isOpen, onOpen, onClose } = useDisclosure();
-  const [dropdownOpen, setDropdownOpen] = useState(false);
-  const [subDropdownOpen, setSubDropdownOpen] = useState(false);
-
-  const toggleDropdown = () => setDropdownOpen(!dropdownOpen);
-  const toggleSubDropdown = () => setSubDropdownOpen(!subDropdownOpen);
-  const [innerMenusActive, setInnerMenusActive] = useState(true);
-
-  const closeSubMenus = () => {
-    setInnerMenusActive(false);
+  const handleScrollToFooter = () => {
+    footerRef?.current?.scrollIntoView({ behavior: "smooth" });
   };
-  //   useEffect(() => {
-
-  //     // eslint-disable-next-line react-hooks/exhaustive-deps
-  //   }, []);
 
   const onClickInquiry = () => {
     const phoneNumber = process.env.REACT_APP_BUSINESS_CONTACT;
@@ -82,12 +24,22 @@ const Layout = ({ children }: any) => {
   return (
     <Suspense fallback={<Spinner />}>
       <div className="layout">
-        <Header></Header>
+        <Header onScrollToFooter={handleScrollToFooter}></Header>
         <main className="content">{children}</main>
-        <Button variant="unstyled" size='lg' alignItems='center' className="whatsapp-fab" onClick={onClickInquiry}>
-          <FontAwesomeIcon icon={faWhatsapp} size='3x' />
+        <Button
+          variant="unstyled"
+          size="lg"
+          alignItems="center"
+          className="whatsapp-fab"
+          onClick={onClickInquiry}
+        >
+          <FontAwesomeIcon
+            className="whatsapp-fab-icon"
+            icon={faWhatsapp}
+            size="3x"
+          />
         </Button>
-        <Footer></Footer>
+        <Footer ref={footerRef}></Footer>
       </div>
     </Suspense>
   );

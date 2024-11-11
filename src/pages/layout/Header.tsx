@@ -36,7 +36,7 @@ import "@szhsin/react-menu/dist/transitions/zoom.css";
 import { useCartContext } from "../../hooks/cart-context/CartContext";
 import CartIcon from "../../components/cart-icon/CartIcon";
 
-const Header = ({ children }: any) => {
+const Header = ({ children, onScrollToFooter }: any) => {
   const [visible, setVisible] = useState(false);
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -110,7 +110,7 @@ const Header = ({ children }: any) => {
       <header className="header">
         {width >= 992 && (
           <Flex alignContent={"center"} alignItems={"center"}>
-            <Box>
+            <Box onClick={() => {navigate("/")}}>
               <img
                 className="header-logo"
                 src="/lorenza-logo-transparent-blue.png"
@@ -237,7 +237,7 @@ const Header = ({ children }: any) => {
                     Inspiration
                   </Text>
                 </Button>
-                <Button variant="ghost">
+                <Button variant="ghost" onClick={onScrollToFooter}>
                   <Text
                     fontSize={{
                       base: "sm",
@@ -321,7 +321,7 @@ const Header = ({ children }: any) => {
                 }}
                 area={"header2"}
               >
-                <Box>
+                <Box onClick={() => {navigate("/")}}>
                   <img
                     className="header-logo"
                     src="/lorenza-logo-transparent-blue.png"
@@ -407,7 +407,7 @@ const Header = ({ children }: any) => {
                 }}
                 area={"header2"}
               >
-                <Box>
+                <Box onClick={() => {navigate("/")}}>
                   <img
                     className="header-logo"
                     src="/lorenza-logo-transparent-blue.png"
@@ -669,7 +669,7 @@ const Header = ({ children }: any) => {
                   <Button
                     className="mobile-menu-button"
                     variant="ghost"
-                    onClick={() => menuNavigation("/inspiration")}
+                    onClick={() => menuNavigation("/inspirations")}
                   >
                     <Text
                       fontSize={{
@@ -686,7 +686,10 @@ const Header = ({ children }: any) => {
                   <Button
                     className="mobile-menu-button"
                     variant="ghost"
-                    onClick={() => menuNavigation("/contact")}
+                    onClick={() => {
+                      onClose();
+                      onScrollToFooter();
+                    }}
                   >
                     <Text
                       fontSize={{
