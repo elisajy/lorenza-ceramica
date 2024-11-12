@@ -73,7 +73,7 @@ const ShoppingCart = ({ visible, setVisible }: Props) => {
 
   const itemTemplate = (data: ProductItem, index: number) => {
     return (
-      <div key={index} style={{ marginTop: "10px" }}>
+      <div key={index} style={{ marginTop: "20px" }}>
         <div className="cart-item">
           {data.images && data.images.length > 0 ? (
             <img
@@ -88,7 +88,7 @@ const ShoppingCart = ({ visible, setVisible }: Props) => {
               alt={data.prdName}
             />
           )}
-          <div style={{ maxWidth: "16rem" }}>
+          <div style={{ maxWidth: "160px" }}>
             <div>
               <div className="text-l-font-bold">{data.prdName}</div>
               {/* <div className="text-600-small">{data.prdDesc}</div> */}
@@ -169,7 +169,7 @@ const ShoppingCart = ({ visible, setVisible }: Props) => {
       <DrawerContent>
         <DrawerCloseButton />
         <DrawerHeader marginTop="30px">
-          <h2>Cart</h2>
+          <h2>Interested in the following products</h2>
         </DrawerHeader>
         <Divider />
         <DrawerBody>

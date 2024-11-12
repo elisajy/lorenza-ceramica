@@ -159,7 +159,7 @@ const ItemDetail = () => {
                             <Box>
                                 <VStack>
                                     <Button onClick={addToCart} className="button-size" style={{ backgroundColor: '#ff6e04', color: 'white', width: '150px' }} variant='solid'>
-                                        Add To Cart
+                                        Add To List
                                     </Button>
                                     <Button onClick={onClickInquiry} className="button-size" style={{ backgroundColor: '#ff6e04', color: 'white', width: '150px' }} variant='solid'>
                                         Product Enquiry
