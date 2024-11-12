@@ -13,12 +13,14 @@ import {
 import { useNavigate, useParams } from "react-router-dom";
 import "./Products.css";
 import { ChevronRightIcon } from "@chakra-ui/icons";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useTransition } from "react";
 
 const CategoryPage = () => {
   const { category, subcategory } = useParams();
   const [products, setProducts] = useState<any>([]);
+  const [isPending, startTransition] = useTransition();
   const navigate = useNavigate();
+
   const capitalizeFirstLetters = (string: any) => {
     if (!!string) {
       return string
@@ -37,14 +39,22 @@ const CategoryPage = () => {
   };
 
   useEffect(() => {
+    startTransition(() => {
+      setProducts(null);
+    });
+
     window.scrollTo({ top: 0, behavior: "smooth" });
     fetch(
       `${process.env.REACT_APP_API_URL}/products/${subcategory ?? category}`
     )
       .then((response) => response.json())
-      .then((data) => setProducts(data));
+      .then((data) => {
+        startTransition(() => {
+          setProducts(data);
+        });
+      });
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [startTransition, category, subcategory]);
 
   return (
     <>
@@ -74,7 +84,7 @@ const CategoryPage = () => {
           )}
         </Breadcrumb>
       </Box>
-      <Box className="product-items-block">
+      {!isPending && <Box className="product-items-block">
         <SimpleGrid minChildWidth="300px" spacing="40px">
           {products && products.length !== 0
             ? products.map((x: any) => {
@@ -115,9 +125,9 @@ const CategoryPage = () => {
                   </Card>
                 );
               })
-            : null}
+            : <div>No product yet.</div>}
         </SimpleGrid>
-      </Box>
+      </Box>}
     </>
   );
 };
