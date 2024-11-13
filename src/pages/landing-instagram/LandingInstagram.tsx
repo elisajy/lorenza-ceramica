@@ -246,20 +246,25 @@ const LandingInstagram = () => {
               : null}
           </div>
         </div>
-        <div className="button-container">
-          <IconButton
-            className="overlay-button"
-            aria-label="Prev"
-            icon={<ArrowBackIcon />}
-            onClick={() => callIGPaging("prev")}
-          />
-          <IconButton
-            className="overlay-button"
-            aria-label="Next"
-            icon={<ArrowForwardIcon />}
-            onClick={() => callIGPaging("next")}
-          />
-        </div>
+        {
+          post && post.length !== 0 && (
+            <div className="button-container">
+            <IconButton
+              className="overlay-button"
+              aria-label="Prev"
+              icon={<ArrowBackIcon />}
+              onClick={() => callIGPaging("prev")}
+            />
+            <IconButton
+              className="overlay-button"
+              aria-label="Next"
+              icon={<ArrowForwardIcon />}
+              onClick={() => callIGPaging("next")}
+            />
+          </div>
+          )
+        }
+      
       </section>
     </>
   );

@@ -50,10 +50,10 @@ const ProductTabs = () => {
                     </TabList>
                     <TabIndicator mt='-1.5px' height='1px' bg='blue.500' borderRadius='1px' />
                     <TabPanels>
-                        <TabPanel>
+                        <TabPanel backgroundColor={'#f8f8f8'}>
                             <BestSellerCarousel slides={bestSelling}></BestSellerCarousel>
                         </TabPanel>
-                        <TabPanel>
+                        <TabPanel backgroundColor={'#f8f8f8'}>
                             <NewArrivalsCarousel slides={newArrivals}></NewArrivalsCarousel>
                         </TabPanel>
                     </TabPanels>
