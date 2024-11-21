@@ -7,13 +7,6 @@ import { useEffect } from "react";
 import pageBgDivider from "../../assets/images/page-bg-divider.png";
 
 const Products = () => {
-    // useEffect(() => {
-    //   fetch(`${process.env.REACT_APP_API_URL}/faq`)
-    //     .then((response) => response.json())
-    //     .then((data) => setFaq(data));
-    //   // eslint-disable-next-line react-hooks/exhaustive-deps
-    // }, []);
-
     useEffect(() => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
         // eslint-disable-next-line react-hooks/exhaustive-deps

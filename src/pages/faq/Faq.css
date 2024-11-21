@@ -18,6 +18,11 @@
 
 .title {
   color: #3d6fa8;
+  padding: var(--chakra-space-2) 0px !important;
+}
+
+.content {
+  padding: var(--chakra-space-2) 0px !important;
 }
 
 .content-text {

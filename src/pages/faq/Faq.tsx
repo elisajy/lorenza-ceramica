@@ -17,10 +17,9 @@ const Faq = () => {
   const [faq, setFaq] = useState<any>([]);
 
   useEffect(() => {
-    // fetch(`${process.env.REACT_APP_API_URL}/faq`)
-    //   .then((response) => response.json())
-    //   .then((data) => setFaq(data));
-    setFaq(faqData);
+    fetch(`${process.env.REACT_APP_API_URL}/faq`)
+      .then((response) => response.json())
+      .then((data) => setFaq(data));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -42,15 +41,13 @@ const Faq = () => {
             {y.children.map((x: any, index: number) => {
               return (
                 <AccordionItem key={index}>
-                  <h2 className="title">
-                    <AccordionButton>
-                      <Box as="span" flex="1" textAlign="left" fontSize="large">
-                        {x.title}
-                      </Box>
-                      <AccordionIcon />
-                    </AccordionButton>
-                  </h2>
-                  <AccordionPanel pb={4}>
+                  <AccordionButton className="title">
+                    <Box as="span" flex="1" textAlign="left" fontSize="large">
+                      {x.title}
+                    </Box>
+                    <AccordionIcon />
+                  </AccordionButton>
+                  <AccordionPanel className="content" pb={4}>
                     <p
                       className="content-text"
                       dangerouslySetInnerHTML={{ __html: x.content }}
@@ -69,7 +66,7 @@ const Faq = () => {
     <Box>
       <img src={pageBgDivider} alt="page-bg-divider" />
       <Box maxWidth="8xl" margin="30px 60px">
-        <div style={{ margin: "18px" }}>
+        <div style={{ margin: "26px" }}>
           <h2
             className="title"
             style={{ fontWeight: "bold", fontSize: "xx-large" }}
