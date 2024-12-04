@@ -44,7 +44,7 @@ const ProductImages: React.FC<PropType> = (props) => {
           {slides && slides.length > 0 ? (
             slides.map((x: any, i: number) => (
               <div className="pi-slide" key={i}>
-                <img src={x} className="image-item" />
+                <img src={x} alt={String(i)} className="image-item image-item-pi" />
               </div>
             ))
           ) : (
