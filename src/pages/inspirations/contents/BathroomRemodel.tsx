@@ -1,9 +1,14 @@
-import { Box } from "@chakra-ui/react";
 import '../Inspirations.css';
 
 const BathroomRemodel = () => {
     return (
-        <Box maxWidth="8xl" margin="30px 60px" display="flex" flexDirection="column" gap="1.2rem">
+        <div style={{
+                maxWidth: "90rem",
+                margin: "30px 60px",
+                display: "flex",
+                flexDirection: "column",
+                gap: "1.2rem"
+            }}>
             <h3 style={{ fontSize: "22px" }}><strong>8 Simple Ideas for Your Next Bathroom Remodel in Malaysia</strong></h3>
             <hr></hr>
             <img src="https://lorenzaceramica.com/wp-content/uploads/2021/01/lorenza_bathroom_1.png" alt="post-banner"></img>
@@ -45,9 +50,9 @@ const BathroomRemodel = () => {
             <img style={{ maxWidth: "400px" }} src="https://lorenzaceramica.com/wp-content/uploads/2021/01/lorenza_bathroom_6.png" alt="post-banner"></img>
             <p>Image: <a href="https://pixabay.com/photos/bath-mirror-real-estate-2660937/"><span style={{ textDecoration: "underline" }}><span style={{ color: "#005399" }} className="has-inline-color">Pixabay</span></span></a></p>
             <p>A sizeable mirror offers a lot more benefits than you can imagine, including:</p>
-            <ul><li>Adding an illusion of space to make the room appear larger</li><li>Brightening the room by reflecting light</li><li>With good lighting, mirrors provide ample space for you to groom yourself. A good mirror can really affect how you start your day!</li></ul>
+            <ul style={{ paddingLeft: "2rem" }}><li>Adding an illusion of space to make the room appear larger</li><li>Brightening the room by reflecting light</li><li>With good lighting, mirrors provide ample space for you to groom yourself. A good mirror can really affect how you start your day!</li></ul>
             <p>Thankfully when it comes to mirrors, they are not limited to the size of your bathroom. You can still install a frameless mirror from the sink countertop all the way to the ceiling. No one’s that tall, but the room will surely look more prestigious and feel more spacious.</p>
-        </Box>
+        </div>
     );
 }
 

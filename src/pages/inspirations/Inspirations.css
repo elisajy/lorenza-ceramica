@@ -1,13 +1,86 @@
-.inspiration-card {
-    gap: 10px;
+@media screen and (max-width: 480px) {
+    /* smartphones, iPhone, portrait 480x320 phones */
+    .card-grid{
+      grid-template-columns: repeat(1, minmax(0, 1fr)) !important;
+    }
+
+    .card-thumbnail {
+        height: 230px;
+        min-width: 250px;
+    }
+}
+@media screen and (min-width: 480px) {
+    /* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */
+    .card-thumbnail {
+        height: 230px;
+        min-width: 250px;
+    }
+}
+@media screen and (min-width: 640px) {
+    /* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */
+    .card-thumbnail {
+        height: 230px;
+        min-width: 250px;
+    }
+}  
+@media screen and (min-width: 992px) {
+    /* tablet, landscape iPad, lo-res laptops ands desktops */
+    .card-thumbnail {
+        height: 250px;
+        min-width: 380px;
+    }
+}
+@media screen and (min-width: 1025px) {
+    /* big landscape tablets, laptops, and desktops */
+    .card-thumbnail {
+        height: 350px;
+        min-width: 500px;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .card-content {
+        top: 0.5rem !important;
+        left: 1rem !important;
+    }
+}
+
+.card-container {
+    align-self: center;
+    position: relative;
+}
+
+.card-content {
+    position: absolute;
+    top: 5rem;
+    left: 5rem;
+    opacity: 0;
+    transition: 0.6s;
+    max-width: 350px
+}
+
+.card-container:hover .card-content {
+    opacity: 1;    
+}
+
+.card-container:hover .card-thumbnail {
+    opacity: 0.5;    
+}
+
+.card-container:hover {
+    background: black;   
+}
+
+.card-desc {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
 }
 
 .title {
     color: #3d6fa8;
-}
-
-.inspiration-card-btn {
-    align-self: flex-end;
 }
 
 /* Content styling */

@@ -64,7 +64,7 @@ const CategoryPage = () => {
           separator={<ChevronRightIcon color="gray.500" />}
         >
           <BreadcrumbItem>
-            <BreadcrumbLink href="/products">Products</BreadcrumbLink>
+            <BreadcrumbLink href="/products/tiles/all-products">Products</BreadcrumbLink>
           </BreadcrumbItem>
 
           {!!category && (
@@ -85,12 +85,12 @@ const CategoryPage = () => {
         </Breadcrumb>
       </Box>
       {!isPending && <Box className="product-items-block">
-        <SimpleGrid minChildWidth="300px" spacing="40px">
+        <SimpleGrid className="products-grid" spacing="40px">
           {products && products.length !== 0
             ? products.map((x: any) => {
                 return (
                   <Card
-                    maxW="xs"
+                    className="product-card-body "
                     borderRadius={"lg"}
                     align="center"
                     style={{ cursor: "pointer" }}
@@ -104,22 +104,27 @@ const CategoryPage = () => {
                     <CardBody className="product-card">
                       {x.images && x.images.length > 0 ? (
                         <Image
+                          className="image-item-prds"
                           src={x.images[0]}
                           alt={x.prdName}
                           borderRadius={"10px 10px 0 0"}
+                          padding="10px"
                         />
                       ) : (
                         <Image
+                          className="image-item-prds"
                           src={require(`../../assets/images/no-image-available.png`)}
                           alt={x.prdName}
                           borderRadius={"10px 10px 0 0"}
+                          padding="10px"
                         />
                       )}
                     </CardBody>
                     <CardFooter style={{ padding: "10px" }}>
                       <Box className="product-card-footer">
-                        <Text fontSize="xl">{x.prdName}</Text>
-                        <Text fontSize="md">{x.prdCode}</Text>
+                        <Text fontSize="md">{x.prdName}</Text>
+                        <Text fontSize="sm">{x.prdSize}</Text>
+                        <Text fontSize="sm">{x.prdCode}</Text>
                       </Box>
                     </CardFooter>
                   </Card>

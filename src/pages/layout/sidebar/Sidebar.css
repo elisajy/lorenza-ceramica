@@ -1,5 +1,5 @@
 .product-sidebar{
-    width: 700px;
+    width: 350px;
     background-color: #f6f6f6da;
     min-height: 10vh;
     padding: 20px 15px;
@@ -17,14 +17,60 @@
 
 @media screen and (min-width: 993px) and (max-width: 1280px) {
     .product-sidebar{
-        width: 1000px;
+        width: 600px;
+    }
+
+    .inspiration-sidebar{
+        min-width: 350px;
     }
 }
 
 @media screen and (min-width: 100px) and (max-width: 992px){
     .product-sidebar{
-        width: 500px;
         display: none;
     }
+
+    .inspiration-sidebar{
+        display: none;
+    }
+}
+
+.sidebar-card-thumbnail {
+    height: 230px;
+    min-width: 280px;
+}
+
+.sidebar-card-container {
+    align-self: center;
+    position: relative;
+}
+
+.sidebar-card-content {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    opacity: 0;
+    transition: 0.6s;
+    max-width: 350px
+}
+
+.sidebar-card-container:hover .sidebar-card-content {
+    opacity: 1;    
+}
+
+.sidebar-card-container:hover .sidebar-card-thumbnail {
+    opacity: 0.5;    
+}
+
+.sidebar-card-container:hover {
+    background: black;   
+}
+
+.sidebar-card-desc {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
 }
  

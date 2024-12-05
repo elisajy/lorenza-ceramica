@@ -1,4 +1,4 @@
-import { Box, Container } from "@chakra-ui/react";
+import { Box, Text } from "@chakra-ui/react";
 import aboutUsTitle from "../../assets/images/about-us-title.png";
 import aboutUsDivider from "../../assets/images/about-us-divider.png";
 import "./AboutUs.css";
@@ -13,30 +13,30 @@ const AboutUs = () => {
             fontSize="large"
         >
             <img src={aboutUsTitle} alt="about-us" />
-            <p className="about-us-content">
+            <Text fontSize={{ base: 'md', lg: 'lg' }} width='80%'>
                 <strong className="bold-text">Lorenza Ceramica</strong> is a local brand
                 developed by{" "}
                 <strong className="bold-text">W.K. Ceramic Distributor Sdn Bhd</strong>.
                 We are one of the top tiles distributor and supplier in the tiles
                 industry. We have distributor agents all across Malaysia as well as we
                 supply directly to these corporate customers.
-            </p>
-            <p className="about-us-content">
+            </Text>
+            <Text fontSize={{ base: 'md', lg: 'lg' }} width='80%'>
                 W.K. has been{" "}
                 <strong className="bold-text">established since 1992</strong>, solely as
                 a wholesale tiles supplier focusing on providing tiles for the
                 under-construction projects. But we have slowly branched out to cater
                 for distributorship to smaller tiles shop outside of Klang Valley.
-            </p>
-            <p className="about-us-content">
+            </Text>
+            <Text fontSize={{ base: 'md', lg: 'lg' }} width='80%'>
                 <strong className="bold-text">Our past project</strong> ranges from the
                 under-construction projects to individual residential project as well as
                 commercial projects. Hence, you do not need to worry about the
                 inadequate supply of tiles or a delay in delivery from the agreed date.
-            </p>
+            </Text>
             <img src={aboutUsDivider} alt="about-us-divider" />
             <h1 className="about-us-title">WHY US?</h1>
-            <p className="about-us-content">
+            <Text fontSize={{ base: 'md', lg: 'lg' }} width='80%'>
                 As a tiles’ supplier and wholesaler, our prices are reasonably cheap.
                 This is because our{" "}
                 <strong className="bold-text">
@@ -48,8 +48,8 @@ const AboutUs = () => {
                 and economical, as well as clearance and odd lots. It all depends on
                 individual customer preference for the design and cost budget that they
                 have.
-            </p>
-            <p className="about-us-content" style={{ marginBottom: '5rem' }}>
+            </Text>
+            <Text fontSize={{ base: 'md', lg: 'lg' }} width='80%' marginBottom='5rem'>
                 In addition to that, we also cater to{" "}
                 <strong className="bold-text">
                     distributors from outside Klang Valley
@@ -58,7 +58,7 @@ const AboutUs = () => {
                 Johor, Melaka, Seremban, Perak, Penang, Pahang and Kelantan. Many under
                 construction residential and commercial project also enquire from us due
                 to our brand name and our stocks availability.
-            </p>
+            </Text>
         </Box>
     );
 };

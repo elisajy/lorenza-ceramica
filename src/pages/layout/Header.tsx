@@ -231,7 +231,19 @@ const Header = ({ children, onScrollToFooter }: any) => {
                       }
                     })}
                 </Menu>
-
+                <Button variant="ghost" onClick={() => navigate("/projects")}>
+                  <Text
+                    fontSize={{
+                      base: "sm",
+                      sm: "sm",
+                      md: "md",
+                      lg: "lg",
+                      xl: "xl",
+                    }}
+                  >
+                    Projects
+                  </Text>
+                </Button>
                 <Button
                   variant="ghost"
                   onClick={() => navigate("/inspirations")}

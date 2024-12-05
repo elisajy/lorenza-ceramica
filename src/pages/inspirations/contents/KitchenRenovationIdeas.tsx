@@ -1,9 +1,14 @@
-import { Box } from "@chakra-ui/react";
 import '../Inspirations.css';
 
 const KitchenRenovationIdeas = () => {
     return (
-        <Box maxWidth="8xl" margin="30px 60px" display="flex" flexDirection="column" gap="1.2rem">
+        <div style={{
+                maxWidth: "90rem",
+                margin: "30px 60px",
+                display: "flex",
+                flexDirection: "column",
+                gap: "1.2rem"
+            }}>
             <h3><strong>8 Simple Ideas for Your Next Bathroom Remodel in Malaysia</strong></h3>
             <hr></hr>
             <img src="https://lorenzaceramica.com/wp-content/uploads/2021/01/lorenza_kitchen_reno_1-1024x682.jpg" alt="post-banner"></img>
@@ -42,7 +47,7 @@ const KitchenRenovationIdeas = () => {
             <p>How many mugs have you received from birthdays, Christmas gatherings, and your child’s Hari Sukan? While you can repurpose some of the extras as storage containers (e.g., toothbrush holders), the others are just taking up precious kitchen real estate and gathering dust.</p>
             <p>Save yourself time and space by giving them away to people whom you know, or you can just list them on local groups such as the <a href="https://www.facebook.com/groups/2154276071450456"><span style={{ textDecoration: "underline" }}><span style={{ color: "#005399" }} className="has-inline-color">Buy Nothing Project</span></span></a> on Facebook.</p>
             <p>This also goes for your unused kitchen appliances. That mini rice cooker you’ve not used since your college days might be better off in the hands of a new friend.</p>
-        </Box>
+        </div>
     )
 }
 

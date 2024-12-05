@@ -81,7 +81,7 @@ const ItemDetail = () => {
             <Box className="category-title">
                 <Breadcrumb spacing='8px' separator={<ChevronRightIcon color='gray.500' />}>
                     <BreadcrumbItem>
-                        <BreadcrumbLink href='/products'>Products</BreadcrumbLink>
+                        <BreadcrumbLink href="/products/tiles/all-products">Products</BreadcrumbLink>
                     </BreadcrumbItem>
 
                     {
@@ -110,7 +110,7 @@ const ItemDetail = () => {
             {
                 selectedProduct &&
                 <Box className='product-details-block'>
-                    <Box className='product-image-block'>
+                    <Box minHeight={{ base: '300px', lg: '500px' }} className='product-image-block'>
                         <ProductImages slides={prdImages} options={OPTIONS}></ProductImages>
                     </Box>
                     <Box className='product-info-block'>
@@ -118,41 +118,41 @@ const ItemDetail = () => {
                             spacing={4}
                             align='stretch'>
                             <Box>
-                                <Text color={'#0c478a'} fontWeight={700} fontSize='3xl'>{selectedProduct.prdName}</Text>
+                                <Text color={'#0c478a'} fontWeight={700} fontSize={{ base: '2xl', lg: '3xl' }}>{selectedProduct.prdName}</Text>
                                 <br />
                                 {
                                     category && subcategory &&
-                                    <Text fontSize='lg'>Product Category: {category} / {subcategory}</Text>
+                                    <Text fontSize={{ base: 'md', lg: 'lg' }}>Product Category: {category} / {subcategory}</Text>
                                 }
                                 {
                                     selectedProduct.prdCode &&
-                                    <Text fontSize='lg'>Code: {selectedProduct.prdCode}</Text>
+                                    <Text fontSize={{ base: 'md', lg: 'lg' }}>Code: {selectedProduct.prdCode}</Text>
                                 }
                                 {
                                     selectedProduct.prdVariation &&
-                                    <Text fontSize='lg'>Variation: {selectedProduct.prdVariation}</Text>
+                                    <Text fontSize={{ base: 'md', lg: 'lg' }}>Variation: {selectedProduct.prdVariation}</Text>
                                 }
                                 {
                                     selectedProduct.prdSize &&
-                                    <Text fontSize='lg'>Size: {selectedProduct.prdSize}</Text>
+                                    <Text fontSize={{ base: 'md', lg: 'lg' }}>Size: {selectedProduct.prdSize}</Text>
                                 }
                                 {
                                     selectedProduct.prdColor &&
-                                    <Text fontSize='lg'>Color: {selectedProduct.prdColor}</Text>
+                                    <Text fontSize={{ base: 'md', lg: 'lg' }}>Color: {selectedProduct.prdColor}</Text>
                                 }
                                 {
                                     selectedProduct.prdFinish &&
-                                    <Text fontSize='lg'>Finish: {selectedProduct.prdFinish}</Text>
+                                    <Text fontSize={{ base: 'md', lg: 'lg' }}>Finish: {selectedProduct.prdFinish}</Text>
                                 }
                                 {
                                     selectedProduct.thickness &&
-                                    <Text fontSize='lg'>Thickness: {selectedProduct.thickness}</Text>
+                                    <Text fontSize={{ base: 'md', lg: 'lg' }} width='80%'>Thickness: {selectedProduct.thickness}</Text>
                                 }
                                 <br />
-                                <Text fontSize='xl' color={'#0c478a'} fontWeight={600}>Product Description</Text>
+                                <Text fontSize={{ base: 'lg', lg: 'xl' }} color={'#0c478a'} fontWeight={600}>Product Description</Text>
                                 {
                                     selectedProduct.prdDesc &&
-                                    <Text style={{ textAlign: 'justify' }} fontSize='lg'>{selectedProduct.prdDesc}</Text>
+                                    <Text style={{ textAlign: 'justify' }} fontSize={{ base: 'md', lg: 'lg' }}>{selectedProduct.prdDesc}</Text>
                                 }
                                 <br />
                             </Box>
