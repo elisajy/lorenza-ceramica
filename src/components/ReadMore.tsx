@@ -26,11 +26,22 @@ const ReadMore: React.FC<ReadMoreProps> = ({ text, wordLimit, url }) => {
         display: "flex",
         flexDirection: "column",
         justifyContent: "space-between",
-        height: 120
+        height: 120,
       }}
     >
       {/* Display either the truncated text or the full text */}
-      <Text textAlign={"justify"}>{isExpanded ? text : truncatedText}</Text>
+      <p
+        style={{
+          textAlign: "justify",
+          overflow: "hidden",
+          display: "-webkit-box",
+          WebkitLineClamp: 4,
+          WebkitBoxOrient: "vertical",
+          textOverflow: "ellipsis",
+        }}
+      >
+        {isExpanded ? text : truncatedText}
+      </p>
 
       {/* Button to toggle between expanded/collapsed */}
       <Button

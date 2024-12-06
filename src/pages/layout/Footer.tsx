@@ -82,7 +82,7 @@ const Footer = forwardRef<HTMLDivElement>((props, ref) => {
                 <img src={companyLogo} className="footer-logo" />
               </div>
             </GridItem>
-            <GridItem pl="2" area={"company"} className="grid-item-center">
+            <GridItem pl="2" area={"company"}>
               <div className="mobile-company-info-box">
                 <p
                   style={{
@@ -92,11 +92,11 @@ const Footer = forwardRef<HTMLDivElement>((props, ref) => {
                 >
                   W.K CERAMIC DISTRIBUTOR SDN. BHD. (Reg. no.: 199301022836)
                 </p>
-                <p style={{ fontSize: 12, wordSpacing: 2 }}>
+                <p style={{ fontSize: 12, wordSpacing: 2, }}>
                   Wisma W.K, Lot 5, Jalan 51A/227, 46100 Petaling Jaya, Selangor
                   D.E
                 </p>
-                <p style={{ fontSize: 12, wordSpacing: 2 }}>
+                <p style={{ fontSize: 12, wordSpacing: 2, }}>
                   Mon - Sat | 08:30 - 18:00
                 </p>
               </div>
@@ -111,7 +111,7 @@ const Footer = forwardRef<HTMLDivElement>((props, ref) => {
               >
                 <Box
                   style={{
-                    paddingRight: width > 640 ? 60 : width <= 640 ? 40 : 20,
+                    paddingRight: width > 640 ? 50 : width <= 640 ? 30 : 20,
                   }}
                 >
                   <div className="mobile-heading-block">
@@ -149,7 +149,7 @@ const Footer = forwardRef<HTMLDivElement>((props, ref) => {
                 </Box>
                 <Box
                   style={{
-                    paddingLeft: width > 640 ? 60 : width <= 640 ? 40 : 20,
+                    paddingLeft: width > 640 ? 50 : width <= 640 ? 30 : 20,
                   }}
                 >
                   <div ref={ref} className="mobile-heading-block">

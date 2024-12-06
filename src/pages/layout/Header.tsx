@@ -110,7 +110,11 @@ const Header = ({ children, onScrollToFooter }: any) => {
       <header className="header">
         {width >= 992 && (
           <Flex alignContent={"center"} alignItems={"center"}>
-            <Box onClick={() => {navigate("/")}}>
+            <Box
+              onClick={() => {
+                navigate("/");
+              }}
+            >
               <img
                 className="header-logo"
                 src="/lorenza-logo-transparent-blue.png"
@@ -214,18 +218,18 @@ const Header = ({ children, onScrollToFooter }: any) => {
                       } else {
                         return (
                           <MenuItem onClick={() => navigation(item)}>
-                             <Text
-                                fontWeight={600}
-                                fontSize={{
-                                  base: "sm",
-                                  sm: "sm",
-                                  md: "md",
-                                  lg: "lg",
-                                  xl: "lg",
-                                }}
-                              >
-                                {item.label}
-                              </Text>
+                            <Text
+                              fontWeight={600}
+                              fontSize={{
+                                base: "sm",
+                                sm: "sm",
+                                md: "md",
+                                lg: "lg",
+                                xl: "lg",
+                              }}
+                            >
+                              {item.label}
+                            </Text>
                           </MenuItem>
                         );
                       }
@@ -344,7 +348,11 @@ const Header = ({ children, onScrollToFooter }: any) => {
                 }}
                 area={"header2"}
               >
-                <Box onClick={() => {navigate("/")}}>
+                <Box
+                  onClick={() => {
+                    navigate("/");
+                  }}
+                >
                   <img
                     className="header-logo"
                     src="/lorenza-logo-transparent-blue.png"
@@ -430,7 +438,11 @@ const Header = ({ children, onScrollToFooter }: any) => {
                 }}
                 area={"header2"}
               >
-                <Box onClick={() => {navigate("/")}}>
+                <Box
+                  onClick={() => {
+                    navigate("/");
+                  }}
+                >
                   <img
                     className="header-logo"
                     src="/lorenza-logo-transparent-blue.png"
@@ -510,117 +522,127 @@ const Header = ({ children, onScrollToFooter }: any) => {
           </>
         )}
 
-        {isOpen && <Drawer
-          placement={"top"}
-          onClose={onClose}
-          isOpen={isOpen}
-          size={"full"}
-        >
-          <DrawerOverlay />
-          <DrawerContent>
-            <DrawerCloseButton />
-            <DrawerBody style={{ padding: "3rem" }}>
-              <Box>
-                <VStack
-                  as="nav"
-                  spacing={{ base: 1, sm: 2, md: 3, lg: 4 }}
-                  mr={"auto"}
-                  className="menu-stack"
-                  align="stretch"
-                >
-                  <Button
-                    className="mobile-menu-button"
-                    variant="ghost"
-                    onClick={() => menuNavigation("/")}
+        {isOpen && (
+          <Drawer
+            placement={"top"}
+            onClose={onClose}
+            isOpen={isOpen}
+            size={"full"}
+          >
+            <DrawerOverlay />
+            <DrawerContent>
+              <DrawerCloseButton />
+              <DrawerBody style={{ padding: "3rem" }}>
+                <Box>
+                  <VStack
+                    as="nav"
+                    spacing={{ base: 1, sm: 2, md: 3, lg: 4 }}
+                    mr={"auto"}
+                    className="menu-stack"
+                    align="stretch"
                   >
-                    <Text
-                      fontSize={{
-                        base: "sm",
-                        sm: "sm",
-                        md: "md",
-                        lg: "lg",
-                        xl: "xl",
-                      }}
+                    <Button
+                      className="mobile-menu-button"
+                      variant="ghost"
+                      onClick={() => menuNavigation("/")}
                     >
-                      Home
-                    </Text>
-                  </Button>
-                  <Button
-                    className="mobile-menu-button"
-                    variant="ghost"
-                    onClick={() => menuNavigation("/about-us")}
-                  >
-                    <Text
-                      fontSize={{
-                        base: "sm",
-                        sm: "sm",
-                        md: "md",
-                        lg: "lg",
-                        xl: "xl",
-                      }}
+                      <Text
+                        fontSize={{
+                          base: "sm",
+                          sm: "sm",
+                          md: "md",
+                          lg: "lg",
+                          xl: "xl",
+                        }}
+                      >
+                        Home
+                      </Text>
+                    </Button>
+                    <Button
+                      className="mobile-menu-button"
+                      variant="ghost"
+                      onClick={() => menuNavigation("/about-us")}
                     >
-                      About Us
-                    </Text>
-                  </Button>
-                  <Accordion allowToggle>
-                    <AccordionItem>
-                      <AccordionButton>
-                        <Box
-                          className="mobile-menu-title"
-                          as="button"
-                          flex={1}
-                          textAlign={"left"}
-                          fontSize={{
-                            base: "sm",
-                            sm: "sm",
-                            md: "md",
-                            lg: "lg",
-                            xl: "xl",
-                          }}
-                        >
-                          Products
-                          <AccordionIcon />
-                        </Box>
-                      </AccordionButton>
-                      <AccordionPanel>
-                        <Box>
-                          <Accordion allowToggle>
-                            {categories && categories.length !== 0
-                              ? categories.map((item: any) => {
-                                  return (
-                                    <AccordionItem>
-                                      <AccordionButton>
-                                        <Box
-                                          as="span"
-                                          flex="1"
-                                          textAlign="left"
-                                        >
-                                          {item.prds &&
-                                          item.prds.length === 0 ? (
-                                            <NavLink
-                                              onClick={() => {
-                                                onClose();
-                                              }}
-                                              to={item.route}
-                                              style={({
-                                                isActive,
-                                                isPending,
-                                                isTransitioning,
-                                              }) => {
-                                                return {
-                                                  fontWeight: isActive
-                                                    ? "bold"
-                                                    : "",
-                                                  color: isPending
-                                                    ? "red"
-                                                    : "black",
-                                                  viewTransitionName:
-                                                    isTransitioning
-                                                      ? "slide"
+                      <Text
+                        fontSize={{
+                          base: "sm",
+                          sm: "sm",
+                          md: "md",
+                          lg: "lg",
+                          xl: "xl",
+                        }}
+                      >
+                        About Us
+                      </Text>
+                    </Button>
+                    <Accordion allowToggle>
+                      <AccordionItem>
+                        <AccordionButton>
+                          <Box
+                            className="mobile-menu-title"
+                            as="button"
+                            flex={1}
+                            textAlign={"left"}
+                            fontSize={{
+                              base: "sm",
+                              sm: "sm",
+                              md: "md",
+                              lg: "lg",
+                              xl: "xl",
+                            }}
+                          >
+                            Products
+                            <AccordionIcon />
+                          </Box>
+                        </AccordionButton>
+                        <AccordionPanel>
+                          <Box>
+                            <Accordion allowToggle>
+                              {categories && categories.length !== 0
+                                ? categories.map((item: any) => {
+                                    return (
+                                      <AccordionItem>
+                                        <AccordionButton>
+                                          <Box
+                                            as="span"
+                                            flex="1"
+                                            textAlign="left"
+                                          >
+                                            {item.prds &&
+                                            item.prds.length === 0 ? (
+                                              <NavLink
+                                                onClick={() => {
+                                                  onClose();
+                                                }}
+                                                to={item.route}
+                                                style={({
+                                                  isActive,
+                                                  isPending,
+                                                  isTransitioning,
+                                                }) => {
+                                                  return {
+                                                    fontWeight: isActive
+                                                      ? "bold"
                                                       : "",
-                                                };
-                                              }}
-                                            >
+                                                    color: isPending
+                                                      ? "red"
+                                                      : "black",
+                                                    viewTransitionName:
+                                                      isTransitioning
+                                                        ? "slide"
+                                                        : "",
+                                                  };
+                                                }}
+                                              >
+                                                <Text
+                                                  fontSize={"md"}
+                                                  fontWeight={600}
+                                                  color={"#0c478a"}
+                                                >
+                                                  {item.label}
+                                                </Text>
+                                              </NavLink>
+                                            ) : (
                                               <Text
                                                 fontSize={"md"}
                                                 fontWeight={600}
@@ -628,141 +650,151 @@ const Header = ({ children, onScrollToFooter }: any) => {
                                               >
                                                 {item.label}
                                               </Text>
-                                            </NavLink>
-                                          ) : (
-                                            <Text
-                                              fontSize={"md"}
-                                              fontWeight={600}
-                                              color={"#0c478a"}
-                                            >
-                                              {item.label}
-                                            </Text>
-                                          )}
-                                        </Box>
-                                        {item.prds && item.prds.length !== 0 ? (
-                                          <AccordionIcon />
-                                        ) : null}
-                                      </AccordionButton>
-                                      <AccordionPanel>
-                                        {item.prds && item.prds.length !== 0
-                                          ? item.prds.map((x: any) => {
-                                              return (
-                                                <div>
-                                                  <NavLink
-                                                    onClick={() => {
-                                                      onClose();
-                                                    }}
-                                                    to={x.route}
-                                                    style={({
-                                                      isActive,
-                                                      isPending,
-                                                      isTransitioning,
-                                                    }) => {
-                                                      return {
-                                                        fontWeight: isActive
-                                                          ? "bold"
-                                                          : "",
-                                                        color: isPending
-                                                          ? "red"
-                                                          : "black",
-                                                        viewTransitionName:
-                                                          isTransitioning
-                                                            ? "slide"
+                                            )}
+                                          </Box>
+                                          {item.prds &&
+                                          item.prds.length !== 0 ? (
+                                            <AccordionIcon />
+                                          ) : null}
+                                        </AccordionButton>
+                                        <AccordionPanel>
+                                          {item.prds && item.prds.length !== 0
+                                            ? item.prds.map((x: any) => {
+                                                return (
+                                                  <div>
+                                                    <NavLink
+                                                      onClick={() => {
+                                                        onClose();
+                                                      }}
+                                                      to={x.route}
+                                                      style={({
+                                                        isActive,
+                                                        isPending,
+                                                        isTransitioning,
+                                                      }) => {
+                                                        return {
+                                                          fontWeight: isActive
+                                                            ? "bold"
                                                             : "",
-                                                      };
-                                                    }}
-                                                  >
-                                                    <Text
-                                                      fontSize={"sm"}
-                                                      color={"#143e6e"}
+                                                          color: isPending
+                                                            ? "red"
+                                                            : "black",
+                                                          viewTransitionName:
+                                                            isTransitioning
+                                                              ? "slide"
+                                                              : "",
+                                                        };
+                                                      }}
                                                     >
-                                                      {x.label}
-                                                    </Text>
-                                                  </NavLink>
-                                                </div>
-                                              );
-                                            })
-                                          : null}
-                                      </AccordionPanel>
-                                    </AccordionItem>
-                                  );
-                                })
-                              : null}
-                          </Accordion>
-                        </Box>
-                      </AccordionPanel>
-                    </AccordionItem>
-                  </Accordion>
-                  <Button
-                    className="mobile-menu-button"
-                    variant="ghost"
-                    onClick={() => menuNavigation("/inspirations")}
-                  >
-                    <Text
-                      fontSize={{
-                        base: "sm",
-                        sm: "sm",
-                        md: "md",
-                        lg: "lg",
-                        xl: "xl",
+                                                      <Text
+                                                        fontSize={"sm"}
+                                                        color={"#143e6e"}
+                                                      >
+                                                        {x.label}
+                                                      </Text>
+                                                    </NavLink>
+                                                  </div>
+                                                );
+                                              })
+                                            : null}
+                                        </AccordionPanel>
+                                      </AccordionItem>
+                                    );
+                                  })
+                                : null}
+                            </Accordion>
+                          </Box>
+                        </AccordionPanel>
+                      </AccordionItem>
+                    </Accordion>
+                    <Button
+                      className="mobile-menu-button"
+                      variant="ghost"
+                      onClick={() => navigate("/projects")}
+                    >
+                      <Text
+                        fontSize={{
+                          base: "sm",
+                          sm: "sm",
+                          md: "md",
+                          lg: "lg",
+                          xl: "xl",
+                        }}
+                      >
+                        Projects
+                      </Text>
+                    </Button>
+                    <Button
+                      className="mobile-menu-button"
+                      variant="ghost"
+                      onClick={() => menuNavigation("/inspirations")}
+                    >
+                      <Text
+                        fontSize={{
+                          base: "sm",
+                          sm: "sm",
+                          md: "md",
+                          lg: "lg",
+                          xl: "xl",
+                        }}
+                      >
+                        Inspiration
+                      </Text>
+                    </Button>
+                    <Button
+                      className="mobile-menu-button"
+                      variant="ghost"
+                      onClick={() => {
+                        onClose();
+                        onScrollToFooter();
                       }}
                     >
-                      Inspiration
-                    </Text>
-                  </Button>
-                  <Button
-                    className="mobile-menu-button"
-                    variant="ghost"
-                    onClick={() => {
-                      onClose();
-                      onScrollToFooter();
-                    }}
-                  >
-                    <Text
-                      fontSize={{
-                        base: "sm",
-                        sm: "sm",
-                        md: "md",
-                        lg: "lg",
-                        xl: "xl",
-                      }}
-                    >
-                      Contact
-                    </Text>
-                  </Button>
-                </VStack>
-              </Box>
-              {width <= 576 && (
-                <Box>
-                  <HStack spacing={1} float={"left"}>
-                    {socialMenu && socialMenu.length !== 0
-                      ? socialMenu.map((item: any) => {
-                          return (
-                            <>
-                              {item.ariaLabel !== "ShoppingCart" && (
-                                <>
-                                  <IconButton
-                                    as="a"
-                                    href={item.href}
-                                    aria-label={item.ariaLabel}
-                                    icon={item.icon}
-                                    size={"lg"}
-                                    variant="ghost"
-                                    fontSize={"x-large"}
-                                    onClick={() => openUrl(item.url)}
-                                  />
-                                </>
-                              )}
-                            </>
-                          );
-                        })
-                      : null}
-                  </HStack>
+                      <Text
+                        fontSize={{
+                          base: "sm",
+                          sm: "sm",
+                          md: "md",
+                          lg: "lg",
+                          xl: "xl",
+                        }}
+                      >
+                        Contact
+                      </Text>
+                    </Button>
+                  </VStack>
                 </Box>
-              )}
-            </DrawerBody>
-          </DrawerContent>
-        </Drawer>}
+                {width <= 576 && (
+                  <Box>
+                    <HStack spacing={1} float={"left"}>
+                      {socialMenu && socialMenu.length !== 0
+                        ? socialMenu.map((item: any) => {
+                            return (
+                              <>
+                                {item.ariaLabel !== "ShoppingCart" && (
+                                  <>
+                                    <IconButton
+                                      as="a"
+                                      href={item.href}
+                                      aria-label={item.ariaLabel}
+                                      icon={item.icon}
+                                      size={"lg"}
+                                      variant="ghost"
+                                      fontSize={"x-large"}
+                                      onClick={() => openUrl(item.url)}
+                                    />
+                                  </>
+                                )}
+                              </>
+                            );
+                          })
+                        : null}
+                    </HStack>
+                  </Box>
+                )}
+              </DrawerBody>
+            </DrawerContent>
+          </Drawer>
+        )}
       </header>
 
       <ShoppingCart visible={visible} setVisible={setVisible} />

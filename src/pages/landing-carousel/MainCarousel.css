@@ -6,7 +6,7 @@
   justify-content: center; /* Center content vertically */
   position: relative; /* Needed for absolute positioning of child elements */
   margin: auto;
-  height: 100%; /* Ensure it fills the container height */
+  /* height: 100%; Ensure it fills the container height */
   width: 100%; /* Ensure it spans the full width */
   margin: auto;
   --slide-height: auto;
