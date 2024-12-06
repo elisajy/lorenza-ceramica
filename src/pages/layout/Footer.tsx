@@ -82,7 +82,7 @@ const Footer = forwardRef<HTMLDivElement>((props, ref) => {
                 <img src={companyLogo} className="footer-logo" />
               </div>
             </GridItem>
-            <GridItem pl="2" area={"company"}>
+            <GridItem pl="2" area={"company"} className="grid-item-center">
               <div className="mobile-company-info-box">
                 <p
                   style={{
@@ -115,7 +115,7 @@ const Footer = forwardRef<HTMLDivElement>((props, ref) => {
                   }}
                 >
                   <div className="mobile-heading-block">
-                    <Heading as="h2" fontSize={"18px"} letterSpacing={3}>
+                    <Heading as="h2" fontSize={"18px"} letterSpacing={3} paddingBottom="5px">
                       INFORMATION
                     </Heading>
                   </div>
@@ -141,7 +141,7 @@ const Footer = forwardRef<HTMLDivElement>((props, ref) => {
                       </Button>
                     </Link>
                     <Link to="/faq">
-                      <Button colorScheme="white" variant="link">
+                      <Button colorScheme="white" variant="link" justifyContent="start">
                         FAQ
                       </Button>
                     </Link>
@@ -153,7 +153,7 @@ const Footer = forwardRef<HTMLDivElement>((props, ref) => {
                   }}
                 >
                   <div ref={ref} className="mobile-heading-block">
-                    <Heading as="h2" fontSize={"18px"} letterSpacing={3}>
+                    <Heading as="h2" fontSize={"18px"} letterSpacing={3} paddingBottom="5px">
                       CONTACT
                     </Heading>
                   </div>
@@ -229,7 +229,7 @@ const Footer = forwardRef<HTMLDivElement>((props, ref) => {
               </Box>
               <Box flex="2" className="footer-box">
                 <div className="heading-block">
-                  <Heading as="h2" fontSize={"22px"} letterSpacing={3}>
+                  <Heading as="h2" fontSize={"22px"} letterSpacing={3} paddingBottom="5px">
                     INFORMATION
                   </Heading>
                 </div>
@@ -255,7 +255,7 @@ const Footer = forwardRef<HTMLDivElement>((props, ref) => {
                     </Button>
                   </Link>
                   <Link to="/faq">
-                    <Button colorScheme="white" variant="link">
+                    <Button colorScheme="white" variant="link" justifyContent="start">
                       FAQ
                     </Button>
                   </Link>
@@ -263,7 +263,7 @@ const Footer = forwardRef<HTMLDivElement>((props, ref) => {
               </Box>
               <Box flex="2" className="footer-box">
                 <div ref={ref} className="heading-block">
-                  <Heading as="h2" fontSize={"22px"} letterSpacing={3}>
+                  <Heading as="h2" fontSize={"22px"} letterSpacing={3} paddingBottom="5px">
                     CONTACT
                   </Heading>
                 </div>
