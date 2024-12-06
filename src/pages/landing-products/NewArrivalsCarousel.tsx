@@ -43,7 +43,16 @@ const NewArrivalsCarousel: React.FC<PropType> = (props) => {
             >
               <Card style={{ cursor: "pointer" }}>
                 <CardBody p={1.5}>
-                  <img src={x.images[0]} className="image-item-prds" />
+                  <div className="figure">
+                    <img
+                      className="Sirv image-main image-item-prds"
+                      src={x.images[0]}
+                    />
+                    <img
+                      className="Sirv image-hover image-item-prds"
+                      src={x.mockedImages[0]}
+                    />
+                  </div>
                 </CardBody>
                 <Divider />
                 <CardFooter justifyContent={"center"} p={1.5}>

@@ -1,32 +1,30 @@
+import { ArrowBackIcon, ArrowForwardIcon } from "@chakra-ui/icons";
 import {
-    ArrowBackIcon,
-    ArrowForwardIcon
-} from "@chakra-ui/icons";
-import {
-    Box,
-    Card,
-    CardBody,
-    Divider,
-    IconButton,
-    Image,
-    Stack,
-    Text
+  Box,
+  Card,
+  CardBody,
+  Divider,
+  IconButton,
+  Image,
+  Stack,
+  Text,
 } from "@chakra-ui/react";
 import { faCommentAlt, faHeart } from "@fortawesome/free-regular-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import useEmblaCarousel from "embla-carousel-react";
 import {
-    Client,
-    GetPageMediaRequest,
-    GetPageMediaResponse,
-    PageOption,
-    RequestConfig
+  Client,
+  GetPageMediaRequest,
+  GetPageMediaResponse,
+  PageOption,
+  RequestConfig,
 } from "instagram-graph-api";
 import { useEffect, useState } from "react";
 import ReadMore from "../../components/ReadMore";
 import "./LandingInstagram.css";
 
 const LandingInstagram = () => {
+  const [page, setPage] = useState(1);
   const longLivedAccessToken = process.env.REACT_APP_LL_TOKEN!;
   const pageId = process.env.REACT_APP_PAGE_ID!;
   const [limit, setLimit] = useState(
@@ -112,6 +110,7 @@ const LandingInstagram = () => {
 
   const callIGPaging = (type: any) => {
     if (type === "next") {
+      setPage(page + 1);
       const nextPage: string | undefined = mediaResponse.getPaging().getAfter();
       if (nextPage) {
         const pageMediaRequest: GetPageMediaRequest = client
@@ -134,6 +133,7 @@ const LandingInstagram = () => {
           });
       }
     } else if (type === "prev") {
+      setPage(page - 1);
       const prevPage: string | undefined = mediaResponse
         .getPaging()
         .getBefore();
@@ -246,10 +246,10 @@ const LandingInstagram = () => {
               : null}
           </div>
         </div>
-        {
-          post && post.length !== 0 && (
-            <div className="button-container">
+        {post && post.length !== 0 && (
+          <div className="button-container">
             <IconButton
+              visibility={(page <= 1 ? 'hidden' : 'visible')}
               className="overlay-button"
               aria-label="Prev"
               icon={<ArrowBackIcon />}
@@ -262,9 +262,7 @@ const LandingInstagram = () => {
               onClick={() => callIGPaging("next")}
             />
           </div>
-          )
-        }
-      
+        )}
       </section>
     </>
   );
