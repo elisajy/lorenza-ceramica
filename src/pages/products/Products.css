@@ -154,7 +154,7 @@
   justify-items: center;
 }
 
-.image-item {
+.image-border {
   border-style: solid;
   border-width: 10px;
   border-color: lightgray;
