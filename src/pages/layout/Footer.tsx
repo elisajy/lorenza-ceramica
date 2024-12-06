@@ -111,7 +111,7 @@ const Footer = forwardRef<HTMLDivElement>((props, ref) => {
               >
                 <Box
                   style={{
-                    paddingRight: width > 640 ? 50 : width <= 640 ? 30 : 20,
+                    paddingRight: width > 640 ? 60 : width <= 640 ? 40 : 20,
                   }}
                 >
                   <div className="mobile-heading-block">
@@ -149,7 +149,7 @@ const Footer = forwardRef<HTMLDivElement>((props, ref) => {
                 </Box>
                 <Box
                   style={{
-                    paddingLeft: width > 640 ? 50 : width <= 640 ? 30 : 20,
+                    paddingLeft: width > 640 ? 60 : width <= 640 ? 40 : 20,
                   }}
                 >
                   <div ref={ref} className="mobile-heading-block">
