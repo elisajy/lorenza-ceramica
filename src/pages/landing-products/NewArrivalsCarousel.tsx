@@ -1,10 +1,11 @@
-import React from "react";
-import { EmblaOptionsType } from "embla-carousel";
+import React, { useCallback } from "react";
+import { EmblaCarouselType, EmblaOptionsType } from "embla-carousel";
 import Autoplay from "embla-carousel-autoplay";
 import useEmblaCarousel from "embla-carousel-react";
 import "./LandingProducts.css";
 import { useNavigate } from "react-router-dom";
 import { Card, CardBody, CardFooter, Divider, Text } from "@chakra-ui/react";
+import { NextButton, PrevButton, usePrevNextButtons } from "./CarouselButton";
 
 type PropType = {
   slides: number[];
@@ -29,6 +30,26 @@ const NewArrivalsCarousel: React.FC<PropType> = (props) => {
       }),
     ]
   );
+
+  const onNavButtonClick = useCallback((emblaApi: EmblaCarouselType) => {
+    const autoplay = emblaApi?.plugins()?.autoplay;
+    if (!autoplay) return;
+
+    const resetOrStop =
+      autoplay.options.stopOnInteraction === false
+        ? autoplay.reset
+        : autoplay.stop;
+
+    resetOrStop();
+  }, []);
+
+  const {
+    prevBtnDisabled,
+    nextBtnDisabled,
+    onPrevButtonClick,
+    onNextButtonClick,
+  } = usePrevNextButtons(emblaApi, onNavButtonClick);
+
   return (
     <section className="embla-bs">
       <div className="embla__viewport-bs" ref={emblaRef}>
@@ -43,7 +64,16 @@ const NewArrivalsCarousel: React.FC<PropType> = (props) => {
             >
               <Card style={{ cursor: "pointer" }}>
                 <CardBody p={1.5}>
-                  <img src={x.images[0]} className="image-item-prds" />
+                  <div className="figure">
+                    <img
+                      className="Sirv image-main image-item-prds"
+                      src={x.images[0]}
+                    />
+                    <img
+                      className="Sirv image-hover image-item-prds"
+                      src={x.mockedImages[0]}
+                    />
+                  </div>
                 </CardBody>
                 <Divider />
                 <CardFooter justifyContent={"center"} p={1.5}>
@@ -54,6 +84,23 @@ const NewArrivalsCarousel: React.FC<PropType> = (props) => {
           ))}
         </div>
       </div>
+
+      {slides && slides.length !== 0 && (
+        <div className="button-container-prd">
+          <PrevButton
+            className="overlay-button"
+            onClick={onPrevButtonClick}
+            disabled={prevBtnDisabled}
+          />
+
+          <NextButton
+            className="overlay-button"
+            onClick={onNextButtonClick}
+            disabled={nextBtnDisabled}
+          />
+        </div>
+      )}
+
     </section>
   );
 };

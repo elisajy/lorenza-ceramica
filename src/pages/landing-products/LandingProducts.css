@@ -58,3 +58,44 @@
     object-fit: cover;
   }
 }
+
+.figure {
+  position: relative;
+  width: 360px; /* can be omitted for a regular non-lazy image */
+  max-width: 100%;
+}
+.figure img.Sirv.image-hover {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  object-fit: contain;
+  opacity: 0;
+  transition: opacity .2s;
+}
+.figure:hover img.Sirv.image-hover {
+  opacity: 1;
+}
+
+.overlay-button {
+  /* position: absolute; Position the button absolutely */
+  padding: 10px 10px; /* Button padding */
+  color: black; /* Button text color */
+  border: none; /* Remove default border */
+  border-radius: 5px; /* Optional: rounded corners */
+  cursor: pointer; /* Pointer cursor on hover */
+  z-index: 999; /* Ensure container B appears above container A */
+}
+.button-container-prd {
+  width: 100%;
+  /* width: 150px; */
+  border-radius: 5px;
+  z-index: 999; /* Ensure container B appears above container A */
+  display: flex;
+  justify-content: space-between;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-top: -180px;
+  margin-bottom: 150px;
+}

@@ -1,7 +1,13 @@
 .embla {
   /* max-width: 48rem; */
   display: flex;
-  align-items: center;
+  flex-direction: column; /* Stack children vertically */
+  align-items: center; /* Center children horizontally */
+  justify-content: center; /* Center content vertically */
+  position: relative; /* Needed for absolute positioning of child elements */
+  margin: auto;
+  height: 100%; /* Ensure it fills the container height */
+  width: 100%; /* Ensure it spans the full width */
   margin: auto;
   --slide-height: auto;
   --slide-spacing: 1rem;
@@ -15,7 +21,7 @@
   touch-action: pan-y pinch-zoom;
   margin-left: calc(var(--slide-spacing) * -1);
   height: var(--slide-height);
-  align-items: center;
+  /* align-items: center; */
 }
 .embla__slide {
   transform: translate3d(0, 0, 0);
@@ -37,22 +43,27 @@
 
 .embla__dots {
   display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  justify-content: flex-end;
-  align-items: center;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
   margin-right: calc((2.3rem - 1.1rem) / 2 * -1);
   z-index: 10;
-  position: absolute;
+  /* position: absolute; */
+  align-items: center;
 }
 
 .embla__controls {
+  position: absolute;
+  bottom: 1rem; /* Adjust the distance from the bottom */
+  left: 50%; /* Center horizontally */
+  transform: translateX(-50%); /* Correct the alignment to be fully centered */
   display: grid;
   align-items: center;
-  /* grid-template-columns: auto 1fr; */
-  justify-content: space-between;
+  justify-content: center; /* Center the items inside the grid */
   gap: 1.2rem;
+  z-index: 10; /* Ensure it appears on top of other elements */
 }
+
 .embla__dot {
   -webkit-tap-highlight-color: rgba(var(--text-high-contrast-rgb-value), 0.5);
   -webkit-appearance: none;
