@@ -77,3 +77,25 @@
 .figure:hover img.Sirv.image-hover {
   opacity: 1;
 }
+
+.overlay-button {
+  /* position: absolute; Position the button absolutely */
+  padding: 10px 10px; /* Button padding */
+  color: black; /* Button text color */
+  border: none; /* Remove default border */
+  border-radius: 5px; /* Optional: rounded corners */
+  cursor: pointer; /* Pointer cursor on hover */
+  z-index: 999; /* Ensure container B appears above container A */
+}
+.button-container-prd {
+  width: 100%;
+  /* width: 150px; */
+  border-radius: 5px;
+  z-index: 999; /* Ensure container B appears above container A */
+  display: flex;
+  justify-content: space-between;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-top: -180px;
+  margin-bottom: 150px;
+}
