@@ -104,7 +104,7 @@ const CategoryPage = () => {
                     <CardBody className="product-card">
                       {x.images && x.images.length > 0 ? (
                         <Image
-                          className="image-item-prds"
+                          className="image-item-prds2"
                           src={x.images[0]}
                           alt={x.prdName}
                           borderRadius={"10px 10px 0 0"}
@@ -112,7 +112,7 @@ const CategoryPage = () => {
                         />
                       ) : (
                         <Image
-                          className="image-item-prds"
+                          className="image-item-prds2"
                           src={require(`../../assets/images/no-image-available.png`)}
                           alt={x.prdName}
                           borderRadius={"10px 10px 0 0"}

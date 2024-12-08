@@ -99,12 +99,12 @@ const ItemDetail = () => {
           spacing="8px"
           separator={<ChevronRightIcon color="gray.500" />}
         >
-          <BreadcrumbItem>
+          <BreadcrumbItem fontSize={13}>
             <BreadcrumbLink href="/products">Products</BreadcrumbLink>
           </BreadcrumbItem>
 
           {!!category && (
-            <BreadcrumbItem>
+            <BreadcrumbItem fontSize={13}>
               <BreadcrumbLink>
                 {capitalizeFirstLetters(category)}
               </BreadcrumbLink>
@@ -112,7 +112,7 @@ const ItemDetail = () => {
           )}
 
           {!!subcategory && (
-            <BreadcrumbItem>
+            <BreadcrumbItem fontSize={13}>
               <BreadcrumbLink href={`/products/${category}/${subcategory}`}>
                 {capitalizeFirstLetters(subcategory)}
               </BreadcrumbLink>
@@ -120,7 +120,7 @@ const ItemDetail = () => {
           )}
 
           {!!code && (
-            <BreadcrumbItem isCurrentPage>
+            <BreadcrumbItem fontSize={13} isCurrentPage>
               <BreadcrumbLink
                 href={`/products/${category}/${subcategory}/${code}`}
               >

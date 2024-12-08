@@ -174,7 +174,7 @@ const LandingInstagram = () => {
                           <div className="embla__slide-ig" key={item.id}>
                             <Card maxW="sm">
                               <CardBody
-                                style={{ padding: "0.5rem", height: 300 }}
+                                style={{ padding: "0.5rem", height: 325 }}
                               >
                                 <Image
                                   onClick={() => window.open(item.permalink)}
@@ -214,7 +214,7 @@ const LandingInstagram = () => {
                           <div className="embla__slide-ig" key={item.id}>
                             <Card maxW="sm">
                               <CardBody
-                                style={{ padding: "0.5rem", height: 300 }}
+                                style={{ padding: "0.5rem", height: 325 }}
                               >
                                 {/* <Image
                                   onClick={() => window.open(item.permalink)}
@@ -249,7 +249,7 @@ const LandingInstagram = () => {
         {post && post.length !== 0 && (
           <div className="button-container">
             <IconButton
-              visibility={(page <= 1 ? 'hidden' : 'visible')}
+              visibility={page <= 1 ? "hidden" : "visible"}
               className="overlay-button"
               aria-label="Prev"
               icon={<ArrowBackIcon />}

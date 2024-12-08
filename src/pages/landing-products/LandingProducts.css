@@ -50,7 +50,8 @@
   @media screen and (min-width: 640px) {
     height: 230px;
     width: 240px;
-    object-fit: cover;  }
+    object-fit: cover;
+  }
 
   @media screen and (min-width: 992px) {
     height: 250px;
@@ -63,16 +64,15 @@
   position: relative;
   width: 360px; /* can be omitted for a regular non-lazy image */
   max-width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .figure img.Sirv.image-hover {
   position: absolute;
-  top: 0;
-  right: 0;
-  left: 0;
-  bottom: 0;
   object-fit: contain;
   opacity: 0;
-  transition: opacity .2s;
+  transition: opacity 0.2s;
 }
 .figure:hover img.Sirv.image-hover {
   opacity: 1;
