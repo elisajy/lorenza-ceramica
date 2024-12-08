@@ -1,9 +1,14 @@
-import { Box } from "@chakra-ui/react";
 import '../Inspirations.css';
 
 const CeramicPorcelain = () => {
     return (
-        <Box maxWidth="8xl" margin="30px 60px" display="flex" flexDirection="column" gap="1.2rem">
+        <div style={{
+                maxWidth: "90rem",
+                margin: "30px 60px",
+                display: "flex",
+                flexDirection: "column",
+                gap: "1.2rem"
+            }}>
             <h3 style={{ fontSize: "22px" }}><strong>Ceramic vs Porcelain – Which One Should I Choose for My Malaysian Home?</strong></h3>
             <hr></hr>
             <img src="https://lorenzaceramica.com/wp-content/uploads/2020/11/lorenza-ceramica-ceramic-vs-porcelain-malaysia-1024x278.jpg" alt="post-banner"></img>
@@ -29,7 +34,7 @@ const CeramicPorcelain = () => {
             <h2 className="has-text-color">Cost</h2>
             <p>Porcelain tiles are more expensive to buy, and they can also be trickier to install. While ceramic tiles are easier to cut and install by DIY enthusiasts, porcelain tiles can be brittle and better left to the hands of professionals.</p>
             <h2><a href="https://lorenzaceramica.com/products/types/wall-tiles" target="_blank" rel="noreferrer noopener">Are you looking for tile suppliers in Malaysia? Click here to check out the best price for floor and wall tiling in the Klang Valley!</a></h2>
-        </Box>
+        </div>
     )
 }
 

@@ -10,7 +10,6 @@ import {
 } from "@chakra-ui/react";
 import "./Faq.css";
 import { useEffect, useState } from "react";
-import { faqData } from "./Faq.data";
 import pageBgDivider from "../../assets/images/page-bg-divider.png";
 
 const Faq = () => {

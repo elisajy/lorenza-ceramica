@@ -1,9 +1,14 @@
-import { Box } from "@chakra-ui/react";
 import '../Inspirations.css';
 
 const BathroomTiles = () => {
     return (
-        <Box maxWidth="8xl" margin="30px 60px" display="flex" flexDirection="column" gap="1.2rem">
+        <div style={{
+                maxWidth: "90rem",
+                margin: "30px 60px",
+                display: "flex",
+                flexDirection: "column",
+                gap: "1.2rem"
+            }}>
             <h3 style={{ fontSize: "22px" }}><strong>5 Things to Consider When Choosing Bathroom Tiles for Malaysian Homes</strong></h3>
             <hr></hr>
             <img src="https://lorenzaceramica.com/wp-content/uploads/2020/11/lorenza-ceramica-bathroom-tiles-malaysian-home-ceramic-porcelain.jpg" alt="post-banner"></img>
@@ -32,7 +37,7 @@ const BathroomTiles = () => {
             <p>These days, there are porcelain tiles that capture that wooden aesthetic but without the drawback of possibly getting stained by moisture.&nbsp; </p>
             <p>You can also play around with the tile sizes to achieve the desired feel. Avoid using big tiles in a small bathroom as it can make the room look even smaller</p>
             <h2 className="has-text-color"><a href="/products//room/bathroom">Ready to renovate your bathroom? Click here to check out the best price for bathroom tiles in Klang Valley</a></h2>
-        </Box>
+        </div>
     )
 }
 

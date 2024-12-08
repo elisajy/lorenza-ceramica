@@ -166,7 +166,7 @@ const ShoppingCart = ({ visible, setVisible }: Props) => {
       isOpen={visible}
     >
       <DrawerOverlay />
-      <DrawerContent>
+      <DrawerContent className="cart-modal-content">
         <DrawerCloseButton />
         <DrawerHeader marginTop="30px">
           <h2>Interested in the following products</h2>

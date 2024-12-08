@@ -1,9 +1,14 @@
-import { Box } from "@chakra-ui/react";
 import '../Inspirations.css';
 
 const KitchenFlooring = () => {
     return (
-        <Box maxWidth="8xl" margin="30px 60px" display="flex" flexDirection="column" gap="1.2rem">
+        <div style={{
+                maxWidth: "90rem",
+                margin: "30px 60px",
+                display: "flex",
+                flexDirection: "column",
+                gap: "1.2rem"
+            }}>
             <h3 style={{ fontSize: "22px" }}><strong>3 Affordable options for kitchen flooring in Malaysia</strong></h3>
             <hr></hr>
             <p>Next to the bathroom, the kitchen is one area in the house that receives the most heavy-duty use.</p>
@@ -36,7 +41,7 @@ const KitchenFlooring = () => {
             <p>As for the look, matt tiles have that industrial feel, akin to your typical artisan cafés in Klang Valley. Now, all you need to complete the rustic aesthetics are some low-fi Spotify list, and a bicycle hanging on a wall for some reason.</p>
             <h2 className="has-text-color">Which style of kitchen floor do you prefer?</h2>
             <p>If you’re planning to do a kitchen renovation, the flooring is certainly a big part of the look and feel. Other areas include the kitchen countertop and backsplash, which we will go into in the future.</p>
-        </Box>
+        </div>
     )
 }
 

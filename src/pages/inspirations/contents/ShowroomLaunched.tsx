@@ -1,9 +1,14 @@
-import { Box } from "@chakra-ui/react";
 import '../Inspirations.css';
 
 const ShowroomLaunched = () => {
     return (
-        <Box maxWidth="8xl" margin="30px 60px" display="flex" flexDirection="column" gap="1.2rem">
+        <div style={{
+                maxWidth: "90rem",
+                margin: "30px 60px",
+                display: "flex",
+                flexDirection: "column",
+                gap: "1.2rem"
+            }}>
             <h3 style={{ fontSize: "22px" }}><strong>We’ve launched our new showroom!</strong></h3>
             <hr></hr>
             <img style={{ maxWidth: "800px", alignSelf: "center" }} src="https://lorenzaceramica.com/wp-content/uploads/2020/05/blog_1-1024x768.png" alt="post-banner"></img>
@@ -19,7 +24,7 @@ const ShowroomLaunched = () => {
             <img style={{ maxWidth: "800px", alignSelf: "center" }} src="https://lorenzaceramica.com/wp-content/uploads/2020/05/blog_4.png" alt="post-banner"></img>
             <p>The team built will ensure that Lorenza Ceramica will continue to strive to bring the best services for years to come.</p>
             <img style={{ maxWidth: "800px", alignSelf: "center" }} src="https://lorenzaceramica.com/wp-content/uploads/2020/05/blog_5.png" alt="post-banner"></img>
-        </Box>
+        </div>
     )
 }
 
