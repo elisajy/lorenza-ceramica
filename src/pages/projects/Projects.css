@@ -1,0 +1,133 @@
+@media screen and (max-width: 480px) {
+    /* smartphones, iPhone, portrait 480x320 phones */
+    .card-grid{
+      grid-template-columns: repeat(1, minmax(0, 1fr)) !important;
+    }
+
+    .card-thumbnail {
+        height: 230px;
+        min-width: 250px;
+    }
+}
+@media screen and (min-width: 480px) {
+    /* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */
+    .card-thumbnail {
+        height: 230px;
+        min-width: 250px;
+    }
+}
+@media screen and (min-width: 640px) {
+    /* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */
+    .card-thumbnail {
+        height: 230px;
+        min-width: 250px;
+    }
+}  
+@media screen and (min-width: 992px) {
+    /* tablet, landscape iPad, lo-res laptops ands desktops */
+    .card-thumbnail {
+        height: 250px;
+        min-width: 380px;
+    }
+}
+@media screen and (min-width: 1025px) {
+    /* big landscape tablets, laptops, and desktops */
+    .card-thumbnail {
+        height: 350px;
+        min-width: 500px;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .card-content {
+        top: 0.5rem !important;
+        left: 1rem !important;
+    }
+}
+
+.card-container {
+    align-self: center;
+    position: relative;
+}
+
+.card-content {
+    position: absolute;
+    top: 5rem;
+    left: 5rem;
+    opacity: 0;
+    transition: 0.6s;
+    max-width: 350px
+}
+
+.card-container:hover .card-content {
+    opacity: 1;    
+}
+
+.card-container:hover .card-thumbnail {
+    opacity: 0.5;    
+}
+
+.card-container:hover {
+    background: black;   
+}
+
+.card-desc {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+}
+
+.title {
+    color: #3d6fa8;
+}
+
+/* Content styling */
+.has-text-color {
+    color: #3d6fa8;
+    font-size: 18px
+}
+
+.image-with-text {
+    display: flex;
+    gap: 15px
+}
+
+/* Pagination custom styling */
+.pagination {
+    justify-content: center;
+    display: flex;
+    padding-left: 0;
+    list-style: none;
+    margin: 50px 0 0 0;
+}
+
+.page-item .page-link {
+    position: relative;
+    display: block;
+    margin: 0 2px;
+    min-height: 40px;
+    min-width: 40px;
+    border-radius: 8px;
+    text-align: center;
+    line-height: 40px;
+    color: #3d6fa8;
+    text-decoration: none;
+}
+
+.page-item a.page-link:hover {
+    background-color: #cccccc;
+}
+
+.page-item.active .page-link {
+    font-weight: 700;
+    color: #ffffff;
+    background-color: #3d6fa8;
+}
+
+.page-item.disabled .page-link {
+    color: #6c757d;
+    pointer-events: none;
+    cursor: auto;
+}

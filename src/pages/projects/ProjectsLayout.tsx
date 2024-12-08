@@ -1,11 +1,12 @@
 import { useEffect } from "react";
-import { Outlet } from "react-router-dom";
+import { Outlet, useSearchParams } from "react-router-dom";
 import pageBgDivider from "../../assets/images/page-bg-divider.png";
 import InspirationSidebar from "../layout/sidebar/InspirationSidebar";
 import { Box } from "@chakra-ui/react";
 
 
-const InspirationsLayout = () => {
+const ProjectsLayout = () => {
+    const [searchParams, setSearchParams] = useSearchParams();
     useEffect(() => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
         // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -17,11 +18,11 @@ const InspirationsLayout = () => {
                 <img src={pageBgDivider} alt="page-bg-divider" />
                 <Box display="flex">
                     <Outlet />
-                    <InspirationSidebar origin="inspirations"></InspirationSidebar>
+                    <InspirationSidebar origin={searchParams.get('origin')!.toString()}></InspirationSidebar>
                 </Box>
             </Box>
         </>
     );
 }
 
-export default InspirationsLayout;
+export default ProjectsLayout;

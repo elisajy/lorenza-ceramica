@@ -14,27 +14,36 @@ import {
 import pageBgDivider from "../../assets/images/page-bg-divider.png";
 import "./Inspirations.css";
 import ResponsivePagination from "react-responsive-pagination";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { inspirationData } from "./Inspiration.data";
 
 const Inspirations = () => {
-  const [data, setData] = useState(inspirationData);
+  const [data, setData] = useState([]);
   const pageSize = 6;
-  const totalPages = Math.ceil(inspirationData.length / pageSize);
   const [currentPage, setCurrentPage] = useState<number>(1);
+  const [totalData, setTotalData] = useState([]);
+  const totalPages = useMemo(() => Math.ceil(totalData.length / pageSize), [totalData]);
   const navigate = useNavigate();
 
-  // useEffect(() => {
-  //   fetch(`${process.env.REACT_APP_API_URL}/inspirations`)
-  //     .then((response) => response.json())
-  //     .then((data) => setData(data));
-  //   // eslint-disable-next-line react-hooks/exhaustive-deps
-  // }, []);
+  useEffect(() => {
+    fetch(`${process.env.REACT_APP_API_URL}/inspirations`)
+      .then((response) => response.json())
+      .then((data) => {
+        setData(
+          data.slice(
+            (currentPage - 1) * pageSize,
+            currentPage * pageSize
+          )
+        );
+        setTotalData(data);
+      });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   useEffect(() => {
     setData(
-      inspirationData.slice(
+      totalData.slice(
         (currentPage - 1) * pageSize,
         currentPage * pageSize
       )
