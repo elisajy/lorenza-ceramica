@@ -8,7 +8,7 @@ import ResponsivePagination from "react-responsive-pagination";
 const Projects = () => {
   const [data, setData] = useState([]);
   const pageSize = 6;
-  const [selectedTab, setSelectedTab] = useState<string>("COMMERCIAL");
+  const [selectedTab, setSelectedTab] = useState<string>("commercial");
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [totalData, setTotalData] = useState([]);
   const totalPages = useMemo(() => Math.ceil(totalData.length / pageSize), [totalData]);
