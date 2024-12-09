@@ -80,12 +80,6 @@ const Header = ({ children, onScrollToFooter }: any) => {
     window.open(url, "_blank");
   };
 
-  const navigation = (item: any) => {
-    if (!!item.route) {
-      navigate(item.route);
-    }
-  };
-
   // Temporary solution for ref null error in SubMenu component
   // Navigate with delay to allow components loaded into DOM element
   const navigationDelay = (item: any) => {
@@ -112,7 +106,7 @@ const Header = ({ children, onScrollToFooter }: any) => {
           <Flex alignContent={"center"} alignItems={"center"}>
             <Box
               onClick={() => {
-                navigation("/");
+                navigate("/");
               }}
             >
               <img
@@ -130,7 +124,7 @@ const Header = ({ children, onScrollToFooter }: any) => {
                 mr={"auto"}
                 className="menu-stack"
               >
-                <Button variant="ghost" onClick={() => navigation("/")}>
+                <Button variant="ghost" onClick={() => navigate("/")}>
                   <Text
                     fontSize={{
                       base: "sm",
@@ -143,7 +137,7 @@ const Header = ({ children, onScrollToFooter }: any) => {
                     Home
                   </Text>
                 </Button>
-                <Button variant="ghost" onClick={() => navigation("/about-us")}>
+                <Button variant="ghost" onClick={() => navigate("/about-us")}>
                   <Text
                     fontSize={{
                       base: "sm",
@@ -217,7 +211,7 @@ const Header = ({ children, onScrollToFooter }: any) => {
                         );
                       } else {
                         return (
-                          <MenuItem onClick={() => navigation(item)}>
+                          <MenuItem onClick={() => navigate(item)}>
                             <Text
                               fontWeight={600}
                               fontSize={{
@@ -235,7 +229,7 @@ const Header = ({ children, onScrollToFooter }: any) => {
                       }
                     })}
                 </Menu>
-                <Button variant="ghost" onClick={() => navigation("/projects")}>
+                <Button variant="ghost" onClick={() => navigate("/projects")}>
                   <Text
                     fontSize={{
                       base: "sm",
@@ -250,7 +244,7 @@ const Header = ({ children, onScrollToFooter }: any) => {
                 </Button>
                 <Button
                   variant="ghost"
-                  onClick={() => navigation("/inspirations")}
+                  onClick={() => navigate("/inspirations")}
                 >
                   <Text
                     fontSize={{
@@ -350,7 +344,7 @@ const Header = ({ children, onScrollToFooter }: any) => {
               >
                 <Box
                   onClick={() => {
-                    navigation("/");
+                    navigate("/");
                   }}
                 >
                   <img
@@ -440,7 +434,7 @@ const Header = ({ children, onScrollToFooter }: any) => {
               >
                 <Box
                   onClick={() => {
-                    navigation("/");
+                    navigate("/");
                   }}
                 >
                   <img
