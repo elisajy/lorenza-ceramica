@@ -148,7 +148,7 @@ const ShoppingCart = ({ visible, setVisible }: Props) => {
       <Box
         display="flex"
         flexDirection="column"
-        background="#536878"
+        background="#8797a4"
         color="floralwhite"
         width="25rem"
         className="cart-modal"
