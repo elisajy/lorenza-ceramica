@@ -112,7 +112,7 @@ const Header = ({ children, onScrollToFooter }: any) => {
           <Flex alignContent={"center"} alignItems={"center"}>
             <Box
               onClick={() => {
-                navigate("/");
+                navigation("/");
               }}
             >
               <img
@@ -130,7 +130,7 @@ const Header = ({ children, onScrollToFooter }: any) => {
                 mr={"auto"}
                 className="menu-stack"
               >
-                <Button variant="ghost" onClick={() => navigate("/")}>
+                <Button variant="ghost" onClick={() => navigation("/")}>
                   <Text
                     fontSize={{
                       base: "sm",
@@ -143,7 +143,7 @@ const Header = ({ children, onScrollToFooter }: any) => {
                     Home
                   </Text>
                 </Button>
-                <Button variant="ghost" onClick={() => navigate("/about-us")}>
+                <Button variant="ghost" onClick={() => navigation("/about-us")}>
                   <Text
                     fontSize={{
                       base: "sm",
@@ -235,7 +235,7 @@ const Header = ({ children, onScrollToFooter }: any) => {
                       }
                     })}
                 </Menu>
-                <Button variant="ghost" onClick={() => navigate("/projects")}>
+                <Button variant="ghost" onClick={() => navigation("/projects")}>
                   <Text
                     fontSize={{
                       base: "sm",
@@ -250,7 +250,7 @@ const Header = ({ children, onScrollToFooter }: any) => {
                 </Button>
                 <Button
                   variant="ghost"
-                  onClick={() => navigate("/inspirations")}
+                  onClick={() => navigation("/inspirations")}
                 >
                   <Text
                     fontSize={{
@@ -350,7 +350,7 @@ const Header = ({ children, onScrollToFooter }: any) => {
               >
                 <Box
                   onClick={() => {
-                    navigate("/");
+                    navigation("/");
                   }}
                 >
                   <img
@@ -440,7 +440,7 @@ const Header = ({ children, onScrollToFooter }: any) => {
               >
                 <Box
                   onClick={() => {
-                    navigate("/");
+                    navigation("/");
                   }}
                 >
                   <img
@@ -710,7 +710,7 @@ const Header = ({ children, onScrollToFooter }: any) => {
                     <Button
                       className="mobile-menu-button"
                       variant="ghost"
-                      onClick={() => navigate("/projects")}
+                      onClick={() => menuNavigation("/projects")}
                     >
                       <Text
                         fontSize={{
