@@ -90,7 +90,7 @@ const Footer = forwardRef<HTMLDivElement>((props, ref) => {
                     wordSpacing: 2,
                   }}
                 >
-                  W.K CERAMIC DISTRIBUTOR SDN. BHD. (Reg. no.: 199301022836)
+                  W.K Ceramic Distributor Sdn Bhd (Reg. no.: 199301022836)
                 </p>
                 <p style={{ fontSize: 12, wordSpacing: 2, }}>
                   Wisma W.K, Lot 5, Jalan 51A/227, 46100 Petaling Jaya, Selangor
@@ -209,10 +209,9 @@ const Footer = forwardRef<HTMLDivElement>((props, ref) => {
                 <div>
                   <img src={companyLogo} className="footer-logo" />
                 </div>
-                <Divider />
                 <div className="company-info-block">
                   <p style={{ fontSize: 18, wordSpacing: 8 }}>
-                    W.K CERAMIC DISTRIBUTOR SDN. BHD.
+                    W.K Ceramic Distributor Sdn Bhd
                   </p>
                   <p style={{ fontSize: 14, wordSpacing: 6 }}>
                     (Reg. no.: 199301022836)

@@ -1,7 +1,6 @@
 import { Box, Button, Card, CardBody, CardFooter, CardHeader, Heading, Image, SimpleGrid, Stack, Text } from "@chakra-ui/react";
 import { useEffect, useMemo, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import pageBgDivider from "../../assets/images/page-bg-divider.png";
 import "./Projects.css";
 import ResponsivePagination from "react-responsive-pagination";
 
@@ -84,7 +83,8 @@ const Projects = () => {
 
   return (
     <Box display="flex" flexDirection="column">
-      <img src={pageBgDivider} alt="page-bg-divider" />
+      {/* <img src={pageBgDivider} alt="page-bg-divider" /> */}
+      <div style={{height: "140px", backgroundColor: "#33557b"}}></div>
       <Heading className="title" size="lg" alignSelf="center" marginTop="30px">
         <Button
           variant="link"

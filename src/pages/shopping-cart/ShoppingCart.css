@@ -12,7 +12,6 @@
 .cart-item {
   display: flex;
   column-gap: 25px;
-  justify-content: space-between;
 
   .product-image {
     object-fit: fill;

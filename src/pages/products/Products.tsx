@@ -4,7 +4,6 @@ import {
 import { Outlet } from "react-router-dom";
 import ProductSidebar from "../layout/sidebar/Sidebar";
 import { useEffect } from "react";
-import pageBgDivider from "../../assets/images/page-bg-divider.png";
 
 const Products = () => {
     useEffect(() => {
@@ -18,7 +17,8 @@ const Products = () => {
                 <ProductSidebar></ProductSidebar>
                 {/* replace by product render */}
                 <Box>
-                    <img src={pageBgDivider} alt="page-bg-divider" />
+                    {/* <img src={pageBgDivider} alt="page-bg-divider" /> */}
+                    <div style={{height: "140px", backgroundColor: "#33557b"}}></div>
                     <div className="product-main">
                         <Outlet />
                     </div>

@@ -11,12 +11,10 @@ import {
   SimpleGrid,
   CardHeader,
 } from "@chakra-ui/react";
-import pageBgDivider from "../../assets/images/page-bg-divider.png";
 import "./Inspirations.css";
 import ResponsivePagination from "react-responsive-pagination";
 import { useEffect, useMemo, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { inspirationData } from "./Inspiration.data";
 
 const Inspirations = () => {
   const [data, setData] = useState([]);
@@ -64,7 +62,7 @@ const Inspirations = () => {
           gap="10px"
         >
           <CardHeader>
-            <Heading className="title" size="md">
+            <Heading className="title card-title" size="md">
               {x.title}
             </Heading>
           </CardHeader>
@@ -97,7 +95,8 @@ const Inspirations = () => {
 
   return (
     <Box display="flex" flexDirection="column">
-      <img src={pageBgDivider} alt="page-bg-divider" />
+      {/* <img src={pageBgDivider} alt="page-bg-divider" /> */}
+      <div style={{height: "140px", backgroundColor: "#33557b"}}></div>
       <Heading className="title" size="lg" alignSelf="center" marginTop="30px">INSPIRATION</Heading>
       <Box maxWidth="8xl" margin="40px 80px">
         <SimpleGrid className="card-grid" spacing="50px" columns={2}>

@@ -1,6 +1,5 @@
 import { useEffect } from "react";
 import { Outlet } from "react-router-dom";
-import pageBgDivider from "../../assets/images/page-bg-divider.png";
 import InspirationSidebar from "../layout/sidebar/InspirationSidebar";
 import { Box } from "@chakra-ui/react";
 
@@ -14,7 +13,8 @@ const InspirationsLayout = () => {
     return (
         <>
             <Box>
-                <img src={pageBgDivider} alt="page-bg-divider" />
+                {/* <img src={pageBgDivider} alt="page-bg-divider" /> */}
+                <div style={{height: "140px", backgroundColor: "#33557b"}}></div>
                 <Box display="flex">
                     <Outlet />
                     <InspirationSidebar origin="inspirations"></InspirationSidebar>

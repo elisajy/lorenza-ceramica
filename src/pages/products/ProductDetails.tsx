@@ -184,10 +184,14 @@ const ItemDetail = () => {
                     Product Description
                   </Text>
                   {selectedProduct.prdDesc && (
-                    <Text style={{ textAlign: "justify" }} fontSize="lg">
+                    <Text style={{ textAlign: "left" }} fontSize="lg">
                       {selectedProduct.prdDesc}
                     </Text>
                   )}
+                  <br />
+                  <Text style={{ textAlign: "left" }} fontSize="lg">
+                    * Images use are for illustration purposes
+                  </Text>
                   <br />
                 </Box>
                 <Box>
