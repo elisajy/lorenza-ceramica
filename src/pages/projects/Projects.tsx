@@ -50,7 +50,7 @@ const Projects = () => {
           gap="10px"
         >
           <CardHeader>
-            <Heading className="title" size="md">
+            <Heading className="title card-title" size="md">
               {x.title}
             </Heading>
           </CardHeader>
