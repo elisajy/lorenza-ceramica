@@ -70,7 +70,7 @@
 }
 .figure img.Sirv.image-hover {
   position: absolute;
-  object-fit: contain;
+  object-fit: cover;
   opacity: 0;
   transition: opacity 0.2s;
 }

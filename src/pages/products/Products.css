@@ -209,3 +209,19 @@
     object-fit: contain;
   }
 }
+
+.prd-images {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.prd-images .prd-image-hover {
+  position: absolute;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+.prd-images:hover .prd-image-hover {
+  opacity: 1;
+}

@@ -64,7 +64,9 @@ const CategoryPage = () => {
           separator={<ChevronRightIcon color="gray.500" />}
         >
           <BreadcrumbItem>
-            <BreadcrumbLink href="/products/tiles/all-products">Products</BreadcrumbLink>
+            <BreadcrumbLink href="/products/tiles/all-products">
+              Products
+            </BreadcrumbLink>
           </BreadcrumbItem>
 
           {!!category && (
@@ -84,10 +86,11 @@ const CategoryPage = () => {
           )}
         </Breadcrumb>
       </Box>
-      {!isPending && <Box className="product-items-block">
-        <SimpleGrid className="products-grid" spacing="40px">
-          {products && products.length !== 0
-            ? products.map((x: any) => {
+      {!isPending && (
+        <Box className="product-items-block">
+          <SimpleGrid className="products-grid" spacing="40px">
+            {products && products.length !== 0 ? (
+              products.map((x: any) => {
                 return (
                   <Card
                     className="product-card-body "
@@ -102,23 +105,34 @@ const CategoryPage = () => {
                     }
                   >
                     <CardBody className="product-card">
-                      {x.images && x.images.length > 0 ? (
-                        <Image
-                          className="image-item-prds2"
-                          src={x.images[0]}
-                          alt={x.prdName}
-                          borderRadius={"10px 10px 0 0"}
-                          padding="10px"
-                        />
-                      ) : (
-                        <Image
-                          className="image-item-prds2"
-                          src={require(`../../assets/images/no-image-available.png`)}
-                          alt={x.prdName}
-                          borderRadius={"10px 10px 0 0"}
-                          padding="10px"
-                        />
-                      )}
+                      <div className="prd-images">
+                        {x.images && x.images.length > 0 ? (
+                          <Image
+                            className="prd-image-main image-item-prds2"
+                            src={x.images[0]}
+                            alt={x.prdName}
+                            borderRadius={"10px 10px 0 0"}
+                            padding="10px"
+                          />
+                        ) : (
+                          <Image
+                            className="prd-image-main image-item-prds2"
+                            src={require(`../../assets/images/no-image-available.png`)}
+                            alt={x.prdName}
+                            borderRadius={"10px 10px 0 0"}
+                            padding="10px"
+                          />
+                        )}
+                        {x.mockedImages && x.mockedImages.length > 0 ? (
+                          <Image
+                            className="prd-image-hover image-item-prds2"
+                            src={x.mockedImages[0]}
+                            alt={x.prdName}
+                            borderRadius={"10px 10px 0 0"}
+                            padding="10px"
+                          />
+                        ) : null}
+                      </div>
                     </CardBody>
                     <CardFooter style={{ padding: "10px" }}>
                       <Box className="product-card-footer">
@@ -130,9 +144,12 @@ const CategoryPage = () => {
                   </Card>
                 );
               })
-            : <div>No product yet.</div>}
-        </SimpleGrid>
-      </Box>}
+            ) : (
+              <div>No product yet.</div>
+            )}
+          </SimpleGrid>
+        </Box>
+      )}
     </>
   );
 };
