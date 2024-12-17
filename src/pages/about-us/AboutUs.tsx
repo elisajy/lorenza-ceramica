@@ -12,7 +12,16 @@ const AboutUs = () => {
             gap="25px"
             fontSize="large"
         >
-            <img src={aboutUsTitle} alt="about-us" />
+            {/* <img src={aboutUsTitle} alt="about-us" /> */}
+            <div className="page-content" style={{
+                backgroundColor: "#33557b",
+                width: "100%",
+                display: "flex",
+                alignItems: "center",
+                padding: "3rem"
+            }}>
+                <h1 className="page-title">ABOUT <strong>LORENZA CERAMICA</strong></h1>
+            </div>
             <Text fontSize={{ base: 'md', lg: 'lg' }} width='80%'>
                 <strong className="bold-text">Lorenza Ceramica</strong> is a local brand
                 developed by{" "}

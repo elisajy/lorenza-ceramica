@@ -144,3 +144,13 @@
     pointer-events: none;
     cursor: auto;
 }
+
+.article-content {
+    @media screen and (max-width: 480px) {
+        max-width: 18rem;
+    }
+
+    @media screen and (min-width: 480px) {
+        max-width: 90rem;
+    }
+}

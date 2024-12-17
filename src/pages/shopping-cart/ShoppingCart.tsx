@@ -29,7 +29,7 @@ interface Props {
 
 const ShoppingCart = ({ visible, setVisible }: Props) => {
   const [isMobile, setIsMobile] = useState(false);
-  const { cartState, cartDispatch } = useCartContext();
+  const { cartState, removeItem }: any = useCartContext();
   const [products, setProducts] = useState<ProductItem[]>(cartState.products);
 
   useEffect(() => {
@@ -51,10 +51,11 @@ const ShoppingCart = ({ visible, setVisible }: Props) => {
 
   const onClickRemoveItem = (item: ProductItem) => {
     setProducts(products!.filter((x) => x.id !== item.id));
-    cartDispatch({
-      type: REMOVE_ITEM,
-      payload: item,
-    });
+    // cartDispatch({
+    //   type: REMOVE_ITEM,
+    //   payload: item,
+    // });
+    removeItem(item);
   };
 
   const onClickInquiry = () => {

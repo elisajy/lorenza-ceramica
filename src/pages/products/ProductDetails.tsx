@@ -25,7 +25,7 @@ const ItemDetail = () => {
   const [prdImages, setPrdImages] = useState<any>([]);
   const [mockImages, setMockImages] = useState<any>([]);
   const [isMobile, setIsMobile] = useState(false);
-  const { cartDispatch } = useCartContext();
+  const { addItem }: any = useCartContext();
   const capitalizeFirstLetters = (string: any) => {
     if (!!string) {
       return string
@@ -64,10 +64,11 @@ const ItemDetail = () => {
   }, []);
 
   const addToCart = () => {
-    cartDispatch({
-      type: ADD_ITEM,
-      payload: selectedProduct,
-    });
+    // cartDispatch({
+    //   type: ADD_ITEM,
+    //   payload: selectedProduct,
+    // });
+    addItem(selectedProduct);
     toast({
       title: "Successful!",
       description: "Item added to cart.",

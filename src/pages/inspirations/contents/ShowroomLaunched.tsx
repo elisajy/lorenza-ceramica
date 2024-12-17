@@ -2,8 +2,7 @@ import '../Inspirations.css';
 
 const ShowroomLaunched = () => {
     return (
-        <div style={{
-                maxWidth: "90rem",
+        <div className='article-content' style={{
                 margin: "30px 60px",
                 display: "flex",
                 flexDirection: "column",

@@ -47,7 +47,7 @@ const Header = ({ children, onScrollToFooter }: any) => {
   const toggleSubDropdown = () => setSubDropdownOpen(!subDropdownOpen);
   const [innerMenusActive, setInnerMenusActive] = useState(true);
   const [width, setWidth] = useState(window.innerWidth);
-  const { cartState } = useCartContext();
+  const { cartState }: any = useCartContext();
   const itemCount: number = useMemo(
     () => cartState.products.length,
     [cartState]
@@ -211,7 +211,7 @@ const Header = ({ children, onScrollToFooter }: any) => {
                         );
                       } else {
                         return (
-                          <MenuItem onClick={() => navigate(item)}>
+                          <MenuItem onClick={() => navigationDelay(item)}>
                             <Text
                               fontWeight={600}
                               fontSize={{
