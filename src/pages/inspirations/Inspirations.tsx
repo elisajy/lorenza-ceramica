@@ -61,7 +61,7 @@ const Inspirations = () => {
           variant="unstyled"
           gap="10px"
         >
-          <CardHeader>
+          <CardHeader display="flex" justifyContent="start">
             <Heading className="title card-title" size="md">
               {x.title}
             </Heading>
@@ -72,6 +72,7 @@ const Inspirations = () => {
               objectFit="cover"
               src={x.thumbnail}
               alt="post"
+              onClick={() => navigate(`/inspirations/article/${x.path}`)}
             />
             <Stack className="card-content" padding="10px">
               <CardBody>
@@ -98,7 +99,7 @@ const Inspirations = () => {
       {/* <img src={pageBgDivider} alt="page-bg-divider" /> */}
       <div style={{height: "140px", backgroundColor: "#33557b"}}></div>
       <Heading className="title" size="lg" alignSelf="center" marginTop="30px">INSPIRATION</Heading>
-      <Box maxWidth="8xl" margin="40px 80px">
+      <Box maxWidth="8xl" margin="40px 80px" alignSelf="center">
         <SimpleGrid className="card-grid" spacing="50px" columns={2}>
           {inspirationList()}
         </SimpleGrid>

@@ -51,7 +51,7 @@
 }
 
 .card-container {
-    align-self: center;
+    align-self: start;
     position: relative;
 }
 
@@ -85,10 +85,11 @@
 }
 
 .card-title {
+    white-space: nowrap;
     overflow: hidden;
-    display: -webkit-box;
+    /* display: -webkit-box;
     -webkit-line-clamp: 1;
-    -webkit-box-orient: vertical;
+    -webkit-box-orient: vertical; */
     text-overflow: ellipsis;
 }
 

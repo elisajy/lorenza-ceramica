@@ -49,7 +49,7 @@ const Projects = () => {
           variant="unstyled"
           gap="10px"
         >
-          <CardHeader>
+          <CardHeader display="flex" justifyContent="start">
             <Heading className="title card-title" size="md">
               {x.title}
             </Heading>
@@ -60,6 +60,7 @@ const Projects = () => {
               objectFit="cover"
               src={x.thumbnail}
               alt="post"
+              onClick={() => navigate(`/projects/article/${x.path}?origin=${selectedTab}`)}
             />
             <Stack className="card-content" padding="10px">
               <CardBody>
@@ -108,7 +109,7 @@ const Projects = () => {
           RESIDENTIAL
         </Button>
       </Heading>
-      <Box maxWidth="8xl" margin="40px 80px">
+      <Box maxWidth="8xl" margin="40px 80px" alignSelf="center">
         {data.length > 0 ? (
           <SimpleGrid className="card-grid" spacing="50px" columns={2}>
             {projectList()}
