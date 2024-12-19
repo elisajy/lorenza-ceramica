@@ -63,7 +63,9 @@ const Projects = () => {
               onClick={() => navigate(`/projects/article/${x.path}?origin=${selectedTab}`)}
             />
             <Stack className="card-content" padding="10px">
-              <CardBody>
+              <CardBody
+                onClick={() => navigate(`/projects/article/${x.path}?origin=${selectedTab}`)}
+              >
                 <Text className="card-desc" fontSize={{ sm:"12px", md: "14px", lg: "16px" }} py="2" color="white">{x.description}</Text>
               </CardBody>
               <CardFooter alignSelf="flex-end">
