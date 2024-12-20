@@ -228,9 +228,8 @@ const ItemDetail = () => {
           </Box>
           <Divider />
           {mockImages && mockImages.length > 0 && (
-            <Box className="product-image-block">
+            <Box className="product-image-block" display="flex" flexDirection="column" alignItems="center">
               <Text
-                textAlign={"center"}
                 color={"#0c478a"}
                 fontWeight={700}
                 fontSize="3xl"
