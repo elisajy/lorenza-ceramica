@@ -43,6 +43,7 @@ const InspirationSidebar = ({ origin }: Props) => {
               objectFit="cover"
               src={x.thumbnail}
               alt="post"
+              onClick={() => navigate(`/${origin === 'inspirations' ? origin : 'projects'}/article/${x.path}`)}
             />
             <Stack className="sidebar-card-content" padding="10px">
               <CardBody>
