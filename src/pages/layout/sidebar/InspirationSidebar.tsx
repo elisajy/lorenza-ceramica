@@ -46,7 +46,9 @@ const InspirationSidebar = ({ origin }: Props) => {
               onClick={() => navigate(`/${origin === 'inspirations' ? origin : 'projects'}/article/${x.path}`)}
             />
             <Stack className="sidebar-card-content" padding="10px">
-              <CardBody>
+              <CardBody
+                onClick={() => navigate(`/${origin === 'inspirations' ? origin : 'projects'}/article/${x.path}`)}
+              >
                 <Text className="sidebar-card-desc" py="2" color="white">
                   {x.description}
                 </Text>
