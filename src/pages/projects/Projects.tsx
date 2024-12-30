@@ -48,6 +48,7 @@ const Projects = () => {
           key={x.id}
           variant="unstyled"
           gap="10px"
+          width="500px"
         >
           <CardHeader display="flex" justifyContent="start">
             <Heading className="title card-title" size="md">
@@ -113,7 +114,7 @@ const Projects = () => {
       </Heading>
       <Box maxWidth="8xl" margin="40px 80px" alignSelf="center">
         {data.length > 0 ? (
-          <SimpleGrid className="card-grid" spacing="50px" columns={2}>
+          <SimpleGrid className="card-grid" rowGap="50px" columnGap="80px"  columns={2}>
             {projectList()}
           </SimpleGrid>
         ) : (
