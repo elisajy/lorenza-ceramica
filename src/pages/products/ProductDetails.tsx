@@ -16,7 +16,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import ProductImages from "./ProductImages";
 import "./Products.css";
-import { ADD_ITEM, useCartContext } from "../../hooks/cart-context/CartContext";
+import { useCartContext } from "../../hooks/cart-context/CartContext";
 
 const ItemDetail = () => {
   const toast = useToast();
@@ -25,6 +25,7 @@ const ItemDetail = () => {
   const [prdImages, setPrdImages] = useState<any>([]);
   const [mockImages, setMockImages] = useState<any>([]);
   const [isMobile, setIsMobile] = useState(false);
+  const [categories, setCategories] = useState<any>([]);
   const { addItem }: any = useCartContext();
   const capitalizeFirstLetters = (string: any) => {
     if (!!string) {
@@ -48,6 +49,10 @@ const ItemDetail = () => {
         setPrdImages(data.images ?? []);
         setMockImages(data.mockedImages ?? []);
       });
+
+    fetch(`${process.env.REACT_APP_API_URL}/productsSideNavs`)
+      .then((response) => response.json())
+      .then((data) => setCategories(data));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -93,6 +98,14 @@ const ItemDetail = () => {
     window.open(url, "_blank");
   };
 
+  const formatUrl = () => {
+    if (!!subcategory) {
+      const sideNav = categories.find((x: any) => x.route === `/products/${category}`);
+      if (sideNav) return sideNav.prds.length > 0 ? sideNav.prds[0].route : `/products/${category}/${subcategory}`;
+    }
+    return `/products/${category}`;
+  }
+
   return (
     <>
       <Box className="category-title">
@@ -101,12 +114,12 @@ const ItemDetail = () => {
           separator={<ChevronRightIcon color="gray.500" />}
         >
           <BreadcrumbItem fontSize={13}>
-            <BreadcrumbLink href="/products">Products</BreadcrumbLink>
+            <BreadcrumbLink href="/products/tiles/all-products">Products</BreadcrumbLink>
           </BreadcrumbItem>
 
           {!!category && (
             <BreadcrumbItem fontSize={13}>
-              <BreadcrumbLink>
+              <BreadcrumbLink href={formatUrl()}>
                 {capitalizeFirstLetters(category)}
               </BreadcrumbLink>
             </BreadcrumbItem>

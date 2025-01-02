@@ -72,9 +72,7 @@
   --slide-size: 100%;
   padding-top: 10px;
 }
-.image-item-pi {
-  border: 5px solid #bfbfbf;
-}
+
 .pi-viewport {
   overflow: hidden;
 }
@@ -157,9 +155,9 @@
 }
 
 .image-border {
-  border-style: solid;
+  /* border-style: solid;
   border-width: 10px;
-  border-color: lightgray;
+  border-color: lightgray; */
 
   @media screen and (max-width: 480px) {
     max-height: 200px;

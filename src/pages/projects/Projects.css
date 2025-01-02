@@ -8,12 +8,20 @@
         height: 230px;
         min-width: 250px;
     }
+    
+    .card-container {
+        width: 250px;
+    }
 }
 @media screen and (min-width: 480px) {
     /* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */
     .card-thumbnail {
         height: 230px;
         min-width: 250px;
+    }
+    
+    .card-container {
+        width: 250px;
     }
 }
 @media screen and (min-width: 640px) {
@@ -22,6 +30,10 @@
         height: 230px;
         min-width: 250px;
     }
+    
+    .card-container {
+        width: 250px;
+    }
 }  
 @media screen and (min-width: 992px) {
     /* tablet, landscape iPad, lo-res laptops ands desktops */
@@ -29,12 +41,20 @@
         height: 250px;
         min-width: 380px;
     }
+    
+    .card-container {
+        width: 380px;
+    }
 }
 @media screen and (min-width: 1025px) {
     /* big landscape tablets, laptops, and desktops */
     .card-thumbnail {
         height: 350px;
         min-width: 500px;
+    }
+    
+    .card-container {
+        width: 500px;
     }
 }
 

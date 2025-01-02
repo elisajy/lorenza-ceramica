@@ -19,6 +19,7 @@ const CategoryPage = () => {
   const { category, subcategory } = useParams();
   const [products, setProducts] = useState<any>([]);
   const [isPending, startTransition] = useTransition();
+  const [categories, setCategories] = useState<any>([]);
   const navigate = useNavigate();
 
   const capitalizeFirstLetters = (string: any) => {
@@ -53,8 +54,20 @@ const CategoryPage = () => {
           setProducts(data);
         });
       });
+      
+    fetch(`${process.env.REACT_APP_API_URL}/productsSideNavs`)
+      .then((response) => response.json())
+      .then((data) => setCategories(data));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [startTransition, category, subcategory]);
+
+  const formatUrl = () => {
+    if (!!subcategory) {
+      const sideNav = categories.find((x: any) => x.route === `/products/${category}`);
+      if (sideNav) return sideNav.prds.length > 0 ? sideNav.prds[0].route : `/products/${category}/${subcategory}`;
+    }
+    return `/products/${category}`;
+  }
 
   return (
     <>
@@ -71,7 +84,7 @@ const CategoryPage = () => {
 
           {!!category && (
             <BreadcrumbItem>
-              <BreadcrumbLink>
+              <BreadcrumbLink href={formatUrl()}>
                 {capitalizeFirstLetters(category)}
               </BreadcrumbLink>
             </BreadcrumbItem>
