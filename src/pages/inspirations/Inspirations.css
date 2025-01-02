@@ -10,7 +10,7 @@
         object-fit: cover;
     }
     
-    .card-container {
+    .card-box {
         width: 250px;
     }
 }
@@ -22,7 +22,7 @@
         object-fit: cover;
     }
     
-    .card-container {
+    .card-box {
         width: 250px;
     }
 }
@@ -34,7 +34,7 @@
         object-fit: cover;
     }
     
-    .card-container {
+    .card-box {
         width: 250px;
     }
 }  
@@ -46,7 +46,7 @@
         object-fit: cover;
     }
 
-    .card-container {
+    .card-box {
         width: 380px;
     }
 }
@@ -58,7 +58,7 @@
         object-fit: cover;
     }
     
-    .card-container {
+    .card-box {
         width: 500px;
     }
 }

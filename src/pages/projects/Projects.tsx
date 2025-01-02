@@ -48,7 +48,7 @@ const Projects = () => {
           key={x.id}
           variant="unstyled"
           gap="10px"
-          className="card-container"
+          className="card-box"
         >
           <CardHeader display="flex" justifyContent="start">
             <Heading className="title card-title" size="md">
