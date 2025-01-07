@@ -9,25 +9,18 @@ import {
 } from "@chakra-ui/react";
 import { forwardRef, useEffect, useState } from "react";
 import "./Layout.css";
-// import companyLogo from "../../assets/mock-media/lorenza-logo-transparent-white.png";
 import { FaFacebookF, FaInstagram } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 const Footer = forwardRef<HTMLDivElement>((props, ref) => {
-  const { isOpen, onOpen, onClose } = useDisclosure();
-  const [dropdownOpen, setDropdownOpen] = useState(false);
-  const [subDropdownOpen, setSubDropdownOpen] = useState(false);
-
-  const toggleDropdown = () => setDropdownOpen(!dropdownOpen);
-  const toggleSubDropdown = () => setSubDropdownOpen(!subDropdownOpen);
-  const [innerMenusActive, setInnerMenusActive] = useState(true);
+  const [companyInfo, setCompanyInfo] = useState<any>([]);
   const [width, setWidth] = useState(window.innerWidth);
 
-  const closeSubMenus = () => {
-    setInnerMenusActive(false);
-  };
-
   useEffect(() => {
+    fetch(`${process.env.REACT_APP_API_URL}/company-info`)
+      .then((response) => response.json())
+      .then((data) => setCompanyInfo(data));
+
     // Handler to update the state with the new window width
     const handleResize = () => {
       setWidth(window.innerWidth);
@@ -43,9 +36,27 @@ const Footer = forwardRef<HTMLDivElement>((props, ref) => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  const openUrl = (url: string) => {
+  const openUrl = (key: string) => {
+    const url = companyInfo.find((x: any) => x.key === key)?.value ?? '';
     window.open(url, "_blank");
   };
+
+  const formatAddress = () => {
+    const fullAdd = companyInfo.find((x: any) => x.key === 'ADDRESS')?.value;
+    return fullAdd?.replaceAll(';', ', ');
+  }
+
+  const formatAddressMobile = () => {
+    const fullAdd = companyInfo.find((x: any) => x.key === 'ADDRESS')?.value;
+    const adds =  fullAdd?.split(';');
+    return (adds &&
+      <>
+        {adds.map((x: string) => {
+          return (<p>{x}</p>)
+        })}
+      </>
+    )
+  }
 
   return (
     <>
@@ -73,13 +84,13 @@ const Footer = forwardRef<HTMLDivElement>((props, ref) => {
                     wordSpacing: 2,
                   }}
                 >
-                  W.K Ceramic Distributor Sdn Bhd (Reg. no.: 199301022836)
+                  {companyInfo.find((x: any) => x.key === 'COMPANY_NAME')?.value} {companyInfo.find((x: any) => x.key === 'COMPANY_REGISTRATION_NUMBER')?.value}
                 </p>
                 <p style={{ fontSize: 12, wordSpacing: 2 }}>
-                  Lot 5, Jalan 51A/227, 46100 Petaling Jaya, Selangor D.E
+                  {formatAddress()}
                 </p>
                 <p style={{ fontSize: 12, wordSpacing: 2 }}>
-                  Mon - Sat | 08:30 - 18:00
+                  {companyInfo.find((x: any) => x.key === 'OPERATING_HOURS')?.value}
                 </p>
               </div>
             </GridItem>
@@ -159,14 +170,14 @@ const Footer = forwardRef<HTMLDivElement>((props, ref) => {
                         fontSize: width > 640 ? 14 : width <= 640 ? 12 : 10,
                       }}
                     >
-                      Tel: +60378740112
+                      Tel: {companyInfo.find((x: any) => x.key === 'CONTACT_TEL')?.value}
                     </p>
                     <p
                       style={{
                         fontSize: width > 640 ? 14 : width <= 640 ? 12 : 10,
                       }}
                     >
-                      Fax: +60378767553
+                      Fax: {companyInfo.find((x: any) => x.key === 'CONTACT_FAX')?.value}
                     </p>
                   </div>
                   <div className="mobile-social-block">
@@ -178,7 +189,7 @@ const Footer = forwardRef<HTMLDivElement>((props, ref) => {
                       size="sm"
                       variant="outline"
                       onClick={() =>
-                        openUrl("https://www.facebook.com/wk.lorenza")
+                        openUrl("FACEBOOK")
                       }
                     />
                     <IconButton
@@ -189,7 +200,7 @@ const Footer = forwardRef<HTMLDivElement>((props, ref) => {
                       size="sm"
                       variant="outline"
                       onClick={() =>
-                        openUrl("https://www.instagram.com/lorenza.ceramica")
+                        openUrl("INSTAGRAM")
                       }
                     />
                   </div>
@@ -206,17 +217,16 @@ const Footer = forwardRef<HTMLDivElement>((props, ref) => {
                 </div> */}
               <div className="company-info-block">
                 <p style={{ fontSize: 18, wordSpacing: 8 }}>
-                  W.K Ceramic Distributor Sdn Bhd
+                  {companyInfo.find((x: any) => x.key === 'COMPANY_NAME')?.value}
                 </p>
                 <p style={{ fontSize: 14, wordSpacing: 6 }}>
-                  (Reg. no.: 199301022836)
+                  {companyInfo.find((x: any) => x.key === 'COMPANY_REGISTRATION_NUMBER')?.value}
                 </p>
-                <p>Lot 5, Jalan 51A/227</p>
-                <p>46100 Petaling Jaya, Selangor D.E</p>
+                {formatAddressMobile()}
               </div>
               <div className="operating-hour-block">
                 <p style={{ fontSize: 14, wordSpacing: 8 }}>
-                  Mon - Sat | 08:30 - 18:00
+                  {companyInfo.find((x: any) => x.key === 'OPERATING_HOURS')?.value}
                 </p>
               </div>
             </Box>
@@ -276,10 +286,10 @@ const Footer = forwardRef<HTMLDivElement>((props, ref) => {
               </div>
               <div className="contact-block">
                 <p style={{ fontSize: "14px", letterSpacing: 1 }}>
-                  Tel: +60378740112
+                  Tel: {companyInfo.find((x: any) => x.key === 'CONTACT_TEL')?.value}
                 </p>
                 <p style={{ fontSize: "14px", letterSpacing: 1 }}>
-                  Fax: +60378767553
+                  Fax: {companyInfo.find((x: any) => x.key === 'CONTACT_FAX')?.value}
                 </p>
               </div>
               <div className="social-block">
@@ -290,7 +300,7 @@ const Footer = forwardRef<HTMLDivElement>((props, ref) => {
                   icon={<FaFacebookF />}
                   size="md"
                   variant="outline"
-                  onClick={() => openUrl("https://www.facebook.com/wk.lorenza")}
+                  onClick={() => openUrl("FACEBOOK")}
                 />
                 <IconButton
                   as="a"
@@ -300,7 +310,7 @@ const Footer = forwardRef<HTMLDivElement>((props, ref) => {
                   size="md"
                   variant="outline"
                   onClick={() =>
-                    openUrl("https://www.instagram.com/lorenza.ceramica")
+                    openUrl("INSTAGRAM")
                   }
                 />
               </div>

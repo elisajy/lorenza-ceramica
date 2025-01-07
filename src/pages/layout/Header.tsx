@@ -1,4 +1,4 @@
-import { CloseIcon, HamburgerIcon } from "@chakra-ui/icons";
+import { HamburgerIcon } from "@chakra-ui/icons";
 import {
   Box,
   Button,
@@ -9,11 +9,9 @@ import {
   Stack,
   useDisclosure,
   Text,
-  Badge,
   Drawer,
   DrawerBody,
   DrawerContent,
-  DrawerHeader,
   DrawerOverlay,
   Grid,
   GridItem,
@@ -26,8 +24,8 @@ import {
   AccordionPanel,
 } from "@chakra-ui/react";
 import { useEffect, useMemo, useState } from "react";
-import { Link, NavLink, useNavigate } from "react-router-dom";
-import { productMenu, socialMenu } from "../../helper/HeaderMenu";
+import { NavLink, useNavigate } from "react-router-dom";
+import { socialMenu } from "../../helper/HeaderMenu";
 import ShoppingCart from "../shopping-cart/ShoppingCart";
 import { Menu, MenuButton, MenuItem, SubMenu } from "@szhsin/react-menu";
 import "./Layout.css";
@@ -37,15 +35,11 @@ import { useCartContext } from "../../hooks/cart-context/CartContext";
 import CartIcon from "../../components/cart-icon/CartIcon";
 
 const Header = ({ children, onScrollToFooter }: any) => {
+  const [companyInfo, setCompanyInfo] = useState<any>([]);
   const [visible, setVisible] = useState(false);
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const [dropdownOpen, setDropdownOpen] = useState(false);
-  const [subDropdownOpen, setSubDropdownOpen] = useState(false);
   const [categories, setCategories] = useState<any>([]);
   const navigate = useNavigate();
-  const toggleDropdown = () => setDropdownOpen(!dropdownOpen);
-  const toggleSubDropdown = () => setSubDropdownOpen(!subDropdownOpen);
-  const [innerMenusActive, setInnerMenusActive] = useState(true);
   const [width, setWidth] = useState(window.innerWidth);
   const { cartState }: any = useCartContext();
   const itemCount: number = useMemo(
@@ -73,10 +67,15 @@ const Header = ({ children, onScrollToFooter }: any) => {
     fetch(`${process.env.REACT_APP_API_URL}/productsSideNavs`)
       .then((response) => response.json())
       .then((data) => setCategories(data));
+
+    fetch(`${process.env.REACT_APP_API_URL}/company-info`)
+      .then((response) => response.json())
+      .then((data) => setCompanyInfo(data));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const openUrl = (url: string) => {
+  const openUrl = (key: string) => {
+    const url = companyInfo.find((x: any) => x.key === key)?.value ?? '';
     window.open(url, "_blank");
   };
 

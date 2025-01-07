@@ -230,7 +230,7 @@ const socialMenu = [
         size: 'lg',
         variant: 'unstyled',
         fontSize: '28px',
-        url: 'https://www.facebook.com/wk.lorenza'
+        url: 'FACEBOOK'
     },
     {
         id: 2,
@@ -240,7 +240,7 @@ const socialMenu = [
         size: 'lg',
         variant: 'unstyled',
         fontSize: '28px',
-        url: 'https://www.instagram.com/lorenza.ceramica'
+        url: 'INSTAGRAM'
     },
     {
         id: 3,

@@ -4,22 +4,19 @@ import { DotButton, useDotButton } from "./MainCarouselButton";
 import Autoplay from "embla-carousel-autoplay";
 import useEmblaCarousel from "embla-carousel-react";
 import "./MainCarousel.css";
-import { homeBanner } from "../../helper/HomeBanner";
-import { imageDataStructure } from "../../helper/dataInterface";
-import homeBannerImg from "../../assets/mock-media/homebanner.png";
 
 type PropType = {
   slides: number[];
   options?: EmblaOptionsType;
 };
+
 const MainCarousel: React.FC<PropType> = (props) => {
-  const [images, setImages] = useState<imageDataStructure[] | undefined>(
-    undefined
-  );
+  const [homeBanners, setHomeBanners] = useState<any>([]);
 
   useEffect(() => {
-    const imageData = homeBanner();
-    setImages(imageData);
+    fetch(`${process.env.REACT_APP_API_URL}/home-banners`)
+      .then((response) => response.json())
+      .then((data) => setHomeBanners(data));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -43,6 +40,11 @@ const MainCarousel: React.FC<PropType> = (props) => {
     onNavButtonClick
   );
 
+  const handleLinkClick = (link?: string) => {
+    // Open the link in a new tab
+    if (link) window.open(link, '_blank', 'noopener,noreferrer');
+  };
+
   return (
     <section className="embla">
       <div className="embla__controls">
@@ -60,10 +62,14 @@ const MainCarousel: React.FC<PropType> = (props) => {
       </div>
       <div className="embla__viewport" ref={emblaRef}>
         <div className="embla__container">
-          {slides.map((index) => (
-            <div className="embla__slide" key={index}>
-              {/* <div className="embla__slide__number">{index + 1}</div> */}
-              <img src={homeBannerImg} className="image-item-main" />
+          {homeBanners.map((item: any) => (
+            <div className="embla__slide" key={item.id}>
+              <img
+                src={item.imageUrl}
+                alt={item.alt}
+                className="image-item-main"
+                onClick={() => handleLinkClick(item.link)}
+              />
             </div>
           ))}
         </div>
