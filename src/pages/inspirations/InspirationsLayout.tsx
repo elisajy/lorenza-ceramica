@@ -16,6 +16,14 @@ const InspirationsLayout = () => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
+    useEffect(() => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        fetch(`${process.env.REACT_APP_API_URL}/inspirations/${path?.replace('/', '')}`)
+            .then((response) => response.json())
+            .then((data) => setData(data));
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [path]);
+
     return (
         <>
             <Box>
