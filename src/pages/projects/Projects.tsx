@@ -61,11 +61,11 @@ const Projects = () => {
               objectFit="cover"
               src={x.thumbnail}
               alt="post"
-              onClick={() => navigate(`/projects/article/${x.path}?origin=${selectedTab}`)}
+              onClick={() => navigate(`/projects/${x.path}?origin=${selectedTab}`)}
             />
             <Stack className="card-content" padding="10px">
               <CardBody
-                onClick={() => navigate(`/projects/article/${x.path}?origin=${selectedTab}`)}
+                onClick={() => navigate(`/projects/${x.path}?origin=${selectedTab}`)}
               >
                 <Text className="card-desc" fontSize={{ sm:"12px", md: "14px", lg: "16px" }} py="2" color="white">{x.description}</Text>
               </CardBody>
@@ -73,7 +73,7 @@ const Projects = () => {
                 <Button
                   variant="link"
                   color="white"
-                  onClick={() => navigate(`/projects/article/${x.path}?origin=${selectedTab}`)}
+                  onClick={() => navigate(`/projects/${x.path}?origin=${selectedTab}`)}
                 >
                   READ MORE
                 </Button>

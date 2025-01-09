@@ -112,52 +112,8 @@ export const siteRoutes: RouteInfo[] = [
   {
     id: "InspirationsArticle",
     name: "InspirationsArticle",
-    path: "/inspirations/article",
+    path: "/inspirations/:path",
     component: InspirationsArticle,
-    children: [
-      {
-        id: "ShowroomLaunched",
-        name: "ShowroomLaunched",
-        path: "weve-launched-our-new-showroom",
-        component: ShowroomLaunched,
-      },
-      {
-        id: "BathroomTiles",
-        name: "BathroomTiles",
-        path: "5-things-to-consider-when-choosing-bathroom-tiles-for-malaysian-homes",
-        component: BathroomTiles,
-      },
-      {
-        id: "CeramicPorcelain",
-        name: "CeramicPorcelain",
-        path: "ceramic-vs-porcelain-which-one-should-i-choose-for-my-malaysian-home",
-        component: CeramicPorcelain,
-      },
-      {
-        id: "KitchenRenovationIdeas",
-        name: "KitchenRenovationIdeas",
-        path: "7-inexpensive-ideas-to-renovate-your-malaysian-kitchen",
-        component: KitchenRenovationIdeas,
-      },
-      {
-        id: "BathroomRemodel",
-        name: "BathroomRemodel",
-        path: "8-simple-ideas-for-your-next-bathroom-remodel-in-malaysia",
-        component: BathroomRemodel,
-      },
-      {
-        id: "KitchenFlooring",
-        name: "KitchenFlooring",
-        path: "3-affordable-options-for-kitchen-flooring-in-malaysia",
-        component: KitchenFlooring,
-      },
-      {
-        id: "KitchenCountertops",
-        name: "KitchenCountertops",
-        path: "3-options-for-kitchen-countertops",
-        component: KitchenCountertops,
-      },
-    ]
   },
   {
     id: "Projects",
@@ -168,51 +124,7 @@ export const siteRoutes: RouteInfo[] = [
   {
     id: "ProjectsArticle",
     name: "ProjectsArticle",
-    path: "/projects/article",
+    path: "/projects/:path",
     component: ProjectsArticle,
-    children: [
-      {
-        id: "ShowroomLaunched",
-        name: "ShowroomLaunched",
-        path: "weve-launched-our-new-showroom",
-        component: ShowroomLaunched,
-      },
-      {
-        id: "BathroomTiles",
-        name: "BathroomTiles",
-        path: "5-things-to-consider-when-choosing-bathroom-tiles-for-malaysian-homes",
-        component: BathroomTiles,
-      },
-      {
-        id: "CeramicPorcelain",
-        name: "CeramicPorcelain",
-        path: "ceramic-vs-porcelain-which-one-should-i-choose-for-my-malaysian-home",
-        component: CeramicPorcelain,
-      },
-      {
-        id: "KitchenRenovationIdeas",
-        name: "KitchenRenovationIdeas",
-        path: "7-inexpensive-ideas-to-renovate-your-malaysian-kitchen",
-        component: KitchenRenovationIdeas,
-      },
-      {
-        id: "BathroomRemodel",
-        name: "BathroomRemodel",
-        path: "8-simple-ideas-for-your-next-bathroom-remodel-in-malaysia",
-        component: BathroomRemodel,
-      },
-      {
-        id: "KitchenFlooring",
-        name: "KitchenFlooring",
-        path: "3-affordable-options-for-kitchen-flooring-in-malaysia",
-        component: KitchenFlooring,
-      },
-      {
-        id: "KitchenCountertops",
-        name: "KitchenCountertops",
-        path: "3-options-for-kitchen-countertops",
-        component: KitchenCountertops,
-      },
-    ]
   },
 ];

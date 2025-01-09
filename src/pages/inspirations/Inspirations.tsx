@@ -73,11 +73,11 @@ const Inspirations = () => {
               objectFit="cover"
               src={x.thumbnail}
               alt="post"
-              onClick={() => navigate(`/inspirations/article/${x.path}`)}
+              onClick={() => navigate(`/inspirations/${x.path}`)}
             />
             <Stack className="card-content" padding="10px">
               <CardBody
-                onClick={() => navigate(`/inspirations/article/${x.path}`)}
+                onClick={() => navigate(`/inspirations/${x.path}`)}
               >
                 <Text className="card-desc" fontSize={{ sm:"12px", md: "14px", lg: "16px" }} py="2" color="white">{x.description}</Text>
               </CardBody>
@@ -85,7 +85,7 @@ const Inspirations = () => {
                 <Button
                   variant="link"
                   color="white"
-                  onClick={() => navigate(`/inspirations/article/${x.path}`)}
+                  onClick={() => navigate(`/inspirations/${x.path}`)}
                 >
                   READ MORE
                 </Button>
