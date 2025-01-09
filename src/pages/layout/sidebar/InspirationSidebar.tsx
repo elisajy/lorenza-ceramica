@@ -43,11 +43,11 @@ const InspirationSidebar = ({ origin }: Props) => {
               objectFit="cover"
               src={x.thumbnail}
               alt="post"
-              onClick={() => navigate(`/${origin === 'inspirations' ? origin : 'projects'}/article/${x.path}${origin === 'inspirations' ? '' : `?origin=${origin}`}`)}
+              onClick={() => navigate(`/${origin === 'inspirations' ? origin : 'projects'}/${x.path?.replace('/', '')}${origin === 'inspirations' ? '' : `?origin=${origin}`}`)}
             />
             <Stack className="sidebar-card-content" padding="10px">
               <CardBody
-                onClick={() => navigate(`/${origin === 'inspirations' ? origin : 'projects'}/article/${x.path}${origin === 'inspirations' ? '' : `?origin=${origin}`}`)}
+                onClick={() => navigate(`/${origin === 'inspirations' ? origin : 'projects'}/${x.path?.replace('/', '')}${origin === 'inspirations' ? '' : `?origin=${origin}`}`)}
               >
                 <Text className="sidebar-card-desc" py="2" color="white">
                   {x.description}
@@ -57,7 +57,7 @@ const InspirationSidebar = ({ origin }: Props) => {
                 <Button
                   variant="link"
                   color="white"
-                  onClick={() => navigate(`/${origin === 'inspirations' ? origin : 'projects'}/article/${x.path}${origin === 'inspirations' ? '' : `?origin=${origin}`}`)}
+                  onClick={() => navigate(`/${origin === 'inspirations' ? origin : 'projects'}/${x.path?.replace('/', '')}${origin === 'inspirations' ? '' : `?origin=${origin}`}`)}
                 >
                   READ MORE
                 </Button>
