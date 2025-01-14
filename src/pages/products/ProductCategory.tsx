@@ -45,6 +45,20 @@ const CategoryPage = () => {
     });
 
     window.scrollTo({ top: 0, behavior: "smooth" });
+
+    // filterProducts();
+
+    fetch(`${process.env.REACT_APP_API_URL}/productsSideNavs`)
+      .then((response) => response.json())
+      .then((data) => setCategories(data));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [startTransition, category, subcategory]);
+
+  useEffect(() => {
+    if (categories && categories.length > 0) filterProductsAlternative();
+  }, [categories]);
+
+  const filterProducts = () => {
     fetch(
       `${process.env.REACT_APP_API_URL}/products/${subcategory ?? category}`
     )
@@ -54,20 +68,43 @@ const CategoryPage = () => {
           setProducts(data);
         });
       });
-      
-    fetch(`${process.env.REACT_APP_API_URL}/productsSideNavs`)
-      .then((response) => response.json())
-      .then((data) => setCategories(data));
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [startTransition, category, subcategory]);
+  };
+
+  const filterProductsAlternative = () => {
+    let target = undefined;
+    if (subcategory) {
+      const main = categories.find((x: any) => x.route.includes(category));
+      target = main ? main.prds.find((y: any) => y.route.includes(subcategory)) : undefined;
+    }
+    else {
+      categories.find((x: any) => x.route.includes(category));
+    }
+    const dbTable = target ? target.dbTable : undefined;
+    const label = target ? target.label : undefined;
+    console.log(subcategory, category, dbTable, label);
+    if (dbTable && label) {
+      fetch(`${process.env.REACT_APP_API_URL}/products/${dbTable}/${label}`)
+        .then((response) => response.json())
+        .then((data) => {
+          startTransition(() => {
+            setProducts(data);
+          });
+        });
+    }
+  };
 
   const formatUrl = () => {
     if (!!subcategory) {
-      const sideNav = categories.find((x: any) => x.route === `/products/${category}`);
-      if (sideNav) return sideNav.prds.length > 0 ? sideNav.prds[0].route : `/products/${category}/${subcategory}`;
+      const sideNav = categories.find(
+        (x: any) => x.route === `/products/${category}`
+      );
+      if (sideNav)
+        return sideNav.prds.length > 0
+          ? sideNav.prds[0].route
+          : `/products/${category}/${subcategory}`;
     }
     return `/products/${category}`;
-  }
+  };
 
   return (
     <>
