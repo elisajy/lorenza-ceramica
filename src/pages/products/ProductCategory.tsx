@@ -72,16 +72,16 @@ const CategoryPage = () => {
 
   const filterProductsAlternative = () => {
     let target = undefined;
+    let route = `/products/${category}`;
     if (subcategory) {
-      const main = categories.find((x: any) => x.route.includes(category));
-      target = main ? main.prds.find((y: any) => y.route.includes(subcategory)) : undefined;
+      const main = categories.find((x: any) => x.route === route);
+      target = main ? main.prds.find((y: any) => y.route === `${route}/${subcategory}`) : undefined;
     }
     else {
-      categories.find((x: any) => x.route.includes(category));
+      target = categories.find((x: any) => x.route === route);
     }
     const dbTable = target ? target.dbTable : undefined;
     const label = target ? target.label : undefined;
-    console.log(subcategory, category, dbTable, label);
     if (dbTable && label) {
       fetch(`${process.env.REACT_APP_API_URL}/products/${dbTable}/${label}`)
         .then((response) => response.json())
