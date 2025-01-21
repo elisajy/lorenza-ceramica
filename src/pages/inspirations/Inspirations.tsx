@@ -11,30 +11,37 @@ import {
   SimpleGrid,
   CardHeader,
 } from "@chakra-ui/react";
-import pageBgDivider from "../../assets/images/page-bg-divider.png";
 import "./Inspirations.css";
 import ResponsivePagination from "react-responsive-pagination";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { inspirationData } from "./Inspiration.data";
 
 const Inspirations = () => {
-  const [data, setData] = useState(inspirationData);
+  const [data, setData] = useState([]);
   const pageSize = 6;
-  const totalPages = Math.ceil(inspirationData.length / pageSize);
   const [currentPage, setCurrentPage] = useState<number>(1);
+  const [totalData, setTotalData] = useState([]);
+  const totalPages = useMemo(() => Math.ceil(totalData.length / pageSize), [totalData]);
   const navigate = useNavigate();
 
-  // useEffect(() => {
-  //   fetch(`${process.env.REACT_APP_API_URL}/inspirations`)
-  //     .then((response) => response.json())
-  //     .then((data) => setData(data));
-  //   // eslint-disable-next-line react-hooks/exhaustive-deps
-  // }, []);
+  useEffect(() => {
+    fetch(`${process.env.REACT_APP_API_URL}/inspirations`)
+      .then((response) => response.json())
+      .then((data) => {
+        setData(
+          data.slice(
+            (currentPage - 1) * pageSize,
+            currentPage * pageSize
+          )
+        );
+        setTotalData(data);
+      });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   useEffect(() => {
     setData(
-      inspirationData.slice(
+      totalData.slice(
         (currentPage - 1) * pageSize,
         currentPage * pageSize
       )
@@ -53,9 +60,10 @@ const Inspirations = () => {
           key={x.id}
           variant="unstyled"
           gap="10px"
+          className="card-box"
         >
-          <CardHeader>
-            <Heading className="title" size="md">
+          <CardHeader display="flex" justifyContent="start">
+            <Heading className="title card-title" size="md">
               {x.title}
             </Heading>
           </CardHeader>
@@ -65,16 +73,19 @@ const Inspirations = () => {
               objectFit="cover"
               src={x.thumbnail}
               alt="post"
+              onClick={() => navigate(`/inspirations/${x.path}`)}
             />
             <Stack className="card-content" padding="10px">
-              <CardBody>
+              <CardBody
+                onClick={() => navigate(`/inspirations/${x.path}`)}
+              >
                 <Text className="card-desc" fontSize={{ sm:"12px", md: "14px", lg: "16px" }} py="2" color="white">{x.description}</Text>
               </CardBody>
               <CardFooter alignSelf="flex-end">
                 <Button
                   variant="link"
                   color="white"
-                  onClick={() => navigate(`/inspirations/article/${x.path}`)}
+                  onClick={() => navigate(`/inspirations/${x.path}`)}
                 >
                   READ MORE
                 </Button>
@@ -88,10 +99,11 @@ const Inspirations = () => {
 
   return (
     <Box display="flex" flexDirection="column">
-      <img src={pageBgDivider} alt="page-bg-divider" />
+      {/* <img src={pageBgDivider} alt="page-bg-divider" /> */}
+      <div style={{height: "140px", backgroundColor: "#33557b"}}></div>
       <Heading className="title" size="lg" alignSelf="center" marginTop="30px">INSPIRATION</Heading>
-      <Box maxWidth="8xl" margin="40px 80px">
-        <SimpleGrid className="card-grid" spacing="50px" columns={2}>
+      <Box maxWidth="8xl" margin="40px 80px" alignSelf="center">
+        <SimpleGrid className="card-grid" rowGap="50px" columnGap="80px" columns={2}>
           {inspirationList()}
         </SimpleGrid>
         <ResponsivePagination

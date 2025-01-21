@@ -29,17 +29,17 @@ interface Props {
 
 const ShoppingCart = ({ visible, setVisible }: Props) => {
   const [isMobile, setIsMobile] = useState(false);
-  const { cartState, cartDispatch } = useCartContext();
+  const { cartState, removeItem }: any = useCartContext();
   const [products, setProducts] = useState<ProductItem[]>(cartState.products);
 
   useEffect(() => {
     const userAgent = navigator.userAgent;
     if (/android/i.test(userAgent)) {
-        setIsMobile(true);
+      setIsMobile(true);
     } else if (/iPad|iPhone|iPod/.test(userAgent)) {
-        setIsMobile(true);
+      setIsMobile(true);
     } else {
-        setIsMobile(false);
+      setIsMobile(false);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -51,10 +51,11 @@ const ShoppingCart = ({ visible, setVisible }: Props) => {
 
   const onClickRemoveItem = (item: ProductItem) => {
     setProducts(products!.filter((x) => x.id !== item.id));
-    cartDispatch({
-      type: REMOVE_ITEM,
-      payload: item,
-    });
+    // cartDispatch({
+    //   type: REMOVE_ITEM,
+    //   payload: item,
+    // });
+    removeItem(item);
   };
 
   const onClickInquiry = () => {
@@ -65,7 +66,9 @@ const ShoppingCart = ({ visible, setVisible }: Props) => {
         `\n${i + 1}. ${products![i].prdName} (*${products![i].prdCode}*)`
       );
     }
-    const url = `https://${isMobile ? 'api' : 'web'}.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(
+    const url = `https://${
+      isMobile ? "api" : "web"
+    }.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(
       message
     )}&app_absent=0`;
     window.open(url, "_blank");
@@ -75,20 +78,29 @@ const ShoppingCart = ({ visible, setVisible }: Props) => {
     return (
       <div key={index} style={{ marginTop: "20px" }}>
         <div className="cart-item">
-          {data.images && data.images.length > 0 ? (
-            <img
-              className="product-image"
-              src={data.images[0]}
-              alt={data.prdName}
-            />
-          ) : (
-            <img
-              className="product-image"
-              src={require(`../../assets/images/no-image-available.png`)}
-              alt={data.prdName}
-            />
-          )}
-          <div style={{ maxWidth: "160px" }}>
+          <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
+            {data.images && data.images.length > 0 ? (
+              <img
+                className="product-image"
+                src={data.images[0]}
+                alt={data.prdName}
+              />
+            ) : (
+              <img
+                className="product-image"
+                src={require(`../../assets/images/no-image-available.png`)}
+                alt={data.prdName}
+              />
+            )}
+            <Button
+              variant="link"
+              className="remove-btn"
+              onClick={() => onClickRemoveItem(data)}
+            >
+              Remove
+            </Button>
+          </div>
+          <div>
             <div>
               <div className="text-l-font-bold">{data.prdName}</div>
               {/* <div className="text-600-small">{data.prdDesc}</div> */}
@@ -125,13 +137,6 @@ const ShoppingCart = ({ visible, setVisible }: Props) => {
               </table>
             </div>
           </div>
-          <Button
-            variant="link"
-            className="remove-btn"
-            onClick={() => onClickRemoveItem(data)}
-          >
-            Remove
-          </Button>
         </div>
       </div>
     );
@@ -148,7 +153,7 @@ const ShoppingCart = ({ visible, setVisible }: Props) => {
       <Box
         display="flex"
         flexDirection="column"
-        background="#536878"
+        background="#8797a4"
         color="floralwhite"
         width="25rem"
         className="cart-modal"

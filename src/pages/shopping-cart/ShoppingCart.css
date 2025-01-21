@@ -1,4 +1,4 @@
-.chakra-modal__content {
+.cart-modal-content {
   background: #8797a4 !important;
   color: floralwhite !important;
 }
@@ -12,7 +12,6 @@
 .cart-item {
   display: flex;
   column-gap: 25px;
-  justify-content: space-between;
 
   .product-image {
     object-fit: fill;

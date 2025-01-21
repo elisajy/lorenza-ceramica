@@ -36,7 +36,7 @@ const Layout = ({ children }: any) => {
 
   return (
     <Suspense fallback={<Spinner />}>
-      <div className="layout">
+      <div className="layout" style={{ zoom: '100%' }}>
         <Header onScrollToFooter={handleScrollToFooter}></Header>
         <main className="content">{children}</main>
         <Button

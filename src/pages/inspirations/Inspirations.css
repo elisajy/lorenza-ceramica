@@ -6,35 +6,60 @@
 
     .card-thumbnail {
         height: 230px;
-        min-width: 250px;
+        width: 250px;
+        object-fit: cover;
+    }
+    
+    .card-box {
+        width: 250px;
     }
 }
 @media screen and (min-width: 480px) {
     /* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */
     .card-thumbnail {
         height: 230px;
-        min-width: 250px;
+        width: 250px;
+        object-fit: cover;
+    }
+    
+    .card-box {
+        width: 250px;
     }
 }
 @media screen and (min-width: 640px) {
     /* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */
     .card-thumbnail {
         height: 230px;
-        min-width: 250px;
+        width: 250px;
+        object-fit: cover;
+    }
+    
+    .card-box {
+        width: 250px;
     }
 }  
 @media screen and (min-width: 992px) {
     /* tablet, landscape iPad, lo-res laptops ands desktops */
     .card-thumbnail {
         height: 250px;
-        min-width: 380px;
+        width: 380px;
+        object-fit: cover;
+    }
+
+    .card-box {
+        width: 380px;
     }
 }
 @media screen and (min-width: 1025px) {
     /* big landscape tablets, laptops, and desktops */
     .card-thumbnail {
         height: 350px;
-        min-width: 500px;
+        width: 500px;
+        object-fit: cover;
+    }
+    
+    .card-box {
+        width: 500px;
     }
 }
 
@@ -46,7 +71,7 @@
 }
 
 .card-container {
-    align-self: center;
+    align-self: start;
     position: relative;
 }
 
@@ -76,6 +101,16 @@
     display: -webkit-box;
     -webkit-line-clamp: 5;
     -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+    max-height: calc(5.5 *  1.5rem);
+}
+
+.card-title {
+    white-space: nowrap;
+    overflow: hidden;
+    /* display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical; */
     text-overflow: ellipsis;
 }
 
@@ -130,4 +165,14 @@
     color: #6c757d;
     pointer-events: none;
     cursor: auto;
+}
+
+.article-content {
+    @media screen and (max-width: 480px) {
+        max-width: 18rem;
+    }
+
+    @media screen and (min-width: 480px) {
+        max-width: 90rem;
+    }
 }

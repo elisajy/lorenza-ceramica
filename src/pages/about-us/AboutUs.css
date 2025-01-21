@@ -7,3 +7,20 @@
     font-size: xx-large;
     font-weight: bold;
 }
+
+.page-content {
+    height: 180px;
+
+    @media screen and (max-width: 480px) {
+        height: 140px;
+    }
+}
+
+.page-title {
+    color: white;
+    font-size: 45px;
+
+    @media screen and (max-width: 480px) {
+        font-size: 20px;
+    }
+}

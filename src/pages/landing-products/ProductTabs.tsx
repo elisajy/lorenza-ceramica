@@ -11,7 +11,7 @@ const ProductTabs = () => {
 
     useEffect(() => {
         fetch(
-            `${process.env.REACT_APP_API_URL}/products/new-arrivals`
+            `${process.env.REACT_APP_API_URL}/productsByTagName/New Arrivals`
         )
             .then((response) => response.json())
             .then((data) => setNewArrivals(data));

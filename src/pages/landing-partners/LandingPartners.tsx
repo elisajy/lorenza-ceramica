@@ -1,10 +1,8 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { EmblaOptionsType } from 'embla-carousel'
-import Autoplay from 'embla-carousel-autoplay'
 import useEmblaCarousel from 'embla-carousel-react'
 import './LandingPartners.css'
 import AutoScroll from 'embla-carousel-auto-scroll'
-import { partnerLogoSlides } from '../../helper/SlidesData'
 
 type PropType = {
     slides: number[]
@@ -12,7 +10,7 @@ type PropType = {
 }
 
 const LandingPartners: React.FC<PropType> = (props) => {
-    const { slides, options } = props
+    const { slides, options } = props;
     const [emblaRef, emblaApi] = useEmblaCarousel({
         slidesToScroll: 1,
         align: "center",
@@ -25,6 +23,16 @@ const LandingPartners: React.FC<PropType> = (props) => {
                 stopOnMouseEnter: true,
             }),
         ])
+
+    const [homePartners, setHomePartners] = useState<any>([]);
+
+    useEffect(() => {
+        fetch(`${process.env.REACT_APP_API_URL}/home-partners`)
+            .then((response) => response.json())
+            .then((data) => setHomePartners(data));
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
+
     return (
         <>
             <div className='partners-block'>
@@ -32,9 +40,9 @@ const LandingPartners: React.FC<PropType> = (props) => {
                 <section className="embla-pt">
                     <div className="embla__viewport-pt" ref={emblaRef}>
                         <div className="embla__container-pt">
-                            {partnerLogoSlides().map((index: any) => (
-                                <div className={`${index.divClassName} embla__slide-pt`} key={index.id}>
-                                    <img src={index.itemImageSrc} alt={index.alt} className={`${index.className} image-item`} />
+                            {homePartners.map((index: any) => (
+                                <div className={`${index.divClassName ?? ''} embla__slide-pt`} key={index.id}>
+                                    <img src={index.itemImageSrc} alt={index.alt} className={`${index.className ?? ''} image-item`} />
                                 </div>
                             ))}
                         </div>

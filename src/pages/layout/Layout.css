@@ -19,7 +19,7 @@
 
   /* Footer */
   .footer {
-    background-image: url("../../assets/mock-media/bottom-nav.png");
+    background-color: #33557b;
     color: white;
     text-align: center;
     padding: 0.5rem;
@@ -94,7 +94,7 @@
 
   /* Footer */
   .footer {
-    background-image: url("../../assets/mock-media/bottom-nav.png");
+    background-color: #33557b;
     color: white;
     text-align: center;
     padding: 1rem;
@@ -169,7 +169,7 @@
 
   /* Footer */
   .footer {
-    background-image: url("../../assets/mock-media/bottom-nav.png");
+    background-color: #33557b;
     color: white;
     text-align: center;
     padding: 1rem;
@@ -244,7 +244,7 @@
 
   /* Footer */
   .footer {
-    background-image: url("../../assets/mock-media/bottom-nav.png");
+    background-color: #33557b;
     color: white;
     text-align: center;
     padding: 1rem;
@@ -265,7 +265,7 @@
     }
 
     .company-info-block {
-      margin-top: 30px;
+      margin-top: 40px;
     }
 
     .operating-hour-block {
@@ -328,7 +328,7 @@
 
   /* Footer */
   .footer {
-    background-image: url("../../assets/mock-media/bottom-nav.png");
+    background-color: #33557b;
     color: white;
     text-align: center;
     padding: 1rem;
@@ -345,7 +345,7 @@
     }
 
     .company-info-block {
-      margin-top: 30px;
+      margin-top: 40px;
     }
 
     .operating-hour-block {
@@ -408,25 +408,25 @@
 
   /* Footer */
   .footer {
-    background-image: url("../../assets/mock-media/bottom-nav.png");
+    background-color: #33557b;
     color: white;
     text-align: center;
     padding: 1rem;
     margin-top: auto;
-    min-height: 400px;
+    min-height: 300px;
   }
 
   .footer-box {
-    height: 350px;
+    height: 250px;
     text-align: left;
-    padding: 2vw 3vw 2vw 3vw;
+    padding: 0 3vw;
 
     .footer-logo {
       height: 80px;
     }
 
     .company-info-block {
-      margin-top: 30px;
+      margin-top: 40px;
     }
 
     .operating-hour-block {
@@ -590,8 +590,8 @@
 
   .whatsapp-fab {
     position: fixed !important;
-    bottom: 0;
-    right: 0;
+    bottom: 10px;
+    right: 10px;
     height: 60px !important;
     min-width: 60px !important;
   }

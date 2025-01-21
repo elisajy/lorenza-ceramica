@@ -12,6 +12,9 @@
   display: flex;
   touch-action: pan-y pinch-zoom;
   /* margin-left: calc(var(--slide-spacing) * -1); */
+  @media screen and (min-width: 1920px) {
+    gap: 3rem;
+  }
 }
 .embla__slide-pt {
   max-width: 210px;

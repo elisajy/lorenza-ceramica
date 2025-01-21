@@ -44,7 +44,7 @@ const ProductImages: React.FC<PropType> = (props) => {
           {slides && slides.length > 0 ? (
             slides.map((x: any, i: number) => (
               <div className="pi-slide" key={i}>
-                <img src={x} alt={String(i)} className="image-border image-item image-item-pi" />
+                <img src={x} alt={String(i)} className="image-border image-item-pi" />
               </div>
             ))
           ) : (
@@ -52,7 +52,7 @@ const ProductImages: React.FC<PropType> = (props) => {
               {/* <div className="pi-slidenum">{index + 1}</div> */}
               <img
                 src={require(`../../assets/images/no-image-available.png`)}
-                className="image-border image-item"
+                className="image-border"
               />
             </div>
           )}

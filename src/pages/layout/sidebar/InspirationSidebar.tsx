@@ -14,12 +14,17 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Sidebar.css";
 
-const InspirationSidebar = () => {
+interface Props {
+  // inspirations | commercial | residential
+  origin: string;
+}
+
+const InspirationSidebar = ({ origin }: Props) => {
   const [data, setData] = useState([]);
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch(`${process.env.REACT_APP_API_URL}/inspirations`)
+    fetch(`${process.env.REACT_APP_API_URL}/${origin === 'inspirations' ? origin : `projects-${origin}`}`)
       .then((response) => response.json())
       .then((data) => setData(data));
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -38,9 +43,12 @@ const InspirationSidebar = () => {
               objectFit="cover"
               src={x.thumbnail}
               alt="post"
+              onClick={() => navigate(`/${origin === 'inspirations' ? origin : 'projects'}/${x.path?.replace('/', '')}${origin === 'inspirations' ? '' : `?origin=${origin}`}`)}
             />
             <Stack className="sidebar-card-content" padding="10px">
-              <CardBody>
+              <CardBody
+                onClick={() => navigate(`/${origin === 'inspirations' ? origin : 'projects'}/${x.path?.replace('/', '')}${origin === 'inspirations' ? '' : `?origin=${origin}`}`)}
+              >
                 <Text className="sidebar-card-desc" py="2" color="white">
                   {x.description}
                 </Text>
@@ -49,7 +57,7 @@ const InspirationSidebar = () => {
                 <Button
                   variant="link"
                   color="white"
-                  onClick={() => navigate(`/inspirations/article/${x.path}`)}
+                  onClick={() => navigate(`/${origin === 'inspirations' ? origin : 'projects'}/${x.path?.replace('/', '')}${origin === 'inspirations' ? '' : `?origin=${origin}`}`)}
                 >
                   READ MORE
                 </Button>
@@ -63,8 +71,8 @@ const InspirationSidebar = () => {
 
   return (
     <Box className="inspiration-sidebar" background="#FAFAFA" width="500px">
-      <Box background="#FAFAFA" display="flex" flexDirection="column" alignItems="center">
-        <Heading className="title" fontSize="2xl" padding="20px 0">INSPIRATIONS</Heading>
+      <Box background="#FAFAFA" display="flex" flexDirection="column" alignItems="center" padding="0 40px">
+        <Heading className="title" fontSize="2xl" padding="20px 0">{origin.toUpperCase()}</Heading>
         {inspirationList()}
       </Box>
     </Box>

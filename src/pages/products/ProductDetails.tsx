@@ -16,7 +16,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import ProductImages from "./ProductImages";
 import "./Products.css";
-import { ADD_ITEM, useCartContext } from "../../hooks/cart-context/CartContext";
+import { useCartContext } from "../../hooks/cart-context/CartContext";
 
 const ItemDetail = () => {
   const toast = useToast();
@@ -25,7 +25,8 @@ const ItemDetail = () => {
   const [prdImages, setPrdImages] = useState<any>([]);
   const [mockImages, setMockImages] = useState<any>([]);
   const [isMobile, setIsMobile] = useState(false);
-  const { cartDispatch } = useCartContext();
+  const [categories, setCategories] = useState<any>([]);
+  const { addItem }: any = useCartContext();
   const capitalizeFirstLetters = (string: any) => {
     if (!!string) {
       return string
@@ -48,6 +49,10 @@ const ItemDetail = () => {
         setPrdImages(data.images ?? []);
         setMockImages(data.mockedImages ?? []);
       });
+
+    fetch(`${process.env.REACT_APP_API_URL}/productsSideNavs`)
+      .then((response) => response.json())
+      .then((data) => setCategories(data));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -64,10 +69,11 @@ const ItemDetail = () => {
   }, []);
 
   const addToCart = () => {
-    cartDispatch({
-      type: ADD_ITEM,
-      payload: selectedProduct,
-    });
+    // cartDispatch({
+    //   type: ADD_ITEM,
+    //   payload: selectedProduct,
+    // });
+    addItem(selectedProduct);
     toast({
       title: "Successful!",
       description: "Item added to cart.",
@@ -92,6 +98,14 @@ const ItemDetail = () => {
     window.open(url, "_blank");
   };
 
+  const formatUrl = () => {
+    if (!!subcategory) {
+      const sideNav = categories.find((x: any) => x.route === `/products/${category}`);
+      if (sideNav) return sideNav.prds.length > 0 ? sideNav.prds[0].route : `/products/${category}/${subcategory}`;
+    }
+    return `/products/${category}`;
+  }
+
   return (
     <>
       <Box className="category-title">
@@ -100,12 +114,12 @@ const ItemDetail = () => {
           separator={<ChevronRightIcon color="gray.500" />}
         >
           <BreadcrumbItem fontSize={13}>
-            <BreadcrumbLink href="/products">Products</BreadcrumbLink>
+            <BreadcrumbLink href="/products/tiles/all-products">Products</BreadcrumbLink>
           </BreadcrumbItem>
 
           {!!category && (
             <BreadcrumbItem fontSize={13}>
-              <BreadcrumbLink>
+              <BreadcrumbLink href={formatUrl()}>
                 {capitalizeFirstLetters(category)}
               </BreadcrumbLink>
             </BreadcrumbItem>
@@ -184,10 +198,14 @@ const ItemDetail = () => {
                     Product Description
                   </Text>
                   {selectedProduct.prdDesc && (
-                    <Text style={{ textAlign: "justify" }} fontSize="lg">
+                    <Text style={{ textAlign: "left" }} fontSize="lg">
                       {selectedProduct.prdDesc}
                     </Text>
                   )}
+                  <br />
+                  <Text style={{ textAlign: "left" }} fontSize="lg">
+                    * Images use are for illustration purposes
+                  </Text>
                   <br />
                 </Box>
                 <Box>
@@ -223,9 +241,8 @@ const ItemDetail = () => {
           </Box>
           <Divider />
           {mockImages && mockImages.length > 0 && (
-            <Box className="product-image-block">
+            <Box className="product-image-block" display="flex" flexDirection="column" alignItems="center">
               <Text
-                textAlign={"center"}
                 color={"#0c478a"}
                 fontWeight={700}
                 fontSize="3xl"
