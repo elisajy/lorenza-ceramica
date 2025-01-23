@@ -6,6 +6,7 @@ import reportWebVitals from './reportWebVitals';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { ChakraProvider } from '@chakra-ui/react'
 import { CartProvider } from './hooks/cart-context/CartContext';
+import { ArticleProvider } from './hooks/article-context/ArticleContext';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -15,7 +16,9 @@ root.render(
     <Router>
       <ChakraProvider>
         <CartProvider>
-          <App />
+          <ArticleProvider>
+            <App />
+          </ArticleProvider>
         </CartProvider>
       </ChakraProvider>
     </Router>

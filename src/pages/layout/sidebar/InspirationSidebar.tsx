@@ -13,15 +13,19 @@ import {
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Sidebar.css";
+import { useArticleContext } from "../../../hooks/article-context/ArticleContext";
 
 interface Props {
   // inspirations | commercial | residential
-  origin: string;
+  origin: string
 }
 
 const InspirationSidebar = ({ origin }: Props) => {
+  const { articleState } = useArticleContext();
   const [data, setData] = useState([]);
   const navigate = useNavigate();
+
+  console.log('side bar', articleState.height)
 
   useEffect(() => {
     fetch(`${process.env.REACT_APP_API_URL}/${origin === 'inspirations' ? origin : `projects-${origin}`}`)
@@ -70,9 +74,9 @@ const InspirationSidebar = ({ origin }: Props) => {
   };
 
   return (
-    <Box className="inspiration-sidebar" background="#FAFAFA" width="500px">
-      <Box background="#FAFAFA" display="flex" flexDirection="column" alignItems="center" padding="0 40px">
-        <Heading className="title" fontSize="2xl" padding="20px 0">{origin.toUpperCase()}</Heading>
+    <Box className="inspiration-sidebar" background="#FAFAFA">
+      <Box background="#FAFAFA" display="flex" flexDirection="column" alignItems="center" padding="0 40px" overflowY="auto" height={`${articleState.height}px`}>
+        <Heading className="title" fontSize="2xl" padding="30px 0">{origin.toUpperCase()}</Heading>
         {inspirationList()}
       </Box>
     </Box>

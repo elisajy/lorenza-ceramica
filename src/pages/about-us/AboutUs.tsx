@@ -1,5 +1,4 @@
 import { Box, Text } from "@chakra-ui/react";
-import aboutUsDivider from "../../assets/images/about-us-divider.png";
 import "./AboutUs.css";
 import { useEffect, useState } from "react";
 
@@ -36,7 +35,7 @@ const AboutUs = () => {
             </Text>
             <Text fontSize={{ base: 'md', lg: 'lg' }} width='80%' dangerouslySetInnerHTML={{ __html: aboutUs[2] }}>
             </Text>
-            <img src={aboutUsDivider} alt="about-us-divider" />
+            <img src={aboutUs[5]} alt="about-us-divider" />
             <h1 className="about-us-title">WHY US?</h1>
             <Text fontSize={{ base: 'md', lg: 'lg' }} width='80%' dangerouslySetInnerHTML={{ __html: aboutUs[3] }}>
             </Text>

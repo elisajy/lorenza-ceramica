@@ -17,8 +17,6 @@ const Products = () => {
                 <ProductSidebar></ProductSidebar>
                 {/* replace by product render */}
                 <Box width='100%'>
-                    {/* <img src={pageBgDivider} alt="page-bg-divider" /> */}
-                    <div style={{height: "140px", backgroundColor: "#33557b"}}></div>
                     <div className="product-main">
                         <Outlet />
                     </div>

@@ -99,8 +99,6 @@ const Inspirations = () => {
 
   return (
     <Box display="flex" flexDirection="column">
-      {/* <img src={pageBgDivider} alt="page-bg-divider" /> */}
-      <div style={{height: "140px", backgroundColor: "#33557b"}}></div>
       <Heading className="title" size="lg" alignSelf="center" marginTop="30px">INSPIRATION</Heading>
       <Box maxWidth="8xl" margin="40px 80px" alignSelf="center">
         <SimpleGrid className="card-grid" rowGap="50px" columnGap="80px" columns={2}>

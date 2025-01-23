@@ -15,10 +15,8 @@
     flex-direction: row;
 }
 
-@media screen and (min-width: 992.999px) and (max-width: 1279.999px) {
-    .inspiration-sidebar{
-        min-width: 350px;
-    }
+.inspiration-sidebar{
+    flex: 1;
 }
 
 @media screen and (min-width: 100px) and (max-width: 992px){
