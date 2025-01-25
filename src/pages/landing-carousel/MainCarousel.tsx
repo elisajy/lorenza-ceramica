@@ -1,17 +1,13 @@
-import React, { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { EmblaOptionsType, EmblaCarouselType } from "embla-carousel";
 import { DotButton, useDotButton } from "./MainCarouselButton";
 import Autoplay from "embla-carousel-autoplay";
 import useEmblaCarousel from "embla-carousel-react";
 import "./MainCarousel.css";
 
-type PropType = {
-  slides: number[];
-  options?: EmblaOptionsType;
-};
-
-const MainCarousel: React.FC<PropType> = (props) => {
+const MainCarousel = () => {
   const [homeBanners, setHomeBanners] = useState<any>([]);
+  const options: EmblaOptionsType | undefined = undefined;
 
   useEffect(() => {
     fetch(`${process.env.REACT_APP_API_URL}/home-banners`)
@@ -20,7 +16,6 @@ const MainCarousel: React.FC<PropType> = (props) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const { slides, options } = props;
   const [emblaRef, emblaApi] = useEmblaCarousel(options, [Autoplay()]);
 
   const onNavButtonClick = useCallback((emblaApi: EmblaCarouselType) => {
@@ -69,6 +64,10 @@ const MainCarousel: React.FC<PropType> = (props) => {
                 alt={item.alt}
                 className="image-item-main"
                 onClick={() => handleLinkClick(item.link)}
+                style={{
+                  width: '100%',
+                  height: 'auto',
+                }}
               />
             </div>
           ))}
