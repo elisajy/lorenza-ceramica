@@ -15,10 +15,6 @@
     flex-direction: row;
 }
 
-.inspiration-sidebar{
-    flex: 1;
-}
-
 @media screen and (min-width: 100px) and (max-width: 992px){
     .product-sidebar{
         display: none;
@@ -26,6 +22,16 @@
 
     .inspiration-sidebar{
         display: none;
+    }
+}
+
+.inspiration-sidebar{
+    @media screen and (min-width: 992.999px) and (max-width: 1279.999px) {
+        width: 400px;
+    }
+
+    @media screen and (min-width: 1920px) {
+        width: 500px;
     }
 }
 

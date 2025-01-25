@@ -74,7 +74,7 @@ const InspirationSidebar = ({ origin }: Props) => {
   };
 
   return (
-    <Box className="inspiration-sidebar" background="#FAFAFA">
+    <Box className="inspiration-sidebar" background="#FAFAFA" width="500px">
       <Box background="#FAFAFA" display="flex" flexDirection="column" alignItems="center" padding="0 40px" overflowY="auto" height={`${articleState.height}px`}>
         <Heading className="title" fontSize="2xl" padding="30px 0">{origin.toUpperCase()}</Heading>
         {inspirationList()}

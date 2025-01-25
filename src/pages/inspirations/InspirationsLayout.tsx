@@ -70,7 +70,6 @@ const InspirationsLayout = () => {
                             display: "flex",
                             flexDirection: "column",
                             gap: "1.2rem",
-                            flex: 2,
                     }}></div>
                     <InspirationSidebar origin="inspirations"></InspirationSidebar>
                 </Box>

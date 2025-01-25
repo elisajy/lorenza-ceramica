@@ -69,7 +69,6 @@ const ProjectsLayout = () => {
                             display: "flex",
                             flexDirection: "column",
                             gap: "1.2rem",
-                            flex: 2,
                         }}></div>
                     <InspirationSidebar origin={searchParams.get('origin')!.toString()}></InspirationSidebar>
                 </Box>
