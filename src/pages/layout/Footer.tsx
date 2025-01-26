@@ -68,7 +68,7 @@ const Footer = forwardRef<HTMLDivElement>((props, ref) => {
               width > 640 ? "70px 1fr" : width <= 640 ? "90px 1fr" : "90px 1fr"
             }
             gridTemplateColumns={"1fr 1fr"}
-            h={width > 640 ? "350px" : width <= 640 ? "350px" : "390px"}
+            h={width > 640 ? "350px" : width <= 640 ? "390px" : "390px"}
             gap="1"
           >
             {/* <GridItem pl="2" area={"logo"}>
