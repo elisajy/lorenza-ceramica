@@ -48,7 +48,7 @@ const Footer = forwardRef<HTMLDivElement>((props, ref) => {
 
   const formatAddressMobile = () => {
     const fullAdd = companyInfo.find((x: any) => x.key === 'ADDRESS')?.value;
-    const adds =  fullAdd?.split(';');
+    const adds = fullAdd?.split(';');
     return (adds &&
       <>
         {adds.map((x: string) => {
@@ -68,7 +68,7 @@ const Footer = forwardRef<HTMLDivElement>((props, ref) => {
               width > 640 ? "70px 1fr" : width <= 640 ? "90px 1fr" : "90px 1fr"
             }
             gridTemplateColumns={"1fr 1fr"}
-            h="250px"
+            h={width > 640 ? "350px" : width <= 640 ? "350px" : "390px"}
             gap="1"
           >
             {/* <GridItem pl="2" area={"logo"}>
@@ -165,20 +165,22 @@ const Footer = forwardRef<HTMLDivElement>((props, ref) => {
                     </Heading>
                   </div>
                   <div className="mobile-nav-block">
-                    <p
-                      style={{
-                        fontSize: width > 640 ? 14 : width <= 640 ? 12 : 10,
-                      }}
-                    >
-                      Tel: {companyInfo.find((x: any) => x.key === 'CONTACT_TEL')?.value}
-                    </p>
-                    <p
-                      style={{
-                        fontSize: width > 640 ? 14 : width <= 640 ? 12 : 10,
-                      }}
-                    >
-                      Fax: {companyInfo.find((x: any) => x.key === 'CONTACT_FAX')?.value}
-                    </p>
+                    <div className="contact-text-block-mobile">
+                      <span>Main Branch:</span>
+                      <span>{companyInfo.find((x: any) => x.key === 'CONTACT_MAIN')?.value}</span>
+                    </div>
+                    <div className="contact-text-block-mobile">
+                      <span>Penang Branch:</span>
+                      <span>{companyInfo.find((x: any) => x.key === 'CONTACT_PENANG')?.value}</span>
+                    </div>
+                    <div className="contact-text-block-mobile">
+                      <span>Johor Branch:</span>
+                      <span>{companyInfo.find((x: any) => x.key === 'CONTACT_JOHOR')?.value}</span>
+                    </div>
+                    <div className="contact-text-block-mobile">
+                      <span>Fax:</span>
+                      <span>{companyInfo.find((x: any) => x.key === 'CONTACT_FAX')?.value}</span>
+                    </div>
                   </div>
                   <div className="mobile-social-block">
                     <IconButton
@@ -285,12 +287,24 @@ const Footer = forwardRef<HTMLDivElement>((props, ref) => {
                 </Heading>
               </div>
               <div className="contact-block">
-                <p style={{ fontSize: "14px", letterSpacing: 1 }}>
-                  Tel: {companyInfo.find((x: any) => x.key === 'CONTACT_TEL')?.value}
-                </p>
-                <p style={{ fontSize: "14px", letterSpacing: 1 }}>
-                  Fax: {companyInfo.find((x: any) => x.key === 'CONTACT_FAX')?.value}
-                </p>
+                <div>
+                  <span>Main Branch</span>
+                  <span>Penang Branch</span>
+                  <span>Johor Branch</span>
+                  <span>Fax</span>
+                </div>
+                <div>
+                  <span>:</span>
+                  <span>:</span>
+                  <span>:</span>
+                  <span>:</span>
+                </div>
+                <div>
+                  <span>{companyInfo.find((x: any) => x.key === 'CONTACT_MAIN')?.value}</span>
+                  <span>{companyInfo.find((x: any) => x.key === 'CONTACT_PENANG')?.value}</span>
+                  <span>{companyInfo.find((x: any) => x.key === 'CONTACT_JOHOR')?.value}</span>
+                  <span>{companyInfo.find((x: any) => x.key === 'CONTACT_FAX')?.value}</span>
+                </div>
               </div>
               <div className="social-block">
                 <IconButton
