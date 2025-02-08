@@ -30,27 +30,6 @@ const Inspirations = ReactLazyPreload(
 const InspirationsArticle = ReactLazyPreload(
   () => import("./pages/inspirations/InspirationsLayout")
 );
-const ShowroomLaunched = ReactLazyPreload(
-  () => import("./pages/inspirations/contents/ShowroomLaunched")
-);
-const BathroomTiles = ReactLazyPreload(
-  () => import("./pages/inspirations/contents/BathroomTiles")
-);
-const CeramicPorcelain = ReactLazyPreload(
-  () => import("./pages/inspirations/contents/CeramicPorcelain")
-);
-const KitchenRenovationIdeas = ReactLazyPreload(
-  () => import("./pages/inspirations/contents/KitchenRenovationIdeas")
-);
-const BathroomRemodel = ReactLazyPreload(
-  () => import("./pages/inspirations/contents/BathroomRemodel")
-);
-const KitchenFlooring = ReactLazyPreload(
-  () => import("./pages/inspirations/contents/KitchenFlooring")
-);
-const KitchenCountertops = ReactLazyPreload(
-  () => import("./pages/inspirations/contents/KitchenCountertops")
-);
 const Projects = ReactLazyPreload(
   () => import("./pages/projects/Projects")
 );

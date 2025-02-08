@@ -1,16 +1,9 @@
-import React, { useEffect, useState } from 'react'
-import { EmblaOptionsType } from 'embla-carousel'
+import { useEffect, useState } from 'react'
 import useEmblaCarousel from 'embla-carousel-react'
 import './LandingPartners.css'
 import AutoScroll from 'embla-carousel-auto-scroll'
 
-type PropType = {
-    slides: number[]
-    options?: EmblaOptionsType
-}
-
-const LandingPartners: React.FC<PropType> = (props) => {
-    const { slides, options } = props;
+const LandingPartners = () => {
     const [emblaRef, emblaApi] = useEmblaCarousel({
         slidesToScroll: 1,
         align: "center",

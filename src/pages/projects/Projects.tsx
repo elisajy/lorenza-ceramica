@@ -87,8 +87,6 @@ const Projects = () => {
 
   return (
     <Box display="flex" flexDirection="column">
-      {/* <img src={pageBgDivider} alt="page-bg-divider" /> */}
-      <div style={{height: "140px", backgroundColor: "#33557b"}}></div>
       <Heading className="title" size="lg" alignSelf="center" marginTop="30px">
         <Button
           variant="link"

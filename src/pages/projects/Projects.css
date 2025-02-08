@@ -6,7 +6,8 @@
 
     .card-thumbnail {
         height: 230px;
-        min-width: 250px;
+        width: 250px;
+        object-fit: cover;
     }
     
     .card-box {
@@ -17,7 +18,8 @@
     /* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */
     .card-thumbnail {
         height: 230px;
-        min-width: 250px;
+        width: 250px;
+        object-fit: cover;
     }
     
     .card-box {
@@ -28,7 +30,8 @@
     /* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */
     .card-thumbnail {
         height: 230px;
-        min-width: 250px;
+        width: 250px;
+        object-fit: cover;
     }
     
     .card-box {
@@ -39,9 +42,10 @@
     /* tablet, landscape iPad, lo-res laptops ands desktops */
     .card-thumbnail {
         height: 250px;
-        min-width: 380px;
+        width: 380px;
+        object-fit: cover;
     }
-    
+
     .card-box {
         width: 380px;
     }
@@ -50,7 +54,8 @@
     /* big landscape tablets, laptops, and desktops */
     .card-thumbnail {
         height: 350px;
-        min-width: 500px;
+        width: 500px;
+        object-fit: cover;
     }
     
     .card-box {
@@ -160,4 +165,25 @@
     color: #6c757d;
     pointer-events: none;
     cursor: auto;
+}
+
+.article-content {
+    @media screen and (max-width: 480px) {
+        max-width: 18rem;
+    }
+
+    @media screen and (min-width: 480px) {
+        max-width: 90rem;
+    }
+
+    a {
+      color: blue !important;
+      text-decoration: none;
+      border-bottom: 1px solid blue;
+    }
+    
+    a:hover {
+      color: darkblue !important;
+      border-bottom: 1px solid darkblue;
+    }
 }

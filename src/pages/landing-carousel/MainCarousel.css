@@ -97,10 +97,3 @@
   box-shadow: inset 0 0 0 0.2rem var(--text-body);
   background-color: #3d6fa8;
 }
-
-.image-item-main {
-  @media screen and (min-width: 1920px) {
-    width: 100%;
-    aspect-ratio: 4;
-  }
-}

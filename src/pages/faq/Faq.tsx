@@ -10,7 +10,6 @@ import {
 } from "@chakra-ui/react";
 import "./Faq.css";
 import { useEffect, useState } from "react";
-// import pageBgDivider from "../../assets/images/page-bg-divider.png";
 
 const Faq = () => {
   const [faq, setFaq] = useState<any>([]);
@@ -63,8 +62,6 @@ const Faq = () => {
 
   return (
     <Box>
-      {/* <img src={pageBgDivider} alt="page-bg-divider" /> */}
-      <div style={{height: "140px", backgroundColor: "#33557b"}}></div>
       <Box maxWidth="8xl" margin="30px 60px">
         <div style={{ margin: "26px" }}>
           <h2

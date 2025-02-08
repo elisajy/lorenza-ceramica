@@ -1,24 +1,20 @@
 import {
   Divider,
   Grid,
-  GridItem,
-  Tab,
-  TabIndicator,
-  TabList,
-  TabPanel,
-  TabPanels,
-  Tabs,
+  GridItem
 } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
-import { homeBanner } from "../../helper/HomeBanner";
-import { imageDataStructure } from "../../helper/dataInterface";
 import "./LandingProfile.css";
-import storyThumbnail from "../../assets/mock-media/landing-story/landing-story-thumbnail.png";
 
 const LandingProfile = () => {
+  const [companyInfo, setCompanyInfo] = useState<any>([]);
   const [width, setWidth] = useState(window.innerWidth);
 
   useEffect(() => {
+    fetch(`${process.env.REACT_APP_API_URL}/company-info`)
+      .then((response) => response.json())
+      .then((data) => setCompanyInfo(data));
+
     // Handler to update the state with the new window width
     const handleResize = () => {
       setWidth(window.innerWidth);
@@ -60,7 +56,7 @@ const LandingProfile = () => {
               }}
             >
               <div className="image-wrapper">
-                <img src={storyThumbnail} alt="our-story" />
+                <img src={companyInfo.find((x: any) => x.key === 'OUR_STORY_IMG')?.value} alt="our-story" />
               </div>
             </GridItem>
           )}
@@ -76,11 +72,7 @@ const LandingProfile = () => {
               <h1 style={{ color: "white" }}>OUR STORY</h1>
               <Divider />
               <p style={{ color: "white" }}>
-                Lorenza Ceramica believes in the design that you want that's
-                best suitable to your style. The tile design that you choose is
-                a reflection of your comfort & style. It is our pleasure to help
-                you through the creative process & guide you step by step to get
-                your desired version.
+                {companyInfo.find((x: any) => x.key === 'OUR_STORY_TEXT')?.value}
               </p>
             </div>
           </GridItem>
