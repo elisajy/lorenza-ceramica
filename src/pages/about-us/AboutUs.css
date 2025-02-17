@@ -8,14 +8,6 @@
     font-weight: bold;
 }
 
-.page-content {
-    height: 180px;
-
-    @media screen and (max-width: 480px) {
-        height: 140px;
-    }
-}
-
 .page-title {
     color: white;
     font-size: 45px;

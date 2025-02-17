@@ -63,7 +63,13 @@
   },
   "react-dotenv": {
     "whitelist": [
-      "REACT_APP_BUSINESS_CONTACT"
+      "REACT_APP_BUSINESS_CONTACT",
+      "REACT_APP_API_URL",
+      "REACT_APP_PAGE_ID",
+      "REACT_APP_LL_TOKEN",
+      "REACT_APP_USER_ACCESS_TOKEN",
+      "REACT_APP_IG_APP_ID",
+      "REACT_APP_IG_SECRET_ID"
     ]
   }
 }

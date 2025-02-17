@@ -175,4 +175,15 @@
     @media screen and (min-width: 480px) {
         max-width: 90rem;
     }
+
+    a {
+      color: blue !important;
+      text-decoration: none;
+      border-bottom: 1px solid blue;
+    }
+    
+    a:hover {
+      color: darkblue !important;
+      border-bottom: 1px solid darkblue;
+    }
 }

@@ -48,7 +48,7 @@ const Footer = forwardRef<HTMLDivElement>((props, ref) => {
 
   const formatAddressMobile = () => {
     const fullAdd = companyInfo.find((x: any) => x.key === 'ADDRESS')?.value;
-    const adds =  fullAdd?.split(';');
+    const adds = fullAdd?.split(';');
     return (adds &&
       <>
         {adds.map((x: string) => {
@@ -68,7 +68,6 @@ const Footer = forwardRef<HTMLDivElement>((props, ref) => {
               width > 640 ? "70px 1fr" : width <= 640 ? "90px 1fr" : "90px 1fr"
             }
             gridTemplateColumns={"1fr 1fr"}
-            h="250px"
             gap="1"
           >
             {/* <GridItem pl="2" area={"logo"}>
@@ -94,7 +93,7 @@ const Footer = forwardRef<HTMLDivElement>((props, ref) => {
                 </p>
               </div>
             </GridItem>
-            <GridItem pl="15" pr="15" area={"nav"}>
+            <GridItem style={{ padding: "0 15px 50px 15px" }} area={"nav"}>
               <Box
                 style={{
                   display: "flex",
@@ -165,20 +164,7 @@ const Footer = forwardRef<HTMLDivElement>((props, ref) => {
                     </Heading>
                   </div>
                   <div className="mobile-nav-block">
-                    <p
-                      style={{
-                        fontSize: width > 640 ? 14 : width <= 640 ? 12 : 10,
-                      }}
-                    >
-                      Tel: {companyInfo.find((x: any) => x.key === 'CONTACT_TEL')?.value}
-                    </p>
-                    <p
-                      style={{
-                        fontSize: width > 640 ? 14 : width <= 640 ? 12 : 10,
-                      }}
-                    >
-                      Fax: {companyInfo.find((x: any) => x.key === 'CONTACT_FAX')?.value}
-                    </p>
+                    <div dangerouslySetInnerHTML={{ __html: companyInfo.find((x: any) => x.key === 'CONTACT_MOBILE')?.value }}></div>
                   </div>
                   <div className="mobile-social-block">
                     <IconButton
@@ -285,12 +271,7 @@ const Footer = forwardRef<HTMLDivElement>((props, ref) => {
                 </Heading>
               </div>
               <div className="contact-block">
-                <p style={{ fontSize: "14px", letterSpacing: 1 }}>
-                  Tel: {companyInfo.find((x: any) => x.key === 'CONTACT_TEL')?.value}
-                </p>
-                <p style={{ fontSize: "14px", letterSpacing: 1 }}>
-                  Fax: {companyInfo.find((x: any) => x.key === 'CONTACT_FAX')?.value}
-                </p>
+                <div dangerouslySetInnerHTML={{ __html: companyInfo.find((x: any) => x.key === 'CONTACT_DESKTOP')?.value }}></div>
               </div>
               <div className="social-block">
                 <IconButton
