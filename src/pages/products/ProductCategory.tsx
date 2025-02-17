@@ -13,13 +13,18 @@ import {
 import { useNavigate, useParams } from "react-router-dom";
 import "./Products.css";
 import { ChevronRightIcon } from "@chakra-ui/icons";
-import { useEffect, useState, useTransition } from "react";
+import { useEffect, useMemo, useState, useTransition } from "react";
+import ResponsivePagination from "react-responsive-pagination";
 
 const CategoryPage = () => {
   const { category, subcategory } = useParams();
   const [products, setProducts] = useState<any>([]);
   const [isPending, startTransition] = useTransition();
   const [categories, setCategories] = useState<any>([]);
+  const pageSize = window.innerWidth >= 1270 ? 15 : 14;
+  const [currentPage, setCurrentPage] = useState<number>(1);
+  const [totalData, setTotalData] = useState([]);
+  const totalPages = useMemo(() => Math.ceil(totalData.length / pageSize), [totalData]);
   const navigate = useNavigate();
 
   const capitalizeFirstLetters = (string: any) => {
@@ -42,55 +47,52 @@ const CategoryPage = () => {
   useEffect(() => {
     startTransition(() => {
       setProducts(null);
+      setCurrentPage(1);
     });
-
-    window.scrollTo({ top: 0, behavior: "smooth" });
 
     filterProducts();
 
     fetch(`${process.env.REACT_APP_API_URL}/productsSideNavs`)
       .then((response) => response.json())
       .then((data) => setCategories(data));
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [startTransition, category, subcategory]);
 
-  // useEffect(() => {
-  //   if (categories && categories.length > 0) filterProductsAlternative();
-  // }, [categories]);
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [products]);
 
   const filterProducts = () => {
+    const current = 1;
     fetch(
       `${process.env.REACT_APP_API_URL}/products/${subcategory ?? category}`
     )
       .then((response) => response.json())
       .then((data) => {
         startTransition(() => {
-          setProducts(data);
+          setTotalData(data);
+          setProducts(
+            data.slice(
+              (current - 1) * pageSize,
+              current * pageSize
+            )
+          );
         });
       });
   };
 
-  const filterProductsAlternative = () => {
-    let target = undefined;
-    let route = `/products/${category}`;
-    if (subcategory) {
-      const main = categories.find((x: any) => x.route === route);
-      target = main ? main.prds.find((y: any) => y.route === `${route}/${subcategory}`) : undefined;
-    }
-    else {
-      target = categories.find((x: any) => x.route === route);
-    }
-    const dbTable = target ? target.dbTable : undefined;
-    const label = target ? target.label : undefined;
-    if (dbTable && label) {
-      fetch(`${process.env.REACT_APP_API_URL}/products/${dbTable}/${label}`)
-        .then((response) => response.json())
-        .then((data) => {
-          startTransition(() => {
-            setProducts(data);
-          });
-        });
-    }
+  useEffect(() => {
+    setProducts(
+      totalData.slice(
+        (currentPage - 1) * pageSize,
+        currentPage * pageSize
+      )
+    );
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [currentPage]);
+
+  const handlePageChange = (page: number) => {
+    setCurrentPage(page);
   };
 
   const formatUrl = () => {
@@ -163,6 +165,7 @@ const CategoryPage = () => {
                             alt={x.prdName}
                             borderRadius={"10px 10px 0 0"}
                             padding="10px"
+                            fallbackSrc='https://via.placeholder.com/150'
                           />
                         ) : (
                           <Image
@@ -171,6 +174,7 @@ const CategoryPage = () => {
                             alt={x.prdName}
                             borderRadius={"10px 10px 0 0"}
                             padding="10px"
+                            fallbackSrc='https://via.placeholder.com/150'
                           />
                         )}
                         {x.mockedImages && x.mockedImages.length > 0 ? (
@@ -180,6 +184,7 @@ const CategoryPage = () => {
                             alt={x.prdName}
                             borderRadius={"10px 10px 0 0"}
                             padding="10px"
+                            fallbackSrc='https://via.placeholder.com/150'
                           />
                         ) : null}
                       </div>
@@ -198,6 +203,11 @@ const CategoryPage = () => {
               <div>No product yet.</div>
             )}
           </SimpleGrid>
+          <ResponsivePagination
+            total={totalPages}
+            current={currentPage}
+            onPageChange={(page) => handlePageChange(page)}
+          />
         </Box>
       )}
     </>

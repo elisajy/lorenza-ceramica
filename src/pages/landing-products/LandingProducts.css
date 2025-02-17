@@ -6,14 +6,17 @@
   --slide-size: 22%;
   --slide-minwidth: 300px;
 }
+
 .embla__viewport-bs {
   overflow: hidden;
 }
+
 .embla__container-bs {
   display: flex;
   touch-action: pan-y pinch-zoom;
   margin-left: calc(var(--slide-spacing) * -1);
 }
+
 .embla__slide-bs {
   transform: translate3d(0, 0, 0);
   flex: 0 0 var(--slide-size);
@@ -23,6 +26,7 @@
   margin-left: 20px;
   border-radius: 25px;
 }
+
 .embla__slide__number-bs {
   box-shadow: inset 0 0 0 0.2rem var(--detail-medium-contrast);
   border-radius: 1.8rem;
@@ -34,68 +38,86 @@
   height: var(--slide-height);
   user-select: none;
 }
-.image-item-prds {
-  @media screen and (max-width: 480px) {
-    height: 200px;
-    width: 210px;
-    object-fit: cover;
-  }
-
-  @media screen and (min-width: 480px) {
-    height: 220px;
-    width: 230px;
-    object-fit: cover;
-  }
-
-  @media screen and (min-width: 640px) {
-    height: 230px;
-    width: 240px;
-    object-fit: cover;
-  }
-
-  @media screen and (min-width: 992px) {
-    height: 250px;
-    width: 260px;
-    object-fit: cover;
-  }
-}
 
 .figure {
   position: relative;
-  width: 360px; /* can be omitted for a regular non-lazy image */
+  width: 360px;
+  /* can be omitted for a regular non-lazy image */
   max-width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
+
 .figure img.Sirv.image-hover {
   position: absolute;
   object-fit: cover;
   opacity: 0;
   transition: opacity 0.2s;
 }
+
 .figure:hover img.Sirv.image-hover {
   opacity: 1;
 }
 
 .overlay-button {
   /* position: absolute; Position the button absolutely */
-  padding: 10px 10px; /* Button padding */
-  color: black; /* Button text color */
-  border: none; /* Remove default border */
-  border-radius: 5px; /* Optional: rounded corners */
-  cursor: pointer; /* Pointer cursor on hover */
-  z-index: 999; /* Ensure container B appears above container A */
+  padding: 10px 10px;
+  /* Button padding */
+  color: black;
+  /* Button text color */
+  border: none;
+  /* Remove default border */
+  border-radius: 5px;
+  /* Optional: rounded corners */
+  cursor: pointer;
+  /* Pointer cursor on hover */
+  z-index: 999;
+  /* Ensure container B appears above container A */
 }
+
 .button-container-prd {
   width: 100%;
   /* width: 150px; */
   border-radius: 5px;
-  z-index: 999; /* Ensure container B appears above container A */
+  z-index: 999;
+  /* Ensure container B appears above container A */
   display: flex;
   justify-content: space-between;
   padding-left: 10px;
   padding-right: 10px;
   margin-top: -180px;
   margin-bottom: 150px;
+}
+
+@media screen and (max-width: 480px) {
+  .image-item-prds {
+    height: 200px;
+    width: 210px;
+    object-fit: cover;
+  }
+}
+
+@media screen and (min-width: 480px) {
+  .image-item-prds {
+    height: 220px;
+    width: 230px;
+    object-fit: cover;
+  }
+}
+
+@media screen and (min-width: 640px) {
+  .image-item-prds {
+    height: 230px;
+    width: 240px;
+    object-fit: cover;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .image-item-prds {
+    height: 250px;
+    width: 260px;
+    object-fit: cover;
+  }
 }

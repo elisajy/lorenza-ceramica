@@ -28,16 +28,21 @@ const Inspirations = () => {
     fetch(`${process.env.REACT_APP_API_URL}/inspirations`)
       .then((response) => response.json())
       .then((data) => {
+        setTotalData(data);
         setData(
           data.slice(
             (currentPage - 1) * pageSize,
             currentPage * pageSize
           )
         );
-        setTotalData(data);
       });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [data]);
 
   useEffect(() => {
     setData(

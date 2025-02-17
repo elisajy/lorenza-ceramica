@@ -25,12 +25,12 @@
     }
 }
 
-.inspiration-sidebar{
-    @media screen and (min-width: 992.999px) and (max-width: 1279.999px) {
+@media screen and (min-width: 992.999px) and (max-width: 1279.999px) {
+    .inspiration-sidebar{
         width: 400px;
     }
 
-    @media screen and (min-width: 1920px) {
+    .inspiration-sidebar{
         width: 500px;
     }
 }

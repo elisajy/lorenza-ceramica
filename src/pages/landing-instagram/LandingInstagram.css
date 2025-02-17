@@ -1,91 +1,111 @@
 .embla-ig {
-    /* max-width: 48rem; */
-    margin-top: 30px;
-    margin: auto;
-    --slide-height: auto;
-    --slide-spacing: 0.5rem;
-    --slide-size: 250px;
-    --slide-minwidth: 200px;
-  }
-  .embla__viewport-ig {
-    overflow: hidden;
-  }
-  .embla__container-ig {
-    display: flex;
-    touch-action: pan-y pinch-zoom;
-    margin-left: calc(var(--slide-spacing) * -1);
-    justify-content: center;
-    position: relative;
-  }
-  .embla__slide-ig {
-    /* transform: translate3d(0, 0, 0); */
-    flex: 0 0 var(--slide-size);
-    min-width: var(--slide-minwidth);
-    padding-left: var(--slide-spacing);
-    margin-right: 5px;
-    margin-left: 5px;
-    border-radius: 25px;
-    height: 420px;
-    margin: 0 auto; /* Centers container A horizontally */
-  }
-  .embla__slide__number-ig {
-    box-shadow: inset 0 0 0 0.2rem var(--detail-medium-contrast);
-    border-radius: 1.8rem;
-    font-size: 4rem;
-    font-weight: 600;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: var(--slide-height);
-    user-select: none;
-  }
-  .image-item{
-    @media screen and (max-width: 480px) {
-      height: 200px;
-    }
-  
-    @media screen and (min-width: 480px) {
-      height: 220px;
-    }
-  
-    @media screen and (min-width: 640px) {
-      height: 240px;
-    }
-  
-    @media screen and (min-width: 992px) {
-      height: 300px;
-    }
-  }
-  
-  .overlay-button {
-    /* position: absolute; Position the button absolutely */
-    padding: 10px 10px; /* Button padding */
-    color: black; /* Button text color */
-    border: none; /* Remove default border */
-    border-radius: 5px; /* Optional: rounded corners */
-    cursor: pointer; /* Pointer cursor on hover */
-    z-index: 999; /* Ensure container B appears above container A */
-  }
-  .button-container {
-    width: 100%;
-    /* width: 150px; */
-    border-radius: 5px;
-    z-index: 999; /* Ensure container B appears above container A */
-    display: flex;
-    justify-content: space-between;
-    padding-left: 10px;
-    padding-right: 10px;
-    margin-top: -250px;
-    margin-bottom: 250px;
-  }
+  /* max-width: 48rem; */
+  margin-top: 30px;
+  margin: auto;
+  --slide-height: auto;
+  --slide-spacing: 0.5rem;
+  --slide-size: 250px;
+  --slide-minwidth: 200px;
+}
 
-  .placeholder-box{
-    align-items: center;
-    justify-content: center;
-    display: flex;
-    width: 226px;
-    height: 226px;
-    border-radius: 10px;
-    color: #718096;
-    background-color: #E2E8F0;
+.embla__viewport-ig {
+  overflow: hidden;
+}
+
+.embla__container-ig {
+  display: flex;
+  touch-action: pan-y pinch-zoom;
+  margin-left: calc(var(--slide-spacing) * -1);
+  justify-content: center;
+  position: relative;
+}
+
+.embla__slide-ig {
+  /* transform: translate3d(0, 0, 0); */
+  flex: 0 0 var(--slide-size);
+  min-width: var(--slide-minwidth);
+  padding-left: var(--slide-spacing);
+  margin-right: 5px;
+  margin-left: 5px;
+  border-radius: 25px;
+  height: 420px;
+  margin: 0 auto;
+  /* Centers container A horizontally */
+}
+
+.embla__slide__number-ig {
+  box-shadow: inset 0 0 0 0.2rem var(--detail-medium-contrast);
+  border-radius: 1.8rem;
+  font-size: 4rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: var(--slide-height);
+  user-select: none;
+}
+
+.overlay-button {
+  /* position: absolute; Position the button absolutely */
+  padding: 10px 10px;
+  /* Button padding */
+  color: black;
+  /* Button text color */
+  border: none;
+  /* Remove default border */
+  border-radius: 5px;
+  /* Optional: rounded corners */
+  cursor: pointer;
+  /* Pointer cursor on hover */
+  z-index: 999;
+  /* Ensure container B appears above container A */
+}
+
+.button-container {
+  width: 100%;
+  /* width: 150px; */
+  border-radius: 5px;
+  z-index: 999;
+  /* Ensure container B appears above container A */
+  display: flex;
+  justify-content: space-between;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-top: -250px;
+  margin-bottom: 250px;
+}
+
+.placeholder-box {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  width: 226px;
+  height: 226px;
+  border-radius: 10px;
+  color: #718096;
+  background-color: #E2E8F0;
+}
+
+@media screen and (max-width: 480px) {
+  .image-item {
+    height: 200px;
   }
+}
+
+@media screen and (min-width: 480px) {
+  .image-item {
+    height: 220px;
+  }
+}
+
+@media screen and (min-width: 640px) {
+  .image-item {
+    height: 240px;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .image-item {
+    height: 300px;
+  }
+}

@@ -30,10 +30,10 @@
     display: flex;
     align-items: center;
     justify-content: center;
+  }
 
-    .footer-logo {
-      height: 80px;
-    }
+  .mobile-logo-box .footer-logo {
+    height: 80px;
   }
 
   .mobile-company-info-box {
@@ -55,22 +55,23 @@
     color: white;
     font-size: 12px;
     font-weight: 500;
+  }
 
-    Button {
-      font-size: 12px;
-      word-spacing: 1px;
-      letter-spacing: 1px;
-    }
+  .mobile-nav-block Button {
+    font-size: 12px;
+    word-spacing: 1px;
+    letter-spacing: 1px;
   }
 
   .mobile-social-block {
     margin-top: 15px;
-    a {
-      color: white;
-      font-size: 26px;
-      margin-right: 15px;
-    }
     text-align: left;
+  }
+
+  .mobile-social-block a {
+    color: white;
+    font-size: 26px;
+    margin-right: 15px;
   }
 }
 @media screen and (min-width: 480px) {
@@ -105,10 +106,10 @@
     display: flex;
     align-items: center;
     justify-content: center;
+  }
 
-    .footer-logo {
-      height: 80px;
-    }
+  .mobile-logo-box .footer-logo {
+    height: 80px;
   }
 
   .mobile-company-info-box {
@@ -130,22 +131,23 @@
     color: white;
     font-size: 12px;
     font-weight: 500;
+  }
 
-    Button {
-      font-size: 12px;
-      word-spacing: 1px;
-      letter-spacing: 1px;
-    }
+  .mobile-nav-block Button {
+    font-size: 12px;
+    word-spacing: 1px;
+    letter-spacing: 1px;
   }
 
   .mobile-social-block {
     margin-top: 15px;
-    a {
-      color: white;
-      font-size: 26px;
-      margin-right: 15px;
-    }
     text-align: left;
+  }
+
+  .mobile-social-block a {
+    color: white;
+    font-size: 26px;
+    margin-right: 15px;
   }
 }
 
@@ -181,10 +183,10 @@
     display: flex;
     align-items: center;
     justify-content: center;
+  }
 
-    .footer-logo {
-      height: 80px;
-    }
+  .mobile-logo-box .footer-logo {
+    height: 80px;
   }
 
   .mobile-company-info-box {
@@ -206,22 +208,23 @@
     color: white;
     font-size: 14px;
     font-weight: 500;
+  }
 
-    Button {
-      font-size: 14px;
-      word-spacing: 1px;
-      letter-spacing: 1px;
-    }
+  .mobile-nav-block Button {
+    font-size: 14px;
+    word-spacing: 1px;
+    letter-spacing: 1px;
   }
 
   .mobile-social-block {
     margin-top: 15px;
-    a {
-      color: white;
-      font-size: 26px;
-      margin-right: 15px;
-    }
     text-align: left;
+  }
+
+  .mobile-social-block a {
+    color: white;
+    font-size: 26px;
+    margin-right: 15px;
   }
 }
 @media screen and (min-width: 992px) {
@@ -260,52 +263,44 @@
     height: auto;
     text-align: left;
     padding: 2vw 3vw 2vw 3vw;
-
-    .footer-logo {
-      height: 80px;
-    }
-
-    .company-info-block {
-      margin-top: 40px;
-    }
-
-    .operating-hour-block {
-      margin-top: 15px;
-    }
-
-    .heading-block {
-      height: 70px;
-      display: flex;
-      align-items: flex-end;
-    }
-
-    .social-block {
-      margin-top: 15px;
-      a {
-        color: white;
-        font-size: 2rem;
-        margin-right: 15px;
-      }
-    }
-
-    .nav-block {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      justify-content: center;
-      margin-top: 35px;
-
-      Button {
-        height: 35px;
-        font-size: 14px;
-        word-spacing: 2px;
-        letter-spacing: 1px;
-      }
-    }
-
-    .contact-block {
-      margin-top: 35px;
-    }
+  }
+  .footer-box .footer-logo {
+    height: 80px;
+  }
+  .footer-box .company-info-block {
+    margin-top: 40px;
+  }
+  .footer-box .operating-hour-block {
+    margin-top: 15px;
+  }
+  .footer-box .heading-block {
+    height: 70px;
+    display: flex;
+    align-items: flex-end;
+  }
+  .footer-box .social-block {
+    margin-top: 15px;
+  }
+  .footer-box.social-block a {
+    color: white;
+    font-size: 2rem;
+    margin-right: 15px;
+  }
+  .footer-box .nav-block {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    margin-top: 15px;
+  }
+  .footer-box .nav-block Button {
+    height: 35px;
+    font-size: 14px;
+    word-spacing: 2px;
+    letter-spacing: 1px;
+  }
+  .footer-box .contact-block {
+    margin-top: 15px;
   }
 }
 @media screen and (min-width: 1024px) {
@@ -340,52 +335,44 @@
     height: auto;
     text-align: left;
     padding: 2vw 3vw 2vw 3vw;
-
-    .footer-logo {
-      height: 80px;
-    }
-
-    .company-info-block {
-      margin-top: 40px;
-    }
-
-    .operating-hour-block {
-      margin-top: 15px;
-    }
-
-    .heading-block {
-      height: 70px;
-      display: flex;
-      align-items: flex-end;
-    }
-
-    .social-block {
-      margin-top: 15px;
-      a {
-        color: white;
-        font-size: 2rem;
-        margin-right: 15px;
-      }
-    }
-
-    .nav-block {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      justify-content: center;
-      margin-top: 35px;
-
-      Button {
-        height: 30px;
-        font-size: 14px;
-        word-spacing: 1px;
-        letter-spacing: 1px;
-      }
-    }
-
-    .contact-block {
-      margin-top: 35px;
-    }
+  }
+  .footer-box .footer-logo {
+    height: 80px;
+  }
+  .footer-box .company-info-block {
+    margin-top: 40px;
+  }
+  .footer-box .operating-hour-block {
+    margin-top: 15px;
+  }
+  .footer-box .heading-block {
+    height: 70px;
+    display: flex;
+    align-items: flex-end;
+  }
+  .footer-box .social-block {
+    margin-top: 15px;
+  }
+  .footer-box .social-block a {
+    color: white;
+    font-size: 2rem;
+    margin-right: 15px;
+  }
+  .footer-box .nav-block {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    margin-top: 15px;
+  }
+  .footer-box .nav-block Button {
+    height: 30px;
+    font-size: 14px;
+    word-spacing: 1px;
+    letter-spacing: 1px;
+  }
+  .footer-box .contact-block {
+    margin-top: 15px;
   }
 }
 @media screen and (min-width: 1280px) {
@@ -456,7 +443,7 @@
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
-    margin-top: 35px;
+    margin-top: 15px;
   }
 
   .footer-box .nav-block Button {
@@ -467,7 +454,7 @@
   }
 
   .footer-box .contact-block {
-    margin-top: 35px;
+    margin-top: 15px;
   }
 
 }
@@ -486,8 +473,11 @@
   flex-direction: column;
   width: 100%;
   height: 100%;
+}
 
-  @media screen and (min-width: 2000px) {
+/* Keep layout center-align when screen zoomed in*/
+@media screen and (min-width: 2000px) {
+  .layout {
     width: 100vh;
     display: block;
     margin-left: auto;
@@ -495,12 +485,10 @@
   }
 }
 
-.menu-stack {
-  .chakra-button {
-    color: #3d4781;
-    font-weight: 600;
-    letter-spacing: 1px;
-  }
+.menu-stack .chakra-button {
+  color: #3d4781;
+  font-weight: 600;
+  letter-spacing: 1px;
 }
 
 .mobile-menu-button {
