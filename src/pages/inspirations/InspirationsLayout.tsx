@@ -3,15 +3,13 @@ import InspirationSidebar from "../layout/sidebar/InspirationSidebar";
 import { Box } from "@chakra-ui/react";
 import { useParams } from "react-router-dom";
 import { ADJUST_HEIGHT, useArticleContext } from "../../hooks/article-context/ArticleContext";
-
+import './Inspirations.css';
 
 const InspirationsLayout = () => {
     const { path } = useParams();
     const [data, setData] = useState<any>();
     const { articleDispatch } = useArticleContext();
     const contentRef = useRef<any>(null);
-
-    console.log('ref', contentRef.current?.offsetHeight)
 
     useEffect(() => {
         initialization();

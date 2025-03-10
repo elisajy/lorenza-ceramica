@@ -25,8 +25,6 @@ const InspirationSidebar = ({ origin }: Props) => {
   const [data, setData] = useState([]);
   const navigate = useNavigate();
 
-  console.log('side bar', articleState.height)
-
   useEffect(() => {
     fetch(`${process.env.REACT_APP_API_URL}/${origin === 'inspirations' ? origin : `projects-${origin}`}`)
       .then((response) => response.json())

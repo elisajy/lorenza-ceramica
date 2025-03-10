@@ -3,7 +3,7 @@ import { useParams, useSearchParams } from "react-router-dom";
 import InspirationSidebar from "../layout/sidebar/InspirationSidebar";
 import { Box } from "@chakra-ui/react";
 import { ADJUST_HEIGHT, useArticleContext } from "../../hooks/article-context/ArticleContext";
-
+import './Projects.css';
 
 const ProjectsLayout = () => {
     const [searchParams, setSearchParams] = useSearchParams();
