@@ -4,6 +4,7 @@ import InspirationSidebar from "../layout/sidebar/InspirationSidebar";
 import { Box } from "@chakra-ui/react";
 import { ADJUST_HEIGHT, useArticleContext } from "../../hooks/article-context/ArticleContext";
 import './Projects.css';
+import "quill/dist/quill.snow.css";
 
 const ProjectsLayout = () => {
     const [searchParams, setSearchParams] = useSearchParams();
@@ -62,7 +63,7 @@ const ProjectsLayout = () => {
             <Box>
                 <Box display="flex">
                     <div dangerouslySetInnerHTML={{ __html: data?.content ?? <></> }}
-                        className='article-content'
+                        className='article-content ql-editor'
                         ref={contentRef}
                         style={{
                             margin: "30px 60px",

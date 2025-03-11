@@ -4,6 +4,7 @@ import { Box } from "@chakra-ui/react";
 import { useParams } from "react-router-dom";
 import { ADJUST_HEIGHT, useArticleContext } from "../../hooks/article-context/ArticleContext";
 import './Inspirations.css';
+import "quill/dist/quill.snow.css";
 
 const InspirationsLayout = () => {
     const { path } = useParams();
@@ -62,7 +63,7 @@ const InspirationsLayout = () => {
                 <Box display="flex">
                     <div dangerouslySetInnerHTML={{ __html: data?.content ?? <></> }} 
                         ref={contentRef} 
-                        className='article-content' 
+                        className='article-content ql-editor' 
                         style={{
                             margin: "30px 60px",
                             display: "flex",
