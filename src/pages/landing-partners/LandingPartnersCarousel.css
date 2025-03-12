@@ -1,0 +1,143 @@
+.carousel-container {
+    overflow: hidden;
+    position: relative;
+    border-color: #4b5563;
+}
+
+.carousel-card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.carousel-card:hover {
+    transform: scale(0.9);
+}
+
+.carousel-track {
+    display: flex;
+    position: absolute;
+    left: 0;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    width: 200%;
+    height: 100%;
+}
+
+.carousel-track:hover {
+    animation-play-state: paused;
+}
+
+@keyframes slide {
+    0% {
+        left: 0;
+    }
+
+    100% {
+        left: -100%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .carousel-track {
+        animation: slide 8s linear infinite;
+    }
+
+    .carousel-container {
+        height: 140px;
+    }
+
+    .carousel-card {
+        min-width: 20%;
+    }
+
+    .div-img-square {
+        margin: -25px;
+        padding: 0px;
+    }
+}
+
+@media screen and (min-width: 480px) {
+    .carousel-track {
+        animation: slide 8s linear infinite;
+    }
+
+    .carousel-container {
+        height: 140px;
+    }
+
+    .carousel-card {
+        min-width: 20%;
+    }
+
+    .div-img-square {
+        margin: -25px;
+        padding: 0px;
+    }
+}
+
+@media screen and (min-width: 640px) {
+    .carousel-track {
+        animation: slide 8s linear infinite;
+    }
+
+    .carousel-container {
+        height: 200px;
+    }
+
+    .carousel-card {
+        min-width: 15%;
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .carousel-track {
+        animation: slide 12s linear infinite;
+    }
+
+    .carousel-container {
+        height: 240px;
+    }
+
+    .carousel-card {
+        min-width: 15%;
+    }
+
+    .div-img-square {
+        margin: -35px;
+        padding: 0px;
+    }
+}
+
+@media screen and (min-width: 1025px) {
+    .carousel-container {
+        height: 260px;
+    }
+    
+    .carousel-card {
+        min-width: 0;
+    }
+}
+
+.div-img-square .img-square-1 {
+    max-width: 75%;
+    max-height: 75%;
+}
+
+.div-img-square .img-square-2 {
+    max-width: 65%;
+    max-height: 65%;
+}
+
+.partners-block {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.partners-block .partners-heading {
+    margin-bottom: 10px;
+    font-weight: 700;
+    font-size: x-large;
+    text-align: center;
+}

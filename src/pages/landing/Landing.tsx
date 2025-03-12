@@ -1,9 +1,9 @@
+import { useEffect } from "react";
 import MainCarousel from "../landing-carousel/MainCarousel";
 import ProductTabs from "../landing-products/ProductTabs";
 import LandingProfile from "../landing-profile/LandingProfile";
-import LandingPartners from "../landing-partners/LandingPartners";
-import { useEffect } from "react";
 import LandingInstagram from "../landing-instagram/LandingInstagram";
+import LandingPartnersCarousel from "../landing-partners/LandingPartnersCarousel";
 
 const Landing = () => {
   useEffect(() => {
@@ -18,7 +18,7 @@ const Landing = () => {
       <ProductTabs />
       <LandingProfile />
       <LandingInstagram />
-      <LandingPartners />
+      <LandingPartnersCarousel />
     </>
   );
 };
