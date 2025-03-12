@@ -1,43 +1,49 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { useParams, useSearchParams } from "react-router-dom";
 import InspirationSidebar from "../layout/sidebar/InspirationSidebar";
 import { Box } from "@chakra-ui/react";
 import { ADJUST_HEIGHT, useArticleContext } from "../../hooks/article-context/ArticleContext";
 import './Projects.css';
 import "quill/dist/quill.snow.css";
+import { useResizeObserver } from "../inspirations/InspirationsLayout";
 
 const ProjectsLayout = () => {
     const [searchParams, setSearchParams] = useSearchParams();
     const { path } = useParams();
     const [data, setData] = useState<any>();
     const { articleDispatch } = useArticleContext();
-    const contentRef = useRef<any>(null);
+    const contentRef = useResizeObserver((newHeight: any) => {
+            articleDispatch({
+                type: ADJUST_HEIGHT,
+                payload: newHeight * 1.05,
+            });
+        });;
 
     useEffect(() => {
         initialization();
-        return () => {
-            window.removeEventListener("resize", adjustHeight); // Cleanup event listener
-        };
+        // return () => {
+        //     window.removeEventListener("resize", adjustHeight); // Cleanup event listener
+        // };
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     useEffect(() => {
         initialization();
-        return () => {
-            window.removeEventListener("resize", adjustHeight); // Cleanup event listener
-        };
+        // return () => {
+        //     window.removeEventListener("resize", adjustHeight); // Cleanup event listener
+        // };
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [path]);
 
-    useEffect(() => {
-        console.log(path, contentRef.current.offsetHeight)
-        adjustHeight();
-        window.addEventListener("resize", adjustHeight); // Update height on resize
-        return () => {
-            window.removeEventListener("resize", adjustHeight); // Cleanup event listener
-        };
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [data, contentRef.current?.offsetHeight]);
+    // useLayoutEffect(() => {
+    //     console.log(path, contentRef.current.offsetHeight)
+    //     adjustHeight();
+    //     window.addEventListener("resize", adjustHeight); // Update height on resize
+    //     return () => {
+    //         window.removeEventListener("resize", adjustHeight); // Cleanup event listener
+    //     };
+    //     // eslint-disable-next-line react-hooks/exhaustive-deps
+    // }, [data, contentRef.current?.offsetHeight]);
 
     const initialization = () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -45,19 +51,19 @@ const ProjectsLayout = () => {
             .then((response) => response.json())
             .then((data) => setData(data));
 
-        adjustHeight();
-        window.addEventListener("resize", adjustHeight); // Update height on resize
+        // adjustHeight();
+        // window.addEventListener("resize", adjustHeight); // Update height on resize
     }
 
-    const adjustHeight = () => {
-        // Calculate the height of the content div and set the side bar div's height
-        if (contentRef.current) {
-            articleDispatch({
-                type: ADJUST_HEIGHT,
-                payload: contentRef.current.offsetHeight,
-            });
-        }
-    }
+    // const adjustHeight = () => {
+    //     // Calculate the height of the content div and set the side bar div's height
+    //     if (contentRef.current) {
+    //         articleDispatch({
+    //             type: ADJUST_HEIGHT,
+    //             payload: contentRef.current.offsetHeight * 1.1,
+    //         });
+    //     }
+    // }
 
     return (
         <>
