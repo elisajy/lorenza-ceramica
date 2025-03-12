@@ -30,6 +30,7 @@ const ProjectsLayout = () => {
     }, [path]);
 
     useEffect(() => {
+        console.log(path, contentRef.current.offsetHeight)
         adjustHeight();
         window.addEventListener("resize", adjustHeight); // Update height on resize
         return () => {
