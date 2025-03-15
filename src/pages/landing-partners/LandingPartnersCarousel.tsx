@@ -38,7 +38,7 @@ const LandingPartnersCarousel = () => {
                             </div>
                         );
                     })}
-                    {width > 640 && homePartners.map((item: any) => {
+                    {homePartners.map((item: any) => {
                         return (
                             <div key={item.id} className={`${item.divClassName ?? ''} carousel-card`}>
                                 <img src={item.itemImageSrc} alt={item.alt} className={`${item.className ?? ''}`}></img>

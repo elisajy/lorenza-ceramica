@@ -23,6 +23,7 @@ interface Props {
 const InspirationSidebar = ({ origin }: Props) => {
   const { articleState } = useArticleContext();
   const [data, setData] = useState([]);
+  const [height, setHeight] = useState(articleState.height || 2252);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -31,6 +32,11 @@ const InspirationSidebar = ({ origin }: Props) => {
       .then((data) => setData(data));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  useEffect(() => { 
+    setHeight(articleState.height); 
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [articleState.height]);
 
   const inspirationList = () => {
     return data.map((x: any) => {
@@ -70,10 +76,10 @@ const InspirationSidebar = ({ origin }: Props) => {
       );
     });
   };
-
+  
   return (
     <Box className="inspiration-sidebar" background="#FAFAFA" width="500px">
-      <Box background="#FAFAFA" display="flex" flexDirection="column" alignItems="center" padding="0 40px" overflowY="auto" height={`${articleState.height}px`}>
+      <Box background="#FAFAFA" display="flex" flexDirection="column" alignItems="center" padding="0 40px" overflowY="auto" height={`${height}px`}>
         <Heading className="title" fontSize="2xl" padding="30px 0">{origin.toUpperCase()}</Heading>
         {inspirationList()}
       </Box>

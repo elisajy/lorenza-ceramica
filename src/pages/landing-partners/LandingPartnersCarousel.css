@@ -11,6 +11,7 @@
 }
 
 .carousel-card:hover {
+    /* Emphasize the img on hover */
     transform: scale(0.9);
 }
 
@@ -26,22 +27,23 @@
 }
 
 .carousel-track:hover {
+    /* Pause the autoplay on hover */
     animation-play-state: paused;
 }
 
-@keyframes slide {
-    0% {
-        left: 0;
-    }
-
-    100% {
-        left: -100%;
-    }
-}
-
 @media screen and (max-width: 480px) {
+    @keyframes slide {
+        0% {
+            transform: translateX(95%);
+        }
+    
+        100% {
+            transform: translateX(-145%)
+        }
+    }
+
     .carousel-track {
-        animation: slide 8s linear infinite;
+        animation: slide 12s linear infinite;
     }
 
     .carousel-container {
@@ -59,8 +61,18 @@
 }
 
 @media screen and (min-width: 480px) {
+    @keyframes slide {
+        0% {
+            transform: translateX(95%);
+        }
+    
+        100% {
+            transform: translateX(-145%)
+        }
+    }
+
     .carousel-track {
-        animation: slide 8s linear infinite;
+        animation: slide 12s linear infinite;
     }
 
     .carousel-container {
@@ -78,8 +90,18 @@
 }
 
 @media screen and (min-width: 640px) {
+    @keyframes slide {
+        0% {
+            transform: translateX(60%);
+        }
+    
+        100% {
+            transform: translateX(calc(-110%))
+        }
+    }
+
     .carousel-track {
-        animation: slide 8s linear infinite;
+        animation: slide 12s linear infinite;
     }
 
     .carousel-container {
@@ -89,9 +111,24 @@
     .carousel-card {
         min-width: 15%;
     }
+
+    .div-img-square {
+        margin: -30px;
+        padding: 0px;
+    }
 }
 
 @media screen and (min-width: 992px) {
+    @keyframes slide {
+        0% {
+            transform: translateX(55%);
+        }
+    
+        100% {
+            transform: translateX(calc(-105%))
+        }
+    }
+
     .carousel-track {
         animation: slide 12s linear infinite;
     }
@@ -111,12 +148,31 @@
 }
 
 @media screen and (min-width: 1025px) {
+    @keyframes slide {
+        0% {
+            transform: translateX(0);
+        }
+    
+        100% {
+            transform: translateX(calc(-50%))
+        }
+    }
+
+    .carousel-track {
+        animation: slide 10s linear infinite;
+    }
+
     .carousel-container {
         height: 260px;
     }
-    
+
     .carousel-card {
         min-width: 0;
+    }
+
+    .div-img-square {
+        margin: -25px;
+        padding: 0px;
     }
 }
 
