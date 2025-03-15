@@ -9,6 +9,7 @@ import {
   VStack,
 } from "@chakra-ui/react";
 import "./Faq.css";
+import "quill/dist/quill.snow.css";
 import { useEffect, useState } from "react";
 
 const Faq = () => {
@@ -47,7 +48,7 @@ const Faq = () => {
                   </AccordionButton>
                   <AccordionPanel className="content" pb={4}>
                     <p
-                      className="content-text"
+                      className="content-text ql-editor"
                       dangerouslySetInnerHTML={{ __html: x.content }}
                     ></p>
                   </AccordionPanel>

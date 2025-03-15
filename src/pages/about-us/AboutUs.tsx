@@ -1,5 +1,6 @@
 import { Box, Text } from "@chakra-ui/react";
 import "./AboutUs.css";
+import "quill/dist/quill.snow.css";
 import { useEffect, useState } from "react";
 
 const AboutUs = () => {
@@ -20,17 +21,17 @@ const AboutUs = () => {
             gap="25px"
             fontSize="large"
         >
-            <Text fontSize={{ base: 'md', lg: 'lg' }} width='80%' dangerouslySetInnerHTML={{ __html: aboutUs[0] }} marginTop='5rem'>
+            <Text className="ql-editor"fontSize={{ base: 'md', lg: 'lg' }} width='80%' dangerouslySetInnerHTML={{ __html: aboutUs[0] }} marginTop='5rem'>
             </Text>
-            <Text fontSize={{ base: 'md', lg: 'lg' }} width='80%' dangerouslySetInnerHTML={{ __html: aboutUs[1] }}>
+            <Text className="ql-editor"fontSize={{ base: 'md', lg: 'lg' }} width='80%' dangerouslySetInnerHTML={{ __html: aboutUs[1] }}>
             </Text>
-            <Text fontSize={{ base: 'md', lg: 'lg' }} width='80%' dangerouslySetInnerHTML={{ __html: aboutUs[2] }}>
+            <Text className="ql-editor"fontSize={{ base: 'md', lg: 'lg' }} width='80%' dangerouslySetInnerHTML={{ __html: aboutUs[2] }}>
             </Text>
             <img src={aboutUs[5]} alt="about-us-divider" />
             <h1 className="about-us-title">WHY US?</h1>
-            <Text fontSize={{ base: 'md', lg: 'lg' }} width='80%' dangerouslySetInnerHTML={{ __html: aboutUs[3] }}>
+            <Text className="ql-editor"fontSize={{ base: 'md', lg: 'lg' }} width='80%' dangerouslySetInnerHTML={{ __html: aboutUs[3] }}>
             </Text>
-            <Text fontSize={{ base: 'md', lg: 'lg' }} width='80%' dangerouslySetInnerHTML={{ __html: aboutUs[4] }} marginBottom='5rem'>
+            <Text className="ql-editor"fontSize={{ base: 'md', lg: 'lg' }} width='80%' dangerouslySetInnerHTML={{ __html: aboutUs[4] }} marginBottom='5rem'>
             </Text>
         </Box>
     );
