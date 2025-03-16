@@ -9,7 +9,7 @@ import {
   VStack,
 } from "@chakra-ui/react";
 import "./Faq.css";
-import "quill/dist/quill.snow.css";
+import "react-quill/dist/quill.snow.css";
 import { useEffect, useState } from "react";
 
 const Faq = () => {

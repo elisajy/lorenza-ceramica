@@ -1,6 +1,6 @@
 import { Box, Text } from "@chakra-ui/react";
 import "./AboutUs.css";
-import "quill/dist/quill.snow.css";
+import "react-quill/dist/quill.snow.css";
 import { useEffect, useState } from "react";
 
 const AboutUs = () => {
