@@ -31,6 +31,7 @@ export const useResizeObserver = (callback: any) => {
 const InspirationsLayout = () => {
     const { path } = useParams();
     const [data, setData] = useState<any>();
+    const [width, setWidth] = useState(window.innerWidth);
     const { articleDispatch } = useArticleContext();
     const contentRef = useResizeObserver((newHeight: any) => {
         articleDispatch({
@@ -38,6 +39,22 @@ const InspirationsLayout = () => {
             payload: newHeight * 1.05,
         });
     });
+
+    useEffect(() => {
+        // Handler to update the state with the new window width
+        const handleResize = () => {
+          setWidth(window.innerWidth);
+        };
+    
+        // Add resize event listener
+        window.addEventListener("resize", handleResize);
+    
+        // Call the handler immediately to set initial width
+        handleResize();
+    
+        // Cleanup by removing the event listener on component unmount
+        return () => window.removeEventListener("resize", handleResize);
+    }, []);
 
     useEffect(() => {
         initialization();
@@ -59,7 +76,7 @@ const InspirationsLayout = () => {
     return (
         <>
             <Box>
-                <Box display="flex">
+                {width >= 992 && (<Box display="flex">
                     <div dangerouslySetInnerHTML={{ __html: data?.content ?? <></> }}
                         ref={contentRef}
                         className='article-content ql-editor'
@@ -67,10 +84,19 @@ const InspirationsLayout = () => {
                             margin: "30px 60px",
                             display: "flex",
                             flexDirection: "column",
-                            gap: "1.2rem",
                         }}></div>
                     <InspirationSidebar origin="inspirations"></InspirationSidebar>
-                </Box>
+                </Box>)}
+                {width < 992 && (
+                    <div dangerouslySetInnerHTML={{ __html: data?.content ?? <></> }}
+                    ref={contentRef}
+                    className='article-content ql-editor'
+                    style={{
+                        margin: "30px 10px",
+                        display: "flex",
+                        flexDirection: "column",
+                    }}></div>
+                )}
             </Box>
         </>
     );
