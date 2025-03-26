@@ -7,7 +7,24 @@ import "./MainCarousel.css";
 
 const MainCarousel = () => {
   const [homeBanners, setHomeBanners] = useState<any>([]);
+  const [width, setWidth] = useState(window.innerWidth);
   const options: EmblaOptionsType | undefined = undefined;
+
+  useEffect(() => {
+    // Handler to update the state with the new window width
+    const handleResize = () => {
+      setWidth(window.innerWidth);
+    };
+
+    // Add resize event listener
+    window.addEventListener("resize", handleResize);
+
+    // Call the handler immediately to set initial width
+    handleResize();
+
+    // Cleanup by removing the event listener on component unmount
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   useEffect(() => {
     fetch(`${process.env.REACT_APP_API_URL}/home-banners`)
@@ -60,7 +77,7 @@ const MainCarousel = () => {
           {homeBanners.map((item: any) => (
             <div className="embla__slide" key={item.id}>
               <img
-                src={item.imageUrl}
+                src={width < 992 ? item.mobileImageUrl : item.imageUrl}
                 alt={item.alt}
                 className="image-item-main"
                 onClick={() => handleLinkClick(item.link)}

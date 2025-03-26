@@ -7,12 +7,12 @@
 
     .card-thumbnail {
         height: 230px;
-        width: 250px;
+        width: 350px;
         object-fit: cover;
     }
 
     .card-box {
-        width: 250px;
+        width: 350px;
     }
 
     .article-content {
@@ -25,12 +25,12 @@
     /* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */
     .card-thumbnail {
         height: 230px;
-        width: 250px;
+        width: 350px;
         object-fit: cover;
     }
 
     .card-box {
-        width: 250px;
+        width: 350px;
     }
 
     .article-content {
@@ -43,12 +43,12 @@
     /* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */
     .card-thumbnail {
         height: 230px;
-        width: 250px;
+        width: 20rem;
         object-fit: cover;
     }
 
     .card-box {
-        width: 250px;
+        width: 20rem;
     }
 }
 
