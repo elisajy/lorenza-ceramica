@@ -47,7 +47,7 @@ const InspirationSidebar = ({ origin }: Props) => {
           </CardHeader>
           <Box className="sidebar-card-container">
             <Image
-              className="sidebar-card-thumbnail"
+              // className="sidebar-card-thumbnail"
               objectFit="cover"
               src={x.thumbnail}
               alt="post"

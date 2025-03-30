@@ -74,7 +74,7 @@ const Projects = () => {
           </CardHeader>
           <Box className="card-container">
             <Image
-              className="card-thumbnail"
+              // className="card-thumbnail"
               objectFit="cover"
               src={x.thumbnail}
               alt="post"
