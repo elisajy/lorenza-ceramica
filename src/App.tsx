@@ -6,6 +6,7 @@ import { Route, Routes } from 'react-router-dom';
 import Landing from './pages/landing/Landing';
 import { ColorModeProvider } from "@chakra-ui/react"
 import ScrollToTop from './components/scroll-to-top/ScrollToTop';
+import FacebookTokenFetcher from './pages/landing-instagram/FacebookTokenFetcher';
 
 function App() {
 
@@ -30,6 +31,7 @@ function App() {
     <ColorModeProvider>
       <Layout>
         <ScrollToTop />
+        <FacebookTokenFetcher />
         <Routes>
           <Route path="/" element={<Landing />} />
           {renderSiteRoutes}

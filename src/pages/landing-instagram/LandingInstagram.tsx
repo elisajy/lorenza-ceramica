@@ -22,6 +22,7 @@ import {
 import { useEffect, useState } from "react";
 import ReadMore from "../../components/ReadMore";
 import "./LandingInstagram.css";
+import FacebookTokenFetcher from "./FacebookTokenFetcher";
 
 const LandingInstagram = () => {
   const [page, setPage] = useState(1);
@@ -31,12 +32,12 @@ const LandingInstagram = () => {
     window.innerWidth >= 992
       ? 4
       : window.innerWidth < 992 && window.innerWidth >= 576
-      ? 3
-      : window.innerWidth < 576 && window.innerWidth >= 500
-      ? 2
-      : window.innerWidth < 500
-      ? 1
-      : 0
+        ? 3
+        : window.innerWidth < 576 && window.innerWidth >= 500
+          ? 2
+          : window.innerWidth < 500
+            ? 1
+            : 0
   );
   const [mediaResponse, setMediaResponse] = useState<any>();
   const [post, setPost] = useState<any>([]);
@@ -48,6 +49,13 @@ const LandingInstagram = () => {
     dragFree: false,
   });
   const client: Client = new Client(longLivedAccessToken, pageId);
+  // useEffect(() => {
+  //   fetch(`${process.env.REACT_APP_API_URL}/instagram-token`
+  //   ).then((response) => response.json())
+  //     .then((data) => console.log(data));
+  // });
+
+
   useEffect(() => {
     // Handler to update the state with the new window width
     const handleResize = () => {
@@ -167,82 +175,82 @@ const LandingInstagram = () => {
           <div className="embla__container-ig">
             {post && post.length !== 0
               ? post.map((item: any) => {
-                  return (
-                    <>
-                      {item.media_type !== "VIDEO" ? (
-                        <>
-                          <div className="embla__slide-ig" key={item.id}>
-                            <Card maxW="sm">
-                              <CardBody
-                                style={{ padding: "0.5rem", height: 325 }}
-                              >
-                                <Image
-                                  onClick={() => window.open(item.permalink)}
-                                  src={item.media_url}
-                                  alt={item.ig_id}
-                                  borderRadius="lg"
-                                />
-                                <Stack mt="3" spacing="2">
-                                  <Box>
-                                    <FontAwesomeIcon
-                                      icon={faHeart}
-                                      style={{ paddingRight: 5 }}
-                                    />
-                                    {item.like_count}
-                                    <FontAwesomeIcon
-                                      icon={faCommentAlt}
-                                      style={{
-                                        paddingRight: 5,
-                                        paddingLeft: 8,
-                                      }}
-                                    />
-                                    {item.comments_count}
-                                  </Box>
-                                  <ReadMore
-                                    text={item.caption}
-                                    url={item.permalink}
-                                    wordLimit={15}
-                                  ></ReadMore>
-                                </Stack>
-                              </CardBody>
-                              <Divider />
-                            </Card>
-                          </div>
-                        </>
-                      ) : (
-                        <>
-                          <div className="embla__slide-ig" key={item.id}>
-                            <Card maxW="sm">
-                              <CardBody
-                                style={{ padding: "0.5rem", height: 325 }}
-                              >
-                                {/* <Image
+                return (
+                  <>
+                    {item.media_type !== "VIDEO" ? (
+                      <>
+                        <div className="embla__slide-ig" key={item.id}>
+                          <Card maxW="sm">
+                            <CardBody
+                              style={{ padding: "0.5rem", height: 325 }}
+                            >
+                              <Image
+                                onClick={() => window.open(item.permalink)}
+                                src={item.media_url}
+                                alt={item.ig_id}
+                                borderRadius="lg"
+                              />
+                              <Stack mt="3" spacing="2">
+                                <Box>
+                                  <FontAwesomeIcon
+                                    icon={faHeart}
+                                    style={{ paddingRight: 5 }}
+                                  />
+                                  {item.like_count}
+                                  <FontAwesomeIcon
+                                    icon={faCommentAlt}
+                                    style={{
+                                      paddingRight: 5,
+                                      paddingLeft: 8,
+                                    }}
+                                  />
+                                  {item.comments_count}
+                                </Box>
+                                <ReadMore
+                                  text={item.caption}
+                                  url={item.permalink}
+                                  wordLimit={15}
+                                ></ReadMore>
+                              </Stack>
+                            </CardBody>
+                            <Divider />
+                          </Card>
+                        </div>
+                      </>
+                    ) : (
+                      <>
+                        <div className="embla__slide-ig" key={item.id}>
+                          <Card maxW="sm">
+                            <CardBody
+                              style={{ padding: "0.5rem", height: 325 }}
+                            >
+                              {/* <Image
                                   onClick={() => window.open(item.permalink)}
                                   src={item.media_url}
                                   alt={item.ig_id}
                                   borderRadius="lg"
                                 /> */}
-                                <Box className="placeholder-box">
-                                  <Text fontSize={"md"}>
-                                    View Reels on Instagram
-                                  </Text>
-                                </Box>
-                                <Stack mt="3" spacing="2">
-                                  <ReadMore
-                                    text={item.caption}
-                                    url={item.permalink}
-                                    wordLimit={15}
-                                  ></ReadMore>
-                                </Stack>
-                              </CardBody>
-                              <Divider />
-                            </Card>
-                          </div>
-                        </>
-                      )}
-                    </>
-                  );
-                })
+                              <Box className="placeholder-box">
+                                <Text fontSize={"md"}>
+                                  View Reels on Instagram
+                                </Text>
+                              </Box>
+                              <Stack mt="3" spacing="2">
+                                <ReadMore
+                                  text={item.caption}
+                                  url={item.permalink}
+                                  wordLimit={15}
+                                ></ReadMore>
+                              </Stack>
+                            </CardBody>
+                            <Divider />
+                          </Card>
+                        </div>
+                      </>
+                    )}
+                  </>
+                );
+              })
               : null}
           </div>
         </div>
