@@ -13,21 +13,21 @@ import { faCommentAlt, faHeart } from "@fortawesome/free-regular-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import useEmblaCarousel from "embla-carousel-react";
 import {
-  Client,
   GetPageMediaRequest,
   GetPageMediaResponse,
   PageOption,
-  RequestConfig,
+  RequestConfig
 } from "instagram-graph-api";
 import { useEffect, useState } from "react";
 import ReadMore from "../../components/ReadMore";
 import "./LandingInstagram.css";
-import FacebookTokenFetcher from "./FacebookTokenFetcher";
 
-const LandingInstagram = () => {
+interface Props {
+  client: any
+}
+
+const LandingInstagram = ({ client }: Props) => {
   const [page, setPage] = useState(1);
-  const longLivedAccessToken = process.env.REACT_APP_LL_TOKEN!;
-  const pageId = process.env.REACT_APP_PAGE_ID!;
   const [limit, setLimit] = useState(
     window.innerWidth >= 992
       ? 4
@@ -48,13 +48,6 @@ const LandingInstagram = () => {
     loop: false,
     dragFree: false,
   });
-  const client: Client = new Client(longLivedAccessToken, pageId);
-  // useEffect(() => {
-  //   fetch(`${process.env.REACT_APP_API_URL}/instagram-token`
-  //   ).then((response) => response.json())
-  //     .then((data) => console.log(data));
-  // });
-
 
   useEffect(() => {
     // Handler to update the state with the new window width
@@ -84,26 +77,28 @@ const LandingInstagram = () => {
   }, [width]);
 
   useEffect(() => {
-    const pageMediaRequest: GetPageMediaRequest = client
-      .newGetPageMediaRequest()
-      .withLimit(limit);
+    if (!!client) {
+      const pageMediaRequest: GetPageMediaRequest = client
+        .newGetPageMediaRequest()
+        .withLimit(limit);
 
-    const config: RequestConfig = pageMediaRequest.config();
-    // config.params.media_type = MediaType.IMAGE;
+      const config: RequestConfig = pageMediaRequest.config();
+      // config.params.media_type = MediaType.IMAGE;
 
-    // console.log(config);
-    pageMediaRequest.execute().then((response: GetPageMediaResponse) => {
-      const data = response.getData();
-      //   const imageMedia = data.filter((media) => media.media_type !== "VIDEO");
-      //   if (imageMedia.length < limit) {
-      //     const lackingNumber = Math.abs(imageMedia.length - limit);
-      //     concatData(lackingNumber);
-      //   }
-      setPost(data);
-      setMediaResponse(response);
-    });
+      // console.log(config);
+      pageMediaRequest.execute().then((response: GetPageMediaResponse) => {
+        const data = response.getData();
+        //   const imageMedia = data.filter((media) => media.media_type !== "VIDEO");
+        //   if (imageMedia.length < limit) {
+        //     const lackingNumber = Math.abs(imageMedia.length - limit);
+        //     concatData(lackingNumber);
+        //   }
+        setPost(data);
+        setMediaResponse(response);
+      });
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [limit]);
+  }, [client]);
 
   const concatData = (number: number) => {
     const pageMediaRequest: GetPageMediaRequest = client
@@ -120,7 +115,7 @@ const LandingInstagram = () => {
     if (type === "next") {
       setPage(page + 1);
       const nextPage: string | undefined = mediaResponse.getPaging().getAfter();
-      if (nextPage) {
+      if (nextPage && !!client) {
         const pageMediaRequest: GetPageMediaRequest = client
           .newGetPageMediaRequest()
           .withLimit(limit);
@@ -145,7 +140,7 @@ const LandingInstagram = () => {
       const prevPage: string | undefined = mediaResponse
         .getPaging()
         .getBefore();
-      if (prevPage) {
+      if (prevPage && !!client) {
         const pageMediaRequest: GetPageMediaRequest = client
           .newGetPageMediaRequest()
           .withLimit(limit);
